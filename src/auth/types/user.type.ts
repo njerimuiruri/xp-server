@@ -1,0 +1,12 @@
+import { Prisma } from '@prisma/client';
+
+export type User = Prisma.UserGetPayload<{
+  include: {
+    farm: true;
+  };
+}> & {
+  otp?: string | null;
+  otpExpiry?: Date | null;
+};
+
+export type UserWithoutPin = Omit<User, 'pin'>;
