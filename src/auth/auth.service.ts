@@ -10,19 +10,32 @@ export class AuthService {
   constructor(
     private prisma: PrismaService,
     private jwtService: JwtService,
-  ) {}
+  ) { }
 
   async register(dto: RegisterDto) {
-    const existingUser = await this.prisma.user.findUnique({
+    // Check for existing phone number
+    const existingPhone = await this.prisma.user.findUnique({
       where: { phoneNumber: dto.phoneNumber },
     });
 
-    if (existingUser) {
+    if (existingPhone) {
       throw new UnauthorizedException('Phone number already registered');
+    }
+
+    // Check for existing email if provided
+    if (dto.email) {
+      const existingEmail = await this.prisma.user.findUnique({
+        where: { email: dto.email },
+      });
+
+      if (existingEmail) {
+        throw new UnauthorizedException('Email already registered');
+      }
     }
 
     const hashedPin = await bcrypt.hash(dto.pin, 10);
 
+    // Create user with validated data
     const user = await this.prisma.user.create({
       data: {
         firstName: dto.firstName,
@@ -61,6 +74,7 @@ export class AuthService {
   }
 
   async login(dto: LoginDto) {
+    // Validate login credentials
     const user = await this.prisma.user.findUnique({
       where: { phoneNumber: dto.phoneNumber },
       include: {
