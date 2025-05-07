@@ -7,7 +7,7 @@ import { JwtService } from '@nestjs/jwt';
 import { NotificationsService } from '../notifications/notifications.service';
 import { User, UserWithoutPin } from './types/user.type';
 import * as bcrypt from 'bcrypt';
-import { Prisma } from '@prisma/client';
+import { Prisma } from '../../prisma/generated/prisma/client';
 
 @Injectable()
 export class AuthService {
