@@ -112,7 +112,7 @@ export class AuthService {
       throw new UnauthorizedException('Invalid credentials');
     }
 
-    if (!user.isVerified) {
+    if (!user?.isVerified) {
       // Generate new OTP
       const otp = this.notificationsService.generateOTP();
       const otpExpiry = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
