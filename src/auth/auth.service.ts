@@ -70,7 +70,7 @@ export class AuthService {
         },
       } as Prisma.XOR<Prisma.UserCreateInput, Prisma.UserUncheckedCreateInput>,
       include: {
-        farm: true,
+        farms: true,
       },
     }) as User;
 
@@ -95,11 +95,10 @@ export class AuthService {
   }
 
   async login(dto: LoginDto): Promise<{ user: UserWithoutPin; token?: string; message?: string }> {
-    // Validate login credentials
     const user = await this.prisma.user.findUnique({
       where: { phoneNumber: dto.phoneNumber },
       include: {
-        farm: true,
+        farms: true,
       },
     });
 
@@ -113,9 +112,8 @@ export class AuthService {
     }
 
     if (!user?.isVerified) {
-      // Generate new OTP
       const otp = this.notificationsService.generateOTP();
-      const otpExpiry = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+      const otpExpiry = new Date(Date.now() + 10 * 60 * 1000);
       await this.prisma.user.update({
         where: { id: user.id },
         data: { otp, otpExpiry } as Prisma.UserUpdateInput,
@@ -146,7 +144,7 @@ export class AuthService {
     const user = await this.prisma.user.findUnique({
       where: { phoneNumber: dto.phoneNumber },
       include: {
-        farm: true,
+        farms: true,
       },
     }) as User;
 
@@ -164,7 +162,7 @@ export class AuthService {
         otpExpiry: otpExpiry,
       } as Prisma.XOR<Prisma.UserUpdateInput, Prisma.UserUncheckedUpdateInput>,
       include: {
-        farm: true,
+        farms: true,
       },
     }) as User;
 
@@ -184,7 +182,7 @@ export class AuthService {
     const user = await this.prisma.user.findUnique({
       where: { phoneNumber: dto.phoneNumber },
       include: {
-        farm: true,
+        farms: true,
       },
     }) as User;
 
@@ -210,7 +208,7 @@ export class AuthService {
         otpExpiry: null,
       } as Prisma.XOR<Prisma.UserUpdateInput, Prisma.UserUncheckedUpdateInput>,
       include: {
-        farm: true,
+        farms: true,
       },
     }) as User;
 
@@ -221,7 +219,7 @@ export class AuthService {
     const user = await this.prisma.user.findUnique({
       where: { phoneNumber: dto.phoneNumber },
       include: {
-        farm: true,
+        farms: true,
       },
     }) as User;
 
@@ -253,7 +251,7 @@ export class AuthService {
         otpExpiry: null,
       } as Prisma.XOR<Prisma.UserUpdateInput, Prisma.UserUncheckedUpdateInput>,
       include: {
-        farm: true,
+        farms: true,
       },
     }) as User;
 

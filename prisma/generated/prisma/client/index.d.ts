@@ -955,6 +955,36 @@ export namespace Prisma {
    */
 
 
+  /**
+   * Count Type UserCountOutputType
+   */
+
+  export type UserCountOutputType = {
+    farms: number
+  }
+
+  export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    farms?: boolean | UserCountOutputTypeCountFarmsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserCountOutputType
+     */
+    select?: UserCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountFarmsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FarmWhereInput
+  }
+
 
   /**
    * Models
@@ -1262,7 +1292,8 @@ export namespace Prisma {
     isVerified?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    farm?: boolean | User$farmArgs<ExtArgs>
+    farms?: boolean | User$farmsArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1330,7 +1361,8 @@ export namespace Prisma {
 
   export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "middleName" | "lastName" | "gender" | "ageGroup" | "residenceCounty" | "residenceLocation" | "email" | "phoneNumber" | "businessNumber" | "pin" | "yearsOfExperience" | "otp" | "otpExpiry" | "isVerified" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    farm?: boolean | User$farmArgs<ExtArgs>
+    farms?: boolean | User$farmsArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
   export type UserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1338,7 +1370,7 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      farm: Prisma.$FarmPayload<ExtArgs> | null
+      farms: Prisma.$FarmPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1753,7 +1785,7 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    farm<T extends User$farmArgs<ExtArgs> = {}>(args?: Subset<T, User$farmArgs<ExtArgs>>): Prisma__FarmClient<$Result.GetResult<Prisma.$FarmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    farms<T extends User$farmsArgs<ExtArgs> = {}>(args?: Subset<T, User$farmsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FarmPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2189,9 +2221,9 @@ export namespace Prisma {
   }
 
   /**
-   * User.farm
+   * User.farms
    */
-  export type User$farmArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$farmsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Farm
      */
@@ -2205,6 +2237,11 @@ export namespace Prisma {
      */
     include?: FarmInclude<ExtArgs> | null
     where?: FarmWhereInput
+    orderBy?: FarmOrderByWithRelationInput | FarmOrderByWithRelationInput[]
+    cursor?: FarmWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FarmScalarFieldEnum | FarmScalarFieldEnum[]
   }
 
   /**
@@ -3550,7 +3587,7 @@ export namespace Prisma {
     isVerified?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
-    farm?: XOR<FarmNullableScalarRelationFilter, FarmWhereInput> | null
+    farms?: FarmListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -3572,7 +3609,7 @@ export namespace Prisma {
     isVerified?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    farm?: FarmOrderByWithRelationInput
+    farms?: FarmOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -3597,7 +3634,7 @@ export namespace Prisma {
     isVerified?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
-    farm?: XOR<FarmNullableScalarRelationFilter, FarmWhereInput> | null
+    farms?: FarmListRelationFilter
   }, "id" | "email" | "phoneNumber">
 
   export type UserOrderByWithAggregationInput = {
@@ -3683,7 +3720,6 @@ export namespace Prisma {
 
   export type FarmWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    userId?: string
     AND?: FarmWhereInput | FarmWhereInput[]
     OR?: FarmWhereInput[]
     NOT?: FarmWhereInput | FarmWhereInput[]
@@ -3693,10 +3729,11 @@ export namespace Prisma {
     size?: FloatFilter<"Farm"> | number
     ownership?: StringFilter<"Farm"> | string
     farmingTypes?: StringNullableListFilter<"Farm">
+    userId?: StringFilter<"Farm"> | string
     createdAt?: DateTimeFilter<"Farm"> | Date | string
     updatedAt?: DateTimeFilter<"Farm"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "id" | "userId">
+  }, "id">
 
   export type FarmOrderByWithAggregationInput = {
     id?: SortOrder
@@ -3751,7 +3788,7 @@ export namespace Prisma {
     isVerified?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-    farm?: FarmCreateNestedOneWithoutUserInput
+    farms?: FarmCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -3773,7 +3810,7 @@ export namespace Prisma {
     isVerified?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-    farm?: FarmUncheckedCreateNestedOneWithoutUserInput
+    farms?: FarmUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -3795,7 +3832,7 @@ export namespace Prisma {
     isVerified?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    farm?: FarmUpdateOneWithoutUserNestedInput
+    farms?: FarmUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -3817,7 +3854,7 @@ export namespace Prisma {
     isVerified?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    farm?: FarmUncheckedUpdateOneWithoutUserNestedInput
+    farms?: FarmUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -3893,7 +3930,7 @@ export namespace Prisma {
     farmingTypes?: FarmCreatefarmingTypesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutFarmInput
+    user: UserCreateNestedOneWithoutFarmsInput
   }
 
   export type FarmUncheckedCreateInput = {
@@ -3919,7 +3956,7 @@ export namespace Prisma {
     farmingTypes?: FarmUpdatefarmingTypesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutFarmNestedInput
+    user?: UserUpdateOneRequiredWithoutFarmsNestedInput
   }
 
   export type FarmUncheckedUpdateInput = {
@@ -4041,14 +4078,19 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type FarmNullableScalarRelationFilter = {
-    is?: FarmWhereInput | null
-    isNot?: FarmWhereInput | null
+  export type FarmListRelationFilter = {
+    every?: FarmWhereInput
+    some?: FarmWhereInput
+    none?: FarmWhereInput
   }
 
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
+  }
+
+  export type FarmOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type UserCountOrderByAggregateInput = {
@@ -4295,16 +4337,18 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type FarmCreateNestedOneWithoutUserInput = {
-    create?: XOR<FarmCreateWithoutUserInput, FarmUncheckedCreateWithoutUserInput>
-    connectOrCreate?: FarmCreateOrConnectWithoutUserInput
-    connect?: FarmWhereUniqueInput
+  export type FarmCreateNestedManyWithoutUserInput = {
+    create?: XOR<FarmCreateWithoutUserInput, FarmUncheckedCreateWithoutUserInput> | FarmCreateWithoutUserInput[] | FarmUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FarmCreateOrConnectWithoutUserInput | FarmCreateOrConnectWithoutUserInput[]
+    createMany?: FarmCreateManyUserInputEnvelope
+    connect?: FarmWhereUniqueInput | FarmWhereUniqueInput[]
   }
 
-  export type FarmUncheckedCreateNestedOneWithoutUserInput = {
-    create?: XOR<FarmCreateWithoutUserInput, FarmUncheckedCreateWithoutUserInput>
-    connectOrCreate?: FarmCreateOrConnectWithoutUserInput
-    connect?: FarmWhereUniqueInput
+  export type FarmUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<FarmCreateWithoutUserInput, FarmUncheckedCreateWithoutUserInput> | FarmCreateWithoutUserInput[] | FarmUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FarmCreateOrConnectWithoutUserInput | FarmCreateOrConnectWithoutUserInput[]
+    createMany?: FarmCreateManyUserInputEnvelope
+    connect?: FarmWhereUniqueInput | FarmWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -4335,33 +4379,41 @@ export namespace Prisma {
     set?: Date | string
   }
 
-  export type FarmUpdateOneWithoutUserNestedInput = {
-    create?: XOR<FarmCreateWithoutUserInput, FarmUncheckedCreateWithoutUserInput>
-    connectOrCreate?: FarmCreateOrConnectWithoutUserInput
-    upsert?: FarmUpsertWithoutUserInput
-    disconnect?: FarmWhereInput | boolean
-    delete?: FarmWhereInput | boolean
-    connect?: FarmWhereUniqueInput
-    update?: XOR<XOR<FarmUpdateToOneWithWhereWithoutUserInput, FarmUpdateWithoutUserInput>, FarmUncheckedUpdateWithoutUserInput>
+  export type FarmUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FarmCreateWithoutUserInput, FarmUncheckedCreateWithoutUserInput> | FarmCreateWithoutUserInput[] | FarmUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FarmCreateOrConnectWithoutUserInput | FarmCreateOrConnectWithoutUserInput[]
+    upsert?: FarmUpsertWithWhereUniqueWithoutUserInput | FarmUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FarmCreateManyUserInputEnvelope
+    set?: FarmWhereUniqueInput | FarmWhereUniqueInput[]
+    disconnect?: FarmWhereUniqueInput | FarmWhereUniqueInput[]
+    delete?: FarmWhereUniqueInput | FarmWhereUniqueInput[]
+    connect?: FarmWhereUniqueInput | FarmWhereUniqueInput[]
+    update?: FarmUpdateWithWhereUniqueWithoutUserInput | FarmUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FarmUpdateManyWithWhereWithoutUserInput | FarmUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FarmScalarWhereInput | FarmScalarWhereInput[]
   }
 
-  export type FarmUncheckedUpdateOneWithoutUserNestedInput = {
-    create?: XOR<FarmCreateWithoutUserInput, FarmUncheckedCreateWithoutUserInput>
-    connectOrCreate?: FarmCreateOrConnectWithoutUserInput
-    upsert?: FarmUpsertWithoutUserInput
-    disconnect?: FarmWhereInput | boolean
-    delete?: FarmWhereInput | boolean
-    connect?: FarmWhereUniqueInput
-    update?: XOR<XOR<FarmUpdateToOneWithWhereWithoutUserInput, FarmUpdateWithoutUserInput>, FarmUncheckedUpdateWithoutUserInput>
+  export type FarmUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FarmCreateWithoutUserInput, FarmUncheckedCreateWithoutUserInput> | FarmCreateWithoutUserInput[] | FarmUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FarmCreateOrConnectWithoutUserInput | FarmCreateOrConnectWithoutUserInput[]
+    upsert?: FarmUpsertWithWhereUniqueWithoutUserInput | FarmUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FarmCreateManyUserInputEnvelope
+    set?: FarmWhereUniqueInput | FarmWhereUniqueInput[]
+    disconnect?: FarmWhereUniqueInput | FarmWhereUniqueInput[]
+    delete?: FarmWhereUniqueInput | FarmWhereUniqueInput[]
+    connect?: FarmWhereUniqueInput | FarmWhereUniqueInput[]
+    update?: FarmUpdateWithWhereUniqueWithoutUserInput | FarmUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FarmUpdateManyWithWhereWithoutUserInput | FarmUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FarmScalarWhereInput | FarmScalarWhereInput[]
   }
 
   export type FarmCreatefarmingTypesInput = {
     set: string[]
   }
 
-  export type UserCreateNestedOneWithoutFarmInput = {
-    create?: XOR<UserCreateWithoutFarmInput, UserUncheckedCreateWithoutFarmInput>
-    connectOrCreate?: UserCreateOrConnectWithoutFarmInput
+  export type UserCreateNestedOneWithoutFarmsInput = {
+    create?: XOR<UserCreateWithoutFarmsInput, UserUncheckedCreateWithoutFarmsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFarmsInput
     connect?: UserWhereUniqueInput
   }
 
@@ -4378,12 +4430,12 @@ export namespace Prisma {
     push?: string | string[]
   }
 
-  export type UserUpdateOneRequiredWithoutFarmNestedInput = {
-    create?: XOR<UserCreateWithoutFarmInput, UserUncheckedCreateWithoutFarmInput>
-    connectOrCreate?: UserCreateOrConnectWithoutFarmInput
-    upsert?: UserUpsertWithoutFarmInput
+  export type UserUpdateOneRequiredWithoutFarmsNestedInput = {
+    create?: XOR<UserCreateWithoutFarmsInput, UserUncheckedCreateWithoutFarmsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFarmsInput
+    upsert?: UserUpsertWithoutFarmsInput
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFarmInput, UserUpdateWithoutFarmInput>, UserUncheckedUpdateWithoutFarmInput>
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFarmsInput, UserUpdateWithoutFarmsInput>, UserUncheckedUpdateWithoutFarmsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -4616,15 +4668,153 @@ export namespace Prisma {
     create: XOR<FarmCreateWithoutUserInput, FarmUncheckedCreateWithoutUserInput>
   }
 
-  export type FarmUpsertWithoutUserInput = {
-    update: XOR<FarmUpdateWithoutUserInput, FarmUncheckedUpdateWithoutUserInput>
-    create: XOR<FarmCreateWithoutUserInput, FarmUncheckedCreateWithoutUserInput>
-    where?: FarmWhereInput
+  export type FarmCreateManyUserInputEnvelope = {
+    data: FarmCreateManyUserInput | FarmCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
-  export type FarmUpdateToOneWithWhereWithoutUserInput = {
-    where?: FarmWhereInput
+  export type FarmUpsertWithWhereUniqueWithoutUserInput = {
+    where: FarmWhereUniqueInput
+    update: XOR<FarmUpdateWithoutUserInput, FarmUncheckedUpdateWithoutUserInput>
+    create: XOR<FarmCreateWithoutUserInput, FarmUncheckedCreateWithoutUserInput>
+  }
+
+  export type FarmUpdateWithWhereUniqueWithoutUserInput = {
+    where: FarmWhereUniqueInput
     data: XOR<FarmUpdateWithoutUserInput, FarmUncheckedUpdateWithoutUserInput>
+  }
+
+  export type FarmUpdateManyWithWhereWithoutUserInput = {
+    where: FarmScalarWhereInput
+    data: XOR<FarmUpdateManyMutationInput, FarmUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type FarmScalarWhereInput = {
+    AND?: FarmScalarWhereInput | FarmScalarWhereInput[]
+    OR?: FarmScalarWhereInput[]
+    NOT?: FarmScalarWhereInput | FarmScalarWhereInput[]
+    id?: StringFilter<"Farm"> | string
+    name?: StringFilter<"Farm"> | string
+    county?: StringFilter<"Farm"> | string
+    administrativeLocation?: StringFilter<"Farm"> | string
+    size?: FloatFilter<"Farm"> | number
+    ownership?: StringFilter<"Farm"> | string
+    farmingTypes?: StringNullableListFilter<"Farm">
+    userId?: StringFilter<"Farm"> | string
+    createdAt?: DateTimeFilter<"Farm"> | Date | string
+    updatedAt?: DateTimeFilter<"Farm"> | Date | string
+  }
+
+  export type UserCreateWithoutFarmsInput = {
+    id?: string
+    firstName: string
+    middleName?: string | null
+    lastName: string
+    gender: string
+    ageGroup: string
+    residenceCounty: string
+    residenceLocation?: string | null
+    email?: string | null
+    phoneNumber: string
+    businessNumber?: string | null
+    pin: string
+    yearsOfExperience?: number | null
+    otp?: string | null
+    otpExpiry?: Date | string | null
+    isVerified?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type UserUncheckedCreateWithoutFarmsInput = {
+    id?: string
+    firstName: string
+    middleName?: string | null
+    lastName: string
+    gender: string
+    ageGroup: string
+    residenceCounty: string
+    residenceLocation?: string | null
+    email?: string | null
+    phoneNumber: string
+    businessNumber?: string | null
+    pin: string
+    yearsOfExperience?: number | null
+    otp?: string | null
+    otpExpiry?: Date | string | null
+    isVerified?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type UserCreateOrConnectWithoutFarmsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutFarmsInput, UserUncheckedCreateWithoutFarmsInput>
+  }
+
+  export type UserUpsertWithoutFarmsInput = {
+    update: XOR<UserUpdateWithoutFarmsInput, UserUncheckedUpdateWithoutFarmsInput>
+    create: XOR<UserCreateWithoutFarmsInput, UserUncheckedCreateWithoutFarmsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutFarmsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutFarmsInput, UserUncheckedUpdateWithoutFarmsInput>
+  }
+
+  export type UserUpdateWithoutFarmsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    ageGroup?: StringFieldUpdateOperationsInput | string
+    residenceCounty?: StringFieldUpdateOperationsInput | string
+    residenceLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    businessNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    pin?: StringFieldUpdateOperationsInput | string
+    yearsOfExperience?: NullableIntFieldUpdateOperationsInput | number | null
+    otp?: NullableStringFieldUpdateOperationsInput | string | null
+    otpExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserUncheckedUpdateWithoutFarmsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    ageGroup?: StringFieldUpdateOperationsInput | string
+    residenceCounty?: StringFieldUpdateOperationsInput | string
+    residenceLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    businessNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    pin?: StringFieldUpdateOperationsInput | string
+    yearsOfExperience?: NullableIntFieldUpdateOperationsInput | number | null
+    otp?: NullableStringFieldUpdateOperationsInput | string | null
+    otpExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FarmCreateManyUserInput = {
+    id?: string
+    name: string
+    county: string
+    administrativeLocation: string
+    size: number
+    ownership: string
+    farmingTypes?: FarmCreatefarmingTypesInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type FarmUpdateWithoutUserInput = {
@@ -4651,102 +4841,14 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type UserCreateWithoutFarmInput = {
-    id?: string
-    firstName: string
-    middleName?: string | null
-    lastName: string
-    gender: string
-    ageGroup: string
-    residenceCounty: string
-    residenceLocation?: string | null
-    email?: string | null
-    phoneNumber: string
-    businessNumber?: string | null
-    pin: string
-    yearsOfExperience?: number | null
-    otp?: string | null
-    otpExpiry?: Date | string | null
-    isVerified?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type UserUncheckedCreateWithoutFarmInput = {
-    id?: string
-    firstName: string
-    middleName?: string | null
-    lastName: string
-    gender: string
-    ageGroup: string
-    residenceCounty: string
-    residenceLocation?: string | null
-    email?: string | null
-    phoneNumber: string
-    businessNumber?: string | null
-    pin: string
-    yearsOfExperience?: number | null
-    otp?: string | null
-    otpExpiry?: Date | string | null
-    isVerified?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type UserCreateOrConnectWithoutFarmInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutFarmInput, UserUncheckedCreateWithoutFarmInput>
-  }
-
-  export type UserUpsertWithoutFarmInput = {
-    update: XOR<UserUpdateWithoutFarmInput, UserUncheckedUpdateWithoutFarmInput>
-    create: XOR<UserCreateWithoutFarmInput, UserUncheckedCreateWithoutFarmInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutFarmInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutFarmInput, UserUncheckedUpdateWithoutFarmInput>
-  }
-
-  export type UserUpdateWithoutFarmInput = {
+  export type FarmUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    middleName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    ageGroup?: StringFieldUpdateOperationsInput | string
-    residenceCounty?: StringFieldUpdateOperationsInput | string
-    residenceLocation?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    businessNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    pin?: StringFieldUpdateOperationsInput | string
-    yearsOfExperience?: NullableIntFieldUpdateOperationsInput | number | null
-    otp?: NullableStringFieldUpdateOperationsInput | string | null
-    otpExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    isVerified?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type UserUncheckedUpdateWithoutFarmInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    middleName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    ageGroup?: StringFieldUpdateOperationsInput | string
-    residenceCounty?: StringFieldUpdateOperationsInput | string
-    residenceLocation?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    businessNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    pin?: StringFieldUpdateOperationsInput | string
-    yearsOfExperience?: NullableIntFieldUpdateOperationsInput | number | null
-    otp?: NullableStringFieldUpdateOperationsInput | string | null
-    otpExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    name?: StringFieldUpdateOperationsInput | string
+    county?: StringFieldUpdateOperationsInput | string
+    administrativeLocation?: StringFieldUpdateOperationsInput | string
+    size?: FloatFieldUpdateOperationsInput | number
+    ownership?: StringFieldUpdateOperationsInput | string
+    farmingTypes?: FarmUpdatefarmingTypesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

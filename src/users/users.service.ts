@@ -4,11 +4,13 @@ import { UpdateUserDto } from './dto/update-user.dto';
 
 @Injectable()
 export class UsersService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) { }
 
   async findAll(page = 1, limit = 10, search?: string) {
+    page = Number(page) > 0 ? Number(page) : 1;
+    limit = Number(limit) > 0 ? Number(limit) : 10;
     const skip = (page - 1) * limit;
-    
+
     const where = search ? {
       OR: [
         { firstName: { contains: search, mode: 'insensitive' as const } },
@@ -24,7 +26,7 @@ export class UsersService {
         take: limit,
         where,
         include: {
-          farm: true,
+          farms: true,
         },
         orderBy: {
           createdAt: 'desc',
@@ -51,7 +53,7 @@ export class UsersService {
     const user = await this.prisma.user.findUnique({
       where: { id },
       include: {
-        farm: true,
+        farms: true,
       },
     });
 
@@ -76,7 +78,7 @@ export class UsersService {
       where: { id },
       data: updateUserDto,
       include: {
-        farm: true,
+        farms: true,
       },
     });
 

@@ -1,12 +1,15 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { UpdateFarmDto } from './dto/update-farm.dto';
+import { CreateFarmDto } from './dto/create-farm.dto';
 
 @Injectable()
 export class FarmsService {
   constructor(private prisma: PrismaService) { }
 
   async findAll(page = 1, limit = 10, search?: string) {
+    page = Number(page) > 0 ? Number(page) : 1;
+    limit = Number(limit) > 0 ? Number(limit) : 10;
     const skip = (page - 1) * limit;
 
     const where = search ? {
@@ -118,4 +121,32 @@ export class FarmsService {
 
     return { message: 'Farm deleted successfully' };
   }
+
+  async create(createFarmDto: CreateFarmDto) {
+    console.log(createFarmDto);
+    const user = await this.prisma.user.findUnique({
+      where: { id: createFarmDto.userId },
+    });
+
+    console.log(user);
+    if (!user) {
+      throw new NotFoundException(`User with ID ${createFarmDto.userId} not found`);
+    }
+    const farm = await this.prisma.farm.create({
+      data: createFarmDto,
+      include: {
+        user: {
+          select: {
+            id: true,
+            firstName: true,
+            lastName: true,
+            phoneNumber: true,
+            email: true,
+          },
+        },
+      },
+    });
+    return farm;
+  }
 }
+

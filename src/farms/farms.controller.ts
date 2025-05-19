@@ -1,14 +1,69 @@
-import { Controller, Get, Body, Patch, Param, Delete, Query, UseGuards } from '@nestjs/common';
+import { Controller, Get, Body, Patch, Param, Delete, Query, UseGuards, Post } from '@nestjs/common';
 import { FarmsService } from './farms.service';
 import { UpdateFarmDto } from './dto/update-farm.dto';
-import { ApiTags, ApiOperation, ApiResponse, ApiQuery } from '@nestjs/swagger';
-// import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+import { ApiTags, ApiOperation, ApiResponse, ApiQuery, ApiBearerAuth, ApiBody } from '@nestjs/swagger';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { CreateFarmDto } from './dto/create-farm.dto';
 
 @ApiTags('farms')
-// @UseGuards(JwtAuthGuard)
+@ApiBearerAuth()
+@UseGuards(JwtAuthGuard)
 @Controller('farms')
 export class FarmsController {
   constructor(private readonly farmsService: FarmsService) { }
+
+  @Post()
+  @ApiOperation({
+    summary: 'Create a new farm',
+    description: 'Add a new farm to the system. Requires a valid userId referencing an existing user.'
+  })
+  @ApiBody({
+    type: CreateFarmDto,
+    examples: {
+      kenyaExample: {
+        summary: 'Kenyan Mixed Farm',
+        value: {
+          name: 'Kamau Mixed Farm',
+          county: 'Kiambu',
+          administrativeLocation: 'Kikuyu',
+          size: 7.2,
+          ownership: 'Freehold',
+          farmingTypes: ['Dairy cattle', 'Poultry', 'Crops'],
+          userId: 'cmaerl8s10000l004pmlo1f7d',
+        },
+      },
+    },
+  })
+  @ApiResponse({
+    status: 201,
+    description: 'Successfully created farm',
+    schema: {
+      type: 'object',
+      example: {
+        id: 'cmaerl8s10000l004pmlo1f7d',
+        name: 'Kamau Mixed Farm',
+        county: 'Kiambu',
+        administrativeLocation: 'Kikuyu',
+        size: 7.2,
+        ownership: 'Freehold',
+        farmingTypes: ['Dairy cattle', 'Poultry', 'Crops'],
+        createdAt: '2025-05-19T14:00:00.000Z',
+        updatedAt: '2025-05-19T14:00:00.000Z',
+        user: {
+          id: 'cmaerl8s10000l004pmlo1f7d',
+          firstName: 'Mwangi',
+          lastName: 'Kariuki',
+          phoneNumber: '+254712345678',
+          email: 'mwangi.kamau@example.com',
+        },
+      },
+    },
+  })
+  @ApiResponse({ status: 400, description: 'Validation Error' })
+  @ApiResponse({ status: 404, description: 'User not found' })
+  async create(@Body() createFarmDto: CreateFarmDto) {
+    return this.farmsService.create(createFarmDto);
+  }
 
   @Get()
   @ApiOperation({
@@ -39,7 +94,7 @@ export class FarmsController {
               createdAt: '2025-05-07T17:46:51.000Z',
               updatedAt: '2025-05-07T17:46:51.000Z',
               user: {
-                id: 'clh2x0f380000mk08g8hv1q2z',
+                id: 'cmaerl8s10000l004pmlo1f7d',
                 firstName: 'Mwangi',
                 lastName: 'Kariuki',
                 phoneNumber: '+254712345678',
@@ -91,7 +146,7 @@ export class FarmsController {
         createdAt: '2025-05-07T17:46:51.000Z',
         updatedAt: '2025-05-07T17:46:51.000Z',
         owner: {
-          id: 'clh2x0f380000mk08g8hv1q2z',
+          id: 'cmaerl8s10000l004pmlo1f7d',
           firstName: 'Mwangi',
           lastName: 'Kariuki',
           phoneNumber: '+254712345678',

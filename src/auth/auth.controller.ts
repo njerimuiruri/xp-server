@@ -5,41 +5,17 @@ import { LoginDto } from './dto/login.dto';
 import { RequestPasswordResetDto, ResetPasswordDto, VerifyOtpDto } from './dto/reset-password.dto';
 import { ApiTags, ApiOperation, ApiResponse, ApiBody } from '@nestjs/swagger';
 import { UserWithoutPin } from './types/user.type';
-
-interface AuthResponse {
-  user: {
-    id: string;
-    firstName: string;
-    middleName?: string;
-    lastName: string;
-    gender: string;
-    ageGroup: string;
-    residenceCounty: string;
-    residenceLocation?: string;
-    email?: string;
-    phoneNumber: string;
-    businessNumber?: string;
-    yearsOfExperience?: number;
-    createdAt: Date;
-    updatedAt: Date;
-    farm?: {
-      id: string;
-      name: string;
-      county: string;
-      administrativeLocation: string;
-      size: number;
-      ownership: string;
-      farmingTypes: string[];
-    };
-  };
-  token: string;
-}
+import { Public } from './decorators/public.decorator';
+import { JwtAuthGuard } from './guards/jwt-auth.guard';
+import { UseGuards } from '@nestjs/common';
 
 @ApiTags('auth')
+@UseGuards(JwtAuthGuard)
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) { }
 
+  @Public()
   @Post('register')
   @ApiOperation({
     summary: 'Register a new farmer',
@@ -119,6 +95,7 @@ export class AuthController {
     return this.authService.register(dto);
   }
 
+  @Public()
   @Post('login')
   @ApiOperation({ summary: 'Login a user' })
   @ApiBody({
@@ -139,6 +116,7 @@ export class AuthController {
     return this.authService.login(dto);
   }
 
+  @Public()
   @Post('request-reset')
   @ApiOperation({ summary: 'Request password reset' })
   @ApiBody({
@@ -158,6 +136,7 @@ export class AuthController {
     return this.authService.requestPasswordReset(dto);
   }
 
+  @Public()
   @Post('verify-otp')
   @ApiOperation({ summary: 'Verify OTP' })
   @ApiBody({
@@ -178,6 +157,7 @@ export class AuthController {
     return this.authService.verifyOtp(dto);
   }
 
+  @Public()
   @Post('reset-password')
   @ApiOperation({ summary: 'Reset password with OTP' })
   @ApiBody({

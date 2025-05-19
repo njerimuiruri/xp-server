@@ -30,7 +30,7 @@ model User {
   isVerified        Boolean   @default(false)
   createdAt         DateTime  @default(now())
   updatedAt         DateTime  @updatedAt
-  farm              Farm?
+  farms             Farm[]
 }
 
 model Farm {
@@ -41,7 +41,7 @@ model Farm {
   size                   Float
   ownership              String
   farmingTypes           String[]
-  userId                 String   @unique
+  userId                 String
   user                   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt              DateTime @default(now())
   updatedAt              DateTime @updatedAt

@@ -4,15 +4,24 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    logger: ['error', 'warn', 'log', 'debug', 'verbose'],
+  });
 
-  // Enable CORS
   app.enableCors();
 
-  // Enable validation pipes
-  app.useGlobalPipes(new ValidationPipe());
+  // Use global validation pipe with strict settings
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true, // Strip properties that don't have decorators
+      forbidNonWhitelisted: true, // Throw errors if non-whitelisted values are provided
+      transform: true, // Auto-transform payloads to DTO instances
+      transformOptions: {
+        enableImplicitConversion: true, // Allow implicit conversion of primitive types
+      },
+    }),
+  );
 
-  // Swagger configuration
   const config = new DocumentBuilder()
     .setTitle('XP Farmer API')
     .setDescription('API documentation for XP Farmer application')

@@ -2,7 +2,7 @@ import { Prisma } from '../../../prisma/generated/prisma/client';
 
 export type User = Prisma.UserGetPayload<{
   include: {
-    farm: true;
+    farms: true;
   };
 }> & {
   otp?: string | null;
