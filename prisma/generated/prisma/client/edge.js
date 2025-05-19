@@ -157,7 +157,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/home/lord-charles/code/Typescript Projects/xp-farmer/prisma/generated/prisma/client",
+      "value": "C:\\Users\\HP\\Desktop\\Projects\\ReactNative\\XpertFarmers\\xp-server\\prisma\\generated\\prisma\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -166,12 +166,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "debian-openssl-3.0.x",
+        "value": "windows",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/home/lord-charles/code/Typescript Projects/xp-farmer/prisma/schema.prisma",
+    "sourceFilePath": "C:\\Users\\HP\\Desktop\\Projects\\ReactNative\\XpertFarmers\\xp-server\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -185,11 +185,12 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres.vrhzrbtsdvtolhhzprws:charles14700@aws-0-eu-central-1.pooler.supabase.com:5432/postgres"
+        "value": null
       }
     }
   },
