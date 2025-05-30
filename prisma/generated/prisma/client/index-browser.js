@@ -154,6 +154,45 @@ exports.Prisma.FarmScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.EmployeeScalarFieldEnum = {
+  id: 'id',
+  firstName: 'firstName',
+  middleName: 'middleName',
+  lastName: 'lastName',
+  phone: 'phone',
+  emergencyContact: 'emergencyContact',
+  idNumber: 'idNumber',
+  idPhoto: 'idPhoto',
+  employeeType: 'employeeType',
+  dateOfEmployment: 'dateOfEmployment',
+  endDate: 'endDate',
+  role: 'role',
+  customRole: 'customRole',
+  paymentSchedule: 'paymentSchedule',
+  salary: 'salary',
+  typeOfEngagement: 'typeOfEngagement',
+  workSchedule: 'workSchedule',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.EmployeeFarmScalarFieldEnum = {
+  id: 'id',
+  employeeId: 'employeeId',
+  farmId: 'farmId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.EmployeeBenefitScalarFieldEnum = {
+  id: 'id',
+  employeeId: 'employeeId',
+  name: 'name',
+  amount: 'amount',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -172,7 +211,10 @@ exports.Prisma.NullsOrder = {
 
 exports.Prisma.ModelName = {
   User: 'User',
-  Farm: 'Farm'
+  Farm: 'Farm',
+  Employee: 'Employee',
+  EmployeeFarm: 'EmployeeFarm',
+  EmployeeBenefit: 'EmployeeBenefit'
 };
 
 /**

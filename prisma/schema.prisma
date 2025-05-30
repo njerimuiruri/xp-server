@@ -1,11 +1,7 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
   output   = "./generated/prisma/client"
 }
-
 
 datasource db {
   provider = "postgresql"
@@ -13,7 +9,7 @@ datasource db {
 }
 
 model User {
-  id                String   @id @default(cuid())
+  id                String    @id @default(cuid())
   firstName         String
   middleName        String?
   lastName          String
@@ -21,29 +17,78 @@ model User {
   dob               String
   residenceCounty   String
   residenceLocation String?
-  email             String?  @unique
-  phoneNumber       String   @unique
+  email             String?   @unique
+  phoneNumber       String    @unique
   businessNumber    String?
   pin               String
   yearsOfExperience Int?
   otp               String?
   otpExpiry         DateTime?
   isVerified        Boolean   @default(false)
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
-  farms             Farm[]   
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  farms             Farm[]
 }
 
 model Farm {
-  id                     String   @id @default(cuid())
+  id                     String         @id @default(cuid())
   name                   String
   county                 String
   administrativeLocation String
   size                   Float
   ownership              String
   farmingTypes           String[]
-  userId                 String   
-  user                   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt              DateTime @default(now())
-  updatedAt              DateTime @updatedAt
+  userId                 String
+  createdAt              DateTime       @default(now())
+  updatedAt              DateTime       @updatedAt
+  employees              EmployeeFarm[]
+  user                   User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Employee {
+  id               String            @id @default(cuid())
+  firstName        String
+  middleName       String?
+  lastName         String
+  phone            String
+  emergencyContact String?
+  idNumber         String            @unique
+  idPhoto          String?
+  employeeType     String
+  dateOfEmployment DateTime
+  endDate          DateTime?
+  role             String
+  customRole       String?
+  paymentSchedule  String
+  salary           Float
+  typeOfEngagement String?
+  workSchedule     String?
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  benefits         EmployeeBenefit[]
+  farms            EmployeeFarm[]
+}
+
+model EmployeeFarm {
+  id         String   @id @default(cuid())
+  employeeId String
+  farmId     String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  employee   Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  farm       Farm     @relation(fields: [farmId], references: [id], onDelete: Cascade)
+
+  @@unique([employeeId, farmId])
+}
+
+model EmployeeBenefit {
+  id         String   @id @default(cuid())
+  employeeId String
+  name       String
+  amount     Float?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  employee   Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+
+  @@unique([employeeId, name])
 }

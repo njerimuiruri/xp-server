@@ -23,6 +23,21 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  * 
  */
 export type Farm = $Result.DefaultSelection<Prisma.$FarmPayload>
+/**
+ * Model Employee
+ * 
+ */
+export type Employee = $Result.DefaultSelection<Prisma.$EmployeePayload>
+/**
+ * Model EmployeeFarm
+ * 
+ */
+export type EmployeeFarm = $Result.DefaultSelection<Prisma.$EmployeeFarmPayload>
+/**
+ * Model EmployeeBenefit
+ * 
+ */
+export type EmployeeBenefit = $Result.DefaultSelection<Prisma.$EmployeeBenefitPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -168,6 +183,36 @@ export class PrismaClient<
     * ```
     */
   get farm(): Prisma.FarmDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.employee`: Exposes CRUD operations for the **Employee** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Employees
+    * const employees = await prisma.employee.findMany()
+    * ```
+    */
+  get employee(): Prisma.EmployeeDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.employeeFarm`: Exposes CRUD operations for the **EmployeeFarm** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more EmployeeFarms
+    * const employeeFarms = await prisma.employeeFarm.findMany()
+    * ```
+    */
+  get employeeFarm(): Prisma.EmployeeFarmDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.employeeBenefit`: Exposes CRUD operations for the **EmployeeBenefit** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more EmployeeBenefits
+    * const employeeBenefits = await prisma.employeeBenefit.findMany()
+    * ```
+    */
+  get employeeBenefit(): Prisma.EmployeeBenefitDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -609,7 +654,10 @@ export namespace Prisma {
 
   export const ModelName: {
     User: 'User',
-    Farm: 'Farm'
+    Farm: 'Farm',
+    Employee: 'Employee',
+    EmployeeFarm: 'EmployeeFarm',
+    EmployeeBenefit: 'EmployeeBenefit'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -628,7 +676,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "farm"
+      modelProps: "user" | "farm" | "employee" | "employeeFarm" | "employeeBenefit"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -780,6 +828,228 @@ export namespace Prisma {
           }
         }
       }
+      Employee: {
+        payload: Prisma.$EmployeePayload<ExtArgs>
+        fields: Prisma.EmployeeFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EmployeeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EmployeeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+          }
+          findFirst: {
+            args: Prisma.EmployeeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EmployeeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+          }
+          findMany: {
+            args: Prisma.EmployeeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>[]
+          }
+          create: {
+            args: Prisma.EmployeeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+          }
+          createMany: {
+            args: Prisma.EmployeeCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.EmployeeCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>[]
+          }
+          delete: {
+            args: Prisma.EmployeeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+          }
+          update: {
+            args: Prisma.EmployeeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+          }
+          deleteMany: {
+            args: Prisma.EmployeeDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EmployeeUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.EmployeeUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>[]
+          }
+          upsert: {
+            args: Prisma.EmployeeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+          }
+          aggregate: {
+            args: Prisma.EmployeeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEmployee>
+          }
+          groupBy: {
+            args: Prisma.EmployeeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EmployeeGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EmployeeCountArgs<ExtArgs>
+            result: $Utils.Optional<EmployeeCountAggregateOutputType> | number
+          }
+        }
+      }
+      EmployeeFarm: {
+        payload: Prisma.$EmployeeFarmPayload<ExtArgs>
+        fields: Prisma.EmployeeFarmFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EmployeeFarmFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EmployeeFarmFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload>
+          }
+          findFirst: {
+            args: Prisma.EmployeeFarmFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EmployeeFarmFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload>
+          }
+          findMany: {
+            args: Prisma.EmployeeFarmFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload>[]
+          }
+          create: {
+            args: Prisma.EmployeeFarmCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload>
+          }
+          createMany: {
+            args: Prisma.EmployeeFarmCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.EmployeeFarmCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload>[]
+          }
+          delete: {
+            args: Prisma.EmployeeFarmDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload>
+          }
+          update: {
+            args: Prisma.EmployeeFarmUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload>
+          }
+          deleteMany: {
+            args: Prisma.EmployeeFarmDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EmployeeFarmUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.EmployeeFarmUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload>[]
+          }
+          upsert: {
+            args: Prisma.EmployeeFarmUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload>
+          }
+          aggregate: {
+            args: Prisma.EmployeeFarmAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEmployeeFarm>
+          }
+          groupBy: {
+            args: Prisma.EmployeeFarmGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EmployeeFarmGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EmployeeFarmCountArgs<ExtArgs>
+            result: $Utils.Optional<EmployeeFarmCountAggregateOutputType> | number
+          }
+        }
+      }
+      EmployeeBenefit: {
+        payload: Prisma.$EmployeeBenefitPayload<ExtArgs>
+        fields: Prisma.EmployeeBenefitFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EmployeeBenefitFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EmployeeBenefitFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload>
+          }
+          findFirst: {
+            args: Prisma.EmployeeBenefitFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EmployeeBenefitFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload>
+          }
+          findMany: {
+            args: Prisma.EmployeeBenefitFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload>[]
+          }
+          create: {
+            args: Prisma.EmployeeBenefitCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload>
+          }
+          createMany: {
+            args: Prisma.EmployeeBenefitCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.EmployeeBenefitCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload>[]
+          }
+          delete: {
+            args: Prisma.EmployeeBenefitDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload>
+          }
+          update: {
+            args: Prisma.EmployeeBenefitUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload>
+          }
+          deleteMany: {
+            args: Prisma.EmployeeBenefitDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EmployeeBenefitUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.EmployeeBenefitUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload>[]
+          }
+          upsert: {
+            args: Prisma.EmployeeBenefitUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload>
+          }
+          aggregate: {
+            args: Prisma.EmployeeBenefitAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEmployeeBenefit>
+          }
+          groupBy: {
+            args: Prisma.EmployeeBenefitGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EmployeeBenefitGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EmployeeBenefitCountArgs<ExtArgs>
+            result: $Utils.Optional<EmployeeBenefitCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -866,6 +1136,9 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     user?: UserOmit
     farm?: FarmOmit
+    employee?: EmployeeOmit
+    employeeFarm?: EmployeeFarmOmit
+    employeeBenefit?: EmployeeBenefitOmit
   }
 
   /* Types for Logging */
@@ -983,6 +1256,77 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountFarmsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: FarmWhereInput
+  }
+
+
+  /**
+   * Count Type FarmCountOutputType
+   */
+
+  export type FarmCountOutputType = {
+    employees: number
+  }
+
+  export type FarmCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employees?: boolean | FarmCountOutputTypeCountEmployeesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * FarmCountOutputType without action
+   */
+  export type FarmCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FarmCountOutputType
+     */
+    select?: FarmCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * FarmCountOutputType without action
+   */
+  export type FarmCountOutputTypeCountEmployeesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmployeeFarmWhereInput
+  }
+
+
+  /**
+   * Count Type EmployeeCountOutputType
+   */
+
+  export type EmployeeCountOutputType = {
+    benefits: number
+    farms: number
+  }
+
+  export type EmployeeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    benefits?: boolean | EmployeeCountOutputTypeCountBenefitsArgs
+    farms?: boolean | EmployeeCountOutputTypeCountFarmsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * EmployeeCountOutputType without action
+   */
+  export type EmployeeCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeCountOutputType
+     */
+    select?: EmployeeCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * EmployeeCountOutputType without action
+   */
+  export type EmployeeCountOutputTypeCountBenefitsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmployeeBenefitWhereInput
+  }
+
+  /**
+   * EmployeeCountOutputType without action
+   */
+  export type EmployeeCountOutputTypeCountFarmsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmployeeFarmWhereInput
   }
 
 
@@ -2497,7 +2841,9 @@ export namespace Prisma {
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    employees?: boolean | Farm$employeesArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
+    _count?: boolean | FarmCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["farm"]>
 
   export type FarmSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2543,7 +2889,9 @@ export namespace Prisma {
 
   export type FarmOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "county" | "administrativeLocation" | "size" | "ownership" | "farmingTypes" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["farm"]>
   export type FarmInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employees?: boolean | Farm$employeesArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
+    _count?: boolean | FarmCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type FarmIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -2555,6 +2903,7 @@ export namespace Prisma {
   export type $FarmPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Farm"
     objects: {
+      employees: Prisma.$EmployeeFarmPayload<ExtArgs>[]
       user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -2962,6 +3311,7 @@ export namespace Prisma {
    */
   export interface Prisma__FarmClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    employees<T extends Farm$employeesArgs<ExtArgs> = {}>(args?: Subset<T, Farm$employeesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -3398,6 +3748,30 @@ export namespace Prisma {
   }
 
   /**
+   * Farm.employees
+   */
+  export type Farm$employeesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    where?: EmployeeFarmWhereInput
+    orderBy?: EmployeeFarmOrderByWithRelationInput | EmployeeFarmOrderByWithRelationInput[]
+    cursor?: EmployeeFarmWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EmployeeFarmScalarFieldEnum | EmployeeFarmScalarFieldEnum[]
+  }
+
+  /**
    * Farm without action
    */
   export type FarmDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3413,6 +3787,3491 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: FarmInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Employee
+   */
+
+  export type AggregateEmployee = {
+    _count: EmployeeCountAggregateOutputType | null
+    _avg: EmployeeAvgAggregateOutputType | null
+    _sum: EmployeeSumAggregateOutputType | null
+    _min: EmployeeMinAggregateOutputType | null
+    _max: EmployeeMaxAggregateOutputType | null
+  }
+
+  export type EmployeeAvgAggregateOutputType = {
+    salary: number | null
+  }
+
+  export type EmployeeSumAggregateOutputType = {
+    salary: number | null
+  }
+
+  export type EmployeeMinAggregateOutputType = {
+    id: string | null
+    firstName: string | null
+    middleName: string | null
+    lastName: string | null
+    phone: string | null
+    emergencyContact: string | null
+    idNumber: string | null
+    idPhoto: string | null
+    employeeType: string | null
+    dateOfEmployment: Date | null
+    endDate: Date | null
+    role: string | null
+    customRole: string | null
+    paymentSchedule: string | null
+    salary: number | null
+    typeOfEngagement: string | null
+    workSchedule: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmployeeMaxAggregateOutputType = {
+    id: string | null
+    firstName: string | null
+    middleName: string | null
+    lastName: string | null
+    phone: string | null
+    emergencyContact: string | null
+    idNumber: string | null
+    idPhoto: string | null
+    employeeType: string | null
+    dateOfEmployment: Date | null
+    endDate: Date | null
+    role: string | null
+    customRole: string | null
+    paymentSchedule: string | null
+    salary: number | null
+    typeOfEngagement: string | null
+    workSchedule: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmployeeCountAggregateOutputType = {
+    id: number
+    firstName: number
+    middleName: number
+    lastName: number
+    phone: number
+    emergencyContact: number
+    idNumber: number
+    idPhoto: number
+    employeeType: number
+    dateOfEmployment: number
+    endDate: number
+    role: number
+    customRole: number
+    paymentSchedule: number
+    salary: number
+    typeOfEngagement: number
+    workSchedule: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type EmployeeAvgAggregateInputType = {
+    salary?: true
+  }
+
+  export type EmployeeSumAggregateInputType = {
+    salary?: true
+  }
+
+  export type EmployeeMinAggregateInputType = {
+    id?: true
+    firstName?: true
+    middleName?: true
+    lastName?: true
+    phone?: true
+    emergencyContact?: true
+    idNumber?: true
+    idPhoto?: true
+    employeeType?: true
+    dateOfEmployment?: true
+    endDate?: true
+    role?: true
+    customRole?: true
+    paymentSchedule?: true
+    salary?: true
+    typeOfEngagement?: true
+    workSchedule?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmployeeMaxAggregateInputType = {
+    id?: true
+    firstName?: true
+    middleName?: true
+    lastName?: true
+    phone?: true
+    emergencyContact?: true
+    idNumber?: true
+    idPhoto?: true
+    employeeType?: true
+    dateOfEmployment?: true
+    endDate?: true
+    role?: true
+    customRole?: true
+    paymentSchedule?: true
+    salary?: true
+    typeOfEngagement?: true
+    workSchedule?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmployeeCountAggregateInputType = {
+    id?: true
+    firstName?: true
+    middleName?: true
+    lastName?: true
+    phone?: true
+    emergencyContact?: true
+    idNumber?: true
+    idPhoto?: true
+    employeeType?: true
+    dateOfEmployment?: true
+    endDate?: true
+    role?: true
+    customRole?: true
+    paymentSchedule?: true
+    salary?: true
+    typeOfEngagement?: true
+    workSchedule?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type EmployeeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Employee to aggregate.
+     */
+    where?: EmployeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Employees to fetch.
+     */
+    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EmployeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Employees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Employees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Employees
+    **/
+    _count?: true | EmployeeCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: EmployeeAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: EmployeeSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EmployeeMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EmployeeMaxAggregateInputType
+  }
+
+  export type GetEmployeeAggregateType<T extends EmployeeAggregateArgs> = {
+        [P in keyof T & keyof AggregateEmployee]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEmployee[P]>
+      : GetScalarType<T[P], AggregateEmployee[P]>
+  }
+
+
+
+
+  export type EmployeeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmployeeWhereInput
+    orderBy?: EmployeeOrderByWithAggregationInput | EmployeeOrderByWithAggregationInput[]
+    by: EmployeeScalarFieldEnum[] | EmployeeScalarFieldEnum
+    having?: EmployeeScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EmployeeCountAggregateInputType | true
+    _avg?: EmployeeAvgAggregateInputType
+    _sum?: EmployeeSumAggregateInputType
+    _min?: EmployeeMinAggregateInputType
+    _max?: EmployeeMaxAggregateInputType
+  }
+
+  export type EmployeeGroupByOutputType = {
+    id: string
+    firstName: string
+    middleName: string | null
+    lastName: string
+    phone: string
+    emergencyContact: string | null
+    idNumber: string
+    idPhoto: string | null
+    employeeType: string
+    dateOfEmployment: Date
+    endDate: Date | null
+    role: string
+    customRole: string | null
+    paymentSchedule: string
+    salary: number
+    typeOfEngagement: string | null
+    workSchedule: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: EmployeeCountAggregateOutputType | null
+    _avg: EmployeeAvgAggregateOutputType | null
+    _sum: EmployeeSumAggregateOutputType | null
+    _min: EmployeeMinAggregateOutputType | null
+    _max: EmployeeMaxAggregateOutputType | null
+  }
+
+  type GetEmployeeGroupByPayload<T extends EmployeeGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EmployeeGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EmployeeGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EmployeeGroupByOutputType[P]>
+            : GetScalarType<T[P], EmployeeGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EmployeeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    firstName?: boolean
+    middleName?: boolean
+    lastName?: boolean
+    phone?: boolean
+    emergencyContact?: boolean
+    idNumber?: boolean
+    idPhoto?: boolean
+    employeeType?: boolean
+    dateOfEmployment?: boolean
+    endDate?: boolean
+    role?: boolean
+    customRole?: boolean
+    paymentSchedule?: boolean
+    salary?: boolean
+    typeOfEngagement?: boolean
+    workSchedule?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    benefits?: boolean | Employee$benefitsArgs<ExtArgs>
+    farms?: boolean | Employee$farmsArgs<ExtArgs>
+    _count?: boolean | EmployeeCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employee"]>
+
+  export type EmployeeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    firstName?: boolean
+    middleName?: boolean
+    lastName?: boolean
+    phone?: boolean
+    emergencyContact?: boolean
+    idNumber?: boolean
+    idPhoto?: boolean
+    employeeType?: boolean
+    dateOfEmployment?: boolean
+    endDate?: boolean
+    role?: boolean
+    customRole?: boolean
+    paymentSchedule?: boolean
+    salary?: boolean
+    typeOfEngagement?: boolean
+    workSchedule?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["employee"]>
+
+  export type EmployeeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    firstName?: boolean
+    middleName?: boolean
+    lastName?: boolean
+    phone?: boolean
+    emergencyContact?: boolean
+    idNumber?: boolean
+    idPhoto?: boolean
+    employeeType?: boolean
+    dateOfEmployment?: boolean
+    endDate?: boolean
+    role?: boolean
+    customRole?: boolean
+    paymentSchedule?: boolean
+    salary?: boolean
+    typeOfEngagement?: boolean
+    workSchedule?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["employee"]>
+
+  export type EmployeeSelectScalar = {
+    id?: boolean
+    firstName?: boolean
+    middleName?: boolean
+    lastName?: boolean
+    phone?: boolean
+    emergencyContact?: boolean
+    idNumber?: boolean
+    idPhoto?: boolean
+    employeeType?: boolean
+    dateOfEmployment?: boolean
+    endDate?: boolean
+    role?: boolean
+    customRole?: boolean
+    paymentSchedule?: boolean
+    salary?: boolean
+    typeOfEngagement?: boolean
+    workSchedule?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type EmployeeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "middleName" | "lastName" | "phone" | "emergencyContact" | "idNumber" | "idPhoto" | "employeeType" | "dateOfEmployment" | "endDate" | "role" | "customRole" | "paymentSchedule" | "salary" | "typeOfEngagement" | "workSchedule" | "createdAt" | "updatedAt", ExtArgs["result"]["employee"]>
+  export type EmployeeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    benefits?: boolean | Employee$benefitsArgs<ExtArgs>
+    farms?: boolean | Employee$farmsArgs<ExtArgs>
+    _count?: boolean | EmployeeCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type EmployeeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type EmployeeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $EmployeePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Employee"
+    objects: {
+      benefits: Prisma.$EmployeeBenefitPayload<ExtArgs>[]
+      farms: Prisma.$EmployeeFarmPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      firstName: string
+      middleName: string | null
+      lastName: string
+      phone: string
+      emergencyContact: string | null
+      idNumber: string
+      idPhoto: string | null
+      employeeType: string
+      dateOfEmployment: Date
+      endDate: Date | null
+      role: string
+      customRole: string | null
+      paymentSchedule: string
+      salary: number
+      typeOfEngagement: string | null
+      workSchedule: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["employee"]>
+    composites: {}
+  }
+
+  type EmployeeGetPayload<S extends boolean | null | undefined | EmployeeDefaultArgs> = $Result.GetResult<Prisma.$EmployeePayload, S>
+
+  type EmployeeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<EmployeeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: EmployeeCountAggregateInputType | true
+    }
+
+  export interface EmployeeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Employee'], meta: { name: 'Employee' } }
+    /**
+     * Find zero or one Employee that matches the filter.
+     * @param {EmployeeFindUniqueArgs} args - Arguments to find a Employee
+     * @example
+     * // Get one Employee
+     * const employee = await prisma.employee.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends EmployeeFindUniqueArgs>(args: SelectSubset<T, EmployeeFindUniqueArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Employee that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {EmployeeFindUniqueOrThrowArgs} args - Arguments to find a Employee
+     * @example
+     * // Get one Employee
+     * const employee = await prisma.employee.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends EmployeeFindUniqueOrThrowArgs>(args: SelectSubset<T, EmployeeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Employee that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFindFirstArgs} args - Arguments to find a Employee
+     * @example
+     * // Get one Employee
+     * const employee = await prisma.employee.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends EmployeeFindFirstArgs>(args?: SelectSubset<T, EmployeeFindFirstArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Employee that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFindFirstOrThrowArgs} args - Arguments to find a Employee
+     * @example
+     * // Get one Employee
+     * const employee = await prisma.employee.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends EmployeeFindFirstOrThrowArgs>(args?: SelectSubset<T, EmployeeFindFirstOrThrowArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Employees that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Employees
+     * const employees = await prisma.employee.findMany()
+     * 
+     * // Get first 10 Employees
+     * const employees = await prisma.employee.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const employeeWithIdOnly = await prisma.employee.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends EmployeeFindManyArgs>(args?: SelectSubset<T, EmployeeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Employee.
+     * @param {EmployeeCreateArgs} args - Arguments to create a Employee.
+     * @example
+     * // Create one Employee
+     * const Employee = await prisma.employee.create({
+     *   data: {
+     *     // ... data to create a Employee
+     *   }
+     * })
+     * 
+     */
+    create<T extends EmployeeCreateArgs>(args: SelectSubset<T, EmployeeCreateArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Employees.
+     * @param {EmployeeCreateManyArgs} args - Arguments to create many Employees.
+     * @example
+     * // Create many Employees
+     * const employee = await prisma.employee.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends EmployeeCreateManyArgs>(args?: SelectSubset<T, EmployeeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Employees and returns the data saved in the database.
+     * @param {EmployeeCreateManyAndReturnArgs} args - Arguments to create many Employees.
+     * @example
+     * // Create many Employees
+     * const employee = await prisma.employee.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Employees and only return the `id`
+     * const employeeWithIdOnly = await prisma.employee.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends EmployeeCreateManyAndReturnArgs>(args?: SelectSubset<T, EmployeeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Employee.
+     * @param {EmployeeDeleteArgs} args - Arguments to delete one Employee.
+     * @example
+     * // Delete one Employee
+     * const Employee = await prisma.employee.delete({
+     *   where: {
+     *     // ... filter to delete one Employee
+     *   }
+     * })
+     * 
+     */
+    delete<T extends EmployeeDeleteArgs>(args: SelectSubset<T, EmployeeDeleteArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Employee.
+     * @param {EmployeeUpdateArgs} args - Arguments to update one Employee.
+     * @example
+     * // Update one Employee
+     * const employee = await prisma.employee.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends EmployeeUpdateArgs>(args: SelectSubset<T, EmployeeUpdateArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Employees.
+     * @param {EmployeeDeleteManyArgs} args - Arguments to filter Employees to delete.
+     * @example
+     * // Delete a few Employees
+     * const { count } = await prisma.employee.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends EmployeeDeleteManyArgs>(args?: SelectSubset<T, EmployeeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Employees.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Employees
+     * const employee = await prisma.employee.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends EmployeeUpdateManyArgs>(args: SelectSubset<T, EmployeeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Employees and returns the data updated in the database.
+     * @param {EmployeeUpdateManyAndReturnArgs} args - Arguments to update many Employees.
+     * @example
+     * // Update many Employees
+     * const employee = await prisma.employee.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Employees and only return the `id`
+     * const employeeWithIdOnly = await prisma.employee.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends EmployeeUpdateManyAndReturnArgs>(args: SelectSubset<T, EmployeeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Employee.
+     * @param {EmployeeUpsertArgs} args - Arguments to update or create a Employee.
+     * @example
+     * // Update or create a Employee
+     * const employee = await prisma.employee.upsert({
+     *   create: {
+     *     // ... data to create a Employee
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Employee we want to update
+     *   }
+     * })
+     */
+    upsert<T extends EmployeeUpsertArgs>(args: SelectSubset<T, EmployeeUpsertArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Employees.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeCountArgs} args - Arguments to filter Employees to count.
+     * @example
+     * // Count the number of Employees
+     * const count = await prisma.employee.count({
+     *   where: {
+     *     // ... the filter for the Employees we want to count
+     *   }
+     * })
+    **/
+    count<T extends EmployeeCountArgs>(
+      args?: Subset<T, EmployeeCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EmployeeCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Employee.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EmployeeAggregateArgs>(args: Subset<T, EmployeeAggregateArgs>): Prisma.PrismaPromise<GetEmployeeAggregateType<T>>
+
+    /**
+     * Group by Employee.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EmployeeGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EmployeeGroupByArgs['orderBy'] }
+        : { orderBy?: EmployeeGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EmployeeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmployeeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Employee model
+   */
+  readonly fields: EmployeeFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Employee.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EmployeeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    benefits<T extends Employee$benefitsArgs<ExtArgs> = {}>(args?: Subset<T, Employee$benefitsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    farms<T extends Employee$farmsArgs<ExtArgs> = {}>(args?: Subset<T, Employee$farmsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Employee model
+   */
+  interface EmployeeFieldRefs {
+    readonly id: FieldRef<"Employee", 'String'>
+    readonly firstName: FieldRef<"Employee", 'String'>
+    readonly middleName: FieldRef<"Employee", 'String'>
+    readonly lastName: FieldRef<"Employee", 'String'>
+    readonly phone: FieldRef<"Employee", 'String'>
+    readonly emergencyContact: FieldRef<"Employee", 'String'>
+    readonly idNumber: FieldRef<"Employee", 'String'>
+    readonly idPhoto: FieldRef<"Employee", 'String'>
+    readonly employeeType: FieldRef<"Employee", 'String'>
+    readonly dateOfEmployment: FieldRef<"Employee", 'DateTime'>
+    readonly endDate: FieldRef<"Employee", 'DateTime'>
+    readonly role: FieldRef<"Employee", 'String'>
+    readonly customRole: FieldRef<"Employee", 'String'>
+    readonly paymentSchedule: FieldRef<"Employee", 'String'>
+    readonly salary: FieldRef<"Employee", 'Float'>
+    readonly typeOfEngagement: FieldRef<"Employee", 'String'>
+    readonly workSchedule: FieldRef<"Employee", 'String'>
+    readonly createdAt: FieldRef<"Employee", 'DateTime'>
+    readonly updatedAt: FieldRef<"Employee", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Employee findUnique
+   */
+  export type EmployeeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * Filter, which Employee to fetch.
+     */
+    where: EmployeeWhereUniqueInput
+  }
+
+  /**
+   * Employee findUniqueOrThrow
+   */
+  export type EmployeeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * Filter, which Employee to fetch.
+     */
+    where: EmployeeWhereUniqueInput
+  }
+
+  /**
+   * Employee findFirst
+   */
+  export type EmployeeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * Filter, which Employee to fetch.
+     */
+    where?: EmployeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Employees to fetch.
+     */
+    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Employees.
+     */
+    cursor?: EmployeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Employees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Employees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Employees.
+     */
+    distinct?: EmployeeScalarFieldEnum | EmployeeScalarFieldEnum[]
+  }
+
+  /**
+   * Employee findFirstOrThrow
+   */
+  export type EmployeeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * Filter, which Employee to fetch.
+     */
+    where?: EmployeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Employees to fetch.
+     */
+    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Employees.
+     */
+    cursor?: EmployeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Employees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Employees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Employees.
+     */
+    distinct?: EmployeeScalarFieldEnum | EmployeeScalarFieldEnum[]
+  }
+
+  /**
+   * Employee findMany
+   */
+  export type EmployeeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * Filter, which Employees to fetch.
+     */
+    where?: EmployeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Employees to fetch.
+     */
+    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Employees.
+     */
+    cursor?: EmployeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Employees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Employees.
+     */
+    skip?: number
+    distinct?: EmployeeScalarFieldEnum | EmployeeScalarFieldEnum[]
+  }
+
+  /**
+   * Employee create
+   */
+  export type EmployeeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Employee.
+     */
+    data: XOR<EmployeeCreateInput, EmployeeUncheckedCreateInput>
+  }
+
+  /**
+   * Employee createMany
+   */
+  export type EmployeeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Employees.
+     */
+    data: EmployeeCreateManyInput | EmployeeCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Employee createManyAndReturn
+   */
+  export type EmployeeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * The data used to create many Employees.
+     */
+    data: EmployeeCreateManyInput | EmployeeCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Employee update
+   */
+  export type EmployeeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Employee.
+     */
+    data: XOR<EmployeeUpdateInput, EmployeeUncheckedUpdateInput>
+    /**
+     * Choose, which Employee to update.
+     */
+    where: EmployeeWhereUniqueInput
+  }
+
+  /**
+   * Employee updateMany
+   */
+  export type EmployeeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Employees.
+     */
+    data: XOR<EmployeeUpdateManyMutationInput, EmployeeUncheckedUpdateManyInput>
+    /**
+     * Filter which Employees to update
+     */
+    where?: EmployeeWhereInput
+    /**
+     * Limit how many Employees to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Employee updateManyAndReturn
+   */
+  export type EmployeeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * The data used to update Employees.
+     */
+    data: XOR<EmployeeUpdateManyMutationInput, EmployeeUncheckedUpdateManyInput>
+    /**
+     * Filter which Employees to update
+     */
+    where?: EmployeeWhereInput
+    /**
+     * Limit how many Employees to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Employee upsert
+   */
+  export type EmployeeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Employee to update in case it exists.
+     */
+    where: EmployeeWhereUniqueInput
+    /**
+     * In case the Employee found by the `where` argument doesn't exist, create a new Employee with this data.
+     */
+    create: XOR<EmployeeCreateInput, EmployeeUncheckedCreateInput>
+    /**
+     * In case the Employee was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EmployeeUpdateInput, EmployeeUncheckedUpdateInput>
+  }
+
+  /**
+   * Employee delete
+   */
+  export type EmployeeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * Filter which Employee to delete.
+     */
+    where: EmployeeWhereUniqueInput
+  }
+
+  /**
+   * Employee deleteMany
+   */
+  export type EmployeeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Employees to delete
+     */
+    where?: EmployeeWhereInput
+    /**
+     * Limit how many Employees to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Employee.benefits
+   */
+  export type Employee$benefitsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    where?: EmployeeBenefitWhereInput
+    orderBy?: EmployeeBenefitOrderByWithRelationInput | EmployeeBenefitOrderByWithRelationInput[]
+    cursor?: EmployeeBenefitWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EmployeeBenefitScalarFieldEnum | EmployeeBenefitScalarFieldEnum[]
+  }
+
+  /**
+   * Employee.farms
+   */
+  export type Employee$farmsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    where?: EmployeeFarmWhereInput
+    orderBy?: EmployeeFarmOrderByWithRelationInput | EmployeeFarmOrderByWithRelationInput[]
+    cursor?: EmployeeFarmWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EmployeeFarmScalarFieldEnum | EmployeeFarmScalarFieldEnum[]
+  }
+
+  /**
+   * Employee without action
+   */
+  export type EmployeeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model EmployeeFarm
+   */
+
+  export type AggregateEmployeeFarm = {
+    _count: EmployeeFarmCountAggregateOutputType | null
+    _min: EmployeeFarmMinAggregateOutputType | null
+    _max: EmployeeFarmMaxAggregateOutputType | null
+  }
+
+  export type EmployeeFarmMinAggregateOutputType = {
+    id: string | null
+    employeeId: string | null
+    farmId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmployeeFarmMaxAggregateOutputType = {
+    id: string | null
+    employeeId: string | null
+    farmId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmployeeFarmCountAggregateOutputType = {
+    id: number
+    employeeId: number
+    farmId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type EmployeeFarmMinAggregateInputType = {
+    id?: true
+    employeeId?: true
+    farmId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmployeeFarmMaxAggregateInputType = {
+    id?: true
+    employeeId?: true
+    farmId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmployeeFarmCountAggregateInputType = {
+    id?: true
+    employeeId?: true
+    farmId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type EmployeeFarmAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EmployeeFarm to aggregate.
+     */
+    where?: EmployeeFarmWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmployeeFarms to fetch.
+     */
+    orderBy?: EmployeeFarmOrderByWithRelationInput | EmployeeFarmOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EmployeeFarmWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmployeeFarms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmployeeFarms.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned EmployeeFarms
+    **/
+    _count?: true | EmployeeFarmCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EmployeeFarmMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EmployeeFarmMaxAggregateInputType
+  }
+
+  export type GetEmployeeFarmAggregateType<T extends EmployeeFarmAggregateArgs> = {
+        [P in keyof T & keyof AggregateEmployeeFarm]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEmployeeFarm[P]>
+      : GetScalarType<T[P], AggregateEmployeeFarm[P]>
+  }
+
+
+
+
+  export type EmployeeFarmGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmployeeFarmWhereInput
+    orderBy?: EmployeeFarmOrderByWithAggregationInput | EmployeeFarmOrderByWithAggregationInput[]
+    by: EmployeeFarmScalarFieldEnum[] | EmployeeFarmScalarFieldEnum
+    having?: EmployeeFarmScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EmployeeFarmCountAggregateInputType | true
+    _min?: EmployeeFarmMinAggregateInputType
+    _max?: EmployeeFarmMaxAggregateInputType
+  }
+
+  export type EmployeeFarmGroupByOutputType = {
+    id: string
+    employeeId: string
+    farmId: string
+    createdAt: Date
+    updatedAt: Date
+    _count: EmployeeFarmCountAggregateOutputType | null
+    _min: EmployeeFarmMinAggregateOutputType | null
+    _max: EmployeeFarmMaxAggregateOutputType | null
+  }
+
+  type GetEmployeeFarmGroupByPayload<T extends EmployeeFarmGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EmployeeFarmGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EmployeeFarmGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EmployeeFarmGroupByOutputType[P]>
+            : GetScalarType<T[P], EmployeeFarmGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EmployeeFarmSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    employeeId?: boolean
+    farmId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employeeFarm"]>
+
+  export type EmployeeFarmSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    employeeId?: boolean
+    farmId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employeeFarm"]>
+
+  export type EmployeeFarmSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    employeeId?: boolean
+    farmId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employeeFarm"]>
+
+  export type EmployeeFarmSelectScalar = {
+    id?: boolean
+    employeeId?: boolean
+    farmId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type EmployeeFarmOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "employeeId" | "farmId" | "createdAt" | "updatedAt", ExtArgs["result"]["employeeFarm"]>
+  export type EmployeeFarmInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }
+  export type EmployeeFarmIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }
+  export type EmployeeFarmIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }
+
+  export type $EmployeeFarmPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "EmployeeFarm"
+    objects: {
+      employee: Prisma.$EmployeePayload<ExtArgs>
+      farm: Prisma.$FarmPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      employeeId: string
+      farmId: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["employeeFarm"]>
+    composites: {}
+  }
+
+  type EmployeeFarmGetPayload<S extends boolean | null | undefined | EmployeeFarmDefaultArgs> = $Result.GetResult<Prisma.$EmployeeFarmPayload, S>
+
+  type EmployeeFarmCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<EmployeeFarmFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: EmployeeFarmCountAggregateInputType | true
+    }
+
+  export interface EmployeeFarmDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['EmployeeFarm'], meta: { name: 'EmployeeFarm' } }
+    /**
+     * Find zero or one EmployeeFarm that matches the filter.
+     * @param {EmployeeFarmFindUniqueArgs} args - Arguments to find a EmployeeFarm
+     * @example
+     * // Get one EmployeeFarm
+     * const employeeFarm = await prisma.employeeFarm.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends EmployeeFarmFindUniqueArgs>(args: SelectSubset<T, EmployeeFarmFindUniqueArgs<ExtArgs>>): Prisma__EmployeeFarmClient<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one EmployeeFarm that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {EmployeeFarmFindUniqueOrThrowArgs} args - Arguments to find a EmployeeFarm
+     * @example
+     * // Get one EmployeeFarm
+     * const employeeFarm = await prisma.employeeFarm.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends EmployeeFarmFindUniqueOrThrowArgs>(args: SelectSubset<T, EmployeeFarmFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EmployeeFarmClient<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EmployeeFarm that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFarmFindFirstArgs} args - Arguments to find a EmployeeFarm
+     * @example
+     * // Get one EmployeeFarm
+     * const employeeFarm = await prisma.employeeFarm.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends EmployeeFarmFindFirstArgs>(args?: SelectSubset<T, EmployeeFarmFindFirstArgs<ExtArgs>>): Prisma__EmployeeFarmClient<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EmployeeFarm that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFarmFindFirstOrThrowArgs} args - Arguments to find a EmployeeFarm
+     * @example
+     * // Get one EmployeeFarm
+     * const employeeFarm = await prisma.employeeFarm.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends EmployeeFarmFindFirstOrThrowArgs>(args?: SelectSubset<T, EmployeeFarmFindFirstOrThrowArgs<ExtArgs>>): Prisma__EmployeeFarmClient<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more EmployeeFarms that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFarmFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all EmployeeFarms
+     * const employeeFarms = await prisma.employeeFarm.findMany()
+     * 
+     * // Get first 10 EmployeeFarms
+     * const employeeFarms = await prisma.employeeFarm.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const employeeFarmWithIdOnly = await prisma.employeeFarm.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends EmployeeFarmFindManyArgs>(args?: SelectSubset<T, EmployeeFarmFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a EmployeeFarm.
+     * @param {EmployeeFarmCreateArgs} args - Arguments to create a EmployeeFarm.
+     * @example
+     * // Create one EmployeeFarm
+     * const EmployeeFarm = await prisma.employeeFarm.create({
+     *   data: {
+     *     // ... data to create a EmployeeFarm
+     *   }
+     * })
+     * 
+     */
+    create<T extends EmployeeFarmCreateArgs>(args: SelectSubset<T, EmployeeFarmCreateArgs<ExtArgs>>): Prisma__EmployeeFarmClient<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many EmployeeFarms.
+     * @param {EmployeeFarmCreateManyArgs} args - Arguments to create many EmployeeFarms.
+     * @example
+     * // Create many EmployeeFarms
+     * const employeeFarm = await prisma.employeeFarm.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends EmployeeFarmCreateManyArgs>(args?: SelectSubset<T, EmployeeFarmCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many EmployeeFarms and returns the data saved in the database.
+     * @param {EmployeeFarmCreateManyAndReturnArgs} args - Arguments to create many EmployeeFarms.
+     * @example
+     * // Create many EmployeeFarms
+     * const employeeFarm = await prisma.employeeFarm.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many EmployeeFarms and only return the `id`
+     * const employeeFarmWithIdOnly = await prisma.employeeFarm.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends EmployeeFarmCreateManyAndReturnArgs>(args?: SelectSubset<T, EmployeeFarmCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a EmployeeFarm.
+     * @param {EmployeeFarmDeleteArgs} args - Arguments to delete one EmployeeFarm.
+     * @example
+     * // Delete one EmployeeFarm
+     * const EmployeeFarm = await prisma.employeeFarm.delete({
+     *   where: {
+     *     // ... filter to delete one EmployeeFarm
+     *   }
+     * })
+     * 
+     */
+    delete<T extends EmployeeFarmDeleteArgs>(args: SelectSubset<T, EmployeeFarmDeleteArgs<ExtArgs>>): Prisma__EmployeeFarmClient<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one EmployeeFarm.
+     * @param {EmployeeFarmUpdateArgs} args - Arguments to update one EmployeeFarm.
+     * @example
+     * // Update one EmployeeFarm
+     * const employeeFarm = await prisma.employeeFarm.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends EmployeeFarmUpdateArgs>(args: SelectSubset<T, EmployeeFarmUpdateArgs<ExtArgs>>): Prisma__EmployeeFarmClient<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more EmployeeFarms.
+     * @param {EmployeeFarmDeleteManyArgs} args - Arguments to filter EmployeeFarms to delete.
+     * @example
+     * // Delete a few EmployeeFarms
+     * const { count } = await prisma.employeeFarm.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends EmployeeFarmDeleteManyArgs>(args?: SelectSubset<T, EmployeeFarmDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EmployeeFarms.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFarmUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many EmployeeFarms
+     * const employeeFarm = await prisma.employeeFarm.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends EmployeeFarmUpdateManyArgs>(args: SelectSubset<T, EmployeeFarmUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EmployeeFarms and returns the data updated in the database.
+     * @param {EmployeeFarmUpdateManyAndReturnArgs} args - Arguments to update many EmployeeFarms.
+     * @example
+     * // Update many EmployeeFarms
+     * const employeeFarm = await prisma.employeeFarm.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more EmployeeFarms and only return the `id`
+     * const employeeFarmWithIdOnly = await prisma.employeeFarm.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends EmployeeFarmUpdateManyAndReturnArgs>(args: SelectSubset<T, EmployeeFarmUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one EmployeeFarm.
+     * @param {EmployeeFarmUpsertArgs} args - Arguments to update or create a EmployeeFarm.
+     * @example
+     * // Update or create a EmployeeFarm
+     * const employeeFarm = await prisma.employeeFarm.upsert({
+     *   create: {
+     *     // ... data to create a EmployeeFarm
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the EmployeeFarm we want to update
+     *   }
+     * })
+     */
+    upsert<T extends EmployeeFarmUpsertArgs>(args: SelectSubset<T, EmployeeFarmUpsertArgs<ExtArgs>>): Prisma__EmployeeFarmClient<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of EmployeeFarms.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFarmCountArgs} args - Arguments to filter EmployeeFarms to count.
+     * @example
+     * // Count the number of EmployeeFarms
+     * const count = await prisma.employeeFarm.count({
+     *   where: {
+     *     // ... the filter for the EmployeeFarms we want to count
+     *   }
+     * })
+    **/
+    count<T extends EmployeeFarmCountArgs>(
+      args?: Subset<T, EmployeeFarmCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EmployeeFarmCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a EmployeeFarm.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFarmAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EmployeeFarmAggregateArgs>(args: Subset<T, EmployeeFarmAggregateArgs>): Prisma.PrismaPromise<GetEmployeeFarmAggregateType<T>>
+
+    /**
+     * Group by EmployeeFarm.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFarmGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EmployeeFarmGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EmployeeFarmGroupByArgs['orderBy'] }
+        : { orderBy?: EmployeeFarmGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EmployeeFarmGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmployeeFarmGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the EmployeeFarm model
+   */
+  readonly fields: EmployeeFarmFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for EmployeeFarm.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EmployeeFarmClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    employee<T extends EmployeeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmployeeDefaultArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    farm<T extends FarmDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FarmDefaultArgs<ExtArgs>>): Prisma__FarmClient<$Result.GetResult<Prisma.$FarmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the EmployeeFarm model
+   */
+  interface EmployeeFarmFieldRefs {
+    readonly id: FieldRef<"EmployeeFarm", 'String'>
+    readonly employeeId: FieldRef<"EmployeeFarm", 'String'>
+    readonly farmId: FieldRef<"EmployeeFarm", 'String'>
+    readonly createdAt: FieldRef<"EmployeeFarm", 'DateTime'>
+    readonly updatedAt: FieldRef<"EmployeeFarm", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * EmployeeFarm findUnique
+   */
+  export type EmployeeFarmFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeFarm to fetch.
+     */
+    where: EmployeeFarmWhereUniqueInput
+  }
+
+  /**
+   * EmployeeFarm findUniqueOrThrow
+   */
+  export type EmployeeFarmFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeFarm to fetch.
+     */
+    where: EmployeeFarmWhereUniqueInput
+  }
+
+  /**
+   * EmployeeFarm findFirst
+   */
+  export type EmployeeFarmFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeFarm to fetch.
+     */
+    where?: EmployeeFarmWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmployeeFarms to fetch.
+     */
+    orderBy?: EmployeeFarmOrderByWithRelationInput | EmployeeFarmOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EmployeeFarms.
+     */
+    cursor?: EmployeeFarmWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmployeeFarms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmployeeFarms.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EmployeeFarms.
+     */
+    distinct?: EmployeeFarmScalarFieldEnum | EmployeeFarmScalarFieldEnum[]
+  }
+
+  /**
+   * EmployeeFarm findFirstOrThrow
+   */
+  export type EmployeeFarmFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeFarm to fetch.
+     */
+    where?: EmployeeFarmWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmployeeFarms to fetch.
+     */
+    orderBy?: EmployeeFarmOrderByWithRelationInput | EmployeeFarmOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EmployeeFarms.
+     */
+    cursor?: EmployeeFarmWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmployeeFarms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmployeeFarms.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EmployeeFarms.
+     */
+    distinct?: EmployeeFarmScalarFieldEnum | EmployeeFarmScalarFieldEnum[]
+  }
+
+  /**
+   * EmployeeFarm findMany
+   */
+  export type EmployeeFarmFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeFarms to fetch.
+     */
+    where?: EmployeeFarmWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmployeeFarms to fetch.
+     */
+    orderBy?: EmployeeFarmOrderByWithRelationInput | EmployeeFarmOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing EmployeeFarms.
+     */
+    cursor?: EmployeeFarmWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmployeeFarms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmployeeFarms.
+     */
+    skip?: number
+    distinct?: EmployeeFarmScalarFieldEnum | EmployeeFarmScalarFieldEnum[]
+  }
+
+  /**
+   * EmployeeFarm create
+   */
+  export type EmployeeFarmCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    /**
+     * The data needed to create a EmployeeFarm.
+     */
+    data: XOR<EmployeeFarmCreateInput, EmployeeFarmUncheckedCreateInput>
+  }
+
+  /**
+   * EmployeeFarm createMany
+   */
+  export type EmployeeFarmCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many EmployeeFarms.
+     */
+    data: EmployeeFarmCreateManyInput | EmployeeFarmCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * EmployeeFarm createManyAndReturn
+   */
+  export type EmployeeFarmCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * The data used to create many EmployeeFarms.
+     */
+    data: EmployeeFarmCreateManyInput | EmployeeFarmCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EmployeeFarm update
+   */
+  export type EmployeeFarmUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    /**
+     * The data needed to update a EmployeeFarm.
+     */
+    data: XOR<EmployeeFarmUpdateInput, EmployeeFarmUncheckedUpdateInput>
+    /**
+     * Choose, which EmployeeFarm to update.
+     */
+    where: EmployeeFarmWhereUniqueInput
+  }
+
+  /**
+   * EmployeeFarm updateMany
+   */
+  export type EmployeeFarmUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update EmployeeFarms.
+     */
+    data: XOR<EmployeeFarmUpdateManyMutationInput, EmployeeFarmUncheckedUpdateManyInput>
+    /**
+     * Filter which EmployeeFarms to update
+     */
+    where?: EmployeeFarmWhereInput
+    /**
+     * Limit how many EmployeeFarms to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * EmployeeFarm updateManyAndReturn
+   */
+  export type EmployeeFarmUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * The data used to update EmployeeFarms.
+     */
+    data: XOR<EmployeeFarmUpdateManyMutationInput, EmployeeFarmUncheckedUpdateManyInput>
+    /**
+     * Filter which EmployeeFarms to update
+     */
+    where?: EmployeeFarmWhereInput
+    /**
+     * Limit how many EmployeeFarms to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EmployeeFarm upsert
+   */
+  export type EmployeeFarmUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    /**
+     * The filter to search for the EmployeeFarm to update in case it exists.
+     */
+    where: EmployeeFarmWhereUniqueInput
+    /**
+     * In case the EmployeeFarm found by the `where` argument doesn't exist, create a new EmployeeFarm with this data.
+     */
+    create: XOR<EmployeeFarmCreateInput, EmployeeFarmUncheckedCreateInput>
+    /**
+     * In case the EmployeeFarm was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EmployeeFarmUpdateInput, EmployeeFarmUncheckedUpdateInput>
+  }
+
+  /**
+   * EmployeeFarm delete
+   */
+  export type EmployeeFarmDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    /**
+     * Filter which EmployeeFarm to delete.
+     */
+    where: EmployeeFarmWhereUniqueInput
+  }
+
+  /**
+   * EmployeeFarm deleteMany
+   */
+  export type EmployeeFarmDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EmployeeFarms to delete
+     */
+    where?: EmployeeFarmWhereInput
+    /**
+     * Limit how many EmployeeFarms to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * EmployeeFarm without action
+   */
+  export type EmployeeFarmDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model EmployeeBenefit
+   */
+
+  export type AggregateEmployeeBenefit = {
+    _count: EmployeeBenefitCountAggregateOutputType | null
+    _avg: EmployeeBenefitAvgAggregateOutputType | null
+    _sum: EmployeeBenefitSumAggregateOutputType | null
+    _min: EmployeeBenefitMinAggregateOutputType | null
+    _max: EmployeeBenefitMaxAggregateOutputType | null
+  }
+
+  export type EmployeeBenefitAvgAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type EmployeeBenefitSumAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type EmployeeBenefitMinAggregateOutputType = {
+    id: string | null
+    employeeId: string | null
+    name: string | null
+    amount: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmployeeBenefitMaxAggregateOutputType = {
+    id: string | null
+    employeeId: string | null
+    name: string | null
+    amount: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmployeeBenefitCountAggregateOutputType = {
+    id: number
+    employeeId: number
+    name: number
+    amount: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type EmployeeBenefitAvgAggregateInputType = {
+    amount?: true
+  }
+
+  export type EmployeeBenefitSumAggregateInputType = {
+    amount?: true
+  }
+
+  export type EmployeeBenefitMinAggregateInputType = {
+    id?: true
+    employeeId?: true
+    name?: true
+    amount?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmployeeBenefitMaxAggregateInputType = {
+    id?: true
+    employeeId?: true
+    name?: true
+    amount?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmployeeBenefitCountAggregateInputType = {
+    id?: true
+    employeeId?: true
+    name?: true
+    amount?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type EmployeeBenefitAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EmployeeBenefit to aggregate.
+     */
+    where?: EmployeeBenefitWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmployeeBenefits to fetch.
+     */
+    orderBy?: EmployeeBenefitOrderByWithRelationInput | EmployeeBenefitOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EmployeeBenefitWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmployeeBenefits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmployeeBenefits.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned EmployeeBenefits
+    **/
+    _count?: true | EmployeeBenefitCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: EmployeeBenefitAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: EmployeeBenefitSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EmployeeBenefitMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EmployeeBenefitMaxAggregateInputType
+  }
+
+  export type GetEmployeeBenefitAggregateType<T extends EmployeeBenefitAggregateArgs> = {
+        [P in keyof T & keyof AggregateEmployeeBenefit]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEmployeeBenefit[P]>
+      : GetScalarType<T[P], AggregateEmployeeBenefit[P]>
+  }
+
+
+
+
+  export type EmployeeBenefitGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmployeeBenefitWhereInput
+    orderBy?: EmployeeBenefitOrderByWithAggregationInput | EmployeeBenefitOrderByWithAggregationInput[]
+    by: EmployeeBenefitScalarFieldEnum[] | EmployeeBenefitScalarFieldEnum
+    having?: EmployeeBenefitScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EmployeeBenefitCountAggregateInputType | true
+    _avg?: EmployeeBenefitAvgAggregateInputType
+    _sum?: EmployeeBenefitSumAggregateInputType
+    _min?: EmployeeBenefitMinAggregateInputType
+    _max?: EmployeeBenefitMaxAggregateInputType
+  }
+
+  export type EmployeeBenefitGroupByOutputType = {
+    id: string
+    employeeId: string
+    name: string
+    amount: number | null
+    createdAt: Date
+    updatedAt: Date
+    _count: EmployeeBenefitCountAggregateOutputType | null
+    _avg: EmployeeBenefitAvgAggregateOutputType | null
+    _sum: EmployeeBenefitSumAggregateOutputType | null
+    _min: EmployeeBenefitMinAggregateOutputType | null
+    _max: EmployeeBenefitMaxAggregateOutputType | null
+  }
+
+  type GetEmployeeBenefitGroupByPayload<T extends EmployeeBenefitGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EmployeeBenefitGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EmployeeBenefitGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EmployeeBenefitGroupByOutputType[P]>
+            : GetScalarType<T[P], EmployeeBenefitGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EmployeeBenefitSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    employeeId?: boolean
+    name?: boolean
+    amount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employeeBenefit"]>
+
+  export type EmployeeBenefitSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    employeeId?: boolean
+    name?: boolean
+    amount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employeeBenefit"]>
+
+  export type EmployeeBenefitSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    employeeId?: boolean
+    name?: boolean
+    amount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employeeBenefit"]>
+
+  export type EmployeeBenefitSelectScalar = {
+    id?: boolean
+    employeeId?: boolean
+    name?: boolean
+    amount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type EmployeeBenefitOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "employeeId" | "name" | "amount" | "createdAt" | "updatedAt", ExtArgs["result"]["employeeBenefit"]>
+  export type EmployeeBenefitInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+  }
+  export type EmployeeBenefitIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+  }
+  export type EmployeeBenefitIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+  }
+
+  export type $EmployeeBenefitPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "EmployeeBenefit"
+    objects: {
+      employee: Prisma.$EmployeePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      employeeId: string
+      name: string
+      amount: number | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["employeeBenefit"]>
+    composites: {}
+  }
+
+  type EmployeeBenefitGetPayload<S extends boolean | null | undefined | EmployeeBenefitDefaultArgs> = $Result.GetResult<Prisma.$EmployeeBenefitPayload, S>
+
+  type EmployeeBenefitCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<EmployeeBenefitFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: EmployeeBenefitCountAggregateInputType | true
+    }
+
+  export interface EmployeeBenefitDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['EmployeeBenefit'], meta: { name: 'EmployeeBenefit' } }
+    /**
+     * Find zero or one EmployeeBenefit that matches the filter.
+     * @param {EmployeeBenefitFindUniqueArgs} args - Arguments to find a EmployeeBenefit
+     * @example
+     * // Get one EmployeeBenefit
+     * const employeeBenefit = await prisma.employeeBenefit.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends EmployeeBenefitFindUniqueArgs>(args: SelectSubset<T, EmployeeBenefitFindUniqueArgs<ExtArgs>>): Prisma__EmployeeBenefitClient<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one EmployeeBenefit that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {EmployeeBenefitFindUniqueOrThrowArgs} args - Arguments to find a EmployeeBenefit
+     * @example
+     * // Get one EmployeeBenefit
+     * const employeeBenefit = await prisma.employeeBenefit.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends EmployeeBenefitFindUniqueOrThrowArgs>(args: SelectSubset<T, EmployeeBenefitFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EmployeeBenefitClient<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EmployeeBenefit that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeBenefitFindFirstArgs} args - Arguments to find a EmployeeBenefit
+     * @example
+     * // Get one EmployeeBenefit
+     * const employeeBenefit = await prisma.employeeBenefit.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends EmployeeBenefitFindFirstArgs>(args?: SelectSubset<T, EmployeeBenefitFindFirstArgs<ExtArgs>>): Prisma__EmployeeBenefitClient<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EmployeeBenefit that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeBenefitFindFirstOrThrowArgs} args - Arguments to find a EmployeeBenefit
+     * @example
+     * // Get one EmployeeBenefit
+     * const employeeBenefit = await prisma.employeeBenefit.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends EmployeeBenefitFindFirstOrThrowArgs>(args?: SelectSubset<T, EmployeeBenefitFindFirstOrThrowArgs<ExtArgs>>): Prisma__EmployeeBenefitClient<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more EmployeeBenefits that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeBenefitFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all EmployeeBenefits
+     * const employeeBenefits = await prisma.employeeBenefit.findMany()
+     * 
+     * // Get first 10 EmployeeBenefits
+     * const employeeBenefits = await prisma.employeeBenefit.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const employeeBenefitWithIdOnly = await prisma.employeeBenefit.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends EmployeeBenefitFindManyArgs>(args?: SelectSubset<T, EmployeeBenefitFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a EmployeeBenefit.
+     * @param {EmployeeBenefitCreateArgs} args - Arguments to create a EmployeeBenefit.
+     * @example
+     * // Create one EmployeeBenefit
+     * const EmployeeBenefit = await prisma.employeeBenefit.create({
+     *   data: {
+     *     // ... data to create a EmployeeBenefit
+     *   }
+     * })
+     * 
+     */
+    create<T extends EmployeeBenefitCreateArgs>(args: SelectSubset<T, EmployeeBenefitCreateArgs<ExtArgs>>): Prisma__EmployeeBenefitClient<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many EmployeeBenefits.
+     * @param {EmployeeBenefitCreateManyArgs} args - Arguments to create many EmployeeBenefits.
+     * @example
+     * // Create many EmployeeBenefits
+     * const employeeBenefit = await prisma.employeeBenefit.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends EmployeeBenefitCreateManyArgs>(args?: SelectSubset<T, EmployeeBenefitCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many EmployeeBenefits and returns the data saved in the database.
+     * @param {EmployeeBenefitCreateManyAndReturnArgs} args - Arguments to create many EmployeeBenefits.
+     * @example
+     * // Create many EmployeeBenefits
+     * const employeeBenefit = await prisma.employeeBenefit.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many EmployeeBenefits and only return the `id`
+     * const employeeBenefitWithIdOnly = await prisma.employeeBenefit.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends EmployeeBenefitCreateManyAndReturnArgs>(args?: SelectSubset<T, EmployeeBenefitCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a EmployeeBenefit.
+     * @param {EmployeeBenefitDeleteArgs} args - Arguments to delete one EmployeeBenefit.
+     * @example
+     * // Delete one EmployeeBenefit
+     * const EmployeeBenefit = await prisma.employeeBenefit.delete({
+     *   where: {
+     *     // ... filter to delete one EmployeeBenefit
+     *   }
+     * })
+     * 
+     */
+    delete<T extends EmployeeBenefitDeleteArgs>(args: SelectSubset<T, EmployeeBenefitDeleteArgs<ExtArgs>>): Prisma__EmployeeBenefitClient<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one EmployeeBenefit.
+     * @param {EmployeeBenefitUpdateArgs} args - Arguments to update one EmployeeBenefit.
+     * @example
+     * // Update one EmployeeBenefit
+     * const employeeBenefit = await prisma.employeeBenefit.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends EmployeeBenefitUpdateArgs>(args: SelectSubset<T, EmployeeBenefitUpdateArgs<ExtArgs>>): Prisma__EmployeeBenefitClient<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more EmployeeBenefits.
+     * @param {EmployeeBenefitDeleteManyArgs} args - Arguments to filter EmployeeBenefits to delete.
+     * @example
+     * // Delete a few EmployeeBenefits
+     * const { count } = await prisma.employeeBenefit.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends EmployeeBenefitDeleteManyArgs>(args?: SelectSubset<T, EmployeeBenefitDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EmployeeBenefits.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeBenefitUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many EmployeeBenefits
+     * const employeeBenefit = await prisma.employeeBenefit.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends EmployeeBenefitUpdateManyArgs>(args: SelectSubset<T, EmployeeBenefitUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EmployeeBenefits and returns the data updated in the database.
+     * @param {EmployeeBenefitUpdateManyAndReturnArgs} args - Arguments to update many EmployeeBenefits.
+     * @example
+     * // Update many EmployeeBenefits
+     * const employeeBenefit = await prisma.employeeBenefit.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more EmployeeBenefits and only return the `id`
+     * const employeeBenefitWithIdOnly = await prisma.employeeBenefit.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends EmployeeBenefitUpdateManyAndReturnArgs>(args: SelectSubset<T, EmployeeBenefitUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one EmployeeBenefit.
+     * @param {EmployeeBenefitUpsertArgs} args - Arguments to update or create a EmployeeBenefit.
+     * @example
+     * // Update or create a EmployeeBenefit
+     * const employeeBenefit = await prisma.employeeBenefit.upsert({
+     *   create: {
+     *     // ... data to create a EmployeeBenefit
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the EmployeeBenefit we want to update
+     *   }
+     * })
+     */
+    upsert<T extends EmployeeBenefitUpsertArgs>(args: SelectSubset<T, EmployeeBenefitUpsertArgs<ExtArgs>>): Prisma__EmployeeBenefitClient<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of EmployeeBenefits.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeBenefitCountArgs} args - Arguments to filter EmployeeBenefits to count.
+     * @example
+     * // Count the number of EmployeeBenefits
+     * const count = await prisma.employeeBenefit.count({
+     *   where: {
+     *     // ... the filter for the EmployeeBenefits we want to count
+     *   }
+     * })
+    **/
+    count<T extends EmployeeBenefitCountArgs>(
+      args?: Subset<T, EmployeeBenefitCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EmployeeBenefitCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a EmployeeBenefit.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeBenefitAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EmployeeBenefitAggregateArgs>(args: Subset<T, EmployeeBenefitAggregateArgs>): Prisma.PrismaPromise<GetEmployeeBenefitAggregateType<T>>
+
+    /**
+     * Group by EmployeeBenefit.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeBenefitGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EmployeeBenefitGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EmployeeBenefitGroupByArgs['orderBy'] }
+        : { orderBy?: EmployeeBenefitGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EmployeeBenefitGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmployeeBenefitGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the EmployeeBenefit model
+   */
+  readonly fields: EmployeeBenefitFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for EmployeeBenefit.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EmployeeBenefitClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    employee<T extends EmployeeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmployeeDefaultArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the EmployeeBenefit model
+   */
+  interface EmployeeBenefitFieldRefs {
+    readonly id: FieldRef<"EmployeeBenefit", 'String'>
+    readonly employeeId: FieldRef<"EmployeeBenefit", 'String'>
+    readonly name: FieldRef<"EmployeeBenefit", 'String'>
+    readonly amount: FieldRef<"EmployeeBenefit", 'Float'>
+    readonly createdAt: FieldRef<"EmployeeBenefit", 'DateTime'>
+    readonly updatedAt: FieldRef<"EmployeeBenefit", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * EmployeeBenefit findUnique
+   */
+  export type EmployeeBenefitFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeBenefit to fetch.
+     */
+    where: EmployeeBenefitWhereUniqueInput
+  }
+
+  /**
+   * EmployeeBenefit findUniqueOrThrow
+   */
+  export type EmployeeBenefitFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeBenefit to fetch.
+     */
+    where: EmployeeBenefitWhereUniqueInput
+  }
+
+  /**
+   * EmployeeBenefit findFirst
+   */
+  export type EmployeeBenefitFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeBenefit to fetch.
+     */
+    where?: EmployeeBenefitWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmployeeBenefits to fetch.
+     */
+    orderBy?: EmployeeBenefitOrderByWithRelationInput | EmployeeBenefitOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EmployeeBenefits.
+     */
+    cursor?: EmployeeBenefitWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmployeeBenefits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmployeeBenefits.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EmployeeBenefits.
+     */
+    distinct?: EmployeeBenefitScalarFieldEnum | EmployeeBenefitScalarFieldEnum[]
+  }
+
+  /**
+   * EmployeeBenefit findFirstOrThrow
+   */
+  export type EmployeeBenefitFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeBenefit to fetch.
+     */
+    where?: EmployeeBenefitWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmployeeBenefits to fetch.
+     */
+    orderBy?: EmployeeBenefitOrderByWithRelationInput | EmployeeBenefitOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EmployeeBenefits.
+     */
+    cursor?: EmployeeBenefitWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmployeeBenefits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmployeeBenefits.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EmployeeBenefits.
+     */
+    distinct?: EmployeeBenefitScalarFieldEnum | EmployeeBenefitScalarFieldEnum[]
+  }
+
+  /**
+   * EmployeeBenefit findMany
+   */
+  export type EmployeeBenefitFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeBenefits to fetch.
+     */
+    where?: EmployeeBenefitWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmployeeBenefits to fetch.
+     */
+    orderBy?: EmployeeBenefitOrderByWithRelationInput | EmployeeBenefitOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing EmployeeBenefits.
+     */
+    cursor?: EmployeeBenefitWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmployeeBenefits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmployeeBenefits.
+     */
+    skip?: number
+    distinct?: EmployeeBenefitScalarFieldEnum | EmployeeBenefitScalarFieldEnum[]
+  }
+
+  /**
+   * EmployeeBenefit create
+   */
+  export type EmployeeBenefitCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    /**
+     * The data needed to create a EmployeeBenefit.
+     */
+    data: XOR<EmployeeBenefitCreateInput, EmployeeBenefitUncheckedCreateInput>
+  }
+
+  /**
+   * EmployeeBenefit createMany
+   */
+  export type EmployeeBenefitCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many EmployeeBenefits.
+     */
+    data: EmployeeBenefitCreateManyInput | EmployeeBenefitCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * EmployeeBenefit createManyAndReturn
+   */
+  export type EmployeeBenefitCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * The data used to create many EmployeeBenefits.
+     */
+    data: EmployeeBenefitCreateManyInput | EmployeeBenefitCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EmployeeBenefit update
+   */
+  export type EmployeeBenefitUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    /**
+     * The data needed to update a EmployeeBenefit.
+     */
+    data: XOR<EmployeeBenefitUpdateInput, EmployeeBenefitUncheckedUpdateInput>
+    /**
+     * Choose, which EmployeeBenefit to update.
+     */
+    where: EmployeeBenefitWhereUniqueInput
+  }
+
+  /**
+   * EmployeeBenefit updateMany
+   */
+  export type EmployeeBenefitUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update EmployeeBenefits.
+     */
+    data: XOR<EmployeeBenefitUpdateManyMutationInput, EmployeeBenefitUncheckedUpdateManyInput>
+    /**
+     * Filter which EmployeeBenefits to update
+     */
+    where?: EmployeeBenefitWhereInput
+    /**
+     * Limit how many EmployeeBenefits to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * EmployeeBenefit updateManyAndReturn
+   */
+  export type EmployeeBenefitUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * The data used to update EmployeeBenefits.
+     */
+    data: XOR<EmployeeBenefitUpdateManyMutationInput, EmployeeBenefitUncheckedUpdateManyInput>
+    /**
+     * Filter which EmployeeBenefits to update
+     */
+    where?: EmployeeBenefitWhereInput
+    /**
+     * Limit how many EmployeeBenefits to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EmployeeBenefit upsert
+   */
+  export type EmployeeBenefitUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    /**
+     * The filter to search for the EmployeeBenefit to update in case it exists.
+     */
+    where: EmployeeBenefitWhereUniqueInput
+    /**
+     * In case the EmployeeBenefit found by the `where` argument doesn't exist, create a new EmployeeBenefit with this data.
+     */
+    create: XOR<EmployeeBenefitCreateInput, EmployeeBenefitUncheckedCreateInput>
+    /**
+     * In case the EmployeeBenefit was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EmployeeBenefitUpdateInput, EmployeeBenefitUncheckedUpdateInput>
+  }
+
+  /**
+   * EmployeeBenefit delete
+   */
+  export type EmployeeBenefitDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    /**
+     * Filter which EmployeeBenefit to delete.
+     */
+    where: EmployeeBenefitWhereUniqueInput
+  }
+
+  /**
+   * EmployeeBenefit deleteMany
+   */
+  export type EmployeeBenefitDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EmployeeBenefits to delete
+     */
+    where?: EmployeeBenefitWhereInput
+    /**
+     * Limit how many EmployeeBenefits to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * EmployeeBenefit without action
+   */
+  export type EmployeeBenefitDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
   }
 
 
@@ -3468,6 +7327,54 @@ export namespace Prisma {
   };
 
   export type FarmScalarFieldEnum = (typeof FarmScalarFieldEnum)[keyof typeof FarmScalarFieldEnum]
+
+
+  export const EmployeeScalarFieldEnum: {
+    id: 'id',
+    firstName: 'firstName',
+    middleName: 'middleName',
+    lastName: 'lastName',
+    phone: 'phone',
+    emergencyContact: 'emergencyContact',
+    idNumber: 'idNumber',
+    idPhoto: 'idPhoto',
+    employeeType: 'employeeType',
+    dateOfEmployment: 'dateOfEmployment',
+    endDate: 'endDate',
+    role: 'role',
+    customRole: 'customRole',
+    paymentSchedule: 'paymentSchedule',
+    salary: 'salary',
+    typeOfEngagement: 'typeOfEngagement',
+    workSchedule: 'workSchedule',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type EmployeeScalarFieldEnum = (typeof EmployeeScalarFieldEnum)[keyof typeof EmployeeScalarFieldEnum]
+
+
+  export const EmployeeFarmScalarFieldEnum: {
+    id: 'id',
+    employeeId: 'employeeId',
+    farmId: 'farmId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type EmployeeFarmScalarFieldEnum = (typeof EmployeeFarmScalarFieldEnum)[keyof typeof EmployeeFarmScalarFieldEnum]
+
+
+  export const EmployeeBenefitScalarFieldEnum: {
+    id: 'id',
+    employeeId: 'employeeId',
+    name: 'name',
+    amount: 'amount',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type EmployeeBenefitScalarFieldEnum = (typeof EmployeeBenefitScalarFieldEnum)[keyof typeof EmployeeBenefitScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3701,6 +7608,7 @@ export namespace Prisma {
     userId?: StringFilter<"Farm"> | string
     createdAt?: DateTimeFilter<"Farm"> | Date | string
     updatedAt?: DateTimeFilter<"Farm"> | Date | string
+    employees?: EmployeeFarmListRelationFilter
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
@@ -3715,6 +7623,7 @@ export namespace Prisma {
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    employees?: EmployeeFarmOrderByRelationAggregateInput
     user?: UserOrderByWithRelationInput
   }
 
@@ -3732,6 +7641,7 @@ export namespace Prisma {
     userId?: StringFilter<"Farm"> | string
     createdAt?: DateTimeFilter<"Farm"> | Date | string
     updatedAt?: DateTimeFilter<"Farm"> | Date | string
+    employees?: EmployeeFarmListRelationFilter
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
@@ -3767,6 +7677,258 @@ export namespace Prisma {
     userId?: StringWithAggregatesFilter<"Farm"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Farm"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Farm"> | Date | string
+  }
+
+  export type EmployeeWhereInput = {
+    AND?: EmployeeWhereInput | EmployeeWhereInput[]
+    OR?: EmployeeWhereInput[]
+    NOT?: EmployeeWhereInput | EmployeeWhereInput[]
+    id?: StringFilter<"Employee"> | string
+    firstName?: StringFilter<"Employee"> | string
+    middleName?: StringNullableFilter<"Employee"> | string | null
+    lastName?: StringFilter<"Employee"> | string
+    phone?: StringFilter<"Employee"> | string
+    emergencyContact?: StringNullableFilter<"Employee"> | string | null
+    idNumber?: StringFilter<"Employee"> | string
+    idPhoto?: StringNullableFilter<"Employee"> | string | null
+    employeeType?: StringFilter<"Employee"> | string
+    dateOfEmployment?: DateTimeFilter<"Employee"> | Date | string
+    endDate?: DateTimeNullableFilter<"Employee"> | Date | string | null
+    role?: StringFilter<"Employee"> | string
+    customRole?: StringNullableFilter<"Employee"> | string | null
+    paymentSchedule?: StringFilter<"Employee"> | string
+    salary?: FloatFilter<"Employee"> | number
+    typeOfEngagement?: StringNullableFilter<"Employee"> | string | null
+    workSchedule?: StringNullableFilter<"Employee"> | string | null
+    createdAt?: DateTimeFilter<"Employee"> | Date | string
+    updatedAt?: DateTimeFilter<"Employee"> | Date | string
+    benefits?: EmployeeBenefitListRelationFilter
+    farms?: EmployeeFarmListRelationFilter
+  }
+
+  export type EmployeeOrderByWithRelationInput = {
+    id?: SortOrder
+    firstName?: SortOrder
+    middleName?: SortOrderInput | SortOrder
+    lastName?: SortOrder
+    phone?: SortOrder
+    emergencyContact?: SortOrderInput | SortOrder
+    idNumber?: SortOrder
+    idPhoto?: SortOrderInput | SortOrder
+    employeeType?: SortOrder
+    dateOfEmployment?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    role?: SortOrder
+    customRole?: SortOrderInput | SortOrder
+    paymentSchedule?: SortOrder
+    salary?: SortOrder
+    typeOfEngagement?: SortOrderInput | SortOrder
+    workSchedule?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    benefits?: EmployeeBenefitOrderByRelationAggregateInput
+    farms?: EmployeeFarmOrderByRelationAggregateInput
+  }
+
+  export type EmployeeWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    idNumber?: string
+    AND?: EmployeeWhereInput | EmployeeWhereInput[]
+    OR?: EmployeeWhereInput[]
+    NOT?: EmployeeWhereInput | EmployeeWhereInput[]
+    firstName?: StringFilter<"Employee"> | string
+    middleName?: StringNullableFilter<"Employee"> | string | null
+    lastName?: StringFilter<"Employee"> | string
+    phone?: StringFilter<"Employee"> | string
+    emergencyContact?: StringNullableFilter<"Employee"> | string | null
+    idPhoto?: StringNullableFilter<"Employee"> | string | null
+    employeeType?: StringFilter<"Employee"> | string
+    dateOfEmployment?: DateTimeFilter<"Employee"> | Date | string
+    endDate?: DateTimeNullableFilter<"Employee"> | Date | string | null
+    role?: StringFilter<"Employee"> | string
+    customRole?: StringNullableFilter<"Employee"> | string | null
+    paymentSchedule?: StringFilter<"Employee"> | string
+    salary?: FloatFilter<"Employee"> | number
+    typeOfEngagement?: StringNullableFilter<"Employee"> | string | null
+    workSchedule?: StringNullableFilter<"Employee"> | string | null
+    createdAt?: DateTimeFilter<"Employee"> | Date | string
+    updatedAt?: DateTimeFilter<"Employee"> | Date | string
+    benefits?: EmployeeBenefitListRelationFilter
+    farms?: EmployeeFarmListRelationFilter
+  }, "id" | "idNumber">
+
+  export type EmployeeOrderByWithAggregationInput = {
+    id?: SortOrder
+    firstName?: SortOrder
+    middleName?: SortOrderInput | SortOrder
+    lastName?: SortOrder
+    phone?: SortOrder
+    emergencyContact?: SortOrderInput | SortOrder
+    idNumber?: SortOrder
+    idPhoto?: SortOrderInput | SortOrder
+    employeeType?: SortOrder
+    dateOfEmployment?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    role?: SortOrder
+    customRole?: SortOrderInput | SortOrder
+    paymentSchedule?: SortOrder
+    salary?: SortOrder
+    typeOfEngagement?: SortOrderInput | SortOrder
+    workSchedule?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: EmployeeCountOrderByAggregateInput
+    _avg?: EmployeeAvgOrderByAggregateInput
+    _max?: EmployeeMaxOrderByAggregateInput
+    _min?: EmployeeMinOrderByAggregateInput
+    _sum?: EmployeeSumOrderByAggregateInput
+  }
+
+  export type EmployeeScalarWhereWithAggregatesInput = {
+    AND?: EmployeeScalarWhereWithAggregatesInput | EmployeeScalarWhereWithAggregatesInput[]
+    OR?: EmployeeScalarWhereWithAggregatesInput[]
+    NOT?: EmployeeScalarWhereWithAggregatesInput | EmployeeScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Employee"> | string
+    firstName?: StringWithAggregatesFilter<"Employee"> | string
+    middleName?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    lastName?: StringWithAggregatesFilter<"Employee"> | string
+    phone?: StringWithAggregatesFilter<"Employee"> | string
+    emergencyContact?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    idNumber?: StringWithAggregatesFilter<"Employee"> | string
+    idPhoto?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    employeeType?: StringWithAggregatesFilter<"Employee"> | string
+    dateOfEmployment?: DateTimeWithAggregatesFilter<"Employee"> | Date | string
+    endDate?: DateTimeNullableWithAggregatesFilter<"Employee"> | Date | string | null
+    role?: StringWithAggregatesFilter<"Employee"> | string
+    customRole?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    paymentSchedule?: StringWithAggregatesFilter<"Employee"> | string
+    salary?: FloatWithAggregatesFilter<"Employee"> | number
+    typeOfEngagement?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    workSchedule?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Employee"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Employee"> | Date | string
+  }
+
+  export type EmployeeFarmWhereInput = {
+    AND?: EmployeeFarmWhereInput | EmployeeFarmWhereInput[]
+    OR?: EmployeeFarmWhereInput[]
+    NOT?: EmployeeFarmWhereInput | EmployeeFarmWhereInput[]
+    id?: StringFilter<"EmployeeFarm"> | string
+    employeeId?: StringFilter<"EmployeeFarm"> | string
+    farmId?: StringFilter<"EmployeeFarm"> | string
+    createdAt?: DateTimeFilter<"EmployeeFarm"> | Date | string
+    updatedAt?: DateTimeFilter<"EmployeeFarm"> | Date | string
+    employee?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
+    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
+  }
+
+  export type EmployeeFarmOrderByWithRelationInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    farmId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    employee?: EmployeeOrderByWithRelationInput
+    farm?: FarmOrderByWithRelationInput
+  }
+
+  export type EmployeeFarmWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    employeeId_farmId?: EmployeeFarmEmployeeIdFarmIdCompoundUniqueInput
+    AND?: EmployeeFarmWhereInput | EmployeeFarmWhereInput[]
+    OR?: EmployeeFarmWhereInput[]
+    NOT?: EmployeeFarmWhereInput | EmployeeFarmWhereInput[]
+    employeeId?: StringFilter<"EmployeeFarm"> | string
+    farmId?: StringFilter<"EmployeeFarm"> | string
+    createdAt?: DateTimeFilter<"EmployeeFarm"> | Date | string
+    updatedAt?: DateTimeFilter<"EmployeeFarm"> | Date | string
+    employee?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
+    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
+  }, "id" | "employeeId_farmId">
+
+  export type EmployeeFarmOrderByWithAggregationInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    farmId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: EmployeeFarmCountOrderByAggregateInput
+    _max?: EmployeeFarmMaxOrderByAggregateInput
+    _min?: EmployeeFarmMinOrderByAggregateInput
+  }
+
+  export type EmployeeFarmScalarWhereWithAggregatesInput = {
+    AND?: EmployeeFarmScalarWhereWithAggregatesInput | EmployeeFarmScalarWhereWithAggregatesInput[]
+    OR?: EmployeeFarmScalarWhereWithAggregatesInput[]
+    NOT?: EmployeeFarmScalarWhereWithAggregatesInput | EmployeeFarmScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"EmployeeFarm"> | string
+    employeeId?: StringWithAggregatesFilter<"EmployeeFarm"> | string
+    farmId?: StringWithAggregatesFilter<"EmployeeFarm"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"EmployeeFarm"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"EmployeeFarm"> | Date | string
+  }
+
+  export type EmployeeBenefitWhereInput = {
+    AND?: EmployeeBenefitWhereInput | EmployeeBenefitWhereInput[]
+    OR?: EmployeeBenefitWhereInput[]
+    NOT?: EmployeeBenefitWhereInput | EmployeeBenefitWhereInput[]
+    id?: StringFilter<"EmployeeBenefit"> | string
+    employeeId?: StringFilter<"EmployeeBenefit"> | string
+    name?: StringFilter<"EmployeeBenefit"> | string
+    amount?: FloatNullableFilter<"EmployeeBenefit"> | number | null
+    createdAt?: DateTimeFilter<"EmployeeBenefit"> | Date | string
+    updatedAt?: DateTimeFilter<"EmployeeBenefit"> | Date | string
+    employee?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
+  }
+
+  export type EmployeeBenefitOrderByWithRelationInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    name?: SortOrder
+    amount?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    employee?: EmployeeOrderByWithRelationInput
+  }
+
+  export type EmployeeBenefitWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    employeeId_name?: EmployeeBenefitEmployeeIdNameCompoundUniqueInput
+    AND?: EmployeeBenefitWhereInput | EmployeeBenefitWhereInput[]
+    OR?: EmployeeBenefitWhereInput[]
+    NOT?: EmployeeBenefitWhereInput | EmployeeBenefitWhereInput[]
+    employeeId?: StringFilter<"EmployeeBenefit"> | string
+    name?: StringFilter<"EmployeeBenefit"> | string
+    amount?: FloatNullableFilter<"EmployeeBenefit"> | number | null
+    createdAt?: DateTimeFilter<"EmployeeBenefit"> | Date | string
+    updatedAt?: DateTimeFilter<"EmployeeBenefit"> | Date | string
+    employee?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
+  }, "id" | "employeeId_name">
+
+  export type EmployeeBenefitOrderByWithAggregationInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    name?: SortOrder
+    amount?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: EmployeeBenefitCountOrderByAggregateInput
+    _avg?: EmployeeBenefitAvgOrderByAggregateInput
+    _max?: EmployeeBenefitMaxOrderByAggregateInput
+    _min?: EmployeeBenefitMinOrderByAggregateInput
+    _sum?: EmployeeBenefitSumOrderByAggregateInput
+  }
+
+  export type EmployeeBenefitScalarWhereWithAggregatesInput = {
+    AND?: EmployeeBenefitScalarWhereWithAggregatesInput | EmployeeBenefitScalarWhereWithAggregatesInput[]
+    OR?: EmployeeBenefitScalarWhereWithAggregatesInput[]
+    NOT?: EmployeeBenefitScalarWhereWithAggregatesInput | EmployeeBenefitScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"EmployeeBenefit"> | string
+    employeeId?: StringWithAggregatesFilter<"EmployeeBenefit"> | string
+    name?: StringWithAggregatesFilter<"EmployeeBenefit"> | string
+    amount?: FloatNullableWithAggregatesFilter<"EmployeeBenefit"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"EmployeeBenefit"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"EmployeeBenefit"> | Date | string
   }
 
   export type UserCreateInput = {
@@ -3930,6 +8092,7 @@ export namespace Prisma {
     farmingTypes?: FarmCreatefarmingTypesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    employees?: EmployeeFarmCreateNestedManyWithoutFarmInput
     user: UserCreateNestedOneWithoutFarmsInput
   }
 
@@ -3944,6 +8107,7 @@ export namespace Prisma {
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    employees?: EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUpdateInput = {
@@ -3956,6 +8120,7 @@ export namespace Prisma {
     farmingTypes?: FarmUpdatefarmingTypesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: EmployeeFarmUpdateManyWithoutFarmNestedInput
     user?: UserUpdateOneRequiredWithoutFarmsNestedInput
   }
 
@@ -3970,6 +8135,7 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmCreateManyInput = {
@@ -4006,6 +8172,284 @@ export namespace Prisma {
     ownership?: StringFieldUpdateOperationsInput | string
     farmingTypes?: FarmUpdatefarmingTypesInput | string[]
     userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeCreateInput = {
+    id?: string
+    firstName: string
+    middleName?: string | null
+    lastName: string
+    phone: string
+    emergencyContact?: string | null
+    idNumber: string
+    idPhoto?: string | null
+    employeeType: string
+    dateOfEmployment: Date | string
+    endDate?: Date | string | null
+    role: string
+    customRole?: string | null
+    paymentSchedule: string
+    salary: number
+    typeOfEngagement?: string | null
+    workSchedule?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    benefits?: EmployeeBenefitCreateNestedManyWithoutEmployeeInput
+    farms?: EmployeeFarmCreateNestedManyWithoutEmployeeInput
+  }
+
+  export type EmployeeUncheckedCreateInput = {
+    id?: string
+    firstName: string
+    middleName?: string | null
+    lastName: string
+    phone: string
+    emergencyContact?: string | null
+    idNumber: string
+    idPhoto?: string | null
+    employeeType: string
+    dateOfEmployment: Date | string
+    endDate?: Date | string | null
+    role: string
+    customRole?: string | null
+    paymentSchedule: string
+    salary: number
+    typeOfEngagement?: string | null
+    workSchedule?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    benefits?: EmployeeBenefitUncheckedCreateNestedManyWithoutEmployeeInput
+    farms?: EmployeeFarmUncheckedCreateNestedManyWithoutEmployeeInput
+  }
+
+  export type EmployeeUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    emergencyContact?: NullableStringFieldUpdateOperationsInput | string | null
+    idNumber?: StringFieldUpdateOperationsInput | string
+    idPhoto?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeType?: StringFieldUpdateOperationsInput | string
+    dateOfEmployment?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    customRole?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentSchedule?: StringFieldUpdateOperationsInput | string
+    salary?: FloatFieldUpdateOperationsInput | number
+    typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
+    workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    benefits?: EmployeeBenefitUpdateManyWithoutEmployeeNestedInput
+    farms?: EmployeeFarmUpdateManyWithoutEmployeeNestedInput
+  }
+
+  export type EmployeeUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    emergencyContact?: NullableStringFieldUpdateOperationsInput | string | null
+    idNumber?: StringFieldUpdateOperationsInput | string
+    idPhoto?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeType?: StringFieldUpdateOperationsInput | string
+    dateOfEmployment?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    customRole?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentSchedule?: StringFieldUpdateOperationsInput | string
+    salary?: FloatFieldUpdateOperationsInput | number
+    typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
+    workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    benefits?: EmployeeBenefitUncheckedUpdateManyWithoutEmployeeNestedInput
+    farms?: EmployeeFarmUncheckedUpdateManyWithoutEmployeeNestedInput
+  }
+
+  export type EmployeeCreateManyInput = {
+    id?: string
+    firstName: string
+    middleName?: string | null
+    lastName: string
+    phone: string
+    emergencyContact?: string | null
+    idNumber: string
+    idPhoto?: string | null
+    employeeType: string
+    dateOfEmployment: Date | string
+    endDate?: Date | string | null
+    role: string
+    customRole?: string | null
+    paymentSchedule: string
+    salary: number
+    typeOfEngagement?: string | null
+    workSchedule?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    emergencyContact?: NullableStringFieldUpdateOperationsInput | string | null
+    idNumber?: StringFieldUpdateOperationsInput | string
+    idPhoto?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeType?: StringFieldUpdateOperationsInput | string
+    dateOfEmployment?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    customRole?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentSchedule?: StringFieldUpdateOperationsInput | string
+    salary?: FloatFieldUpdateOperationsInput | number
+    typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
+    workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    emergencyContact?: NullableStringFieldUpdateOperationsInput | string | null
+    idNumber?: StringFieldUpdateOperationsInput | string
+    idPhoto?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeType?: StringFieldUpdateOperationsInput | string
+    dateOfEmployment?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    customRole?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentSchedule?: StringFieldUpdateOperationsInput | string
+    salary?: FloatFieldUpdateOperationsInput | number
+    typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
+    workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeFarmCreateInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    employee: EmployeeCreateNestedOneWithoutFarmsInput
+    farm: FarmCreateNestedOneWithoutEmployeesInput
+  }
+
+  export type EmployeeFarmUncheckedCreateInput = {
+    id?: string
+    employeeId: string
+    farmId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeFarmUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employee?: EmployeeUpdateOneRequiredWithoutFarmsNestedInput
+    farm?: FarmUpdateOneRequiredWithoutEmployeesNestedInput
+  }
+
+  export type EmployeeFarmUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeFarmCreateManyInput = {
+    id?: string
+    employeeId: string
+    farmId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeFarmUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeFarmUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeBenefitCreateInput = {
+    id?: string
+    name: string
+    amount?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    employee: EmployeeCreateNestedOneWithoutBenefitsInput
+  }
+
+  export type EmployeeBenefitUncheckedCreateInput = {
+    id?: string
+    employeeId: string
+    name: string
+    amount?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeBenefitUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employee?: EmployeeUpdateOneRequiredWithoutBenefitsNestedInput
+  }
+
+  export type EmployeeBenefitUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeBenefitCreateManyInput = {
+    id?: string
+    employeeId: string
+    name: string
+    amount?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeBenefitUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeBenefitUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4271,9 +8715,19 @@ export namespace Prisma {
     isEmpty?: boolean
   }
 
+  export type EmployeeFarmListRelationFilter = {
+    every?: EmployeeFarmWhereInput
+    some?: EmployeeFarmWhereInput
+    none?: EmployeeFarmWhereInput
+  }
+
   export type UserScalarRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
+  }
+
+  export type EmployeeFarmOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type FarmCountOrderByAggregateInput = {
@@ -4335,6 +8789,196 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type EmployeeBenefitListRelationFilter = {
+    every?: EmployeeBenefitWhereInput
+    some?: EmployeeBenefitWhereInput
+    none?: EmployeeBenefitWhereInput
+  }
+
+  export type EmployeeBenefitOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type EmployeeCountOrderByAggregateInput = {
+    id?: SortOrder
+    firstName?: SortOrder
+    middleName?: SortOrder
+    lastName?: SortOrder
+    phone?: SortOrder
+    emergencyContact?: SortOrder
+    idNumber?: SortOrder
+    idPhoto?: SortOrder
+    employeeType?: SortOrder
+    dateOfEmployment?: SortOrder
+    endDate?: SortOrder
+    role?: SortOrder
+    customRole?: SortOrder
+    paymentSchedule?: SortOrder
+    salary?: SortOrder
+    typeOfEngagement?: SortOrder
+    workSchedule?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmployeeAvgOrderByAggregateInput = {
+    salary?: SortOrder
+  }
+
+  export type EmployeeMaxOrderByAggregateInput = {
+    id?: SortOrder
+    firstName?: SortOrder
+    middleName?: SortOrder
+    lastName?: SortOrder
+    phone?: SortOrder
+    emergencyContact?: SortOrder
+    idNumber?: SortOrder
+    idPhoto?: SortOrder
+    employeeType?: SortOrder
+    dateOfEmployment?: SortOrder
+    endDate?: SortOrder
+    role?: SortOrder
+    customRole?: SortOrder
+    paymentSchedule?: SortOrder
+    salary?: SortOrder
+    typeOfEngagement?: SortOrder
+    workSchedule?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmployeeMinOrderByAggregateInput = {
+    id?: SortOrder
+    firstName?: SortOrder
+    middleName?: SortOrder
+    lastName?: SortOrder
+    phone?: SortOrder
+    emergencyContact?: SortOrder
+    idNumber?: SortOrder
+    idPhoto?: SortOrder
+    employeeType?: SortOrder
+    dateOfEmployment?: SortOrder
+    endDate?: SortOrder
+    role?: SortOrder
+    customRole?: SortOrder
+    paymentSchedule?: SortOrder
+    salary?: SortOrder
+    typeOfEngagement?: SortOrder
+    workSchedule?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmployeeSumOrderByAggregateInput = {
+    salary?: SortOrder
+  }
+
+  export type EmployeeScalarRelationFilter = {
+    is?: EmployeeWhereInput
+    isNot?: EmployeeWhereInput
+  }
+
+  export type FarmScalarRelationFilter = {
+    is?: FarmWhereInput
+    isNot?: FarmWhereInput
+  }
+
+  export type EmployeeFarmEmployeeIdFarmIdCompoundUniqueInput = {
+    employeeId: string
+    farmId: string
+  }
+
+  export type EmployeeFarmCountOrderByAggregateInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    farmId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmployeeFarmMaxOrderByAggregateInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    farmId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmployeeFarmMinOrderByAggregateInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    farmId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type EmployeeBenefitEmployeeIdNameCompoundUniqueInput = {
+    employeeId: string
+    name: string
+  }
+
+  export type EmployeeBenefitCountOrderByAggregateInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    name?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmployeeBenefitAvgOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type EmployeeBenefitMaxOrderByAggregateInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    name?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmployeeBenefitMinOrderByAggregateInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    name?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmployeeBenefitSumOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type FarmCreateNestedManyWithoutUserInput = {
@@ -4411,10 +9055,24 @@ export namespace Prisma {
     set: string[]
   }
 
+  export type EmployeeFarmCreateNestedManyWithoutFarmInput = {
+    create?: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput> | EmployeeFarmCreateWithoutFarmInput[] | EmployeeFarmUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: EmployeeFarmCreateOrConnectWithoutFarmInput | EmployeeFarmCreateOrConnectWithoutFarmInput[]
+    createMany?: EmployeeFarmCreateManyFarmInputEnvelope
+    connect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+  }
+
   export type UserCreateNestedOneWithoutFarmsInput = {
     create?: XOR<UserCreateWithoutFarmsInput, UserUncheckedCreateWithoutFarmsInput>
     connectOrCreate?: UserCreateOrConnectWithoutFarmsInput
     connect?: UserWhereUniqueInput
+  }
+
+  export type EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput = {
+    create?: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput> | EmployeeFarmCreateWithoutFarmInput[] | EmployeeFarmUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: EmployeeFarmCreateOrConnectWithoutFarmInput | EmployeeFarmCreateOrConnectWithoutFarmInput[]
+    createMany?: EmployeeFarmCreateManyFarmInputEnvelope
+    connect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
   }
 
   export type FloatFieldUpdateOperationsInput = {
@@ -4430,12 +9088,174 @@ export namespace Prisma {
     push?: string | string[]
   }
 
+  export type EmployeeFarmUpdateManyWithoutFarmNestedInput = {
+    create?: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput> | EmployeeFarmCreateWithoutFarmInput[] | EmployeeFarmUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: EmployeeFarmCreateOrConnectWithoutFarmInput | EmployeeFarmCreateOrConnectWithoutFarmInput[]
+    upsert?: EmployeeFarmUpsertWithWhereUniqueWithoutFarmInput | EmployeeFarmUpsertWithWhereUniqueWithoutFarmInput[]
+    createMany?: EmployeeFarmCreateManyFarmInputEnvelope
+    set?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    disconnect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    delete?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    connect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    update?: EmployeeFarmUpdateWithWhereUniqueWithoutFarmInput | EmployeeFarmUpdateWithWhereUniqueWithoutFarmInput[]
+    updateMany?: EmployeeFarmUpdateManyWithWhereWithoutFarmInput | EmployeeFarmUpdateManyWithWhereWithoutFarmInput[]
+    deleteMany?: EmployeeFarmScalarWhereInput | EmployeeFarmScalarWhereInput[]
+  }
+
   export type UserUpdateOneRequiredWithoutFarmsNestedInput = {
     create?: XOR<UserCreateWithoutFarmsInput, UserUncheckedCreateWithoutFarmsInput>
     connectOrCreate?: UserCreateOrConnectWithoutFarmsInput
     upsert?: UserUpsertWithoutFarmsInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFarmsInput, UserUpdateWithoutFarmsInput>, UserUncheckedUpdateWithoutFarmsInput>
+  }
+
+  export type EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput = {
+    create?: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput> | EmployeeFarmCreateWithoutFarmInput[] | EmployeeFarmUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: EmployeeFarmCreateOrConnectWithoutFarmInput | EmployeeFarmCreateOrConnectWithoutFarmInput[]
+    upsert?: EmployeeFarmUpsertWithWhereUniqueWithoutFarmInput | EmployeeFarmUpsertWithWhereUniqueWithoutFarmInput[]
+    createMany?: EmployeeFarmCreateManyFarmInputEnvelope
+    set?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    disconnect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    delete?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    connect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    update?: EmployeeFarmUpdateWithWhereUniqueWithoutFarmInput | EmployeeFarmUpdateWithWhereUniqueWithoutFarmInput[]
+    updateMany?: EmployeeFarmUpdateManyWithWhereWithoutFarmInput | EmployeeFarmUpdateManyWithWhereWithoutFarmInput[]
+    deleteMany?: EmployeeFarmScalarWhereInput | EmployeeFarmScalarWhereInput[]
+  }
+
+  export type EmployeeBenefitCreateNestedManyWithoutEmployeeInput = {
+    create?: XOR<EmployeeBenefitCreateWithoutEmployeeInput, EmployeeBenefitUncheckedCreateWithoutEmployeeInput> | EmployeeBenefitCreateWithoutEmployeeInput[] | EmployeeBenefitUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: EmployeeBenefitCreateOrConnectWithoutEmployeeInput | EmployeeBenefitCreateOrConnectWithoutEmployeeInput[]
+    createMany?: EmployeeBenefitCreateManyEmployeeInputEnvelope
+    connect?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+  }
+
+  export type EmployeeFarmCreateNestedManyWithoutEmployeeInput = {
+    create?: XOR<EmployeeFarmCreateWithoutEmployeeInput, EmployeeFarmUncheckedCreateWithoutEmployeeInput> | EmployeeFarmCreateWithoutEmployeeInput[] | EmployeeFarmUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: EmployeeFarmCreateOrConnectWithoutEmployeeInput | EmployeeFarmCreateOrConnectWithoutEmployeeInput[]
+    createMany?: EmployeeFarmCreateManyEmployeeInputEnvelope
+    connect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+  }
+
+  export type EmployeeBenefitUncheckedCreateNestedManyWithoutEmployeeInput = {
+    create?: XOR<EmployeeBenefitCreateWithoutEmployeeInput, EmployeeBenefitUncheckedCreateWithoutEmployeeInput> | EmployeeBenefitCreateWithoutEmployeeInput[] | EmployeeBenefitUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: EmployeeBenefitCreateOrConnectWithoutEmployeeInput | EmployeeBenefitCreateOrConnectWithoutEmployeeInput[]
+    createMany?: EmployeeBenefitCreateManyEmployeeInputEnvelope
+    connect?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+  }
+
+  export type EmployeeFarmUncheckedCreateNestedManyWithoutEmployeeInput = {
+    create?: XOR<EmployeeFarmCreateWithoutEmployeeInput, EmployeeFarmUncheckedCreateWithoutEmployeeInput> | EmployeeFarmCreateWithoutEmployeeInput[] | EmployeeFarmUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: EmployeeFarmCreateOrConnectWithoutEmployeeInput | EmployeeFarmCreateOrConnectWithoutEmployeeInput[]
+    createMany?: EmployeeFarmCreateManyEmployeeInputEnvelope
+    connect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+  }
+
+  export type EmployeeBenefitUpdateManyWithoutEmployeeNestedInput = {
+    create?: XOR<EmployeeBenefitCreateWithoutEmployeeInput, EmployeeBenefitUncheckedCreateWithoutEmployeeInput> | EmployeeBenefitCreateWithoutEmployeeInput[] | EmployeeBenefitUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: EmployeeBenefitCreateOrConnectWithoutEmployeeInput | EmployeeBenefitCreateOrConnectWithoutEmployeeInput[]
+    upsert?: EmployeeBenefitUpsertWithWhereUniqueWithoutEmployeeInput | EmployeeBenefitUpsertWithWhereUniqueWithoutEmployeeInput[]
+    createMany?: EmployeeBenefitCreateManyEmployeeInputEnvelope
+    set?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+    disconnect?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+    delete?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+    connect?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+    update?: EmployeeBenefitUpdateWithWhereUniqueWithoutEmployeeInput | EmployeeBenefitUpdateWithWhereUniqueWithoutEmployeeInput[]
+    updateMany?: EmployeeBenefitUpdateManyWithWhereWithoutEmployeeInput | EmployeeBenefitUpdateManyWithWhereWithoutEmployeeInput[]
+    deleteMany?: EmployeeBenefitScalarWhereInput | EmployeeBenefitScalarWhereInput[]
+  }
+
+  export type EmployeeFarmUpdateManyWithoutEmployeeNestedInput = {
+    create?: XOR<EmployeeFarmCreateWithoutEmployeeInput, EmployeeFarmUncheckedCreateWithoutEmployeeInput> | EmployeeFarmCreateWithoutEmployeeInput[] | EmployeeFarmUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: EmployeeFarmCreateOrConnectWithoutEmployeeInput | EmployeeFarmCreateOrConnectWithoutEmployeeInput[]
+    upsert?: EmployeeFarmUpsertWithWhereUniqueWithoutEmployeeInput | EmployeeFarmUpsertWithWhereUniqueWithoutEmployeeInput[]
+    createMany?: EmployeeFarmCreateManyEmployeeInputEnvelope
+    set?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    disconnect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    delete?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    connect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    update?: EmployeeFarmUpdateWithWhereUniqueWithoutEmployeeInput | EmployeeFarmUpdateWithWhereUniqueWithoutEmployeeInput[]
+    updateMany?: EmployeeFarmUpdateManyWithWhereWithoutEmployeeInput | EmployeeFarmUpdateManyWithWhereWithoutEmployeeInput[]
+    deleteMany?: EmployeeFarmScalarWhereInput | EmployeeFarmScalarWhereInput[]
+  }
+
+  export type EmployeeBenefitUncheckedUpdateManyWithoutEmployeeNestedInput = {
+    create?: XOR<EmployeeBenefitCreateWithoutEmployeeInput, EmployeeBenefitUncheckedCreateWithoutEmployeeInput> | EmployeeBenefitCreateWithoutEmployeeInput[] | EmployeeBenefitUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: EmployeeBenefitCreateOrConnectWithoutEmployeeInput | EmployeeBenefitCreateOrConnectWithoutEmployeeInput[]
+    upsert?: EmployeeBenefitUpsertWithWhereUniqueWithoutEmployeeInput | EmployeeBenefitUpsertWithWhereUniqueWithoutEmployeeInput[]
+    createMany?: EmployeeBenefitCreateManyEmployeeInputEnvelope
+    set?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+    disconnect?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+    delete?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+    connect?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+    update?: EmployeeBenefitUpdateWithWhereUniqueWithoutEmployeeInput | EmployeeBenefitUpdateWithWhereUniqueWithoutEmployeeInput[]
+    updateMany?: EmployeeBenefitUpdateManyWithWhereWithoutEmployeeInput | EmployeeBenefitUpdateManyWithWhereWithoutEmployeeInput[]
+    deleteMany?: EmployeeBenefitScalarWhereInput | EmployeeBenefitScalarWhereInput[]
+  }
+
+  export type EmployeeFarmUncheckedUpdateManyWithoutEmployeeNestedInput = {
+    create?: XOR<EmployeeFarmCreateWithoutEmployeeInput, EmployeeFarmUncheckedCreateWithoutEmployeeInput> | EmployeeFarmCreateWithoutEmployeeInput[] | EmployeeFarmUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: EmployeeFarmCreateOrConnectWithoutEmployeeInput | EmployeeFarmCreateOrConnectWithoutEmployeeInput[]
+    upsert?: EmployeeFarmUpsertWithWhereUniqueWithoutEmployeeInput | EmployeeFarmUpsertWithWhereUniqueWithoutEmployeeInput[]
+    createMany?: EmployeeFarmCreateManyEmployeeInputEnvelope
+    set?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    disconnect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    delete?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    connect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    update?: EmployeeFarmUpdateWithWhereUniqueWithoutEmployeeInput | EmployeeFarmUpdateWithWhereUniqueWithoutEmployeeInput[]
+    updateMany?: EmployeeFarmUpdateManyWithWhereWithoutEmployeeInput | EmployeeFarmUpdateManyWithWhereWithoutEmployeeInput[]
+    deleteMany?: EmployeeFarmScalarWhereInput | EmployeeFarmScalarWhereInput[]
+  }
+
+  export type EmployeeCreateNestedOneWithoutFarmsInput = {
+    create?: XOR<EmployeeCreateWithoutFarmsInput, EmployeeUncheckedCreateWithoutFarmsInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutFarmsInput
+    connect?: EmployeeWhereUniqueInput
+  }
+
+  export type FarmCreateNestedOneWithoutEmployeesInput = {
+    create?: XOR<FarmCreateWithoutEmployeesInput, FarmUncheckedCreateWithoutEmployeesInput>
+    connectOrCreate?: FarmCreateOrConnectWithoutEmployeesInput
+    connect?: FarmWhereUniqueInput
+  }
+
+  export type EmployeeUpdateOneRequiredWithoutFarmsNestedInput = {
+    create?: XOR<EmployeeCreateWithoutFarmsInput, EmployeeUncheckedCreateWithoutFarmsInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutFarmsInput
+    upsert?: EmployeeUpsertWithoutFarmsInput
+    connect?: EmployeeWhereUniqueInput
+    update?: XOR<XOR<EmployeeUpdateToOneWithWhereWithoutFarmsInput, EmployeeUpdateWithoutFarmsInput>, EmployeeUncheckedUpdateWithoutFarmsInput>
+  }
+
+  export type FarmUpdateOneRequiredWithoutEmployeesNestedInput = {
+    create?: XOR<FarmCreateWithoutEmployeesInput, FarmUncheckedCreateWithoutEmployeesInput>
+    connectOrCreate?: FarmCreateOrConnectWithoutEmployeesInput
+    upsert?: FarmUpsertWithoutEmployeesInput
+    connect?: FarmWhereUniqueInput
+    update?: XOR<XOR<FarmUpdateToOneWithWhereWithoutEmployeesInput, FarmUpdateWithoutEmployeesInput>, FarmUncheckedUpdateWithoutEmployeesInput>
+  }
+
+  export type EmployeeCreateNestedOneWithoutBenefitsInput = {
+    create?: XOR<EmployeeCreateWithoutBenefitsInput, EmployeeUncheckedCreateWithoutBenefitsInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutBenefitsInput
+    connect?: EmployeeWhereUniqueInput
+  }
+
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type EmployeeUpdateOneRequiredWithoutBenefitsNestedInput = {
+    create?: XOR<EmployeeCreateWithoutBenefitsInput, EmployeeUncheckedCreateWithoutBenefitsInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutBenefitsInput
+    upsert?: EmployeeUpsertWithoutBenefitsInput
+    connect?: EmployeeWhereUniqueInput
+    update?: XOR<XOR<EmployeeUpdateToOneWithWhereWithoutBenefitsInput, EmployeeUpdateWithoutBenefitsInput>, EmployeeUncheckedUpdateWithoutBenefitsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -4639,6 +9459,22 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
   export type FarmCreateWithoutUserInput = {
     id?: string
     name: string
@@ -4649,6 +9485,7 @@ export namespace Prisma {
     farmingTypes?: FarmCreatefarmingTypesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    employees?: EmployeeFarmCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutUserInput = {
@@ -4661,6 +9498,7 @@ export namespace Prisma {
     farmingTypes?: FarmCreatefarmingTypesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    employees?: EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutUserInput = {
@@ -4703,6 +9541,30 @@ export namespace Prisma {
     userId?: StringFilter<"Farm"> | string
     createdAt?: DateTimeFilter<"Farm"> | Date | string
     updatedAt?: DateTimeFilter<"Farm"> | Date | string
+  }
+
+  export type EmployeeFarmCreateWithoutFarmInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    employee: EmployeeCreateNestedOneWithoutFarmsInput
+  }
+
+  export type EmployeeFarmUncheckedCreateWithoutFarmInput = {
+    id?: string
+    employeeId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeFarmCreateOrConnectWithoutFarmInput = {
+    where: EmployeeFarmWhereUniqueInput
+    create: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput>
+  }
+
+  export type EmployeeFarmCreateManyFarmInputEnvelope = {
+    data: EmployeeFarmCreateManyFarmInput | EmployeeFarmCreateManyFarmInput[]
+    skipDuplicates?: boolean
   }
 
   export type UserCreateWithoutFarmsInput = {
@@ -4750,6 +9612,33 @@ export namespace Prisma {
   export type UserCreateOrConnectWithoutFarmsInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutFarmsInput, UserUncheckedCreateWithoutFarmsInput>
+  }
+
+  export type EmployeeFarmUpsertWithWhereUniqueWithoutFarmInput = {
+    where: EmployeeFarmWhereUniqueInput
+    update: XOR<EmployeeFarmUpdateWithoutFarmInput, EmployeeFarmUncheckedUpdateWithoutFarmInput>
+    create: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput>
+  }
+
+  export type EmployeeFarmUpdateWithWhereUniqueWithoutFarmInput = {
+    where: EmployeeFarmWhereUniqueInput
+    data: XOR<EmployeeFarmUpdateWithoutFarmInput, EmployeeFarmUncheckedUpdateWithoutFarmInput>
+  }
+
+  export type EmployeeFarmUpdateManyWithWhereWithoutFarmInput = {
+    where: EmployeeFarmScalarWhereInput
+    data: XOR<EmployeeFarmUpdateManyMutationInput, EmployeeFarmUncheckedUpdateManyWithoutFarmInput>
+  }
+
+  export type EmployeeFarmScalarWhereInput = {
+    AND?: EmployeeFarmScalarWhereInput | EmployeeFarmScalarWhereInput[]
+    OR?: EmployeeFarmScalarWhereInput[]
+    NOT?: EmployeeFarmScalarWhereInput | EmployeeFarmScalarWhereInput[]
+    id?: StringFilter<"EmployeeFarm"> | string
+    employeeId?: StringFilter<"EmployeeFarm"> | string
+    farmId?: StringFilter<"EmployeeFarm"> | string
+    createdAt?: DateTimeFilter<"EmployeeFarm"> | Date | string
+    updatedAt?: DateTimeFilter<"EmployeeFarm"> | Date | string
   }
 
   export type UserUpsertWithoutFarmsInput = {
@@ -4805,6 +9694,384 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type EmployeeBenefitCreateWithoutEmployeeInput = {
+    id?: string
+    name: string
+    amount?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeBenefitUncheckedCreateWithoutEmployeeInput = {
+    id?: string
+    name: string
+    amount?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeBenefitCreateOrConnectWithoutEmployeeInput = {
+    where: EmployeeBenefitWhereUniqueInput
+    create: XOR<EmployeeBenefitCreateWithoutEmployeeInput, EmployeeBenefitUncheckedCreateWithoutEmployeeInput>
+  }
+
+  export type EmployeeBenefitCreateManyEmployeeInputEnvelope = {
+    data: EmployeeBenefitCreateManyEmployeeInput | EmployeeBenefitCreateManyEmployeeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type EmployeeFarmCreateWithoutEmployeeInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutEmployeesInput
+  }
+
+  export type EmployeeFarmUncheckedCreateWithoutEmployeeInput = {
+    id?: string
+    farmId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeFarmCreateOrConnectWithoutEmployeeInput = {
+    where: EmployeeFarmWhereUniqueInput
+    create: XOR<EmployeeFarmCreateWithoutEmployeeInput, EmployeeFarmUncheckedCreateWithoutEmployeeInput>
+  }
+
+  export type EmployeeFarmCreateManyEmployeeInputEnvelope = {
+    data: EmployeeFarmCreateManyEmployeeInput | EmployeeFarmCreateManyEmployeeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type EmployeeBenefitUpsertWithWhereUniqueWithoutEmployeeInput = {
+    where: EmployeeBenefitWhereUniqueInput
+    update: XOR<EmployeeBenefitUpdateWithoutEmployeeInput, EmployeeBenefitUncheckedUpdateWithoutEmployeeInput>
+    create: XOR<EmployeeBenefitCreateWithoutEmployeeInput, EmployeeBenefitUncheckedCreateWithoutEmployeeInput>
+  }
+
+  export type EmployeeBenefitUpdateWithWhereUniqueWithoutEmployeeInput = {
+    where: EmployeeBenefitWhereUniqueInput
+    data: XOR<EmployeeBenefitUpdateWithoutEmployeeInput, EmployeeBenefitUncheckedUpdateWithoutEmployeeInput>
+  }
+
+  export type EmployeeBenefitUpdateManyWithWhereWithoutEmployeeInput = {
+    where: EmployeeBenefitScalarWhereInput
+    data: XOR<EmployeeBenefitUpdateManyMutationInput, EmployeeBenefitUncheckedUpdateManyWithoutEmployeeInput>
+  }
+
+  export type EmployeeBenefitScalarWhereInput = {
+    AND?: EmployeeBenefitScalarWhereInput | EmployeeBenefitScalarWhereInput[]
+    OR?: EmployeeBenefitScalarWhereInput[]
+    NOT?: EmployeeBenefitScalarWhereInput | EmployeeBenefitScalarWhereInput[]
+    id?: StringFilter<"EmployeeBenefit"> | string
+    employeeId?: StringFilter<"EmployeeBenefit"> | string
+    name?: StringFilter<"EmployeeBenefit"> | string
+    amount?: FloatNullableFilter<"EmployeeBenefit"> | number | null
+    createdAt?: DateTimeFilter<"EmployeeBenefit"> | Date | string
+    updatedAt?: DateTimeFilter<"EmployeeBenefit"> | Date | string
+  }
+
+  export type EmployeeFarmUpsertWithWhereUniqueWithoutEmployeeInput = {
+    where: EmployeeFarmWhereUniqueInput
+    update: XOR<EmployeeFarmUpdateWithoutEmployeeInput, EmployeeFarmUncheckedUpdateWithoutEmployeeInput>
+    create: XOR<EmployeeFarmCreateWithoutEmployeeInput, EmployeeFarmUncheckedCreateWithoutEmployeeInput>
+  }
+
+  export type EmployeeFarmUpdateWithWhereUniqueWithoutEmployeeInput = {
+    where: EmployeeFarmWhereUniqueInput
+    data: XOR<EmployeeFarmUpdateWithoutEmployeeInput, EmployeeFarmUncheckedUpdateWithoutEmployeeInput>
+  }
+
+  export type EmployeeFarmUpdateManyWithWhereWithoutEmployeeInput = {
+    where: EmployeeFarmScalarWhereInput
+    data: XOR<EmployeeFarmUpdateManyMutationInput, EmployeeFarmUncheckedUpdateManyWithoutEmployeeInput>
+  }
+
+  export type EmployeeCreateWithoutFarmsInput = {
+    id?: string
+    firstName: string
+    middleName?: string | null
+    lastName: string
+    phone: string
+    emergencyContact?: string | null
+    idNumber: string
+    idPhoto?: string | null
+    employeeType: string
+    dateOfEmployment: Date | string
+    endDate?: Date | string | null
+    role: string
+    customRole?: string | null
+    paymentSchedule: string
+    salary: number
+    typeOfEngagement?: string | null
+    workSchedule?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    benefits?: EmployeeBenefitCreateNestedManyWithoutEmployeeInput
+  }
+
+  export type EmployeeUncheckedCreateWithoutFarmsInput = {
+    id?: string
+    firstName: string
+    middleName?: string | null
+    lastName: string
+    phone: string
+    emergencyContact?: string | null
+    idNumber: string
+    idPhoto?: string | null
+    employeeType: string
+    dateOfEmployment: Date | string
+    endDate?: Date | string | null
+    role: string
+    customRole?: string | null
+    paymentSchedule: string
+    salary: number
+    typeOfEngagement?: string | null
+    workSchedule?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    benefits?: EmployeeBenefitUncheckedCreateNestedManyWithoutEmployeeInput
+  }
+
+  export type EmployeeCreateOrConnectWithoutFarmsInput = {
+    where: EmployeeWhereUniqueInput
+    create: XOR<EmployeeCreateWithoutFarmsInput, EmployeeUncheckedCreateWithoutFarmsInput>
+  }
+
+  export type FarmCreateWithoutEmployeesInput = {
+    id?: string
+    name: string
+    county: string
+    administrativeLocation: string
+    size: number
+    ownership: string
+    farmingTypes?: FarmCreatefarmingTypesInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutFarmsInput
+  }
+
+  export type FarmUncheckedCreateWithoutEmployeesInput = {
+    id?: string
+    name: string
+    county: string
+    administrativeLocation: string
+    size: number
+    ownership: string
+    farmingTypes?: FarmCreatefarmingTypesInput | string[]
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FarmCreateOrConnectWithoutEmployeesInput = {
+    where: FarmWhereUniqueInput
+    create: XOR<FarmCreateWithoutEmployeesInput, FarmUncheckedCreateWithoutEmployeesInput>
+  }
+
+  export type EmployeeUpsertWithoutFarmsInput = {
+    update: XOR<EmployeeUpdateWithoutFarmsInput, EmployeeUncheckedUpdateWithoutFarmsInput>
+    create: XOR<EmployeeCreateWithoutFarmsInput, EmployeeUncheckedCreateWithoutFarmsInput>
+    where?: EmployeeWhereInput
+  }
+
+  export type EmployeeUpdateToOneWithWhereWithoutFarmsInput = {
+    where?: EmployeeWhereInput
+    data: XOR<EmployeeUpdateWithoutFarmsInput, EmployeeUncheckedUpdateWithoutFarmsInput>
+  }
+
+  export type EmployeeUpdateWithoutFarmsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    emergencyContact?: NullableStringFieldUpdateOperationsInput | string | null
+    idNumber?: StringFieldUpdateOperationsInput | string
+    idPhoto?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeType?: StringFieldUpdateOperationsInput | string
+    dateOfEmployment?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    customRole?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentSchedule?: StringFieldUpdateOperationsInput | string
+    salary?: FloatFieldUpdateOperationsInput | number
+    typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
+    workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    benefits?: EmployeeBenefitUpdateManyWithoutEmployeeNestedInput
+  }
+
+  export type EmployeeUncheckedUpdateWithoutFarmsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    emergencyContact?: NullableStringFieldUpdateOperationsInput | string | null
+    idNumber?: StringFieldUpdateOperationsInput | string
+    idPhoto?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeType?: StringFieldUpdateOperationsInput | string
+    dateOfEmployment?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    customRole?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentSchedule?: StringFieldUpdateOperationsInput | string
+    salary?: FloatFieldUpdateOperationsInput | number
+    typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
+    workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    benefits?: EmployeeBenefitUncheckedUpdateManyWithoutEmployeeNestedInput
+  }
+
+  export type FarmUpsertWithoutEmployeesInput = {
+    update: XOR<FarmUpdateWithoutEmployeesInput, FarmUncheckedUpdateWithoutEmployeesInput>
+    create: XOR<FarmCreateWithoutEmployeesInput, FarmUncheckedCreateWithoutEmployeesInput>
+    where?: FarmWhereInput
+  }
+
+  export type FarmUpdateToOneWithWhereWithoutEmployeesInput = {
+    where?: FarmWhereInput
+    data: XOR<FarmUpdateWithoutEmployeesInput, FarmUncheckedUpdateWithoutEmployeesInput>
+  }
+
+  export type FarmUpdateWithoutEmployeesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    county?: StringFieldUpdateOperationsInput | string
+    administrativeLocation?: StringFieldUpdateOperationsInput | string
+    size?: FloatFieldUpdateOperationsInput | number
+    ownership?: StringFieldUpdateOperationsInput | string
+    farmingTypes?: FarmUpdatefarmingTypesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutFarmsNestedInput
+  }
+
+  export type FarmUncheckedUpdateWithoutEmployeesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    county?: StringFieldUpdateOperationsInput | string
+    administrativeLocation?: StringFieldUpdateOperationsInput | string
+    size?: FloatFieldUpdateOperationsInput | number
+    ownership?: StringFieldUpdateOperationsInput | string
+    farmingTypes?: FarmUpdatefarmingTypesInput | string[]
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeCreateWithoutBenefitsInput = {
+    id?: string
+    firstName: string
+    middleName?: string | null
+    lastName: string
+    phone: string
+    emergencyContact?: string | null
+    idNumber: string
+    idPhoto?: string | null
+    employeeType: string
+    dateOfEmployment: Date | string
+    endDate?: Date | string | null
+    role: string
+    customRole?: string | null
+    paymentSchedule: string
+    salary: number
+    typeOfEngagement?: string | null
+    workSchedule?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farms?: EmployeeFarmCreateNestedManyWithoutEmployeeInput
+  }
+
+  export type EmployeeUncheckedCreateWithoutBenefitsInput = {
+    id?: string
+    firstName: string
+    middleName?: string | null
+    lastName: string
+    phone: string
+    emergencyContact?: string | null
+    idNumber: string
+    idPhoto?: string | null
+    employeeType: string
+    dateOfEmployment: Date | string
+    endDate?: Date | string | null
+    role: string
+    customRole?: string | null
+    paymentSchedule: string
+    salary: number
+    typeOfEngagement?: string | null
+    workSchedule?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farms?: EmployeeFarmUncheckedCreateNestedManyWithoutEmployeeInput
+  }
+
+  export type EmployeeCreateOrConnectWithoutBenefitsInput = {
+    where: EmployeeWhereUniqueInput
+    create: XOR<EmployeeCreateWithoutBenefitsInput, EmployeeUncheckedCreateWithoutBenefitsInput>
+  }
+
+  export type EmployeeUpsertWithoutBenefitsInput = {
+    update: XOR<EmployeeUpdateWithoutBenefitsInput, EmployeeUncheckedUpdateWithoutBenefitsInput>
+    create: XOR<EmployeeCreateWithoutBenefitsInput, EmployeeUncheckedCreateWithoutBenefitsInput>
+    where?: EmployeeWhereInput
+  }
+
+  export type EmployeeUpdateToOneWithWhereWithoutBenefitsInput = {
+    where?: EmployeeWhereInput
+    data: XOR<EmployeeUpdateWithoutBenefitsInput, EmployeeUncheckedUpdateWithoutBenefitsInput>
+  }
+
+  export type EmployeeUpdateWithoutBenefitsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    emergencyContact?: NullableStringFieldUpdateOperationsInput | string | null
+    idNumber?: StringFieldUpdateOperationsInput | string
+    idPhoto?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeType?: StringFieldUpdateOperationsInput | string
+    dateOfEmployment?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    customRole?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentSchedule?: StringFieldUpdateOperationsInput | string
+    salary?: FloatFieldUpdateOperationsInput | number
+    typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
+    workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farms?: EmployeeFarmUpdateManyWithoutEmployeeNestedInput
+  }
+
+  export type EmployeeUncheckedUpdateWithoutBenefitsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    emergencyContact?: NullableStringFieldUpdateOperationsInput | string | null
+    idNumber?: StringFieldUpdateOperationsInput | string
+    idPhoto?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeType?: StringFieldUpdateOperationsInput | string
+    dateOfEmployment?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    customRole?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentSchedule?: StringFieldUpdateOperationsInput | string
+    salary?: FloatFieldUpdateOperationsInput | number
+    typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
+    workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farms?: EmployeeFarmUncheckedUpdateManyWithoutEmployeeNestedInput
+  }
+
   export type FarmCreateManyUserInput = {
     id?: string
     name: string
@@ -4827,6 +10094,7 @@ export namespace Prisma {
     farmingTypes?: FarmUpdatefarmingTypesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: EmployeeFarmUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutUserInput = {
@@ -4839,6 +10107,7 @@ export namespace Prisma {
     farmingTypes?: FarmUpdatefarmingTypesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateManyWithoutUserInput = {
@@ -4849,6 +10118,94 @@ export namespace Prisma {
     size?: FloatFieldUpdateOperationsInput | number
     ownership?: StringFieldUpdateOperationsInput | string
     farmingTypes?: FarmUpdatefarmingTypesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeFarmCreateManyFarmInput = {
+    id?: string
+    employeeId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeFarmUpdateWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employee?: EmployeeUpdateOneRequiredWithoutFarmsNestedInput
+  }
+
+  export type EmployeeFarmUncheckedUpdateWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeFarmUncheckedUpdateManyWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeBenefitCreateManyEmployeeInput = {
+    id?: string
+    name: string
+    amount?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeFarmCreateManyEmployeeInput = {
+    id?: string
+    farmId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeBenefitUpdateWithoutEmployeeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeBenefitUncheckedUpdateWithoutEmployeeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeBenefitUncheckedUpdateManyWithoutEmployeeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeFarmUpdateWithoutEmployeeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutEmployeesNestedInput
+  }
+
+  export type EmployeeFarmUncheckedUpdateWithoutEmployeeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeFarmUncheckedUpdateManyWithoutEmployeeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
