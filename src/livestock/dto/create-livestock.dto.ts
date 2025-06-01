@@ -13,7 +13,10 @@ import {
 import { Type } from 'class-transformer';
 
 export class CreateMammalDto {
-  @ApiProperty({ description: 'Unique ID number for the animal', example: 'KE-DAIRY-001' })
+  @ApiProperty({
+    description: 'Unique ID number for the animal',
+    example: 'KE-DAIRY-001',
+  })
   @IsString()
   @IsNotEmpty()
   idNumber: string;
@@ -23,7 +26,11 @@ export class CreateMammalDto {
   @IsNotEmpty()
   breedType: string;
 
-  @ApiProperty({ description: 'Physical appearance of the animal', example: 'Black and White', required: false })
+  @ApiProperty({
+    description: 'Physical appearance of the animal',
+    example: 'Black and White',
+    required: false,
+  })
   @IsString()
   @IsOptional()
   phenotype?: string;
@@ -33,32 +40,56 @@ export class CreateMammalDto {
   @IsNotEmpty()
   dateOfBirth: string;
 
-  @ApiProperty({ description: 'Gender of the animal', example: 'Female', enum: ['Male', 'Female'] })
+  @ApiProperty({
+    description: 'Gender of the animal',
+    example: 'Female',
+    enum: ['Male', 'Female'],
+  })
   @IsEnum(['Male', 'Female'])
   @IsNotEmpty()
   gender: string;
 
-  @ApiProperty({ description: 'ID of the sire (father)', example: 'SIRE-001', required: false })
+  @ApiProperty({
+    description: 'ID of the sire (father)',
+    example: 'SIRE-001',
+    required: false,
+  })
   @IsString()
   @IsOptional()
   sireId?: string;
 
-  @ApiProperty({ description: 'Code of the sire (father)', example: 'S001', required: false })
+  @ApiProperty({
+    description: 'Code of the sire (father)',
+    example: 'S001',
+    required: false,
+  })
   @IsString()
   @IsOptional()
   sireCode?: string;
 
-  @ApiProperty({ description: 'ID of the dam (mother)', example: 'DAM-001', required: false })
+  @ApiProperty({
+    description: 'ID of the dam (mother)',
+    example: 'DAM-001',
+    required: false,
+  })
   @IsString()
   @IsOptional()
   damId?: string;
 
-  @ApiProperty({ description: 'Code of the dam (mother)', example: 'D001', required: false })
+  @ApiProperty({
+    description: 'Code of the dam (mother)',
+    example: 'D001',
+    required: false,
+  })
   @IsString()
   @IsOptional()
   damCode?: string;
 
-  @ApiProperty({ description: 'Weight at birth in kg', example: 35.5, required: false })
+  @ApiProperty({
+    description: 'Weight at birth in kg',
+    example: 35.5,
+    required: false,
+  })
   @IsNumber()
   @Min(0)
   @IsOptional()
@@ -66,17 +97,27 @@ export class CreateMammalDto {
 }
 
 export class CreatePoultryDto {
-  @ApiProperty({ description: 'Unique ID for the flock', example: 'FLOCK-2025-001' })
+  @ApiProperty({
+    description: 'Unique ID for the flock',
+    example: 'FLOCK-2025-001',
+  })
   @IsString()
   @IsNotEmpty()
   flockId: string;
 
-  @ApiProperty({ description: 'Date when birds were stocked', example: '2025-01-15' })
+  @ApiProperty({
+    description: 'Date when birds were stocked',
+    example: '2025-01-15',
+  })
   @IsISO8601()
   @IsNotEmpty()
   dateOfStocking: string;
 
-  @ApiProperty({ description: 'Gender of the birds', example: 'Mixed', enum: ['Male', 'Female', 'Mixed'] })
+  @ApiProperty({
+    description: 'Gender of the birds',
+    example: 'Mixed',
+    enum: ['Male', 'Female', 'Mixed'],
+  })
   @IsEnum(['Male', 'Female', 'Mixed'])
   @IsNotEmpty()
   gender: string;
@@ -87,7 +128,10 @@ export class CreatePoultryDto {
   @IsNotEmpty()
   initialQuantity: number;
 
-  @ApiProperty({ description: 'Current number of birds (defaults to initial quantity)', example: 500 })
+  @ApiProperty({
+    description: 'Current number of birds (defaults to initial quantity)',
+    example: 500,
+  })
   @IsNumber()
   @Min(0)
   @IsOptional()
@@ -98,12 +142,20 @@ export class CreatePoultryDto {
   @IsNotEmpty()
   breedType: string;
 
-  @ApiProperty({ description: 'Source or supplier of the birds', example: 'Kenchic Ltd', required: false })
+  @ApiProperty({
+    description: 'Source or supplier of the birds',
+    example: 'Kenchic Ltd',
+    required: false,
+  })
   @IsString()
   @IsOptional()
   sourceOfBirds?: string;
 
-  @ApiProperty({ description: 'Initial average weight in grams', example: 45.5, required: false })
+  @ApiProperty({
+    description: 'Initial average weight in grams',
+    example: 45.5,
+    required: false,
+  })
   @IsNumber()
   @Min(0)
   @IsOptional()
@@ -111,7 +163,10 @@ export class CreatePoultryDto {
 }
 
 export class CreateLivestockDto {
-  @ApiProperty({ description: 'ID of the farm where livestock is kept', example: 'clh2x0f380001mk08x7v2p4m1' })
+  @ApiProperty({
+    description: 'ID of the farm where livestock is kept',
+    example: 'cmbduqi840001ju0aw3tccilj',
+  })
   @IsString()
   @IsNotEmpty()
   farmId: string;
@@ -119,9 +174,27 @@ export class CreateLivestockDto {
   @ApiProperty({
     description: 'Type of livestock',
     example: 'dairyCattle',
-    enum: ['dairyCattle', 'beefCattle', 'dairyGoats', 'meatGoats', 'sheep', 'rabbit', 'swine', 'poultry'],
+    enum: [
+      'dairyCattle',
+      'beefCattle',
+      'dairyGoats',
+      'meatGoats',
+      'sheep',
+      'rabbit',
+      'swine',
+      'poultry',
+    ],
   })
-  @IsEnum(['dairyCattle', 'beefCattle', 'dairyGoats', 'meatGoats', 'sheep', 'rabbit', 'swine', 'poultry'])
+  @IsEnum([
+    'dairyCattle',
+    'beefCattle',
+    'dairyGoats',
+    'meatGoats',
+    'sheep',
+    'rabbit',
+    'swine',
+    'poultry',
+  ])
   @IsNotEmpty()
   type: string;
 

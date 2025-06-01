@@ -12,6 +12,11 @@ import {
 import { LivestockService } from './livestock.service';
 import { CreateLivestockDto } from './dto/create-livestock.dto';
 import { UpdateLivestockDto } from './dto/update-livestock.dto';
+import { RecordMortalityDto } from './dto/record-mortality.dto';
+import { UpdateLivestockStatusDto } from './dto/update-livestock-status.dto';
+import { CreateHealthEventDto } from './dto/create-health-event.dto';
+import { CreateTransferDto } from './dto/create-transfer.dto';
+import { CreateSaleDto } from './dto/create-sale.dto';
 import {
   ApiTags,
   ApiOperation,
@@ -19,6 +24,7 @@ import {
   ApiQuery,
   ApiBearerAuth,
   ApiBody,
+  ApiParam,
 } from '@nestjs/swagger';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
@@ -41,7 +47,7 @@ export class LivestockController {
       dairyCattle: {
         summary: 'Dairy Cattle Example',
         value: {
-          farmId: 'clh2x0f380001mk08x7v2p4m1',
+          farmId: 'cmbduehjf0003l8048w6lbxxt',
           type: 'dairyCattle',
           category: 'mammal',
           mammal: {
@@ -61,7 +67,7 @@ export class LivestockController {
       poultry: {
         summary: 'Poultry Example',
         value: {
-          farmId: 'clh2x0f380001mk08x7v2p4m1',
+          farmId: 'cmbduehjf0003l8048w6lbxxt',
           type: 'poultry',
           category: 'poultry',
           poultry: {
@@ -85,24 +91,23 @@ export class LivestockController {
       type: 'object',
       example: {
         id: 'cmaerl8s10000l004pmlo1f7d',
-        farmId: 'clh2x0f380001mk08x7v2p4m1',
+        farmId: 'cmbduehjf0003l8048w6lbxxt',
         type: 'dairyCattle',
         category: 'mammal',
         createdAt: '2025-05-30T16:00:00.000Z',
         updatedAt: '2025-05-30T16:00:00.000Z',
         farm: {
-          id: 'clh2x0f380001mk08x7v2p4m1',
+          id: 'cmbduehjf0003l8048w6lbxxt',
           name: 'Kamau Mixed Farm',
           county: 'Kiambu',
           administrativeLocation: 'Kikuyu',
         },
         mammal: {
           id: 'cmaerl8s10000l004pmlo1f7e',
-          livestockId: 'cmaerl8s10000l004pmlo1f7d',
           idNumber: 'KE-DAIRY-001',
           breedType: 'Holstein',
           phenotype: 'Black and White',
-          dateOfBirth: '2023-05-15T00:00:00.000Z',
+          dateOfBirth: '2023-05-15',
           gender: 'Female',
           sireId: 'SIRE-001',
           sireCode: 'S001',
@@ -171,13 +176,13 @@ export class LivestockController {
             type: 'object',
             example: {
               id: 'cmaerl8s10000l004pmlo1f7d',
-              farmId: 'clh2x0f380001mk08x7v2p4m1',
+              farmId: 'cmbduehjf0003l8048w6lbxxt',
               type: 'dairyCattle',
               category: 'mammal',
               createdAt: '2025-05-30T16:00:00.000Z',
               updatedAt: '2025-05-30T16:00:00.000Z',
               farm: {
-                id: 'clh2x0f380001mk08x7v2p4m1',
+                id: 'cmbduehjf0003l8048w6lbxxt',
                 name: 'Kamau Mixed Farm',
                 county: 'Kiambu',
                 administrativeLocation: 'Kikuyu',
@@ -238,13 +243,13 @@ export class LivestockController {
       type: 'object',
       example: {
         id: 'cmaerl8s10000l004pmlo1f7d',
-        farmId: 'clh2x0f380001mk08x7v2p4m1',
+        farmId: 'cmbduehjf0003l8048w6lbxxt',
         type: 'dairyCattle',
         category: 'mammal',
         createdAt: '2025-05-30T16:00:00.000Z',
         updatedAt: '2025-05-30T16:00:00.000Z',
         farm: {
-          id: 'clh2x0f380001mk08x7v2p4m1',
+          id: 'cmbduehjf0003l8048w6lbxxt',
           name: 'Kamau Mixed Farm',
           county: 'Kiambu',
           administrativeLocation: 'Kikuyu',
@@ -310,13 +315,13 @@ export class LivestockController {
       type: 'object',
       example: {
         id: 'cmaerl8s10000l004pmlo1f7d',
-        farmId: 'clh2x0f380001mk08x7v2p4m1',
+        farmId: 'cmbduehjf0003l8048w6lbxxt',
         type: 'dairyCattle',
         category: 'mammal',
         createdAt: '2025-05-30T16:00:00.000Z',
         updatedAt: '2025-05-30T16:30:00.000Z',
         farm: {
-          id: 'clh2x0f380001mk08x7v2p4m1',
+          id: 'cmbduehjf0003l8048w6lbxxt',
           name: 'Kamau Mixed Farm',
           county: 'Kiambu',
           administrativeLocation: 'Kikuyu',
@@ -369,5 +374,217 @@ export class LivestockController {
   @ApiResponse({ status: 404, description: 'Livestock not found' })
   remove(@Param('id') id: string) {
     return this.livestockService.remove(id);
+  }
+
+  @Patch(':id/status')
+  @ApiOperation({
+    summary: 'Update livestock status',
+    description:
+      'Update the status of a livestock (active, deceased, sold, transferred)',
+  })
+  @ApiParam({ name: 'id', description: 'Livestock ID' })
+  @ApiBody({
+    type: UpdateLivestockStatusDto,
+    examples: {
+      deceased: {
+        summary: 'Mark as Deceased',
+        value: {
+          status: 'deceased',
+          reason: 'Natural causes due to age',
+        },
+      },
+      sold: {
+        summary: 'Mark as Sold',
+        value: {
+          status: 'sold',
+          reason: 'Sold to local farmer',
+        },
+      },
+    },
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Successfully updated livestock status',
+  })
+  @ApiResponse({ status: 404, description: 'Livestock not found' })
+  updateStatus(
+    @Param('id') id: string,
+    @Body() updateStatusDto: UpdateLivestockStatusDto,
+  ) {
+    return this.livestockService.updateStatus(id, updateStatusDto);
+  }
+
+  @Post('mortality')
+  @ApiOperation({
+    summary: 'Record livestock mortality',
+    description: 'Record the death of a livestock and update its status',
+  })
+  @ApiBody({
+    type: RecordMortalityDto,
+    examples: {
+      disease: {
+        summary: 'Death by Disease',
+        value: {
+          livestockId: 'cmbdvqm6c0001hj9f4qafhjbe',
+          date: '2025-05-30T10:00:00Z',
+          cause: 'Disease',
+          description: 'Animal showed symptoms of respiratory distress',
+          reportedBy: 'John Doe (Farm Manager)',
+          attachments: ['https://example.com/photo1.jpg'],
+        },
+      },
+      accident: {
+        summary: 'Death by Accident',
+        value: {
+          livestockId: 'cmbdvqm6c0001hj9f4qafhjbe',
+          date: '2025-05-30T10:00:00Z',
+          cause: 'Accident',
+          description: 'Injury from farm equipment',
+          reportedBy: 'Jane Smith (Farm Worker)',
+        },
+      },
+    },
+  })
+  @ApiResponse({
+    status: 201,
+    description: 'Successfully recorded mortality',
+  })
+  @ApiResponse({ status: 404, description: 'Livestock not found' })
+  @ApiResponse({ status: 409, description: 'Mortality already recorded' })
+  recordMortality(@Body() recordMortalityDto: RecordMortalityDto) {
+    return this.livestockService.recordMortality(recordMortalityDto);
+  }
+
+  @Post('health-event')
+  @ApiOperation({
+    summary: 'Record livestock health event',
+    description:
+      'Record a health-related event such as vaccination, treatment, or check-up',
+  })
+  @ApiBody({
+    type: CreateHealthEventDto,
+    examples: {
+      vaccination: {
+        summary: 'Vaccination',
+        value: {
+          livestockId: 'cmbdvqm6c0001hj9f4qafhjbe',
+          eventType: 'vaccination',
+          date: '2025-05-30T10:00:00Z',
+          description: 'Routine vaccination against foot and mouth disease',
+          performedBy: 'Dr. Jane Smith (Veterinarian)',
+          medications: ['Vaccine XYZ'],
+          dosage: '10ml',
+          cost: 2500,
+          nextScheduled: '2025-08-30T10:00:00Z',
+        },
+      },
+      treatment: {
+        summary: 'Treatment',
+        value: {
+          livestockId: 'cmbdvqm6c0001hj9f4qafhjbe',
+          eventType: 'treatment',
+          date: '2025-05-30T10:00:00Z',
+          description: 'Treatment for mild infection',
+          performedBy: 'Dr. John Doe (Veterinarian)',
+          medications: ['Antibiotic ABC', 'Anti-inflammatory XYZ'],
+          dosage: '5ml twice daily for 5 days',
+          cost: 3500,
+        },
+      },
+    },
+  })
+  @ApiResponse({
+    status: 201,
+    description: 'Successfully recorded health event',
+  })
+  @ApiResponse({ status: 404, description: 'Livestock not found' })
+  createHealthEvent(@Body() createHealthEventDto: CreateHealthEventDto) {
+    return this.livestockService.createHealthEvent(createHealthEventDto);
+  }
+
+  @Post('transfer')
+  @ApiOperation({
+    summary: 'Transfer livestock between farms',
+    description: 'Record a transfer of livestock from one farm to another',
+  })
+  @ApiBody({
+    type: CreateTransferDto,
+    examples: {
+      standardTransfer: {
+        summary: 'Standard Transfer',
+        value: {
+          livestockId: 'cmbdvqm6c0001hj9f4qafhjbe',
+          fromFarmId: 'cmbduehjf0003l8048w6lbxxt',
+          toFarmId: 'cmbduehjf0003l8048w6lbxxu',
+          transferDate: '2025-06-15T10:00:00Z',
+          reason: 'Better grazing facilities at destination farm',
+          transportMethod: 'Livestock transport truck',
+        },
+      },
+    },
+  })
+  @ApiResponse({
+    status: 201,
+    description: 'Successfully transferred livestock',
+  })
+  @ApiResponse({ status: 404, description: 'Livestock or farm not found' })
+  @ApiResponse({
+    status: 400,
+    description: 'Livestock is not at the specified source farm',
+  })
+  createTransfer(@Body() createTransferDto: CreateTransferDto) {
+    return this.livestockService.createTransfer(createTransferDto);
+  }
+
+  @Post('sale')
+  @ApiOperation({
+    summary: 'Record livestock sale',
+    description: 'Record the sale of livestock and update its status',
+  })
+  @ApiBody({
+    type: CreateSaleDto,
+    examples: {
+      standardSale: {
+        summary: 'Standard Sale',
+        value: {
+          livestockId: 'cmbdvqm6c0001hj9f4qafhjbe',
+          saleDate: '2025-06-15T10:00:00Z',
+          buyerName: 'John Doe',
+          buyerContact: '+254712345678',
+          saleAmount: 50000,
+          paymentMethod: 'mobile_money',
+          receiptNumber: 'RCT-2025-001',
+        },
+      },
+    },
+  })
+  @ApiResponse({
+    status: 201,
+    description: 'Successfully recorded sale',
+  })
+  @ApiResponse({ status: 404, description: 'Livestock not found' })
+  @ApiResponse({ status: 409, description: 'Livestock is already sold' })
+  createSale(@Body() createSaleDto: CreateSaleDto) {
+    return this.livestockService.createSale(createSaleDto);
+  }
+
+  @Get('statistics')
+  @ApiOperation({
+    summary: 'Get livestock statistics',
+    description:
+      'Get statistics about livestock including counts by category, status, and recent events',
+  })
+  @ApiQuery({
+    name: 'farmId',
+    required: false,
+    type: String,
+    description: 'Filter statistics by farm ID',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Successfully retrieved livestock statistics',
+  })
+  getStatistics(@Query('farmId') farmId?: string) {
+    return this.livestockService.getLivestockStatistics(farmId);
   }
 }

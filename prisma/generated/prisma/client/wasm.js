@@ -193,6 +193,151 @@ exports.Prisma.EmployeeBenefitScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.LivestockScalarFieldEnum = {
+  id: 'id',
+  farmId: 'farmId',
+  category: 'category',
+  type: 'type',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.MammalScalarFieldEnum = {
+  id: 'id',
+  livestockId: 'livestockId',
+  idNumber: 'idNumber',
+  breedType: 'breedType',
+  phenotype: 'phenotype',
+  dateOfBirth: 'dateOfBirth',
+  gender: 'gender',
+  sireId: 'sireId',
+  sireCode: 'sireCode',
+  damId: 'damId',
+  damCode: 'damCode',
+  birthWeight: 'birthWeight',
+  currentWeight: 'currentWeight',
+  lastWeighingDate: 'lastWeighingDate',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PoultryScalarFieldEnum = {
+  id: 'id',
+  livestockId: 'livestockId',
+  flockId: 'flockId',
+  dateOfStocking: 'dateOfStocking',
+  gender: 'gender',
+  initialQuantity: 'initialQuantity',
+  currentQuantity: 'currentQuantity',
+  breedType: 'breedType',
+  sourceOfBirds: 'sourceOfBirds',
+  initialAverageWeight: 'initialAverageWeight',
+  currentAverageWeight: 'currentAverageWeight',
+  lastWeighingDate: 'lastWeighingDate',
+  mortalityRate: 'mortalityRate',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.MortalityScalarFieldEnum = {
+  id: 'id',
+  livestockId: 'livestockId',
+  date: 'date',
+  cause: 'cause',
+  description: 'description',
+  reportedBy: 'reportedBy',
+  attachments: 'attachments',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.HealthEventScalarFieldEnum = {
+  id: 'id',
+  livestockId: 'livestockId',
+  eventType: 'eventType',
+  date: 'date',
+  description: 'description',
+  performedBy: 'performedBy',
+  medications: 'medications',
+  dosage: 'dosage',
+  cost: 'cost',
+  nextScheduled: 'nextScheduled',
+  attachments: 'attachments',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.TransferScalarFieldEnum = {
+  id: 'id',
+  livestockId: 'livestockId',
+  fromFarmId: 'fromFarmId',
+  toFarmId: 'toFarmId',
+  transferDate: 'transferDate',
+  reason: 'reason',
+  transportMethod: 'transportMethod',
+  handlingPrecautions: 'handlingPrecautions',
+  attachments: 'attachments',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SaleScalarFieldEnum = {
+  id: 'id',
+  livestockId: 'livestockId',
+  saleDate: 'saleDate',
+  buyerName: 'buyerName',
+  buyerContact: 'buyerContact',
+  saleAmount: 'saleAmount',
+  paymentMethod: 'paymentMethod',
+  receiptNumber: 'receiptNumber',
+  notes: 'notes',
+  attachments: 'attachments',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BreedingRecordScalarFieldEnum = {
+  id: 'id',
+  damId: 'damId',
+  sireId: 'sireId',
+  purpose: 'purpose',
+  strategy: 'strategy',
+  serviceType: 'serviceType',
+  serviceDate: 'serviceDate',
+  numServices: 'numServices',
+  firstHeatDate: 'firstHeatDate',
+  sireCode: 'sireCode',
+  aiType: 'aiType',
+  aiSource: 'aiSource',
+  aiCost: 'aiCost',
+  gestationDays: 'gestationDays',
+  expectedBirthDate: 'expectedBirthDate',
+  birthRecorded: 'birthRecorded',
+  birthDate: 'birthDate',
+  deliveryMethod: 'deliveryMethod',
+  youngOnes: 'youngOnes',
+  birthWeight: 'birthWeight',
+  litterWeight: 'litterWeight',
+  offspringSex: 'offspringSex',
+  farmId: 'farmId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.OffspringScalarFieldEnum = {
+  id: 'id',
+  breedingRecordId: 'breedingRecordId',
+  livestockId: 'livestockId',
+  offspringId: 'offspringId',
+  sex: 'sex',
+  birthWeight: 'birthWeight',
+  notes: 'notes',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -214,7 +359,16 @@ exports.Prisma.ModelName = {
   Farm: 'Farm',
   Employee: 'Employee',
   EmployeeFarm: 'EmployeeFarm',
-  EmployeeBenefit: 'EmployeeBenefit'
+  EmployeeBenefit: 'EmployeeBenefit',
+  Livestock: 'Livestock',
+  Mammal: 'Mammal',
+  Poultry: 'Poultry',
+  Mortality: 'Mortality',
+  HealthEvent: 'HealthEvent',
+  Transfer: 'Transfer',
+  Sale: 'Sale',
+  BreedingRecord: 'BreedingRecord',
+  Offspring: 'Offspring'
 };
 
 /**

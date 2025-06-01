@@ -6,6 +6,7 @@ import { UsersModule } from './users/users.module';
 import { FarmsModule } from './farms/farms.module';
 import { EmployeesModule } from './employees/employees.module';
 import { LivestockModule } from './livestock/livestock.module';
+import { BreedingModule } from './breeding/breeding.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { LivestockModule } from './livestock/livestock.module';
     FarmsModule,
     EmployeesModule,
     LivestockModule,
+    BreedingModule,
   ],
   controllers: [],
   providers: [],
