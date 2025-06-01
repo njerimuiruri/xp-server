@@ -2298,8 +2298,11 @@ export namespace Prisma {
     dob: string | null
     residenceCounty: string | null
     residenceLocation: string | null
+    constituency: string | null
+    residenceConstituency: string | null
     email: string | null
     phoneNumber: string | null
+    nationalId: string | null
     businessNumber: string | null
     pin: string | null
     yearsOfExperience: number | null
@@ -2319,8 +2322,11 @@ export namespace Prisma {
     dob: string | null
     residenceCounty: string | null
     residenceLocation: string | null
+    constituency: string | null
+    residenceConstituency: string | null
     email: string | null
     phoneNumber: string | null
+    nationalId: string | null
     businessNumber: string | null
     pin: string | null
     yearsOfExperience: number | null
@@ -2340,8 +2346,11 @@ export namespace Prisma {
     dob: number
     residenceCounty: number
     residenceLocation: number
+    constituency: number
+    residenceConstituency: number
     email: number
     phoneNumber: number
+    nationalId: number
     businessNumber: number
     pin: number
     yearsOfExperience: number
@@ -2371,8 +2380,11 @@ export namespace Prisma {
     dob?: true
     residenceCounty?: true
     residenceLocation?: true
+    constituency?: true
+    residenceConstituency?: true
     email?: true
     phoneNumber?: true
+    nationalId?: true
     businessNumber?: true
     pin?: true
     yearsOfExperience?: true
@@ -2392,8 +2404,11 @@ export namespace Prisma {
     dob?: true
     residenceCounty?: true
     residenceLocation?: true
+    constituency?: true
+    residenceConstituency?: true
     email?: true
     phoneNumber?: true
+    nationalId?: true
     businessNumber?: true
     pin?: true
     yearsOfExperience?: true
@@ -2413,8 +2428,11 @@ export namespace Prisma {
     dob?: true
     residenceCounty?: true
     residenceLocation?: true
+    constituency?: true
+    residenceConstituency?: true
     email?: true
     phoneNumber?: true
+    nationalId?: true
     businessNumber?: true
     pin?: true
     yearsOfExperience?: true
@@ -2521,8 +2539,11 @@ export namespace Prisma {
     dob: string
     residenceCounty: string
     residenceLocation: string | null
+    constituency: string | null
+    residenceConstituency: string | null
     email: string | null
     phoneNumber: string
+    nationalId: string | null
     businessNumber: string | null
     pin: string
     yearsOfExperience: number | null
@@ -2561,8 +2582,11 @@ export namespace Prisma {
     dob?: boolean
     residenceCounty?: boolean
     residenceLocation?: boolean
+    constituency?: boolean
+    residenceConstituency?: boolean
     email?: boolean
     phoneNumber?: boolean
+    nationalId?: boolean
     businessNumber?: boolean
     pin?: boolean
     yearsOfExperience?: boolean
@@ -2584,8 +2608,11 @@ export namespace Prisma {
     dob?: boolean
     residenceCounty?: boolean
     residenceLocation?: boolean
+    constituency?: boolean
+    residenceConstituency?: boolean
     email?: boolean
     phoneNumber?: boolean
+    nationalId?: boolean
     businessNumber?: boolean
     pin?: boolean
     yearsOfExperience?: boolean
@@ -2605,8 +2632,11 @@ export namespace Prisma {
     dob?: boolean
     residenceCounty?: boolean
     residenceLocation?: boolean
+    constituency?: boolean
+    residenceConstituency?: boolean
     email?: boolean
     phoneNumber?: boolean
+    nationalId?: boolean
     businessNumber?: boolean
     pin?: boolean
     yearsOfExperience?: boolean
@@ -2626,8 +2656,11 @@ export namespace Prisma {
     dob?: boolean
     residenceCounty?: boolean
     residenceLocation?: boolean
+    constituency?: boolean
+    residenceConstituency?: boolean
     email?: boolean
     phoneNumber?: boolean
+    nationalId?: boolean
     businessNumber?: boolean
     pin?: boolean
     yearsOfExperience?: boolean
@@ -2638,7 +2671,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "middleName" | "lastName" | "gender" | "dob" | "residenceCounty" | "residenceLocation" | "email" | "phoneNumber" | "businessNumber" | "pin" | "yearsOfExperience" | "otp" | "otpExpiry" | "isVerified" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "middleName" | "lastName" | "gender" | "dob" | "residenceCounty" | "residenceLocation" | "constituency" | "residenceConstituency" | "email" | "phoneNumber" | "nationalId" | "businessNumber" | "pin" | "yearsOfExperience" | "otp" | "otpExpiry" | "isVerified" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     farms?: boolean | User$farmsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -2660,8 +2693,11 @@ export namespace Prisma {
       dob: string
       residenceCounty: string
       residenceLocation: string | null
+      constituency: string | null
+      residenceConstituency: string | null
       email: string | null
       phoneNumber: string
+      nationalId: string | null
       businessNumber: string | null
       pin: string
       yearsOfExperience: number | null
@@ -3102,8 +3138,11 @@ export namespace Prisma {
     readonly dob: FieldRef<"User", 'String'>
     readonly residenceCounty: FieldRef<"User", 'String'>
     readonly residenceLocation: FieldRef<"User", 'String'>
+    readonly constituency: FieldRef<"User", 'String'>
+    readonly residenceConstituency: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
     readonly phoneNumber: FieldRef<"User", 'String'>
+    readonly nationalId: FieldRef<"User", 'String'>
     readonly businessNumber: FieldRef<"User", 'String'>
     readonly pin: FieldRef<"User", 'String'>
     readonly yearsOfExperience: FieldRef<"User", 'Int'>
@@ -19310,8 +19349,11 @@ export namespace Prisma {
     dob: 'dob',
     residenceCounty: 'residenceCounty',
     residenceLocation: 'residenceLocation',
+    constituency: 'constituency',
+    residenceConstituency: 'residenceConstituency',
     email: 'email',
     phoneNumber: 'phoneNumber',
+    nationalId: 'nationalId',
     businessNumber: 'businessNumber',
     pin: 'pin',
     yearsOfExperience: 'yearsOfExperience',
@@ -19668,8 +19710,11 @@ export namespace Prisma {
     dob?: StringFilter<"User"> | string
     residenceCounty?: StringFilter<"User"> | string
     residenceLocation?: StringNullableFilter<"User"> | string | null
+    constituency?: StringNullableFilter<"User"> | string | null
+    residenceConstituency?: StringNullableFilter<"User"> | string | null
     email?: StringNullableFilter<"User"> | string | null
     phoneNumber?: StringFilter<"User"> | string
+    nationalId?: StringNullableFilter<"User"> | string | null
     businessNumber?: StringNullableFilter<"User"> | string | null
     pin?: StringFilter<"User"> | string
     yearsOfExperience?: IntNullableFilter<"User"> | number | null
@@ -19690,8 +19735,11 @@ export namespace Prisma {
     dob?: SortOrder
     residenceCounty?: SortOrder
     residenceLocation?: SortOrderInput | SortOrder
+    constituency?: SortOrderInput | SortOrder
+    residenceConstituency?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
     phoneNumber?: SortOrder
+    nationalId?: SortOrderInput | SortOrder
     businessNumber?: SortOrderInput | SortOrder
     pin?: SortOrder
     yearsOfExperience?: SortOrderInput | SortOrder
@@ -19707,6 +19755,7 @@ export namespace Prisma {
     id?: string
     email?: string
     phoneNumber?: string
+    nationalId?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
@@ -19717,6 +19766,8 @@ export namespace Prisma {
     dob?: StringFilter<"User"> | string
     residenceCounty?: StringFilter<"User"> | string
     residenceLocation?: StringNullableFilter<"User"> | string | null
+    constituency?: StringNullableFilter<"User"> | string | null
+    residenceConstituency?: StringNullableFilter<"User"> | string | null
     businessNumber?: StringNullableFilter<"User"> | string | null
     pin?: StringFilter<"User"> | string
     yearsOfExperience?: IntNullableFilter<"User"> | number | null
@@ -19726,7 +19777,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     farms?: FarmListRelationFilter
-  }, "id" | "email" | "phoneNumber">
+  }, "id" | "email" | "phoneNumber" | "nationalId">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
@@ -19737,8 +19788,11 @@ export namespace Prisma {
     dob?: SortOrder
     residenceCounty?: SortOrder
     residenceLocation?: SortOrderInput | SortOrder
+    constituency?: SortOrderInput | SortOrder
+    residenceConstituency?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
     phoneNumber?: SortOrder
+    nationalId?: SortOrderInput | SortOrder
     businessNumber?: SortOrderInput | SortOrder
     pin?: SortOrder
     yearsOfExperience?: SortOrderInput | SortOrder
@@ -19766,8 +19820,11 @@ export namespace Prisma {
     dob?: StringWithAggregatesFilter<"User"> | string
     residenceCounty?: StringWithAggregatesFilter<"User"> | string
     residenceLocation?: StringNullableWithAggregatesFilter<"User"> | string | null
+    constituency?: StringNullableWithAggregatesFilter<"User"> | string | null
+    residenceConstituency?: StringNullableWithAggregatesFilter<"User"> | string | null
     email?: StringNullableWithAggregatesFilter<"User"> | string | null
     phoneNumber?: StringWithAggregatesFilter<"User"> | string
+    nationalId?: StringNullableWithAggregatesFilter<"User"> | string | null
     businessNumber?: StringNullableWithAggregatesFilter<"User"> | string | null
     pin?: StringWithAggregatesFilter<"User"> | string
     yearsOfExperience?: IntNullableWithAggregatesFilter<"User"> | number | null
@@ -21041,8 +21098,11 @@ export namespace Prisma {
     dob: string
     residenceCounty: string
     residenceLocation?: string | null
+    constituency?: string | null
+    residenceConstituency?: string | null
     email?: string | null
     phoneNumber: string
+    nationalId?: string | null
     businessNumber?: string | null
     pin: string
     yearsOfExperience?: number | null
@@ -21063,8 +21123,11 @@ export namespace Prisma {
     dob: string
     residenceCounty: string
     residenceLocation?: string | null
+    constituency?: string | null
+    residenceConstituency?: string | null
     email?: string | null
     phoneNumber: string
+    nationalId?: string | null
     businessNumber?: string | null
     pin: string
     yearsOfExperience?: number | null
@@ -21085,8 +21148,11 @@ export namespace Prisma {
     dob?: StringFieldUpdateOperationsInput | string
     residenceCounty?: StringFieldUpdateOperationsInput | string
     residenceLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    constituency?: NullableStringFieldUpdateOperationsInput | string | null
+    residenceConstituency?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: StringFieldUpdateOperationsInput | string
+    nationalId?: NullableStringFieldUpdateOperationsInput | string | null
     businessNumber?: NullableStringFieldUpdateOperationsInput | string | null
     pin?: StringFieldUpdateOperationsInput | string
     yearsOfExperience?: NullableIntFieldUpdateOperationsInput | number | null
@@ -21107,8 +21173,11 @@ export namespace Prisma {
     dob?: StringFieldUpdateOperationsInput | string
     residenceCounty?: StringFieldUpdateOperationsInput | string
     residenceLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    constituency?: NullableStringFieldUpdateOperationsInput | string | null
+    residenceConstituency?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: StringFieldUpdateOperationsInput | string
+    nationalId?: NullableStringFieldUpdateOperationsInput | string | null
     businessNumber?: NullableStringFieldUpdateOperationsInput | string | null
     pin?: StringFieldUpdateOperationsInput | string
     yearsOfExperience?: NullableIntFieldUpdateOperationsInput | number | null
@@ -21129,8 +21198,11 @@ export namespace Prisma {
     dob: string
     residenceCounty: string
     residenceLocation?: string | null
+    constituency?: string | null
+    residenceConstituency?: string | null
     email?: string | null
     phoneNumber: string
+    nationalId?: string | null
     businessNumber?: string | null
     pin: string
     yearsOfExperience?: number | null
@@ -21150,8 +21222,11 @@ export namespace Prisma {
     dob?: StringFieldUpdateOperationsInput | string
     residenceCounty?: StringFieldUpdateOperationsInput | string
     residenceLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    constituency?: NullableStringFieldUpdateOperationsInput | string | null
+    residenceConstituency?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: StringFieldUpdateOperationsInput | string
+    nationalId?: NullableStringFieldUpdateOperationsInput | string | null
     businessNumber?: NullableStringFieldUpdateOperationsInput | string | null
     pin?: StringFieldUpdateOperationsInput | string
     yearsOfExperience?: NullableIntFieldUpdateOperationsInput | number | null
@@ -21171,8 +21246,11 @@ export namespace Prisma {
     dob?: StringFieldUpdateOperationsInput | string
     residenceCounty?: StringFieldUpdateOperationsInput | string
     residenceLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    constituency?: NullableStringFieldUpdateOperationsInput | string | null
+    residenceConstituency?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: StringFieldUpdateOperationsInput | string
+    nationalId?: NullableStringFieldUpdateOperationsInput | string | null
     businessNumber?: NullableStringFieldUpdateOperationsInput | string | null
     pin?: StringFieldUpdateOperationsInput | string
     yearsOfExperience?: NullableIntFieldUpdateOperationsInput | number | null
@@ -22698,8 +22776,11 @@ export namespace Prisma {
     dob?: SortOrder
     residenceCounty?: SortOrder
     residenceLocation?: SortOrder
+    constituency?: SortOrder
+    residenceConstituency?: SortOrder
     email?: SortOrder
     phoneNumber?: SortOrder
+    nationalId?: SortOrder
     businessNumber?: SortOrder
     pin?: SortOrder
     yearsOfExperience?: SortOrder
@@ -22723,8 +22804,11 @@ export namespace Prisma {
     dob?: SortOrder
     residenceCounty?: SortOrder
     residenceLocation?: SortOrder
+    constituency?: SortOrder
+    residenceConstituency?: SortOrder
     email?: SortOrder
     phoneNumber?: SortOrder
+    nationalId?: SortOrder
     businessNumber?: SortOrder
     pin?: SortOrder
     yearsOfExperience?: SortOrder
@@ -22744,8 +22828,11 @@ export namespace Prisma {
     dob?: SortOrder
     residenceCounty?: SortOrder
     residenceLocation?: SortOrder
+    constituency?: SortOrder
+    residenceConstituency?: SortOrder
     email?: SortOrder
     phoneNumber?: SortOrder
+    nationalId?: SortOrder
     businessNumber?: SortOrder
     pin?: SortOrder
     yearsOfExperience?: SortOrder
@@ -25154,8 +25241,11 @@ export namespace Prisma {
     dob: string
     residenceCounty: string
     residenceLocation?: string | null
+    constituency?: string | null
+    residenceConstituency?: string | null
     email?: string | null
     phoneNumber: string
+    nationalId?: string | null
     businessNumber?: string | null
     pin: string
     yearsOfExperience?: number | null
@@ -25175,8 +25265,11 @@ export namespace Prisma {
     dob: string
     residenceCounty: string
     residenceLocation?: string | null
+    constituency?: string | null
+    residenceConstituency?: string | null
     email?: string | null
     phoneNumber: string
+    nationalId?: string | null
     businessNumber?: string | null
     pin: string
     yearsOfExperience?: number | null
@@ -25315,8 +25408,11 @@ export namespace Prisma {
     dob?: StringFieldUpdateOperationsInput | string
     residenceCounty?: StringFieldUpdateOperationsInput | string
     residenceLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    constituency?: NullableStringFieldUpdateOperationsInput | string | null
+    residenceConstituency?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: StringFieldUpdateOperationsInput | string
+    nationalId?: NullableStringFieldUpdateOperationsInput | string | null
     businessNumber?: NullableStringFieldUpdateOperationsInput | string | null
     pin?: StringFieldUpdateOperationsInput | string
     yearsOfExperience?: NullableIntFieldUpdateOperationsInput | number | null
@@ -25336,8 +25432,11 @@ export namespace Prisma {
     dob?: StringFieldUpdateOperationsInput | string
     residenceCounty?: StringFieldUpdateOperationsInput | string
     residenceLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    constituency?: NullableStringFieldUpdateOperationsInput | string | null
+    residenceConstituency?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: StringFieldUpdateOperationsInput | string
+    nationalId?: NullableStringFieldUpdateOperationsInput | string | null
     businessNumber?: NullableStringFieldUpdateOperationsInput | string | null
     pin?: StringFieldUpdateOperationsInput | string
     yearsOfExperience?: NullableIntFieldUpdateOperationsInput | number | null

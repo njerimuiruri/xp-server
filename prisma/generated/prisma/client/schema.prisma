@@ -9,25 +9,28 @@ datasource db {
 }
 
 model User {
-  id                String    @id @default(cuid())
-  firstName         String
-  middleName        String?
-  lastName          String
-  gender            String
-  dob               String
-  residenceCounty   String
-  residenceLocation String?
-  email             String?   @unique
-  phoneNumber       String    @unique
-  businessNumber    String?
-  pin               String
-  yearsOfExperience Int?
-  otp               String?
-  otpExpiry         DateTime?
-  isVerified        Boolean   @default(false)
-  createdAt         DateTime  @default(now())
-  updatedAt         DateTime  @updatedAt
-  farms             Farm[]
+  id                    String    @id @default(cuid())
+  firstName             String
+  middleName            String?
+  lastName              String
+  gender                String
+  dob                   String
+  residenceCounty       String
+  residenceLocation     String?
+  constituency          String?
+  residenceConstituency String?
+  email                 String?   @unique
+  phoneNumber           String    @unique
+  nationalId            String?   @unique
+  businessNumber        String?
+  pin                   String
+  yearsOfExperience     Int?
+  otp                   String?
+  otpExpiry             DateTime?
+  isVerified            Boolean   @default(false)
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+  farms                 Farm[]
 }
 
 model Farm {

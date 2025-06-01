@@ -17,8 +17,11 @@ model User {
   dob               String
   residenceCounty   String
   residenceLocation String?
+  constituency      String?
+  residenceConstituency  String?
   email             String?   @unique
   phoneNumber       String    @unique
+  nationalId        String?   @unique
   businessNumber    String?
   pin               String
   yearsOfExperience Int?
