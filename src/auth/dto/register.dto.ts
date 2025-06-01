@@ -1,4 +1,11 @@
-import { IsString, IsEmail, IsOptional, IsArray, IsNumber, IsEnum } from 'class-validator';
+import {
+  IsString,
+  IsEmail,
+  IsOptional,
+  IsArray,
+  IsNumber,
+  IsEnum,
+} from 'class-validator';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 enum Gender {
@@ -32,7 +39,7 @@ export class RegisterDto {
 
   @ApiProperty({
     enum: Ownership,
-    description: 'Type of farm ownership'
+    description: 'Type of farm ownership',
   })
   @IsEnum(Ownership)
   ownership: Ownership;
@@ -40,7 +47,7 @@ export class RegisterDto {
   @ApiProperty({
     type: [String],
     description: 'Types of farming activities',
-    example: ['Dairy cattle', 'Poultry', 'Crops']
+    example: ['Dairy cattle', 'Poultry', 'Crops'],
   })
   @IsArray()
   @IsString({ each: true })
@@ -60,16 +67,28 @@ export class RegisterDto {
   @IsString()
   lastName: string;
 
+  @ApiProperty({ description: 'National ID of the farmer' })
+  @IsString()
+  nationalId: string;
+
+  @ApiProperty({ description: 'Constituency of residence' })
+  @IsString()
+  constituency?: string;
+
+  @ApiProperty({ description: 'Constituency of residence of the farmer' })
+  @IsString()
+  residenceConstituency?: string;
+
   @ApiProperty({
     enum: Gender,
-    description: 'Gender of the farmer'
+    description: 'Gender of the farmer',
   })
   @IsEnum(Gender)
   gender: Gender;
 
   @ApiProperty({
     description: 'Date of birth of the farmer',
-    example: '2000-01-01'
+    example: '2000-01-01',
   })
   @IsString()
   dob: string;
@@ -86,7 +105,7 @@ export class RegisterDto {
   // Professional Information
   @ApiPropertyOptional({
     description: 'Years of farming experience',
-    minimum: 0
+    minimum: 0,
   })
   @IsNumber()
   @IsOptional()
@@ -94,7 +113,7 @@ export class RegisterDto {
 
   @ApiPropertyOptional({
     description: 'Email address',
-    example: 'farmer@example.com'
+    example: 'farmer@example.com',
   })
   @IsEmail()
   @IsOptional()
@@ -102,14 +121,14 @@ export class RegisterDto {
 
   @ApiProperty({
     description: 'Phone number',
-    example: '+254700000000'
+    example: '+254700000000',
   })
   @IsString()
   phoneNumber: string;
 
   @ApiPropertyOptional({
     description: 'Business contact number',
-    example: '+254700000000'
+    example: '+254700000000',
   })
   @IsString()
   @IsOptional()
@@ -119,7 +138,7 @@ export class RegisterDto {
     description: '4-digit PIN',
     minLength: 4,
     maxLength: 4,
-    example: '1234'
+    example: '1234',
   })
   @IsString()
   pin: string;

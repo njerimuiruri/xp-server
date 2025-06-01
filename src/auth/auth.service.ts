@@ -1,8 +1,16 @@
-import { Injectable, UnauthorizedException, BadRequestException } from '@nestjs/common';
+import {
+  Injectable,
+  UnauthorizedException,
+  BadRequestException,
+} from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
-import { RequestPasswordResetDto, ResetPasswordDto, VerifyOtpDto } from './dto/reset-password.dto';
+import {
+  RequestPasswordResetDto,
+  ResetPasswordDto,
+  VerifyOtpDto,
+} from './dto/reset-password.dto';
 import { JwtService } from '@nestjs/jwt';
 import { NotificationsService } from '../notifications/notifications.service';
 import { User, UserWithoutPin } from './types/user.type';
@@ -15,16 +23,30 @@ export class AuthService {
     private prisma: PrismaService,
     private jwtService: JwtService,
     private notificationsService: NotificationsService,
-  ) { }
+  ) {}
 
-  async register(dto: RegisterDto): Promise<{ user: UserWithoutPin; message: string }> {
+  async register(
+    dto: RegisterDto,
+  ): Promise<{ user: UserWithoutPin; message: string }> {
     // Check if phone number already exists
     const existingPhone = await this.prisma.user.findUnique({
       where: { phoneNumber: dto.phoneNumber },
     });
 
     if (existingPhone) {
-      throw new BadRequestException('Phone number already exists, login instead');
+      throw new BadRequestException(
+        'Phone number already exists, login instead',
+      );
+    }
+
+    const existingNationalId = await this.prisma.user.findUnique({
+      where: { nationalId: dto.nationalId },
+    });
+
+    if (existingNationalId) {
+      throw new BadRequestException(
+        'National ID already exists, login instead',
+      );
     }
 
     // Check if email already exists
@@ -41,7 +63,7 @@ export class AuthService {
     const otpExpiry = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
 
     // Create user with validated data
-    const user = await this.prisma.user.create({
+    const user = (await this.prisma.user.create({
       data: {
         firstName: dto.firstName,
         middleName: dto.middleName,
@@ -50,6 +72,9 @@ export class AuthService {
         dob: dto.dob,
         residenceCounty: dto.residenceCounty,
         residenceLocation: dto.residenceLocation,
+        constituency: dto.constituency,
+        residenceConstituency: dto.residenceConstituency,
+        nationalId: dto.nationalId,
         email: dto.email,
         phoneNumber: dto.phoneNumber,
         businessNumber: dto.businessNumber,
@@ -72,7 +97,7 @@ export class AuthService {
       include: {
         farms: true,
       },
-    }) as User;
+    })) as User;
 
     const { pin, ...result } = user;
 
@@ -94,7 +119,9 @@ export class AuthService {
     };
   }
 
-  async login(dto: LoginDto): Promise<{ user: UserWithoutPin; token?: string; message?: string }> {
+  async login(
+    dto: LoginDto,
+  ): Promise<{ user: UserWithoutPin; token?: string; message?: string }> {
     const user = await this.prisma.user.findUnique({
       where: { phoneNumber: dto.phoneNumber },
       include: {
@@ -125,7 +152,7 @@ export class AuthService {
       const { pin, ...userWithoutPin } = user;
       return {
         user: userWithoutPin,
-        message: 'Account not verified. OTP has been resent to your phone.'
+        message: 'Account not verified. OTP has been resent to your phone.',
       };
     }
 
@@ -140,13 +167,15 @@ export class AuthService {
     return this.jwtService.signAsync({ sub: userId });
   }
 
-  async requestPasswordReset(dto: RequestPasswordResetDto): Promise<{ message: string }> {
-    const user = await this.prisma.user.findUnique({
+  async requestPasswordReset(
+    dto: RequestPasswordResetDto,
+  ): Promise<{ message: string }> {
+    const user = (await this.prisma.user.findUnique({
       where: { phoneNumber: dto.phoneNumber },
       include: {
         farms: true,
       },
-    }) as User;
+    })) as User;
 
     if (!user) {
       throw new UnauthorizedException('User not found');
@@ -155,7 +184,7 @@ export class AuthService {
     const otp = this.notificationsService.generateOTP();
     const otpExpiry = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
 
-    await this.prisma.user.update({
+    (await this.prisma.user.update({
       where: { id: user.id },
       data: {
         otp: otp,
@@ -164,7 +193,7 @@ export class AuthService {
       include: {
         farms: true,
       },
-    }) as User;
+    })) as User;
 
     const success = await this.notificationsService.sendSMS(
       user.phoneNumber,
@@ -179,12 +208,12 @@ export class AuthService {
   }
 
   async verifyOtp(dto: VerifyOtpDto): Promise<{ message: string }> {
-    const user = await this.prisma.user.findUnique({
+    const user = (await this.prisma.user.findUnique({
       where: { phoneNumber: dto.phoneNumber },
       include: {
         farms: true,
       },
-    }) as User;
+    })) as User;
 
     if (!user || !user.otp || !user.otpExpiry) {
       throw new UnauthorizedException('Invalid OTP request');
@@ -200,7 +229,7 @@ export class AuthService {
       throw new UnauthorizedException('Invalid OTP');
     }
 
-    await this.prisma.user.update({
+    (await this.prisma.user.update({
       where: { id: user.id },
       data: {
         isVerified: true,
@@ -210,18 +239,18 @@ export class AuthService {
       include: {
         farms: true,
       },
-    }) as User;
+    })) as User;
 
     return { message: 'OTP verified successfully' };
   }
 
   async resetPassword(dto: ResetPasswordDto): Promise<{ message: string }> {
-    const user = await this.prisma.user.findUnique({
+    const user = (await this.prisma.user.findUnique({
       where: { phoneNumber: dto.phoneNumber },
       include: {
         farms: true,
       },
-    }) as User;
+    })) as User;
 
     if (!user || !user.otp || !user.otpExpiry) {
       throw new UnauthorizedException('Invalid reset request');
@@ -243,7 +272,7 @@ export class AuthService {
 
     const hashedPin = await bcrypt.hash(dto.newPin, 10);
 
-    await this.prisma.user.update({
+    (await this.prisma.user.update({
       where: { id: user.id },
       data: {
         pin: hashedPin,
@@ -253,7 +282,7 @@ export class AuthService {
       include: {
         farms: true,
       },
-    }) as User;
+    })) as User;
 
     return { message: 'Password reset successful' };
   }

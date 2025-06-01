@@ -2083,15 +2083,15 @@ export namespace Prisma {
    */
 
   export type FarmCountOutputType = {
+    breedingRecords: number
     employees: number
     livestock: number
-    breedingRecords: number
   }
 
   export type FarmCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    breedingRecords?: boolean | FarmCountOutputTypeCountBreedingRecordsArgs
     employees?: boolean | FarmCountOutputTypeCountEmployeesArgs
     livestock?: boolean | FarmCountOutputTypeCountLivestockArgs
-    breedingRecords?: boolean | FarmCountOutputTypeCountBreedingRecordsArgs
   }
 
   // Custom InputTypes
@@ -2108,6 +2108,13 @@ export namespace Prisma {
   /**
    * FarmCountOutputType without action
    */
+  export type FarmCountOutputTypeCountBreedingRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BreedingRecordWhereInput
+  }
+
+  /**
+   * FarmCountOutputType without action
+   */
   export type FarmCountOutputTypeCountEmployeesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: EmployeeFarmWhereInput
   }
@@ -2117,13 +2124,6 @@ export namespace Prisma {
    */
   export type FarmCountOutputTypeCountLivestockArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: LivestockWhereInput
-  }
-
-  /**
-   * FarmCountOutputType without action
-   */
-  export type FarmCountOutputTypeCountBreedingRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: BreedingRecordWhereInput
   }
 
 
@@ -2172,19 +2172,19 @@ export namespace Prisma {
    */
 
   export type LivestockCountOutputType = {
-    healthEvent: number
-    transfer: number
     breedingDam: number
     breedingSire: number
+    healthEvent: number
     offspring: number
+    transfer: number
   }
 
   export type LivestockCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    healthEvent?: boolean | LivestockCountOutputTypeCountHealthEventArgs
-    transfer?: boolean | LivestockCountOutputTypeCountTransferArgs
     breedingDam?: boolean | LivestockCountOutputTypeCountBreedingDamArgs
     breedingSire?: boolean | LivestockCountOutputTypeCountBreedingSireArgs
+    healthEvent?: boolean | LivestockCountOutputTypeCountHealthEventArgs
     offspring?: boolean | LivestockCountOutputTypeCountOffspringArgs
+    transfer?: boolean | LivestockCountOutputTypeCountTransferArgs
   }
 
   // Custom InputTypes
@@ -2196,20 +2196,6 @@ export namespace Prisma {
      * Select specific fields to fetch from the LivestockCountOutputType
      */
     select?: LivestockCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * LivestockCountOutputType without action
-   */
-  export type LivestockCountOutputTypeCountHealthEventArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: HealthEventWhereInput
-  }
-
-  /**
-   * LivestockCountOutputType without action
-   */
-  export type LivestockCountOutputTypeCountTransferArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TransferWhereInput
   }
 
   /**
@@ -2229,8 +2215,22 @@ export namespace Prisma {
   /**
    * LivestockCountOutputType without action
    */
+  export type LivestockCountOutputTypeCountHealthEventArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HealthEventWhereInput
+  }
+
+  /**
+   * LivestockCountOutputType without action
+   */
   export type LivestockCountOutputTypeCountOffspringArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: OffspringWhereInput
+  }
+
+  /**
+   * LivestockCountOutputType without action
+   */
+  export type LivestockCountOutputTypeCountTransferArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TransferWhereInput
   }
 
 
@@ -3776,10 +3776,10 @@ export namespace Prisma {
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    employees?: boolean | Farm$employeesArgs<ExtArgs>
-    livestock?: boolean | Farm$livestockArgs<ExtArgs>
     breedingRecords?: boolean | Farm$breedingRecordsArgs<ExtArgs>
+    employees?: boolean | Farm$employeesArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
+    livestock?: boolean | Farm$livestockArgs<ExtArgs>
     _count?: boolean | FarmCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["farm"]>
 
@@ -3826,10 +3826,10 @@ export namespace Prisma {
 
   export type FarmOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "county" | "administrativeLocation" | "size" | "ownership" | "farmingTypes" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["farm"]>
   export type FarmInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    employees?: boolean | Farm$employeesArgs<ExtArgs>
-    livestock?: boolean | Farm$livestockArgs<ExtArgs>
     breedingRecords?: boolean | Farm$breedingRecordsArgs<ExtArgs>
+    employees?: boolean | Farm$employeesArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
+    livestock?: boolean | Farm$livestockArgs<ExtArgs>
     _count?: boolean | FarmCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type FarmIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3842,10 +3842,10 @@ export namespace Prisma {
   export type $FarmPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Farm"
     objects: {
-      employees: Prisma.$EmployeeFarmPayload<ExtArgs>[]
-      livestock: Prisma.$LivestockPayload<ExtArgs>[]
       breedingRecords: Prisma.$BreedingRecordPayload<ExtArgs>[]
+      employees: Prisma.$EmployeeFarmPayload<ExtArgs>[]
       user: Prisma.$UserPayload<ExtArgs>
+      livestock: Prisma.$LivestockPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -4252,10 +4252,10 @@ export namespace Prisma {
    */
   export interface Prisma__FarmClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    employees<T extends Farm$employeesArgs<ExtArgs> = {}>(args?: Subset<T, Farm$employeesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    livestock<T extends Farm$livestockArgs<ExtArgs> = {}>(args?: Subset<T, Farm$livestockArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     breedingRecords<T extends Farm$breedingRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Farm$breedingRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreedingRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    employees<T extends Farm$employeesArgs<ExtArgs> = {}>(args?: Subset<T, Farm$employeesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    livestock<T extends Farm$livestockArgs<ExtArgs> = {}>(args?: Subset<T, Farm$livestockArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4691,6 +4691,30 @@ export namespace Prisma {
   }
 
   /**
+   * Farm.breedingRecords
+   */
+  export type Farm$breedingRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreedingRecord
+     */
+    select?: BreedingRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreedingRecord
+     */
+    omit?: BreedingRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreedingRecordInclude<ExtArgs> | null
+    where?: BreedingRecordWhereInput
+    orderBy?: BreedingRecordOrderByWithRelationInput | BreedingRecordOrderByWithRelationInput[]
+    cursor?: BreedingRecordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BreedingRecordScalarFieldEnum | BreedingRecordScalarFieldEnum[]
+  }
+
+  /**
    * Farm.employees
    */
   export type Farm$employeesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4736,30 +4760,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: LivestockScalarFieldEnum | LivestockScalarFieldEnum[]
-  }
-
-  /**
-   * Farm.breedingRecords
-   */
-  export type Farm$breedingRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the BreedingRecord
-     */
-    select?: BreedingRecordSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the BreedingRecord
-     */
-    omit?: BreedingRecordOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BreedingRecordInclude<ExtArgs> | null
-    where?: BreedingRecordWhereInput
-    orderBy?: BreedingRecordOrderByWithRelationInput | BreedingRecordOrderByWithRelationInput[]
-    cursor?: BreedingRecordWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: BreedingRecordScalarFieldEnum | BreedingRecordScalarFieldEnum[]
   }
 
   /**
@@ -8281,9 +8281,9 @@ export namespace Prisma {
     farmId: string | null
     category: string | null
     type: string | null
-    status: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    status: string | null
   }
 
   export type LivestockMaxAggregateOutputType = {
@@ -8291,9 +8291,9 @@ export namespace Prisma {
     farmId: string | null
     category: string | null
     type: string | null
-    status: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    status: string | null
   }
 
   export type LivestockCountAggregateOutputType = {
@@ -8301,9 +8301,9 @@ export namespace Prisma {
     farmId: number
     category: number
     type: number
-    status: number
     createdAt: number
     updatedAt: number
+    status: number
     _all: number
   }
 
@@ -8313,9 +8313,9 @@ export namespace Prisma {
     farmId?: true
     category?: true
     type?: true
-    status?: true
     createdAt?: true
     updatedAt?: true
+    status?: true
   }
 
   export type LivestockMaxAggregateInputType = {
@@ -8323,9 +8323,9 @@ export namespace Prisma {
     farmId?: true
     category?: true
     type?: true
-    status?: true
     createdAt?: true
     updatedAt?: true
+    status?: true
   }
 
   export type LivestockCountAggregateInputType = {
@@ -8333,9 +8333,9 @@ export namespace Prisma {
     farmId?: true
     category?: true
     type?: true
-    status?: true
     createdAt?: true
     updatedAt?: true
+    status?: true
     _all?: true
   }
 
@@ -8416,9 +8416,9 @@ export namespace Prisma {
     farmId: string
     category: string
     type: string
-    status: string
     createdAt: Date
     updatedAt: Date
+    status: string
     _count: LivestockCountAggregateOutputType | null
     _min: LivestockMinAggregateOutputType | null
     _max: LivestockMaxAggregateOutputType | null
@@ -8443,19 +8443,19 @@ export namespace Prisma {
     farmId?: boolean
     category?: boolean
     type?: boolean
-    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    farm?: boolean | FarmDefaultArgs<ExtArgs>
-    mammal?: boolean | Livestock$mammalArgs<ExtArgs>
-    poultry?: boolean | Livestock$poultryArgs<ExtArgs>
-    mortality?: boolean | Livestock$mortalityArgs<ExtArgs>
-    healthEvent?: boolean | Livestock$healthEventArgs<ExtArgs>
-    transfer?: boolean | Livestock$transferArgs<ExtArgs>
-    sale?: boolean | Livestock$saleArgs<ExtArgs>
+    status?: boolean
     breedingDam?: boolean | Livestock$breedingDamArgs<ExtArgs>
     breedingSire?: boolean | Livestock$breedingSireArgs<ExtArgs>
+    healthEvent?: boolean | Livestock$healthEventArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+    mammal?: boolean | Livestock$mammalArgs<ExtArgs>
+    mortality?: boolean | Livestock$mortalityArgs<ExtArgs>
     offspring?: boolean | Livestock$offspringArgs<ExtArgs>
+    poultry?: boolean | Livestock$poultryArgs<ExtArgs>
+    sale?: boolean | Livestock$saleArgs<ExtArgs>
+    transfer?: boolean | Livestock$transferArgs<ExtArgs>
     _count?: boolean | LivestockCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["livestock"]>
 
@@ -8464,9 +8464,9 @@ export namespace Prisma {
     farmId?: boolean
     category?: boolean
     type?: boolean
-    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    status?: boolean
     farm?: boolean | FarmDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["livestock"]>
 
@@ -8475,9 +8475,9 @@ export namespace Prisma {
     farmId?: boolean
     category?: boolean
     type?: boolean
-    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    status?: boolean
     farm?: boolean | FarmDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["livestock"]>
 
@@ -8486,23 +8486,23 @@ export namespace Prisma {
     farmId?: boolean
     category?: boolean
     type?: boolean
-    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    status?: boolean
   }
 
-  export type LivestockOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "farmId" | "category" | "type" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["livestock"]>
+  export type LivestockOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "farmId" | "category" | "type" | "createdAt" | "updatedAt" | "status", ExtArgs["result"]["livestock"]>
   export type LivestockInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    farm?: boolean | FarmDefaultArgs<ExtArgs>
-    mammal?: boolean | Livestock$mammalArgs<ExtArgs>
-    poultry?: boolean | Livestock$poultryArgs<ExtArgs>
-    mortality?: boolean | Livestock$mortalityArgs<ExtArgs>
-    healthEvent?: boolean | Livestock$healthEventArgs<ExtArgs>
-    transfer?: boolean | Livestock$transferArgs<ExtArgs>
-    sale?: boolean | Livestock$saleArgs<ExtArgs>
     breedingDam?: boolean | Livestock$breedingDamArgs<ExtArgs>
     breedingSire?: boolean | Livestock$breedingSireArgs<ExtArgs>
+    healthEvent?: boolean | Livestock$healthEventArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+    mammal?: boolean | Livestock$mammalArgs<ExtArgs>
+    mortality?: boolean | Livestock$mortalityArgs<ExtArgs>
     offspring?: boolean | Livestock$offspringArgs<ExtArgs>
+    poultry?: boolean | Livestock$poultryArgs<ExtArgs>
+    sale?: boolean | Livestock$saleArgs<ExtArgs>
+    transfer?: boolean | Livestock$transferArgs<ExtArgs>
     _count?: boolean | LivestockCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type LivestockIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -8515,25 +8515,25 @@ export namespace Prisma {
   export type $LivestockPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Livestock"
     objects: {
-      farm: Prisma.$FarmPayload<ExtArgs>
-      mammal: Prisma.$MammalPayload<ExtArgs> | null
-      poultry: Prisma.$PoultryPayload<ExtArgs> | null
-      mortality: Prisma.$MortalityPayload<ExtArgs> | null
-      healthEvent: Prisma.$HealthEventPayload<ExtArgs>[]
-      transfer: Prisma.$TransferPayload<ExtArgs>[]
-      sale: Prisma.$SalePayload<ExtArgs> | null
       breedingDam: Prisma.$BreedingRecordPayload<ExtArgs>[]
       breedingSire: Prisma.$BreedingRecordPayload<ExtArgs>[]
+      healthEvent: Prisma.$HealthEventPayload<ExtArgs>[]
+      farm: Prisma.$FarmPayload<ExtArgs>
+      mammal: Prisma.$MammalPayload<ExtArgs> | null
+      mortality: Prisma.$MortalityPayload<ExtArgs> | null
       offspring: Prisma.$OffspringPayload<ExtArgs>[]
+      poultry: Prisma.$PoultryPayload<ExtArgs> | null
+      sale: Prisma.$SalePayload<ExtArgs> | null
+      transfer: Prisma.$TransferPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       farmId: string
       category: string
       type: string
-      status: string
       createdAt: Date
       updatedAt: Date
+      status: string
     }, ExtArgs["result"]["livestock"]>
     composites: {}
   }
@@ -8928,16 +8928,16 @@ export namespace Prisma {
    */
   export interface Prisma__LivestockClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    farm<T extends FarmDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FarmDefaultArgs<ExtArgs>>): Prisma__FarmClient<$Result.GetResult<Prisma.$FarmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    mammal<T extends Livestock$mammalArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$mammalArgs<ExtArgs>>): Prisma__MammalClient<$Result.GetResult<Prisma.$MammalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    poultry<T extends Livestock$poultryArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$poultryArgs<ExtArgs>>): Prisma__PoultryClient<$Result.GetResult<Prisma.$PoultryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    mortality<T extends Livestock$mortalityArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$mortalityArgs<ExtArgs>>): Prisma__MortalityClient<$Result.GetResult<Prisma.$MortalityPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    healthEvent<T extends Livestock$healthEventArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$healthEventArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HealthEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    transfer<T extends Livestock$transferArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$transferArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransferPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    sale<T extends Livestock$saleArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$saleArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     breedingDam<T extends Livestock$breedingDamArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$breedingDamArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreedingRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     breedingSire<T extends Livestock$breedingSireArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$breedingSireArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreedingRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    healthEvent<T extends Livestock$healthEventArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$healthEventArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HealthEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    farm<T extends FarmDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FarmDefaultArgs<ExtArgs>>): Prisma__FarmClient<$Result.GetResult<Prisma.$FarmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    mammal<T extends Livestock$mammalArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$mammalArgs<ExtArgs>>): Prisma__MammalClient<$Result.GetResult<Prisma.$MammalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    mortality<T extends Livestock$mortalityArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$mortalityArgs<ExtArgs>>): Prisma__MortalityClient<$Result.GetResult<Prisma.$MortalityPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     offspring<T extends Livestock$offspringArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$offspringArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OffspringPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    poultry<T extends Livestock$poultryArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$poultryArgs<ExtArgs>>): Prisma__PoultryClient<$Result.GetResult<Prisma.$PoultryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    sale<T extends Livestock$saleArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$saleArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    transfer<T extends Livestock$transferArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$transferArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransferPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8971,9 +8971,9 @@ export namespace Prisma {
     readonly farmId: FieldRef<"Livestock", 'String'>
     readonly category: FieldRef<"Livestock", 'String'>
     readonly type: FieldRef<"Livestock", 'String'>
-    readonly status: FieldRef<"Livestock", 'String'>
     readonly createdAt: FieldRef<"Livestock", 'DateTime'>
     readonly updatedAt: FieldRef<"Livestock", 'DateTime'>
+    readonly status: FieldRef<"Livestock", 'String'>
   }
     
 
@@ -9370,130 +9370,6 @@ export namespace Prisma {
   }
 
   /**
-   * Livestock.mammal
-   */
-  export type Livestock$mammalArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Mammal
-     */
-    select?: MammalSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Mammal
-     */
-    omit?: MammalOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MammalInclude<ExtArgs> | null
-    where?: MammalWhereInput
-  }
-
-  /**
-   * Livestock.poultry
-   */
-  export type Livestock$poultryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Poultry
-     */
-    select?: PoultrySelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Poultry
-     */
-    omit?: PoultryOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PoultryInclude<ExtArgs> | null
-    where?: PoultryWhereInput
-  }
-
-  /**
-   * Livestock.mortality
-   */
-  export type Livestock$mortalityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Mortality
-     */
-    select?: MortalitySelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Mortality
-     */
-    omit?: MortalityOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MortalityInclude<ExtArgs> | null
-    where?: MortalityWhereInput
-  }
-
-  /**
-   * Livestock.healthEvent
-   */
-  export type Livestock$healthEventArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the HealthEvent
-     */
-    select?: HealthEventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the HealthEvent
-     */
-    omit?: HealthEventOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: HealthEventInclude<ExtArgs> | null
-    where?: HealthEventWhereInput
-    orderBy?: HealthEventOrderByWithRelationInput | HealthEventOrderByWithRelationInput[]
-    cursor?: HealthEventWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: HealthEventScalarFieldEnum | HealthEventScalarFieldEnum[]
-  }
-
-  /**
-   * Livestock.transfer
-   */
-  export type Livestock$transferArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Transfer
-     */
-    select?: TransferSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Transfer
-     */
-    omit?: TransferOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TransferInclude<ExtArgs> | null
-    where?: TransferWhereInput
-    orderBy?: TransferOrderByWithRelationInput | TransferOrderByWithRelationInput[]
-    cursor?: TransferWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: TransferScalarFieldEnum | TransferScalarFieldEnum[]
-  }
-
-  /**
-   * Livestock.sale
-   */
-  export type Livestock$saleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Sale
-     */
-    select?: SaleSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Sale
-     */
-    omit?: SaleOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SaleInclude<ExtArgs> | null
-    where?: SaleWhereInput
-  }
-
-  /**
    * Livestock.breedingDam
    */
   export type Livestock$breedingDamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9542,6 +9418,68 @@ export namespace Prisma {
   }
 
   /**
+   * Livestock.healthEvent
+   */
+  export type Livestock$healthEventArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthEvent
+     */
+    select?: HealthEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthEvent
+     */
+    omit?: HealthEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthEventInclude<ExtArgs> | null
+    where?: HealthEventWhereInput
+    orderBy?: HealthEventOrderByWithRelationInput | HealthEventOrderByWithRelationInput[]
+    cursor?: HealthEventWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: HealthEventScalarFieldEnum | HealthEventScalarFieldEnum[]
+  }
+
+  /**
+   * Livestock.mammal
+   */
+  export type Livestock$mammalArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mammal
+     */
+    select?: MammalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mammal
+     */
+    omit?: MammalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MammalInclude<ExtArgs> | null
+    where?: MammalWhereInput
+  }
+
+  /**
+   * Livestock.mortality
+   */
+  export type Livestock$mortalityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mortality
+     */
+    select?: MortalitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mortality
+     */
+    omit?: MortalityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MortalityInclude<ExtArgs> | null
+    where?: MortalityWhereInput
+  }
+
+  /**
    * Livestock.offspring
    */
   export type Livestock$offspringArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9563,6 +9501,68 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: OffspringScalarFieldEnum | OffspringScalarFieldEnum[]
+  }
+
+  /**
+   * Livestock.poultry
+   */
+  export type Livestock$poultryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Poultry
+     */
+    select?: PoultrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Poultry
+     */
+    omit?: PoultryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PoultryInclude<ExtArgs> | null
+    where?: PoultryWhereInput
+  }
+
+  /**
+   * Livestock.sale
+   */
+  export type Livestock$saleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    where?: SaleWhereInput
+  }
+
+  /**
+   * Livestock.transfer
+   */
+  export type Livestock$transferArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transfer
+     */
+    select?: TransferSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Transfer
+     */
+    omit?: TransferOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransferInclude<ExtArgs> | null
+    where?: TransferWhereInput
+    orderBy?: TransferOrderByWithRelationInput | TransferOrderByWithRelationInput[]
+    cursor?: TransferWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TransferScalarFieldEnum | TransferScalarFieldEnum[]
   }
 
   /**
@@ -9619,10 +9619,10 @@ export namespace Prisma {
     damId: string | null
     damCode: string | null
     birthWeight: number | null
-    currentWeight: number | null
-    lastWeighingDate: Date | null
     createdAt: Date | null
     updatedAt: Date | null
+    currentWeight: number | null
+    lastWeighingDate: Date | null
   }
 
   export type MammalMaxAggregateOutputType = {
@@ -9638,10 +9638,10 @@ export namespace Prisma {
     damId: string | null
     damCode: string | null
     birthWeight: number | null
-    currentWeight: number | null
-    lastWeighingDate: Date | null
     createdAt: Date | null
     updatedAt: Date | null
+    currentWeight: number | null
+    lastWeighingDate: Date | null
   }
 
   export type MammalCountAggregateOutputType = {
@@ -9657,10 +9657,10 @@ export namespace Prisma {
     damId: number
     damCode: number
     birthWeight: number
-    currentWeight: number
-    lastWeighingDate: number
     createdAt: number
     updatedAt: number
+    currentWeight: number
+    lastWeighingDate: number
     _all: number
   }
 
@@ -9688,10 +9688,10 @@ export namespace Prisma {
     damId?: true
     damCode?: true
     birthWeight?: true
-    currentWeight?: true
-    lastWeighingDate?: true
     createdAt?: true
     updatedAt?: true
+    currentWeight?: true
+    lastWeighingDate?: true
   }
 
   export type MammalMaxAggregateInputType = {
@@ -9707,10 +9707,10 @@ export namespace Prisma {
     damId?: true
     damCode?: true
     birthWeight?: true
-    currentWeight?: true
-    lastWeighingDate?: true
     createdAt?: true
     updatedAt?: true
+    currentWeight?: true
+    lastWeighingDate?: true
   }
 
   export type MammalCountAggregateInputType = {
@@ -9726,10 +9726,10 @@ export namespace Prisma {
     damId?: true
     damCode?: true
     birthWeight?: true
-    currentWeight?: true
-    lastWeighingDate?: true
     createdAt?: true
     updatedAt?: true
+    currentWeight?: true
+    lastWeighingDate?: true
     _all?: true
   }
 
@@ -9832,10 +9832,10 @@ export namespace Prisma {
     damId: string | null
     damCode: string | null
     birthWeight: number | null
-    currentWeight: number | null
-    lastWeighingDate: Date | null
     createdAt: Date
     updatedAt: Date
+    currentWeight: number | null
+    lastWeighingDate: Date | null
     _count: MammalCountAggregateOutputType | null
     _avg: MammalAvgAggregateOutputType | null
     _sum: MammalSumAggregateOutputType | null
@@ -9870,10 +9870,10 @@ export namespace Prisma {
     damId?: boolean
     damCode?: boolean
     birthWeight?: boolean
-    currentWeight?: boolean
-    lastWeighingDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    currentWeight?: boolean
+    lastWeighingDate?: boolean
     livestock?: boolean | LivestockDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["mammal"]>
 
@@ -9890,10 +9890,10 @@ export namespace Prisma {
     damId?: boolean
     damCode?: boolean
     birthWeight?: boolean
-    currentWeight?: boolean
-    lastWeighingDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    currentWeight?: boolean
+    lastWeighingDate?: boolean
     livestock?: boolean | LivestockDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["mammal"]>
 
@@ -9910,10 +9910,10 @@ export namespace Prisma {
     damId?: boolean
     damCode?: boolean
     birthWeight?: boolean
-    currentWeight?: boolean
-    lastWeighingDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    currentWeight?: boolean
+    lastWeighingDate?: boolean
     livestock?: boolean | LivestockDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["mammal"]>
 
@@ -9930,13 +9930,13 @@ export namespace Prisma {
     damId?: boolean
     damCode?: boolean
     birthWeight?: boolean
-    currentWeight?: boolean
-    lastWeighingDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    currentWeight?: boolean
+    lastWeighingDate?: boolean
   }
 
-  export type MammalOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "livestockId" | "idNumber" | "breedType" | "phenotype" | "dateOfBirth" | "gender" | "sireId" | "sireCode" | "damId" | "damCode" | "birthWeight" | "currentWeight" | "lastWeighingDate" | "createdAt" | "updatedAt", ExtArgs["result"]["mammal"]>
+  export type MammalOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "livestockId" | "idNumber" | "breedType" | "phenotype" | "dateOfBirth" | "gender" | "sireId" | "sireCode" | "damId" | "damCode" | "birthWeight" | "createdAt" | "updatedAt" | "currentWeight" | "lastWeighingDate", ExtArgs["result"]["mammal"]>
   export type MammalInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     livestock?: boolean | LivestockDefaultArgs<ExtArgs>
   }
@@ -9965,10 +9965,10 @@ export namespace Prisma {
       damId: string | null
       damCode: string | null
       birthWeight: number | null
-      currentWeight: number | null
-      lastWeighingDate: Date | null
       createdAt: Date
       updatedAt: Date
+      currentWeight: number | null
+      lastWeighingDate: Date | null
     }, ExtArgs["result"]["mammal"]>
     composites: {}
   }
@@ -10405,10 +10405,10 @@ export namespace Prisma {
     readonly damId: FieldRef<"Mammal", 'String'>
     readonly damCode: FieldRef<"Mammal", 'String'>
     readonly birthWeight: FieldRef<"Mammal", 'Float'>
-    readonly currentWeight: FieldRef<"Mammal", 'Float'>
-    readonly lastWeighingDate: FieldRef<"Mammal", 'DateTime'>
     readonly createdAt: FieldRef<"Mammal", 'DateTime'>
     readonly updatedAt: FieldRef<"Mammal", 'DateTime'>
+    readonly currentWeight: FieldRef<"Mammal", 'Float'>
+    readonly lastWeighingDate: FieldRef<"Mammal", 'DateTime'>
   }
     
 
@@ -10862,11 +10862,11 @@ export namespace Prisma {
     breedType: string | null
     sourceOfBirds: string | null
     initialAverageWeight: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
     currentAverageWeight: number | null
     lastWeighingDate: Date | null
     mortalityRate: number | null
-    createdAt: Date | null
-    updatedAt: Date | null
   }
 
   export type PoultryMaxAggregateOutputType = {
@@ -10880,11 +10880,11 @@ export namespace Prisma {
     breedType: string | null
     sourceOfBirds: string | null
     initialAverageWeight: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
     currentAverageWeight: number | null
     lastWeighingDate: Date | null
     mortalityRate: number | null
-    createdAt: Date | null
-    updatedAt: Date | null
   }
 
   export type PoultryCountAggregateOutputType = {
@@ -10898,11 +10898,11 @@ export namespace Prisma {
     breedType: number
     sourceOfBirds: number
     initialAverageWeight: number
+    createdAt: number
+    updatedAt: number
     currentAverageWeight: number
     lastWeighingDate: number
     mortalityRate: number
-    createdAt: number
-    updatedAt: number
     _all: number
   }
 
@@ -10934,11 +10934,11 @@ export namespace Prisma {
     breedType?: true
     sourceOfBirds?: true
     initialAverageWeight?: true
+    createdAt?: true
+    updatedAt?: true
     currentAverageWeight?: true
     lastWeighingDate?: true
     mortalityRate?: true
-    createdAt?: true
-    updatedAt?: true
   }
 
   export type PoultryMaxAggregateInputType = {
@@ -10952,11 +10952,11 @@ export namespace Prisma {
     breedType?: true
     sourceOfBirds?: true
     initialAverageWeight?: true
+    createdAt?: true
+    updatedAt?: true
     currentAverageWeight?: true
     lastWeighingDate?: true
     mortalityRate?: true
-    createdAt?: true
-    updatedAt?: true
   }
 
   export type PoultryCountAggregateInputType = {
@@ -10970,11 +10970,11 @@ export namespace Prisma {
     breedType?: true
     sourceOfBirds?: true
     initialAverageWeight?: true
+    createdAt?: true
+    updatedAt?: true
     currentAverageWeight?: true
     lastWeighingDate?: true
     mortalityRate?: true
-    createdAt?: true
-    updatedAt?: true
     _all?: true
   }
 
@@ -11075,11 +11075,11 @@ export namespace Prisma {
     breedType: string
     sourceOfBirds: string
     initialAverageWeight: number | null
+    createdAt: Date
+    updatedAt: Date
     currentAverageWeight: number | null
     lastWeighingDate: Date | null
     mortalityRate: number | null
-    createdAt: Date
-    updatedAt: Date
     _count: PoultryCountAggregateOutputType | null
     _avg: PoultryAvgAggregateOutputType | null
     _sum: PoultrySumAggregateOutputType | null
@@ -11112,11 +11112,11 @@ export namespace Prisma {
     breedType?: boolean
     sourceOfBirds?: boolean
     initialAverageWeight?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     currentAverageWeight?: boolean
     lastWeighingDate?: boolean
     mortalityRate?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
     livestock?: boolean | LivestockDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["poultry"]>
 
@@ -11131,11 +11131,11 @@ export namespace Prisma {
     breedType?: boolean
     sourceOfBirds?: boolean
     initialAverageWeight?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     currentAverageWeight?: boolean
     lastWeighingDate?: boolean
     mortalityRate?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
     livestock?: boolean | LivestockDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["poultry"]>
 
@@ -11150,11 +11150,11 @@ export namespace Prisma {
     breedType?: boolean
     sourceOfBirds?: boolean
     initialAverageWeight?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     currentAverageWeight?: boolean
     lastWeighingDate?: boolean
     mortalityRate?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
     livestock?: boolean | LivestockDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["poultry"]>
 
@@ -11169,14 +11169,14 @@ export namespace Prisma {
     breedType?: boolean
     sourceOfBirds?: boolean
     initialAverageWeight?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     currentAverageWeight?: boolean
     lastWeighingDate?: boolean
     mortalityRate?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
   }
 
-  export type PoultryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "livestockId" | "flockId" | "dateOfStocking" | "gender" | "initialQuantity" | "currentQuantity" | "breedType" | "sourceOfBirds" | "initialAverageWeight" | "currentAverageWeight" | "lastWeighingDate" | "mortalityRate" | "createdAt" | "updatedAt", ExtArgs["result"]["poultry"]>
+  export type PoultryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "livestockId" | "flockId" | "dateOfStocking" | "gender" | "initialQuantity" | "currentQuantity" | "breedType" | "sourceOfBirds" | "initialAverageWeight" | "createdAt" | "updatedAt" | "currentAverageWeight" | "lastWeighingDate" | "mortalityRate", ExtArgs["result"]["poultry"]>
   export type PoultryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     livestock?: boolean | LivestockDefaultArgs<ExtArgs>
   }
@@ -11203,11 +11203,11 @@ export namespace Prisma {
       breedType: string
       sourceOfBirds: string
       initialAverageWeight: number | null
+      createdAt: Date
+      updatedAt: Date
       currentAverageWeight: number | null
       lastWeighingDate: Date | null
       mortalityRate: number | null
-      createdAt: Date
-      updatedAt: Date
     }, ExtArgs["result"]["poultry"]>
     composites: {}
   }
@@ -11642,11 +11642,11 @@ export namespace Prisma {
     readonly breedType: FieldRef<"Poultry", 'String'>
     readonly sourceOfBirds: FieldRef<"Poultry", 'String'>
     readonly initialAverageWeight: FieldRef<"Poultry", 'Float'>
+    readonly createdAt: FieldRef<"Poultry", 'DateTime'>
+    readonly updatedAt: FieldRef<"Poultry", 'DateTime'>
     readonly currentAverageWeight: FieldRef<"Poultry", 'Float'>
     readonly lastWeighingDate: FieldRef<"Poultry", 'DateTime'>
     readonly mortalityRate: FieldRef<"Poultry", 'Float'>
-    readonly createdAt: FieldRef<"Poultry", 'DateTime'>
-    readonly updatedAt: FieldRef<"Poultry", 'DateTime'>
   }
     
 
@@ -17045,9 +17045,9 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     dam?: boolean | LivestockDefaultArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
     sire?: boolean | BreedingRecord$sireArgs<ExtArgs>
     offspring?: boolean | BreedingRecord$offspringArgs<ExtArgs>
-    farm?: boolean | FarmDefaultArgs<ExtArgs>
     _count?: boolean | BreedingRecordCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["breedingRecord"]>
 
@@ -17078,8 +17078,8 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     dam?: boolean | LivestockDefaultArgs<ExtArgs>
-    sire?: boolean | BreedingRecord$sireArgs<ExtArgs>
     farm?: boolean | FarmDefaultArgs<ExtArgs>
+    sire?: boolean | BreedingRecord$sireArgs<ExtArgs>
   }, ExtArgs["result"]["breedingRecord"]>
 
   export type BreedingRecordSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -17109,8 +17109,8 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     dam?: boolean | LivestockDefaultArgs<ExtArgs>
-    sire?: boolean | BreedingRecord$sireArgs<ExtArgs>
     farm?: boolean | FarmDefaultArgs<ExtArgs>
+    sire?: boolean | BreedingRecord$sireArgs<ExtArgs>
   }, ExtArgs["result"]["breedingRecord"]>
 
   export type BreedingRecordSelectScalar = {
@@ -17144,29 +17144,29 @@ export namespace Prisma {
   export type BreedingRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "damId" | "sireId" | "purpose" | "strategy" | "serviceType" | "serviceDate" | "numServices" | "firstHeatDate" | "sireCode" | "aiType" | "aiSource" | "aiCost" | "gestationDays" | "expectedBirthDate" | "birthRecorded" | "birthDate" | "deliveryMethod" | "youngOnes" | "birthWeight" | "litterWeight" | "offspringSex" | "farmId" | "createdAt" | "updatedAt", ExtArgs["result"]["breedingRecord"]>
   export type BreedingRecordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     dam?: boolean | LivestockDefaultArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
     sire?: boolean | BreedingRecord$sireArgs<ExtArgs>
     offspring?: boolean | BreedingRecord$offspringArgs<ExtArgs>
-    farm?: boolean | FarmDefaultArgs<ExtArgs>
     _count?: boolean | BreedingRecordCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type BreedingRecordIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     dam?: boolean | LivestockDefaultArgs<ExtArgs>
-    sire?: boolean | BreedingRecord$sireArgs<ExtArgs>
     farm?: boolean | FarmDefaultArgs<ExtArgs>
+    sire?: boolean | BreedingRecord$sireArgs<ExtArgs>
   }
   export type BreedingRecordIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     dam?: boolean | LivestockDefaultArgs<ExtArgs>
-    sire?: boolean | BreedingRecord$sireArgs<ExtArgs>
     farm?: boolean | FarmDefaultArgs<ExtArgs>
+    sire?: boolean | BreedingRecord$sireArgs<ExtArgs>
   }
 
   export type $BreedingRecordPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "BreedingRecord"
     objects: {
       dam: Prisma.$LivestockPayload<ExtArgs>
+      farm: Prisma.$FarmPayload<ExtArgs>
       sire: Prisma.$LivestockPayload<ExtArgs> | null
       offspring: Prisma.$OffspringPayload<ExtArgs>[]
-      farm: Prisma.$FarmPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -17589,9 +17589,9 @@ export namespace Prisma {
   export interface Prisma__BreedingRecordClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     dam<T extends LivestockDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LivestockDefaultArgs<ExtArgs>>): Prisma__LivestockClient<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    farm<T extends FarmDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FarmDefaultArgs<ExtArgs>>): Prisma__FarmClient<$Result.GetResult<Prisma.$FarmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     sire<T extends BreedingRecord$sireArgs<ExtArgs> = {}>(args?: Subset<T, BreedingRecord$sireArgs<ExtArgs>>): Prisma__LivestockClient<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     offspring<T extends BreedingRecord$offspringArgs<ExtArgs> = {}>(args?: Subset<T, BreedingRecord$offspringArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OffspringPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    farm<T extends FarmDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FarmDefaultArgs<ExtArgs>>): Prisma__FarmClient<$Result.GetResult<Prisma.$FarmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -19394,9 +19394,9 @@ export namespace Prisma {
     farmId: 'farmId',
     category: 'category',
     type: 'type',
-    status: 'status',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    status: 'status'
   };
 
   export type LivestockScalarFieldEnum = (typeof LivestockScalarFieldEnum)[keyof typeof LivestockScalarFieldEnum]
@@ -19415,10 +19415,10 @@ export namespace Prisma {
     damId: 'damId',
     damCode: 'damCode',
     birthWeight: 'birthWeight',
-    currentWeight: 'currentWeight',
-    lastWeighingDate: 'lastWeighingDate',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    currentWeight: 'currentWeight',
+    lastWeighingDate: 'lastWeighingDate'
   };
 
   export type MammalScalarFieldEnum = (typeof MammalScalarFieldEnum)[keyof typeof MammalScalarFieldEnum]
@@ -19435,11 +19435,11 @@ export namespace Prisma {
     breedType: 'breedType',
     sourceOfBirds: 'sourceOfBirds',
     initialAverageWeight: 'initialAverageWeight',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
     currentAverageWeight: 'currentAverageWeight',
     lastWeighingDate: 'lastWeighingDate',
-    mortalityRate: 'mortalityRate',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    mortalityRate: 'mortalityRate'
   };
 
   export type PoultryScalarFieldEnum = (typeof PoultryScalarFieldEnum)[keyof typeof PoultryScalarFieldEnum]
@@ -19792,10 +19792,10 @@ export namespace Prisma {
     userId?: StringFilter<"Farm"> | string
     createdAt?: DateTimeFilter<"Farm"> | Date | string
     updatedAt?: DateTimeFilter<"Farm"> | Date | string
-    employees?: EmployeeFarmListRelationFilter
-    livestock?: LivestockListRelationFilter
     breedingRecords?: BreedingRecordListRelationFilter
+    employees?: EmployeeFarmListRelationFilter
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    livestock?: LivestockListRelationFilter
   }
 
   export type FarmOrderByWithRelationInput = {
@@ -19809,10 +19809,10 @@ export namespace Prisma {
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    employees?: EmployeeFarmOrderByRelationAggregateInput
-    livestock?: LivestockOrderByRelationAggregateInput
     breedingRecords?: BreedingRecordOrderByRelationAggregateInput
+    employees?: EmployeeFarmOrderByRelationAggregateInput
     user?: UserOrderByWithRelationInput
+    livestock?: LivestockOrderByRelationAggregateInput
   }
 
   export type FarmWhereUniqueInput = Prisma.AtLeast<{
@@ -19829,10 +19829,10 @@ export namespace Prisma {
     userId?: StringFilter<"Farm"> | string
     createdAt?: DateTimeFilter<"Farm"> | Date | string
     updatedAt?: DateTimeFilter<"Farm"> | Date | string
-    employees?: EmployeeFarmListRelationFilter
-    livestock?: LivestockListRelationFilter
     breedingRecords?: BreedingRecordListRelationFilter
+    employees?: EmployeeFarmListRelationFilter
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    livestock?: LivestockListRelationFilter
   }, "id">
 
   export type FarmOrderByWithAggregationInput = {
@@ -20129,19 +20129,19 @@ export namespace Prisma {
     farmId?: StringFilter<"Livestock"> | string
     category?: StringFilter<"Livestock"> | string
     type?: StringFilter<"Livestock"> | string
-    status?: StringFilter<"Livestock"> | string
     createdAt?: DateTimeFilter<"Livestock"> | Date | string
     updatedAt?: DateTimeFilter<"Livestock"> | Date | string
-    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
-    mammal?: XOR<MammalNullableScalarRelationFilter, MammalWhereInput> | null
-    poultry?: XOR<PoultryNullableScalarRelationFilter, PoultryWhereInput> | null
-    mortality?: XOR<MortalityNullableScalarRelationFilter, MortalityWhereInput> | null
-    healthEvent?: HealthEventListRelationFilter
-    transfer?: TransferListRelationFilter
-    sale?: XOR<SaleNullableScalarRelationFilter, SaleWhereInput> | null
+    status?: StringFilter<"Livestock"> | string
     breedingDam?: BreedingRecordListRelationFilter
     breedingSire?: BreedingRecordListRelationFilter
+    healthEvent?: HealthEventListRelationFilter
+    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
+    mammal?: XOR<MammalNullableScalarRelationFilter, MammalWhereInput> | null
+    mortality?: XOR<MortalityNullableScalarRelationFilter, MortalityWhereInput> | null
     offspring?: OffspringListRelationFilter
+    poultry?: XOR<PoultryNullableScalarRelationFilter, PoultryWhereInput> | null
+    sale?: XOR<SaleNullableScalarRelationFilter, SaleWhereInput> | null
+    transfer?: TransferListRelationFilter
   }
 
   export type LivestockOrderByWithRelationInput = {
@@ -20149,19 +20149,19 @@ export namespace Prisma {
     farmId?: SortOrder
     category?: SortOrder
     type?: SortOrder
-    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    farm?: FarmOrderByWithRelationInput
-    mammal?: MammalOrderByWithRelationInput
-    poultry?: PoultryOrderByWithRelationInput
-    mortality?: MortalityOrderByWithRelationInput
-    healthEvent?: HealthEventOrderByRelationAggregateInput
-    transfer?: TransferOrderByRelationAggregateInput
-    sale?: SaleOrderByWithRelationInput
+    status?: SortOrder
     breedingDam?: BreedingRecordOrderByRelationAggregateInput
     breedingSire?: BreedingRecordOrderByRelationAggregateInput
+    healthEvent?: HealthEventOrderByRelationAggregateInput
+    farm?: FarmOrderByWithRelationInput
+    mammal?: MammalOrderByWithRelationInput
+    mortality?: MortalityOrderByWithRelationInput
     offspring?: OffspringOrderByRelationAggregateInput
+    poultry?: PoultryOrderByWithRelationInput
+    sale?: SaleOrderByWithRelationInput
+    transfer?: TransferOrderByRelationAggregateInput
   }
 
   export type LivestockWhereUniqueInput = Prisma.AtLeast<{
@@ -20172,19 +20172,19 @@ export namespace Prisma {
     farmId?: StringFilter<"Livestock"> | string
     category?: StringFilter<"Livestock"> | string
     type?: StringFilter<"Livestock"> | string
-    status?: StringFilter<"Livestock"> | string
     createdAt?: DateTimeFilter<"Livestock"> | Date | string
     updatedAt?: DateTimeFilter<"Livestock"> | Date | string
-    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
-    mammal?: XOR<MammalNullableScalarRelationFilter, MammalWhereInput> | null
-    poultry?: XOR<PoultryNullableScalarRelationFilter, PoultryWhereInput> | null
-    mortality?: XOR<MortalityNullableScalarRelationFilter, MortalityWhereInput> | null
-    healthEvent?: HealthEventListRelationFilter
-    transfer?: TransferListRelationFilter
-    sale?: XOR<SaleNullableScalarRelationFilter, SaleWhereInput> | null
+    status?: StringFilter<"Livestock"> | string
     breedingDam?: BreedingRecordListRelationFilter
     breedingSire?: BreedingRecordListRelationFilter
+    healthEvent?: HealthEventListRelationFilter
+    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
+    mammal?: XOR<MammalNullableScalarRelationFilter, MammalWhereInput> | null
+    mortality?: XOR<MortalityNullableScalarRelationFilter, MortalityWhereInput> | null
     offspring?: OffspringListRelationFilter
+    poultry?: XOR<PoultryNullableScalarRelationFilter, PoultryWhereInput> | null
+    sale?: XOR<SaleNullableScalarRelationFilter, SaleWhereInput> | null
+    transfer?: TransferListRelationFilter
   }, "id">
 
   export type LivestockOrderByWithAggregationInput = {
@@ -20192,9 +20192,9 @@ export namespace Prisma {
     farmId?: SortOrder
     category?: SortOrder
     type?: SortOrder
-    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    status?: SortOrder
     _count?: LivestockCountOrderByAggregateInput
     _max?: LivestockMaxOrderByAggregateInput
     _min?: LivestockMinOrderByAggregateInput
@@ -20208,9 +20208,9 @@ export namespace Prisma {
     farmId?: StringWithAggregatesFilter<"Livestock"> | string
     category?: StringWithAggregatesFilter<"Livestock"> | string
     type?: StringWithAggregatesFilter<"Livestock"> | string
-    status?: StringWithAggregatesFilter<"Livestock"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Livestock"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Livestock"> | Date | string
+    status?: StringWithAggregatesFilter<"Livestock"> | string
   }
 
   export type MammalWhereInput = {
@@ -20229,10 +20229,10 @@ export namespace Prisma {
     damId?: StringNullableFilter<"Mammal"> | string | null
     damCode?: StringNullableFilter<"Mammal"> | string | null
     birthWeight?: FloatNullableFilter<"Mammal"> | number | null
-    currentWeight?: FloatNullableFilter<"Mammal"> | number | null
-    lastWeighingDate?: DateTimeNullableFilter<"Mammal"> | Date | string | null
     createdAt?: DateTimeFilter<"Mammal"> | Date | string
     updatedAt?: DateTimeFilter<"Mammal"> | Date | string
+    currentWeight?: FloatNullableFilter<"Mammal"> | number | null
+    lastWeighingDate?: DateTimeNullableFilter<"Mammal"> | Date | string | null
     livestock?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
   }
 
@@ -20249,10 +20249,10 @@ export namespace Prisma {
     damId?: SortOrderInput | SortOrder
     damCode?: SortOrderInput | SortOrder
     birthWeight?: SortOrderInput | SortOrder
-    currentWeight?: SortOrderInput | SortOrder
-    lastWeighingDate?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    currentWeight?: SortOrderInput | SortOrder
+    lastWeighingDate?: SortOrderInput | SortOrder
     livestock?: LivestockOrderByWithRelationInput
   }
 
@@ -20272,10 +20272,10 @@ export namespace Prisma {
     damId?: StringNullableFilter<"Mammal"> | string | null
     damCode?: StringNullableFilter<"Mammal"> | string | null
     birthWeight?: FloatNullableFilter<"Mammal"> | number | null
-    currentWeight?: FloatNullableFilter<"Mammal"> | number | null
-    lastWeighingDate?: DateTimeNullableFilter<"Mammal"> | Date | string | null
     createdAt?: DateTimeFilter<"Mammal"> | Date | string
     updatedAt?: DateTimeFilter<"Mammal"> | Date | string
+    currentWeight?: FloatNullableFilter<"Mammal"> | number | null
+    lastWeighingDate?: DateTimeNullableFilter<"Mammal"> | Date | string | null
     livestock?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
   }, "id" | "livestockId" | "idNumber">
 
@@ -20292,10 +20292,10 @@ export namespace Prisma {
     damId?: SortOrderInput | SortOrder
     damCode?: SortOrderInput | SortOrder
     birthWeight?: SortOrderInput | SortOrder
-    currentWeight?: SortOrderInput | SortOrder
-    lastWeighingDate?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    currentWeight?: SortOrderInput | SortOrder
+    lastWeighingDate?: SortOrderInput | SortOrder
     _count?: MammalCountOrderByAggregateInput
     _avg?: MammalAvgOrderByAggregateInput
     _max?: MammalMaxOrderByAggregateInput
@@ -20319,10 +20319,10 @@ export namespace Prisma {
     damId?: StringNullableWithAggregatesFilter<"Mammal"> | string | null
     damCode?: StringNullableWithAggregatesFilter<"Mammal"> | string | null
     birthWeight?: FloatNullableWithAggregatesFilter<"Mammal"> | number | null
-    currentWeight?: FloatNullableWithAggregatesFilter<"Mammal"> | number | null
-    lastWeighingDate?: DateTimeNullableWithAggregatesFilter<"Mammal"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Mammal"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Mammal"> | Date | string
+    currentWeight?: FloatNullableWithAggregatesFilter<"Mammal"> | number | null
+    lastWeighingDate?: DateTimeNullableWithAggregatesFilter<"Mammal"> | Date | string | null
   }
 
   export type PoultryWhereInput = {
@@ -20339,11 +20339,11 @@ export namespace Prisma {
     breedType?: StringFilter<"Poultry"> | string
     sourceOfBirds?: StringFilter<"Poultry"> | string
     initialAverageWeight?: FloatNullableFilter<"Poultry"> | number | null
+    createdAt?: DateTimeFilter<"Poultry"> | Date | string
+    updatedAt?: DateTimeFilter<"Poultry"> | Date | string
     currentAverageWeight?: FloatNullableFilter<"Poultry"> | number | null
     lastWeighingDate?: DateTimeNullableFilter<"Poultry"> | Date | string | null
     mortalityRate?: FloatNullableFilter<"Poultry"> | number | null
-    createdAt?: DateTimeFilter<"Poultry"> | Date | string
-    updatedAt?: DateTimeFilter<"Poultry"> | Date | string
     livestock?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
   }
 
@@ -20358,11 +20358,11 @@ export namespace Prisma {
     breedType?: SortOrder
     sourceOfBirds?: SortOrder
     initialAverageWeight?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     currentAverageWeight?: SortOrderInput | SortOrder
     lastWeighingDate?: SortOrderInput | SortOrder
     mortalityRate?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
     livestock?: LivestockOrderByWithRelationInput
   }
 
@@ -20380,11 +20380,11 @@ export namespace Prisma {
     breedType?: StringFilter<"Poultry"> | string
     sourceOfBirds?: StringFilter<"Poultry"> | string
     initialAverageWeight?: FloatNullableFilter<"Poultry"> | number | null
+    createdAt?: DateTimeFilter<"Poultry"> | Date | string
+    updatedAt?: DateTimeFilter<"Poultry"> | Date | string
     currentAverageWeight?: FloatNullableFilter<"Poultry"> | number | null
     lastWeighingDate?: DateTimeNullableFilter<"Poultry"> | Date | string | null
     mortalityRate?: FloatNullableFilter<"Poultry"> | number | null
-    createdAt?: DateTimeFilter<"Poultry"> | Date | string
-    updatedAt?: DateTimeFilter<"Poultry"> | Date | string
     livestock?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
   }, "id" | "livestockId" | "flockId">
 
@@ -20399,11 +20399,11 @@ export namespace Prisma {
     breedType?: SortOrder
     sourceOfBirds?: SortOrder
     initialAverageWeight?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     currentAverageWeight?: SortOrderInput | SortOrder
     lastWeighingDate?: SortOrderInput | SortOrder
     mortalityRate?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
     _count?: PoultryCountOrderByAggregateInput
     _avg?: PoultryAvgOrderByAggregateInput
     _max?: PoultryMaxOrderByAggregateInput
@@ -20425,11 +20425,11 @@ export namespace Prisma {
     breedType?: StringWithAggregatesFilter<"Poultry"> | string
     sourceOfBirds?: StringWithAggregatesFilter<"Poultry"> | string
     initialAverageWeight?: FloatNullableWithAggregatesFilter<"Poultry"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"Poultry"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Poultry"> | Date | string
     currentAverageWeight?: FloatNullableWithAggregatesFilter<"Poultry"> | number | null
     lastWeighingDate?: DateTimeNullableWithAggregatesFilter<"Poultry"> | Date | string | null
     mortalityRate?: FloatNullableWithAggregatesFilter<"Poultry"> | number | null
-    createdAt?: DateTimeWithAggregatesFilter<"Poultry"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Poultry"> | Date | string
   }
 
   export type MortalityWhereInput = {
@@ -20811,9 +20811,9 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"BreedingRecord"> | Date | string
     updatedAt?: DateTimeFilter<"BreedingRecord"> | Date | string
     dam?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
+    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
     sire?: XOR<LivestockNullableScalarRelationFilter, LivestockWhereInput> | null
     offspring?: OffspringListRelationFilter
-    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
   }
 
   export type BreedingRecordOrderByWithRelationInput = {
@@ -20843,9 +20843,9 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     dam?: LivestockOrderByWithRelationInput
+    farm?: FarmOrderByWithRelationInput
     sire?: LivestockOrderByWithRelationInput
     offspring?: OffspringOrderByRelationAggregateInput
-    farm?: FarmOrderByWithRelationInput
   }
 
   export type BreedingRecordWhereUniqueInput = Prisma.AtLeast<{
@@ -20878,9 +20878,9 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"BreedingRecord"> | Date | string
     updatedAt?: DateTimeFilter<"BreedingRecord"> | Date | string
     dam?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
+    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
     sire?: XOR<LivestockNullableScalarRelationFilter, LivestockWhereInput> | null
     offspring?: OffspringListRelationFilter
-    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
   }, "id">
 
   export type BreedingRecordOrderByWithAggregationInput = {
@@ -21193,10 +21193,10 @@ export namespace Prisma {
     farmingTypes?: FarmCreatefarmingTypesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
-    employees?: EmployeeFarmCreateNestedManyWithoutFarmInput
-    livestock?: LivestockCreateNestedManyWithoutFarmInput
     breedingRecords?: BreedingRecordCreateNestedManyWithoutFarmInput
+    employees?: EmployeeFarmCreateNestedManyWithoutFarmInput
     user: UserCreateNestedOneWithoutFarmsInput
+    livestock?: LivestockCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateInput = {
@@ -21210,9 +21210,9 @@ export namespace Prisma {
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    breedingRecords?: BreedingRecordUncheckedCreateNestedManyWithoutFarmInput
     employees?: EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput
     livestock?: LivestockUncheckedCreateNestedManyWithoutFarmInput
-    breedingRecords?: BreedingRecordUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUpdateInput = {
@@ -21225,10 +21225,10 @@ export namespace Prisma {
     farmingTypes?: FarmUpdatefarmingTypesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    employees?: EmployeeFarmUpdateManyWithoutFarmNestedInput
-    livestock?: LivestockUpdateManyWithoutFarmNestedInput
     breedingRecords?: BreedingRecordUpdateManyWithoutFarmNestedInput
+    employees?: EmployeeFarmUpdateManyWithoutFarmNestedInput
     user?: UserUpdateOneRequiredWithoutFarmsNestedInput
+    livestock?: LivestockUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateInput = {
@@ -21242,9 +21242,9 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    breedingRecords?: BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput
     employees?: EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput
     livestock?: LivestockUncheckedUpdateManyWithoutFarmNestedInput
-    breedingRecords?: BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmCreateManyInput = {
@@ -21567,19 +21567,19 @@ export namespace Prisma {
     id?: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    farm: FarmCreateNestedOneWithoutLivestockInput
-    mammal?: MammalCreateNestedOneWithoutLivestockInput
-    poultry?: PoultryCreateNestedOneWithoutLivestockInput
-    mortality?: MortalityCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
-    transfer?: TransferCreateNestedManyWithoutLivestockInput
-    sale?: SaleCreateNestedOneWithoutLivestockInput
+    status?: string
     breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
     breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
+    farm: FarmCreateNestedOneWithoutLivestockInput
+    mammal?: MammalCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityCreateNestedOneWithoutLivestockInput
     offspring?: OffspringCreateNestedManyWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
   }
 
   export type LivestockUncheckedCreateInput = {
@@ -21587,37 +21587,37 @@ export namespace Prisma {
     farmId: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
-    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
-    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
-    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
-    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    status?: string
     breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
     breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
     offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
   }
 
   export type LivestockUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
-    mammal?: MammalUpdateOneWithoutLivestockNestedInput
-    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
-    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
-    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
-    transfer?: TransferUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    status?: StringFieldUpdateOperationsInput | string
     breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
     breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
+    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
+    mammal?: MammalUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
     offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
   }
 
   export type LivestockUncheckedUpdateInput = {
@@ -21625,18 +21625,18 @@ export namespace Prisma {
     farmId?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
-    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
-    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
-    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
-    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    status?: StringFieldUpdateOperationsInput | string
     breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
     breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
+    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
     offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
   }
 
   export type LivestockCreateManyInput = {
@@ -21644,18 +21644,18 @@ export namespace Prisma {
     farmId: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    status?: string
   }
 
   export type LivestockUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type LivestockUncheckedUpdateManyInput = {
@@ -21663,9 +21663,9 @@ export namespace Prisma {
     farmId?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type MammalCreateInput = {
@@ -21680,10 +21680,10 @@ export namespace Prisma {
     damId?: string | null
     damCode?: string | null
     birthWeight?: number | null
-    currentWeight?: number | null
-    lastWeighingDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    currentWeight?: number | null
+    lastWeighingDate?: Date | string | null
     livestock: LivestockCreateNestedOneWithoutMammalInput
   }
 
@@ -21700,10 +21700,10 @@ export namespace Prisma {
     damId?: string | null
     damCode?: string | null
     birthWeight?: number | null
-    currentWeight?: number | null
-    lastWeighingDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    currentWeight?: number | null
+    lastWeighingDate?: Date | string | null
   }
 
   export type MammalUpdateInput = {
@@ -21718,10 +21718,10 @@ export namespace Prisma {
     damId?: NullableStringFieldUpdateOperationsInput | string | null
     damCode?: NullableStringFieldUpdateOperationsInput | string | null
     birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
-    currentWeight?: NullableFloatFieldUpdateOperationsInput | number | null
-    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    currentWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     livestock?: LivestockUpdateOneRequiredWithoutMammalNestedInput
   }
 
@@ -21738,10 +21738,10 @@ export namespace Prisma {
     damId?: NullableStringFieldUpdateOperationsInput | string | null
     damCode?: NullableStringFieldUpdateOperationsInput | string | null
     birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
-    currentWeight?: NullableFloatFieldUpdateOperationsInput | number | null
-    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    currentWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type MammalCreateManyInput = {
@@ -21757,10 +21757,10 @@ export namespace Prisma {
     damId?: string | null
     damCode?: string | null
     birthWeight?: number | null
-    currentWeight?: number | null
-    lastWeighingDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    currentWeight?: number | null
+    lastWeighingDate?: Date | string | null
   }
 
   export type MammalUpdateManyMutationInput = {
@@ -21775,10 +21775,10 @@ export namespace Prisma {
     damId?: NullableStringFieldUpdateOperationsInput | string | null
     damCode?: NullableStringFieldUpdateOperationsInput | string | null
     birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
-    currentWeight?: NullableFloatFieldUpdateOperationsInput | number | null
-    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    currentWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type MammalUncheckedUpdateManyInput = {
@@ -21794,10 +21794,10 @@ export namespace Prisma {
     damId?: NullableStringFieldUpdateOperationsInput | string | null
     damCode?: NullableStringFieldUpdateOperationsInput | string | null
     birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
-    currentWeight?: NullableFloatFieldUpdateOperationsInput | number | null
-    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    currentWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type PoultryCreateInput = {
@@ -21810,11 +21810,11 @@ export namespace Prisma {
     breedType: string
     sourceOfBirds: string
     initialAverageWeight?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     currentAverageWeight?: number | null
     lastWeighingDate?: Date | string | null
     mortalityRate?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
     livestock: LivestockCreateNestedOneWithoutPoultryInput
   }
 
@@ -21829,11 +21829,11 @@ export namespace Prisma {
     breedType: string
     sourceOfBirds: string
     initialAverageWeight?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     currentAverageWeight?: number | null
     lastWeighingDate?: Date | string | null
     mortalityRate?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
   }
 
   export type PoultryUpdateInput = {
@@ -21846,11 +21846,11 @@ export namespace Prisma {
     breedType?: StringFieldUpdateOperationsInput | string
     sourceOfBirds?: StringFieldUpdateOperationsInput | string
     initialAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     currentAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
     lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     mortalityRate?: NullableFloatFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     livestock?: LivestockUpdateOneRequiredWithoutPoultryNestedInput
   }
 
@@ -21865,11 +21865,11 @@ export namespace Prisma {
     breedType?: StringFieldUpdateOperationsInput | string
     sourceOfBirds?: StringFieldUpdateOperationsInput | string
     initialAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     currentAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
     lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     mortalityRate?: NullableFloatFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PoultryCreateManyInput = {
@@ -21883,11 +21883,11 @@ export namespace Prisma {
     breedType: string
     sourceOfBirds: string
     initialAverageWeight?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     currentAverageWeight?: number | null
     lastWeighingDate?: Date | string | null
     mortalityRate?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
   }
 
   export type PoultryUpdateManyMutationInput = {
@@ -21900,11 +21900,11 @@ export namespace Prisma {
     breedType?: StringFieldUpdateOperationsInput | string
     sourceOfBirds?: StringFieldUpdateOperationsInput | string
     initialAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     currentAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
     lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     mortalityRate?: NullableFloatFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PoultryUncheckedUpdateManyInput = {
@@ -21918,11 +21918,11 @@ export namespace Prisma {
     breedType?: StringFieldUpdateOperationsInput | string
     sourceOfBirds?: StringFieldUpdateOperationsInput | string
     initialAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     currentAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
     lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     mortalityRate?: NullableFloatFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type MortalityCreateInput = {
@@ -22344,9 +22344,9 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     dam: LivestockCreateNestedOneWithoutBreedingDamInput
+    farm: FarmCreateNestedOneWithoutBreedingRecordsInput
     sire?: LivestockCreateNestedOneWithoutBreedingSireInput
     offspring?: OffspringCreateNestedManyWithoutBreedingRecordInput
-    farm: FarmCreateNestedOneWithoutBreedingRecordsInput
   }
 
   export type BreedingRecordUncheckedCreateInput = {
@@ -22402,9 +22402,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     dam?: LivestockUpdateOneRequiredWithoutBreedingDamNestedInput
+    farm?: FarmUpdateOneRequiredWithoutBreedingRecordsNestedInput
     sire?: LivestockUpdateOneWithoutBreedingSireNestedInput
     offspring?: OffspringUpdateManyWithoutBreedingRecordNestedInput
-    farm?: FarmUpdateOneRequiredWithoutBreedingRecordsNestedInput
   }
 
   export type BreedingRecordUncheckedUpdateInput = {
@@ -22867,10 +22867,21 @@ export namespace Prisma {
     isEmpty?: boolean
   }
 
+  export type BreedingRecordListRelationFilter = {
+    every?: BreedingRecordWhereInput
+    some?: BreedingRecordWhereInput
+    none?: BreedingRecordWhereInput
+  }
+
   export type EmployeeFarmListRelationFilter = {
     every?: EmployeeFarmWhereInput
     some?: EmployeeFarmWhereInput
     none?: EmployeeFarmWhereInput
+  }
+
+  export type UserScalarRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
   }
 
   export type LivestockListRelationFilter = {
@@ -22879,15 +22890,8 @@ export namespace Prisma {
     none?: LivestockWhereInput
   }
 
-  export type BreedingRecordListRelationFilter = {
-    every?: BreedingRecordWhereInput
-    some?: BreedingRecordWhereInput
-    none?: BreedingRecordWhereInput
-  }
-
-  export type UserScalarRelationFilter = {
-    is?: UserWhereInput
-    isNot?: UserWhereInput
+  export type BreedingRecordOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type EmployeeFarmOrderByRelationAggregateInput = {
@@ -22895,10 +22899,6 @@ export namespace Prisma {
   }
 
   export type LivestockOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type BreedingRecordOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -23153,36 +23153,20 @@ export namespace Prisma {
     _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
-  export type MammalNullableScalarRelationFilter = {
-    is?: MammalWhereInput | null
-    isNot?: MammalWhereInput | null
-  }
-
-  export type PoultryNullableScalarRelationFilter = {
-    is?: PoultryWhereInput | null
-    isNot?: PoultryWhereInput | null
-  }
-
-  export type MortalityNullableScalarRelationFilter = {
-    is?: MortalityWhereInput | null
-    isNot?: MortalityWhereInput | null
-  }
-
   export type HealthEventListRelationFilter = {
     every?: HealthEventWhereInput
     some?: HealthEventWhereInput
     none?: HealthEventWhereInput
   }
 
-  export type TransferListRelationFilter = {
-    every?: TransferWhereInput
-    some?: TransferWhereInput
-    none?: TransferWhereInput
+  export type MammalNullableScalarRelationFilter = {
+    is?: MammalWhereInput | null
+    isNot?: MammalWhereInput | null
   }
 
-  export type SaleNullableScalarRelationFilter = {
-    is?: SaleWhereInput | null
-    isNot?: SaleWhereInput | null
+  export type MortalityNullableScalarRelationFilter = {
+    is?: MortalityWhereInput | null
+    isNot?: MortalityWhereInput | null
   }
 
   export type OffspringListRelationFilter = {
@@ -23191,15 +23175,31 @@ export namespace Prisma {
     none?: OffspringWhereInput
   }
 
+  export type PoultryNullableScalarRelationFilter = {
+    is?: PoultryWhereInput | null
+    isNot?: PoultryWhereInput | null
+  }
+
+  export type SaleNullableScalarRelationFilter = {
+    is?: SaleWhereInput | null
+    isNot?: SaleWhereInput | null
+  }
+
+  export type TransferListRelationFilter = {
+    every?: TransferWhereInput
+    some?: TransferWhereInput
+    none?: TransferWhereInput
+  }
+
   export type HealthEventOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type TransferOrderByRelationAggregateInput = {
+  export type OffspringOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type OffspringOrderByRelationAggregateInput = {
+  export type TransferOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -23208,9 +23208,9 @@ export namespace Prisma {
     farmId?: SortOrder
     category?: SortOrder
     type?: SortOrder
-    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    status?: SortOrder
   }
 
   export type LivestockMaxOrderByAggregateInput = {
@@ -23218,9 +23218,9 @@ export namespace Prisma {
     farmId?: SortOrder
     category?: SortOrder
     type?: SortOrder
-    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    status?: SortOrder
   }
 
   export type LivestockMinOrderByAggregateInput = {
@@ -23228,9 +23228,9 @@ export namespace Prisma {
     farmId?: SortOrder
     category?: SortOrder
     type?: SortOrder
-    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    status?: SortOrder
   }
 
   export type LivestockScalarRelationFilter = {
@@ -23251,10 +23251,10 @@ export namespace Prisma {
     damId?: SortOrder
     damCode?: SortOrder
     birthWeight?: SortOrder
-    currentWeight?: SortOrder
-    lastWeighingDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    currentWeight?: SortOrder
+    lastWeighingDate?: SortOrder
   }
 
   export type MammalAvgOrderByAggregateInput = {
@@ -23275,10 +23275,10 @@ export namespace Prisma {
     damId?: SortOrder
     damCode?: SortOrder
     birthWeight?: SortOrder
-    currentWeight?: SortOrder
-    lastWeighingDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    currentWeight?: SortOrder
+    lastWeighingDate?: SortOrder
   }
 
   export type MammalMinOrderByAggregateInput = {
@@ -23294,10 +23294,10 @@ export namespace Prisma {
     damId?: SortOrder
     damCode?: SortOrder
     birthWeight?: SortOrder
-    currentWeight?: SortOrder
-    lastWeighingDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    currentWeight?: SortOrder
+    lastWeighingDate?: SortOrder
   }
 
   export type MammalSumOrderByAggregateInput = {
@@ -23327,11 +23327,11 @@ export namespace Prisma {
     breedType?: SortOrder
     sourceOfBirds?: SortOrder
     initialAverageWeight?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     currentAverageWeight?: SortOrder
     lastWeighingDate?: SortOrder
     mortalityRate?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
   }
 
   export type PoultryAvgOrderByAggregateInput = {
@@ -23353,11 +23353,11 @@ export namespace Prisma {
     breedType?: SortOrder
     sourceOfBirds?: SortOrder
     initialAverageWeight?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     currentAverageWeight?: SortOrder
     lastWeighingDate?: SortOrder
     mortalityRate?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
   }
 
   export type PoultryMinOrderByAggregateInput = {
@@ -23371,11 +23371,11 @@ export namespace Prisma {
     breedType?: SortOrder
     sourceOfBirds?: SortOrder
     initialAverageWeight?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     currentAverageWeight?: SortOrder
     lastWeighingDate?: SortOrder
     mortalityRate?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
   }
 
   export type PoultrySumOrderByAggregateInput = {
@@ -23812,11 +23812,24 @@ export namespace Prisma {
     set: string[]
   }
 
+  export type BreedingRecordCreateNestedManyWithoutFarmInput = {
+    create?: XOR<BreedingRecordCreateWithoutFarmInput, BreedingRecordUncheckedCreateWithoutFarmInput> | BreedingRecordCreateWithoutFarmInput[] | BreedingRecordUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: BreedingRecordCreateOrConnectWithoutFarmInput | BreedingRecordCreateOrConnectWithoutFarmInput[]
+    createMany?: BreedingRecordCreateManyFarmInputEnvelope
+    connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+  }
+
   export type EmployeeFarmCreateNestedManyWithoutFarmInput = {
     create?: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput> | EmployeeFarmCreateWithoutFarmInput[] | EmployeeFarmUncheckedCreateWithoutFarmInput[]
     connectOrCreate?: EmployeeFarmCreateOrConnectWithoutFarmInput | EmployeeFarmCreateOrConnectWithoutFarmInput[]
     createMany?: EmployeeFarmCreateManyFarmInputEnvelope
     connect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+  }
+
+  export type UserCreateNestedOneWithoutFarmsInput = {
+    create?: XOR<UserCreateWithoutFarmsInput, UserUncheckedCreateWithoutFarmsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFarmsInput
+    connect?: UserWhereUniqueInput
   }
 
   export type LivestockCreateNestedManyWithoutFarmInput = {
@@ -23826,17 +23839,11 @@ export namespace Prisma {
     connect?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
   }
 
-  export type BreedingRecordCreateNestedManyWithoutFarmInput = {
+  export type BreedingRecordUncheckedCreateNestedManyWithoutFarmInput = {
     create?: XOR<BreedingRecordCreateWithoutFarmInput, BreedingRecordUncheckedCreateWithoutFarmInput> | BreedingRecordCreateWithoutFarmInput[] | BreedingRecordUncheckedCreateWithoutFarmInput[]
     connectOrCreate?: BreedingRecordCreateOrConnectWithoutFarmInput | BreedingRecordCreateOrConnectWithoutFarmInput[]
     createMany?: BreedingRecordCreateManyFarmInputEnvelope
     connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
-  }
-
-  export type UserCreateNestedOneWithoutFarmsInput = {
-    create?: XOR<UserCreateWithoutFarmsInput, UserUncheckedCreateWithoutFarmsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutFarmsInput
-    connect?: UserWhereUniqueInput
   }
 
   export type EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput = {
@@ -23853,13 +23860,6 @@ export namespace Prisma {
     connect?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
   }
 
-  export type BreedingRecordUncheckedCreateNestedManyWithoutFarmInput = {
-    create?: XOR<BreedingRecordCreateWithoutFarmInput, BreedingRecordUncheckedCreateWithoutFarmInput> | BreedingRecordCreateWithoutFarmInput[] | BreedingRecordUncheckedCreateWithoutFarmInput[]
-    connectOrCreate?: BreedingRecordCreateOrConnectWithoutFarmInput | BreedingRecordCreateOrConnectWithoutFarmInput[]
-    createMany?: BreedingRecordCreateManyFarmInputEnvelope
-    connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
-  }
-
   export type FloatFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -23871,34 +23871,6 @@ export namespace Prisma {
   export type FarmUpdatefarmingTypesInput = {
     set?: string[]
     push?: string | string[]
-  }
-
-  export type EmployeeFarmUpdateManyWithoutFarmNestedInput = {
-    create?: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput> | EmployeeFarmCreateWithoutFarmInput[] | EmployeeFarmUncheckedCreateWithoutFarmInput[]
-    connectOrCreate?: EmployeeFarmCreateOrConnectWithoutFarmInput | EmployeeFarmCreateOrConnectWithoutFarmInput[]
-    upsert?: EmployeeFarmUpsertWithWhereUniqueWithoutFarmInput | EmployeeFarmUpsertWithWhereUniqueWithoutFarmInput[]
-    createMany?: EmployeeFarmCreateManyFarmInputEnvelope
-    set?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
-    disconnect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
-    delete?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
-    connect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
-    update?: EmployeeFarmUpdateWithWhereUniqueWithoutFarmInput | EmployeeFarmUpdateWithWhereUniqueWithoutFarmInput[]
-    updateMany?: EmployeeFarmUpdateManyWithWhereWithoutFarmInput | EmployeeFarmUpdateManyWithWhereWithoutFarmInput[]
-    deleteMany?: EmployeeFarmScalarWhereInput | EmployeeFarmScalarWhereInput[]
-  }
-
-  export type LivestockUpdateManyWithoutFarmNestedInput = {
-    create?: XOR<LivestockCreateWithoutFarmInput, LivestockUncheckedCreateWithoutFarmInput> | LivestockCreateWithoutFarmInput[] | LivestockUncheckedCreateWithoutFarmInput[]
-    connectOrCreate?: LivestockCreateOrConnectWithoutFarmInput | LivestockCreateOrConnectWithoutFarmInput[]
-    upsert?: LivestockUpsertWithWhereUniqueWithoutFarmInput | LivestockUpsertWithWhereUniqueWithoutFarmInput[]
-    createMany?: LivestockCreateManyFarmInputEnvelope
-    set?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
-    disconnect?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
-    delete?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
-    connect?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
-    update?: LivestockUpdateWithWhereUniqueWithoutFarmInput | LivestockUpdateWithWhereUniqueWithoutFarmInput[]
-    updateMany?: LivestockUpdateManyWithWhereWithoutFarmInput | LivestockUpdateManyWithWhereWithoutFarmInput[]
-    deleteMany?: LivestockScalarWhereInput | LivestockScalarWhereInput[]
   }
 
   export type BreedingRecordUpdateManyWithoutFarmNestedInput = {
@@ -23915,12 +23887,54 @@ export namespace Prisma {
     deleteMany?: BreedingRecordScalarWhereInput | BreedingRecordScalarWhereInput[]
   }
 
+  export type EmployeeFarmUpdateManyWithoutFarmNestedInput = {
+    create?: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput> | EmployeeFarmCreateWithoutFarmInput[] | EmployeeFarmUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: EmployeeFarmCreateOrConnectWithoutFarmInput | EmployeeFarmCreateOrConnectWithoutFarmInput[]
+    upsert?: EmployeeFarmUpsertWithWhereUniqueWithoutFarmInput | EmployeeFarmUpsertWithWhereUniqueWithoutFarmInput[]
+    createMany?: EmployeeFarmCreateManyFarmInputEnvelope
+    set?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    disconnect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    delete?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    connect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    update?: EmployeeFarmUpdateWithWhereUniqueWithoutFarmInput | EmployeeFarmUpdateWithWhereUniqueWithoutFarmInput[]
+    updateMany?: EmployeeFarmUpdateManyWithWhereWithoutFarmInput | EmployeeFarmUpdateManyWithWhereWithoutFarmInput[]
+    deleteMany?: EmployeeFarmScalarWhereInput | EmployeeFarmScalarWhereInput[]
+  }
+
   export type UserUpdateOneRequiredWithoutFarmsNestedInput = {
     create?: XOR<UserCreateWithoutFarmsInput, UserUncheckedCreateWithoutFarmsInput>
     connectOrCreate?: UserCreateOrConnectWithoutFarmsInput
     upsert?: UserUpsertWithoutFarmsInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFarmsInput, UserUpdateWithoutFarmsInput>, UserUncheckedUpdateWithoutFarmsInput>
+  }
+
+  export type LivestockUpdateManyWithoutFarmNestedInput = {
+    create?: XOR<LivestockCreateWithoutFarmInput, LivestockUncheckedCreateWithoutFarmInput> | LivestockCreateWithoutFarmInput[] | LivestockUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: LivestockCreateOrConnectWithoutFarmInput | LivestockCreateOrConnectWithoutFarmInput[]
+    upsert?: LivestockUpsertWithWhereUniqueWithoutFarmInput | LivestockUpsertWithWhereUniqueWithoutFarmInput[]
+    createMany?: LivestockCreateManyFarmInputEnvelope
+    set?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
+    disconnect?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
+    delete?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
+    connect?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
+    update?: LivestockUpdateWithWhereUniqueWithoutFarmInput | LivestockUpdateWithWhereUniqueWithoutFarmInput[]
+    updateMany?: LivestockUpdateManyWithWhereWithoutFarmInput | LivestockUpdateManyWithWhereWithoutFarmInput[]
+    deleteMany?: LivestockScalarWhereInput | LivestockScalarWhereInput[]
+  }
+
+  export type BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput = {
+    create?: XOR<BreedingRecordCreateWithoutFarmInput, BreedingRecordUncheckedCreateWithoutFarmInput> | BreedingRecordCreateWithoutFarmInput[] | BreedingRecordUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: BreedingRecordCreateOrConnectWithoutFarmInput | BreedingRecordCreateOrConnectWithoutFarmInput[]
+    upsert?: BreedingRecordUpsertWithWhereUniqueWithoutFarmInput | BreedingRecordUpsertWithWhereUniqueWithoutFarmInput[]
+    createMany?: BreedingRecordCreateManyFarmInputEnvelope
+    set?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    disconnect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    delete?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    update?: BreedingRecordUpdateWithWhereUniqueWithoutFarmInput | BreedingRecordUpdateWithWhereUniqueWithoutFarmInput[]
+    updateMany?: BreedingRecordUpdateManyWithWhereWithoutFarmInput | BreedingRecordUpdateManyWithWhereWithoutFarmInput[]
+    deleteMany?: BreedingRecordScalarWhereInput | BreedingRecordScalarWhereInput[]
   }
 
   export type EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput = {
@@ -23949,20 +23963,6 @@ export namespace Prisma {
     update?: LivestockUpdateWithWhereUniqueWithoutFarmInput | LivestockUpdateWithWhereUniqueWithoutFarmInput[]
     updateMany?: LivestockUpdateManyWithWhereWithoutFarmInput | LivestockUpdateManyWithWhereWithoutFarmInput[]
     deleteMany?: LivestockScalarWhereInput | LivestockScalarWhereInput[]
-  }
-
-  export type BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput = {
-    create?: XOR<BreedingRecordCreateWithoutFarmInput, BreedingRecordUncheckedCreateWithoutFarmInput> | BreedingRecordCreateWithoutFarmInput[] | BreedingRecordUncheckedCreateWithoutFarmInput[]
-    connectOrCreate?: BreedingRecordCreateOrConnectWithoutFarmInput | BreedingRecordCreateOrConnectWithoutFarmInput[]
-    upsert?: BreedingRecordUpsertWithWhereUniqueWithoutFarmInput | BreedingRecordUpsertWithWhereUniqueWithoutFarmInput[]
-    createMany?: BreedingRecordCreateManyFarmInputEnvelope
-    set?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
-    disconnect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
-    delete?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
-    connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
-    update?: BreedingRecordUpdateWithWhereUniqueWithoutFarmInput | BreedingRecordUpdateWithWhereUniqueWithoutFarmInput[]
-    updateMany?: BreedingRecordUpdateManyWithWhereWithoutFarmInput | BreedingRecordUpdateManyWithWhereWithoutFarmInput[]
-    deleteMany?: BreedingRecordScalarWhereInput | BreedingRecordScalarWhereInput[]
   }
 
   export type EmployeeBenefitCreateNestedManyWithoutEmployeeInput = {
@@ -24099,50 +24099,6 @@ export namespace Prisma {
     update?: XOR<XOR<EmployeeUpdateToOneWithWhereWithoutBenefitsInput, EmployeeUpdateWithoutBenefitsInput>, EmployeeUncheckedUpdateWithoutBenefitsInput>
   }
 
-  export type FarmCreateNestedOneWithoutLivestockInput = {
-    create?: XOR<FarmCreateWithoutLivestockInput, FarmUncheckedCreateWithoutLivestockInput>
-    connectOrCreate?: FarmCreateOrConnectWithoutLivestockInput
-    connect?: FarmWhereUniqueInput
-  }
-
-  export type MammalCreateNestedOneWithoutLivestockInput = {
-    create?: XOR<MammalCreateWithoutLivestockInput, MammalUncheckedCreateWithoutLivestockInput>
-    connectOrCreate?: MammalCreateOrConnectWithoutLivestockInput
-    connect?: MammalWhereUniqueInput
-  }
-
-  export type PoultryCreateNestedOneWithoutLivestockInput = {
-    create?: XOR<PoultryCreateWithoutLivestockInput, PoultryUncheckedCreateWithoutLivestockInput>
-    connectOrCreate?: PoultryCreateOrConnectWithoutLivestockInput
-    connect?: PoultryWhereUniqueInput
-  }
-
-  export type MortalityCreateNestedOneWithoutLivestockInput = {
-    create?: XOR<MortalityCreateWithoutLivestockInput, MortalityUncheckedCreateWithoutLivestockInput>
-    connectOrCreate?: MortalityCreateOrConnectWithoutLivestockInput
-    connect?: MortalityWhereUniqueInput
-  }
-
-  export type HealthEventCreateNestedManyWithoutLivestockInput = {
-    create?: XOR<HealthEventCreateWithoutLivestockInput, HealthEventUncheckedCreateWithoutLivestockInput> | HealthEventCreateWithoutLivestockInput[] | HealthEventUncheckedCreateWithoutLivestockInput[]
-    connectOrCreate?: HealthEventCreateOrConnectWithoutLivestockInput | HealthEventCreateOrConnectWithoutLivestockInput[]
-    createMany?: HealthEventCreateManyLivestockInputEnvelope
-    connect?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
-  }
-
-  export type TransferCreateNestedManyWithoutLivestockInput = {
-    create?: XOR<TransferCreateWithoutLivestockInput, TransferUncheckedCreateWithoutLivestockInput> | TransferCreateWithoutLivestockInput[] | TransferUncheckedCreateWithoutLivestockInput[]
-    connectOrCreate?: TransferCreateOrConnectWithoutLivestockInput | TransferCreateOrConnectWithoutLivestockInput[]
-    createMany?: TransferCreateManyLivestockInputEnvelope
-    connect?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
-  }
-
-  export type SaleCreateNestedOneWithoutLivestockInput = {
-    create?: XOR<SaleCreateWithoutLivestockInput, SaleUncheckedCreateWithoutLivestockInput>
-    connectOrCreate?: SaleCreateOrConnectWithoutLivestockInput
-    connect?: SaleWhereUniqueInput
-  }
-
   export type BreedingRecordCreateNestedManyWithoutDamInput = {
     create?: XOR<BreedingRecordCreateWithoutDamInput, BreedingRecordUncheckedCreateWithoutDamInput> | BreedingRecordCreateWithoutDamInput[] | BreedingRecordUncheckedCreateWithoutDamInput[]
     connectOrCreate?: BreedingRecordCreateOrConnectWithoutDamInput | BreedingRecordCreateOrConnectWithoutDamInput[]
@@ -24157,6 +24113,31 @@ export namespace Prisma {
     connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
   }
 
+  export type HealthEventCreateNestedManyWithoutLivestockInput = {
+    create?: XOR<HealthEventCreateWithoutLivestockInput, HealthEventUncheckedCreateWithoutLivestockInput> | HealthEventCreateWithoutLivestockInput[] | HealthEventUncheckedCreateWithoutLivestockInput[]
+    connectOrCreate?: HealthEventCreateOrConnectWithoutLivestockInput | HealthEventCreateOrConnectWithoutLivestockInput[]
+    createMany?: HealthEventCreateManyLivestockInputEnvelope
+    connect?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+  }
+
+  export type FarmCreateNestedOneWithoutLivestockInput = {
+    create?: XOR<FarmCreateWithoutLivestockInput, FarmUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: FarmCreateOrConnectWithoutLivestockInput
+    connect?: FarmWhereUniqueInput
+  }
+
+  export type MammalCreateNestedOneWithoutLivestockInput = {
+    create?: XOR<MammalCreateWithoutLivestockInput, MammalUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: MammalCreateOrConnectWithoutLivestockInput
+    connect?: MammalWhereUniqueInput
+  }
+
+  export type MortalityCreateNestedOneWithoutLivestockInput = {
+    create?: XOR<MortalityCreateWithoutLivestockInput, MortalityUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: MortalityCreateOrConnectWithoutLivestockInput
+    connect?: MortalityWhereUniqueInput
+  }
+
   export type OffspringCreateNestedManyWithoutLivestockInput = {
     create?: XOR<OffspringCreateWithoutLivestockInput, OffspringUncheckedCreateWithoutLivestockInput> | OffspringCreateWithoutLivestockInput[] | OffspringUncheckedCreateWithoutLivestockInput[]
     connectOrCreate?: OffspringCreateOrConnectWithoutLivestockInput | OffspringCreateOrConnectWithoutLivestockInput[]
@@ -24164,42 +24145,23 @@ export namespace Prisma {
     connect?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
   }
 
-  export type MammalUncheckedCreateNestedOneWithoutLivestockInput = {
-    create?: XOR<MammalCreateWithoutLivestockInput, MammalUncheckedCreateWithoutLivestockInput>
-    connectOrCreate?: MammalCreateOrConnectWithoutLivestockInput
-    connect?: MammalWhereUniqueInput
-  }
-
-  export type PoultryUncheckedCreateNestedOneWithoutLivestockInput = {
+  export type PoultryCreateNestedOneWithoutLivestockInput = {
     create?: XOR<PoultryCreateWithoutLivestockInput, PoultryUncheckedCreateWithoutLivestockInput>
     connectOrCreate?: PoultryCreateOrConnectWithoutLivestockInput
     connect?: PoultryWhereUniqueInput
   }
 
-  export type MortalityUncheckedCreateNestedOneWithoutLivestockInput = {
-    create?: XOR<MortalityCreateWithoutLivestockInput, MortalityUncheckedCreateWithoutLivestockInput>
-    connectOrCreate?: MortalityCreateOrConnectWithoutLivestockInput
-    connect?: MortalityWhereUniqueInput
+  export type SaleCreateNestedOneWithoutLivestockInput = {
+    create?: XOR<SaleCreateWithoutLivestockInput, SaleUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: SaleCreateOrConnectWithoutLivestockInput
+    connect?: SaleWhereUniqueInput
   }
 
-  export type HealthEventUncheckedCreateNestedManyWithoutLivestockInput = {
-    create?: XOR<HealthEventCreateWithoutLivestockInput, HealthEventUncheckedCreateWithoutLivestockInput> | HealthEventCreateWithoutLivestockInput[] | HealthEventUncheckedCreateWithoutLivestockInput[]
-    connectOrCreate?: HealthEventCreateOrConnectWithoutLivestockInput | HealthEventCreateOrConnectWithoutLivestockInput[]
-    createMany?: HealthEventCreateManyLivestockInputEnvelope
-    connect?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
-  }
-
-  export type TransferUncheckedCreateNestedManyWithoutLivestockInput = {
+  export type TransferCreateNestedManyWithoutLivestockInput = {
     create?: XOR<TransferCreateWithoutLivestockInput, TransferUncheckedCreateWithoutLivestockInput> | TransferCreateWithoutLivestockInput[] | TransferUncheckedCreateWithoutLivestockInput[]
     connectOrCreate?: TransferCreateOrConnectWithoutLivestockInput | TransferCreateOrConnectWithoutLivestockInput[]
     createMany?: TransferCreateManyLivestockInputEnvelope
     connect?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
-  }
-
-  export type SaleUncheckedCreateNestedOneWithoutLivestockInput = {
-    create?: XOR<SaleCreateWithoutLivestockInput, SaleUncheckedCreateWithoutLivestockInput>
-    connectOrCreate?: SaleCreateOrConnectWithoutLivestockInput
-    connect?: SaleWhereUniqueInput
   }
 
   export type BreedingRecordUncheckedCreateNestedManyWithoutDamInput = {
@@ -24216,6 +24178,25 @@ export namespace Prisma {
     connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
   }
 
+  export type HealthEventUncheckedCreateNestedManyWithoutLivestockInput = {
+    create?: XOR<HealthEventCreateWithoutLivestockInput, HealthEventUncheckedCreateWithoutLivestockInput> | HealthEventCreateWithoutLivestockInput[] | HealthEventUncheckedCreateWithoutLivestockInput[]
+    connectOrCreate?: HealthEventCreateOrConnectWithoutLivestockInput | HealthEventCreateOrConnectWithoutLivestockInput[]
+    createMany?: HealthEventCreateManyLivestockInputEnvelope
+    connect?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+  }
+
+  export type MammalUncheckedCreateNestedOneWithoutLivestockInput = {
+    create?: XOR<MammalCreateWithoutLivestockInput, MammalUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: MammalCreateOrConnectWithoutLivestockInput
+    connect?: MammalWhereUniqueInput
+  }
+
+  export type MortalityUncheckedCreateNestedOneWithoutLivestockInput = {
+    create?: XOR<MortalityCreateWithoutLivestockInput, MortalityUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: MortalityCreateOrConnectWithoutLivestockInput
+    connect?: MortalityWhereUniqueInput
+  }
+
   export type OffspringUncheckedCreateNestedManyWithoutLivestockInput = {
     create?: XOR<OffspringCreateWithoutLivestockInput, OffspringUncheckedCreateWithoutLivestockInput> | OffspringCreateWithoutLivestockInput[] | OffspringUncheckedCreateWithoutLivestockInput[]
     connectOrCreate?: OffspringCreateOrConnectWithoutLivestockInput | OffspringCreateOrConnectWithoutLivestockInput[]
@@ -24223,80 +24204,23 @@ export namespace Prisma {
     connect?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
   }
 
-  export type FarmUpdateOneRequiredWithoutLivestockNestedInput = {
-    create?: XOR<FarmCreateWithoutLivestockInput, FarmUncheckedCreateWithoutLivestockInput>
-    connectOrCreate?: FarmCreateOrConnectWithoutLivestockInput
-    upsert?: FarmUpsertWithoutLivestockInput
-    connect?: FarmWhereUniqueInput
-    update?: XOR<XOR<FarmUpdateToOneWithWhereWithoutLivestockInput, FarmUpdateWithoutLivestockInput>, FarmUncheckedUpdateWithoutLivestockInput>
-  }
-
-  export type MammalUpdateOneWithoutLivestockNestedInput = {
-    create?: XOR<MammalCreateWithoutLivestockInput, MammalUncheckedCreateWithoutLivestockInput>
-    connectOrCreate?: MammalCreateOrConnectWithoutLivestockInput
-    upsert?: MammalUpsertWithoutLivestockInput
-    disconnect?: MammalWhereInput | boolean
-    delete?: MammalWhereInput | boolean
-    connect?: MammalWhereUniqueInput
-    update?: XOR<XOR<MammalUpdateToOneWithWhereWithoutLivestockInput, MammalUpdateWithoutLivestockInput>, MammalUncheckedUpdateWithoutLivestockInput>
-  }
-
-  export type PoultryUpdateOneWithoutLivestockNestedInput = {
+  export type PoultryUncheckedCreateNestedOneWithoutLivestockInput = {
     create?: XOR<PoultryCreateWithoutLivestockInput, PoultryUncheckedCreateWithoutLivestockInput>
     connectOrCreate?: PoultryCreateOrConnectWithoutLivestockInput
-    upsert?: PoultryUpsertWithoutLivestockInput
-    disconnect?: PoultryWhereInput | boolean
-    delete?: PoultryWhereInput | boolean
     connect?: PoultryWhereUniqueInput
-    update?: XOR<XOR<PoultryUpdateToOneWithWhereWithoutLivestockInput, PoultryUpdateWithoutLivestockInput>, PoultryUncheckedUpdateWithoutLivestockInput>
   }
 
-  export type MortalityUpdateOneWithoutLivestockNestedInput = {
-    create?: XOR<MortalityCreateWithoutLivestockInput, MortalityUncheckedCreateWithoutLivestockInput>
-    connectOrCreate?: MortalityCreateOrConnectWithoutLivestockInput
-    upsert?: MortalityUpsertWithoutLivestockInput
-    disconnect?: MortalityWhereInput | boolean
-    delete?: MortalityWhereInput | boolean
-    connect?: MortalityWhereUniqueInput
-    update?: XOR<XOR<MortalityUpdateToOneWithWhereWithoutLivestockInput, MortalityUpdateWithoutLivestockInput>, MortalityUncheckedUpdateWithoutLivestockInput>
-  }
-
-  export type HealthEventUpdateManyWithoutLivestockNestedInput = {
-    create?: XOR<HealthEventCreateWithoutLivestockInput, HealthEventUncheckedCreateWithoutLivestockInput> | HealthEventCreateWithoutLivestockInput[] | HealthEventUncheckedCreateWithoutLivestockInput[]
-    connectOrCreate?: HealthEventCreateOrConnectWithoutLivestockInput | HealthEventCreateOrConnectWithoutLivestockInput[]
-    upsert?: HealthEventUpsertWithWhereUniqueWithoutLivestockInput | HealthEventUpsertWithWhereUniqueWithoutLivestockInput[]
-    createMany?: HealthEventCreateManyLivestockInputEnvelope
-    set?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
-    disconnect?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
-    delete?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
-    connect?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
-    update?: HealthEventUpdateWithWhereUniqueWithoutLivestockInput | HealthEventUpdateWithWhereUniqueWithoutLivestockInput[]
-    updateMany?: HealthEventUpdateManyWithWhereWithoutLivestockInput | HealthEventUpdateManyWithWhereWithoutLivestockInput[]
-    deleteMany?: HealthEventScalarWhereInput | HealthEventScalarWhereInput[]
-  }
-
-  export type TransferUpdateManyWithoutLivestockNestedInput = {
-    create?: XOR<TransferCreateWithoutLivestockInput, TransferUncheckedCreateWithoutLivestockInput> | TransferCreateWithoutLivestockInput[] | TransferUncheckedCreateWithoutLivestockInput[]
-    connectOrCreate?: TransferCreateOrConnectWithoutLivestockInput | TransferCreateOrConnectWithoutLivestockInput[]
-    upsert?: TransferUpsertWithWhereUniqueWithoutLivestockInput | TransferUpsertWithWhereUniqueWithoutLivestockInput[]
-    createMany?: TransferCreateManyLivestockInputEnvelope
-    set?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
-    disconnect?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
-    delete?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
-    connect?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
-    update?: TransferUpdateWithWhereUniqueWithoutLivestockInput | TransferUpdateWithWhereUniqueWithoutLivestockInput[]
-    updateMany?: TransferUpdateManyWithWhereWithoutLivestockInput | TransferUpdateManyWithWhereWithoutLivestockInput[]
-    deleteMany?: TransferScalarWhereInput | TransferScalarWhereInput[]
-  }
-
-  export type SaleUpdateOneWithoutLivestockNestedInput = {
+  export type SaleUncheckedCreateNestedOneWithoutLivestockInput = {
     create?: XOR<SaleCreateWithoutLivestockInput, SaleUncheckedCreateWithoutLivestockInput>
     connectOrCreate?: SaleCreateOrConnectWithoutLivestockInput
-    upsert?: SaleUpsertWithoutLivestockInput
-    disconnect?: SaleWhereInput | boolean
-    delete?: SaleWhereInput | boolean
     connect?: SaleWhereUniqueInput
-    update?: XOR<XOR<SaleUpdateToOneWithWhereWithoutLivestockInput, SaleUpdateWithoutLivestockInput>, SaleUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type TransferUncheckedCreateNestedManyWithoutLivestockInput = {
+    create?: XOR<TransferCreateWithoutLivestockInput, TransferUncheckedCreateWithoutLivestockInput> | TransferCreateWithoutLivestockInput[] | TransferUncheckedCreateWithoutLivestockInput[]
+    connectOrCreate?: TransferCreateOrConnectWithoutLivestockInput | TransferCreateOrConnectWithoutLivestockInput[]
+    createMany?: TransferCreateManyLivestockInputEnvelope
+    connect?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
   }
 
   export type BreedingRecordUpdateManyWithoutDamNestedInput = {
@@ -24327,6 +24251,48 @@ export namespace Prisma {
     deleteMany?: BreedingRecordScalarWhereInput | BreedingRecordScalarWhereInput[]
   }
 
+  export type HealthEventUpdateManyWithoutLivestockNestedInput = {
+    create?: XOR<HealthEventCreateWithoutLivestockInput, HealthEventUncheckedCreateWithoutLivestockInput> | HealthEventCreateWithoutLivestockInput[] | HealthEventUncheckedCreateWithoutLivestockInput[]
+    connectOrCreate?: HealthEventCreateOrConnectWithoutLivestockInput | HealthEventCreateOrConnectWithoutLivestockInput[]
+    upsert?: HealthEventUpsertWithWhereUniqueWithoutLivestockInput | HealthEventUpsertWithWhereUniqueWithoutLivestockInput[]
+    createMany?: HealthEventCreateManyLivestockInputEnvelope
+    set?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+    disconnect?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+    delete?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+    connect?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+    update?: HealthEventUpdateWithWhereUniqueWithoutLivestockInput | HealthEventUpdateWithWhereUniqueWithoutLivestockInput[]
+    updateMany?: HealthEventUpdateManyWithWhereWithoutLivestockInput | HealthEventUpdateManyWithWhereWithoutLivestockInput[]
+    deleteMany?: HealthEventScalarWhereInput | HealthEventScalarWhereInput[]
+  }
+
+  export type FarmUpdateOneRequiredWithoutLivestockNestedInput = {
+    create?: XOR<FarmCreateWithoutLivestockInput, FarmUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: FarmCreateOrConnectWithoutLivestockInput
+    upsert?: FarmUpsertWithoutLivestockInput
+    connect?: FarmWhereUniqueInput
+    update?: XOR<XOR<FarmUpdateToOneWithWhereWithoutLivestockInput, FarmUpdateWithoutLivestockInput>, FarmUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type MammalUpdateOneWithoutLivestockNestedInput = {
+    create?: XOR<MammalCreateWithoutLivestockInput, MammalUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: MammalCreateOrConnectWithoutLivestockInput
+    upsert?: MammalUpsertWithoutLivestockInput
+    disconnect?: MammalWhereInput | boolean
+    delete?: MammalWhereInput | boolean
+    connect?: MammalWhereUniqueInput
+    update?: XOR<XOR<MammalUpdateToOneWithWhereWithoutLivestockInput, MammalUpdateWithoutLivestockInput>, MammalUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type MortalityUpdateOneWithoutLivestockNestedInput = {
+    create?: XOR<MortalityCreateWithoutLivestockInput, MortalityUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: MortalityCreateOrConnectWithoutLivestockInput
+    upsert?: MortalityUpsertWithoutLivestockInput
+    disconnect?: MortalityWhereInput | boolean
+    delete?: MortalityWhereInput | boolean
+    connect?: MortalityWhereUniqueInput
+    update?: XOR<XOR<MortalityUpdateToOneWithWhereWithoutLivestockInput, MortalityUpdateWithoutLivestockInput>, MortalityUncheckedUpdateWithoutLivestockInput>
+  }
+
   export type OffspringUpdateManyWithoutLivestockNestedInput = {
     create?: XOR<OffspringCreateWithoutLivestockInput, OffspringUncheckedCreateWithoutLivestockInput> | OffspringCreateWithoutLivestockInput[] | OffspringUncheckedCreateWithoutLivestockInput[]
     connectOrCreate?: OffspringCreateOrConnectWithoutLivestockInput | OffspringCreateOrConnectWithoutLivestockInput[]
@@ -24341,17 +24307,7 @@ export namespace Prisma {
     deleteMany?: OffspringScalarWhereInput | OffspringScalarWhereInput[]
   }
 
-  export type MammalUncheckedUpdateOneWithoutLivestockNestedInput = {
-    create?: XOR<MammalCreateWithoutLivestockInput, MammalUncheckedCreateWithoutLivestockInput>
-    connectOrCreate?: MammalCreateOrConnectWithoutLivestockInput
-    upsert?: MammalUpsertWithoutLivestockInput
-    disconnect?: MammalWhereInput | boolean
-    delete?: MammalWhereInput | boolean
-    connect?: MammalWhereUniqueInput
-    update?: XOR<XOR<MammalUpdateToOneWithWhereWithoutLivestockInput, MammalUpdateWithoutLivestockInput>, MammalUncheckedUpdateWithoutLivestockInput>
-  }
-
-  export type PoultryUncheckedUpdateOneWithoutLivestockNestedInput = {
+  export type PoultryUpdateOneWithoutLivestockNestedInput = {
     create?: XOR<PoultryCreateWithoutLivestockInput, PoultryUncheckedCreateWithoutLivestockInput>
     connectOrCreate?: PoultryCreateOrConnectWithoutLivestockInput
     upsert?: PoultryUpsertWithoutLivestockInput
@@ -24361,31 +24317,17 @@ export namespace Prisma {
     update?: XOR<XOR<PoultryUpdateToOneWithWhereWithoutLivestockInput, PoultryUpdateWithoutLivestockInput>, PoultryUncheckedUpdateWithoutLivestockInput>
   }
 
-  export type MortalityUncheckedUpdateOneWithoutLivestockNestedInput = {
-    create?: XOR<MortalityCreateWithoutLivestockInput, MortalityUncheckedCreateWithoutLivestockInput>
-    connectOrCreate?: MortalityCreateOrConnectWithoutLivestockInput
-    upsert?: MortalityUpsertWithoutLivestockInput
-    disconnect?: MortalityWhereInput | boolean
-    delete?: MortalityWhereInput | boolean
-    connect?: MortalityWhereUniqueInput
-    update?: XOR<XOR<MortalityUpdateToOneWithWhereWithoutLivestockInput, MortalityUpdateWithoutLivestockInput>, MortalityUncheckedUpdateWithoutLivestockInput>
+  export type SaleUpdateOneWithoutLivestockNestedInput = {
+    create?: XOR<SaleCreateWithoutLivestockInput, SaleUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: SaleCreateOrConnectWithoutLivestockInput
+    upsert?: SaleUpsertWithoutLivestockInput
+    disconnect?: SaleWhereInput | boolean
+    delete?: SaleWhereInput | boolean
+    connect?: SaleWhereUniqueInput
+    update?: XOR<XOR<SaleUpdateToOneWithWhereWithoutLivestockInput, SaleUpdateWithoutLivestockInput>, SaleUncheckedUpdateWithoutLivestockInput>
   }
 
-  export type HealthEventUncheckedUpdateManyWithoutLivestockNestedInput = {
-    create?: XOR<HealthEventCreateWithoutLivestockInput, HealthEventUncheckedCreateWithoutLivestockInput> | HealthEventCreateWithoutLivestockInput[] | HealthEventUncheckedCreateWithoutLivestockInput[]
-    connectOrCreate?: HealthEventCreateOrConnectWithoutLivestockInput | HealthEventCreateOrConnectWithoutLivestockInput[]
-    upsert?: HealthEventUpsertWithWhereUniqueWithoutLivestockInput | HealthEventUpsertWithWhereUniqueWithoutLivestockInput[]
-    createMany?: HealthEventCreateManyLivestockInputEnvelope
-    set?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
-    disconnect?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
-    delete?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
-    connect?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
-    update?: HealthEventUpdateWithWhereUniqueWithoutLivestockInput | HealthEventUpdateWithWhereUniqueWithoutLivestockInput[]
-    updateMany?: HealthEventUpdateManyWithWhereWithoutLivestockInput | HealthEventUpdateManyWithWhereWithoutLivestockInput[]
-    deleteMany?: HealthEventScalarWhereInput | HealthEventScalarWhereInput[]
-  }
-
-  export type TransferUncheckedUpdateManyWithoutLivestockNestedInput = {
+  export type TransferUpdateManyWithoutLivestockNestedInput = {
     create?: XOR<TransferCreateWithoutLivestockInput, TransferUncheckedCreateWithoutLivestockInput> | TransferCreateWithoutLivestockInput[] | TransferUncheckedCreateWithoutLivestockInput[]
     connectOrCreate?: TransferCreateOrConnectWithoutLivestockInput | TransferCreateOrConnectWithoutLivestockInput[]
     upsert?: TransferUpsertWithWhereUniqueWithoutLivestockInput | TransferUpsertWithWhereUniqueWithoutLivestockInput[]
@@ -24397,16 +24339,6 @@ export namespace Prisma {
     update?: TransferUpdateWithWhereUniqueWithoutLivestockInput | TransferUpdateWithWhereUniqueWithoutLivestockInput[]
     updateMany?: TransferUpdateManyWithWhereWithoutLivestockInput | TransferUpdateManyWithWhereWithoutLivestockInput[]
     deleteMany?: TransferScalarWhereInput | TransferScalarWhereInput[]
-  }
-
-  export type SaleUncheckedUpdateOneWithoutLivestockNestedInput = {
-    create?: XOR<SaleCreateWithoutLivestockInput, SaleUncheckedCreateWithoutLivestockInput>
-    connectOrCreate?: SaleCreateOrConnectWithoutLivestockInput
-    upsert?: SaleUpsertWithoutLivestockInput
-    disconnect?: SaleWhereInput | boolean
-    delete?: SaleWhereInput | boolean
-    connect?: SaleWhereUniqueInput
-    update?: XOR<XOR<SaleUpdateToOneWithWhereWithoutLivestockInput, SaleUpdateWithoutLivestockInput>, SaleUncheckedUpdateWithoutLivestockInput>
   }
 
   export type BreedingRecordUncheckedUpdateManyWithoutDamNestedInput = {
@@ -24437,6 +24369,40 @@ export namespace Prisma {
     deleteMany?: BreedingRecordScalarWhereInput | BreedingRecordScalarWhereInput[]
   }
 
+  export type HealthEventUncheckedUpdateManyWithoutLivestockNestedInput = {
+    create?: XOR<HealthEventCreateWithoutLivestockInput, HealthEventUncheckedCreateWithoutLivestockInput> | HealthEventCreateWithoutLivestockInput[] | HealthEventUncheckedCreateWithoutLivestockInput[]
+    connectOrCreate?: HealthEventCreateOrConnectWithoutLivestockInput | HealthEventCreateOrConnectWithoutLivestockInput[]
+    upsert?: HealthEventUpsertWithWhereUniqueWithoutLivestockInput | HealthEventUpsertWithWhereUniqueWithoutLivestockInput[]
+    createMany?: HealthEventCreateManyLivestockInputEnvelope
+    set?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+    disconnect?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+    delete?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+    connect?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+    update?: HealthEventUpdateWithWhereUniqueWithoutLivestockInput | HealthEventUpdateWithWhereUniqueWithoutLivestockInput[]
+    updateMany?: HealthEventUpdateManyWithWhereWithoutLivestockInput | HealthEventUpdateManyWithWhereWithoutLivestockInput[]
+    deleteMany?: HealthEventScalarWhereInput | HealthEventScalarWhereInput[]
+  }
+
+  export type MammalUncheckedUpdateOneWithoutLivestockNestedInput = {
+    create?: XOR<MammalCreateWithoutLivestockInput, MammalUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: MammalCreateOrConnectWithoutLivestockInput
+    upsert?: MammalUpsertWithoutLivestockInput
+    disconnect?: MammalWhereInput | boolean
+    delete?: MammalWhereInput | boolean
+    connect?: MammalWhereUniqueInput
+    update?: XOR<XOR<MammalUpdateToOneWithWhereWithoutLivestockInput, MammalUpdateWithoutLivestockInput>, MammalUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type MortalityUncheckedUpdateOneWithoutLivestockNestedInput = {
+    create?: XOR<MortalityCreateWithoutLivestockInput, MortalityUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: MortalityCreateOrConnectWithoutLivestockInput
+    upsert?: MortalityUpsertWithoutLivestockInput
+    disconnect?: MortalityWhereInput | boolean
+    delete?: MortalityWhereInput | boolean
+    connect?: MortalityWhereUniqueInput
+    update?: XOR<XOR<MortalityUpdateToOneWithWhereWithoutLivestockInput, MortalityUpdateWithoutLivestockInput>, MortalityUncheckedUpdateWithoutLivestockInput>
+  }
+
   export type OffspringUncheckedUpdateManyWithoutLivestockNestedInput = {
     create?: XOR<OffspringCreateWithoutLivestockInput, OffspringUncheckedCreateWithoutLivestockInput> | OffspringCreateWithoutLivestockInput[] | OffspringUncheckedCreateWithoutLivestockInput[]
     connectOrCreate?: OffspringCreateOrConnectWithoutLivestockInput | OffspringCreateOrConnectWithoutLivestockInput[]
@@ -24449,6 +24415,40 @@ export namespace Prisma {
     update?: OffspringUpdateWithWhereUniqueWithoutLivestockInput | OffspringUpdateWithWhereUniqueWithoutLivestockInput[]
     updateMany?: OffspringUpdateManyWithWhereWithoutLivestockInput | OffspringUpdateManyWithWhereWithoutLivestockInput[]
     deleteMany?: OffspringScalarWhereInput | OffspringScalarWhereInput[]
+  }
+
+  export type PoultryUncheckedUpdateOneWithoutLivestockNestedInput = {
+    create?: XOR<PoultryCreateWithoutLivestockInput, PoultryUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: PoultryCreateOrConnectWithoutLivestockInput
+    upsert?: PoultryUpsertWithoutLivestockInput
+    disconnect?: PoultryWhereInput | boolean
+    delete?: PoultryWhereInput | boolean
+    connect?: PoultryWhereUniqueInput
+    update?: XOR<XOR<PoultryUpdateToOneWithWhereWithoutLivestockInput, PoultryUpdateWithoutLivestockInput>, PoultryUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type SaleUncheckedUpdateOneWithoutLivestockNestedInput = {
+    create?: XOR<SaleCreateWithoutLivestockInput, SaleUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: SaleCreateOrConnectWithoutLivestockInput
+    upsert?: SaleUpsertWithoutLivestockInput
+    disconnect?: SaleWhereInput | boolean
+    delete?: SaleWhereInput | boolean
+    connect?: SaleWhereUniqueInput
+    update?: XOR<XOR<SaleUpdateToOneWithWhereWithoutLivestockInput, SaleUpdateWithoutLivestockInput>, SaleUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type TransferUncheckedUpdateManyWithoutLivestockNestedInput = {
+    create?: XOR<TransferCreateWithoutLivestockInput, TransferUncheckedCreateWithoutLivestockInput> | TransferCreateWithoutLivestockInput[] | TransferUncheckedCreateWithoutLivestockInput[]
+    connectOrCreate?: TransferCreateOrConnectWithoutLivestockInput | TransferCreateOrConnectWithoutLivestockInput[]
+    upsert?: TransferUpsertWithWhereUniqueWithoutLivestockInput | TransferUpsertWithWhereUniqueWithoutLivestockInput[]
+    createMany?: TransferCreateManyLivestockInputEnvelope
+    set?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
+    disconnect?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
+    delete?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
+    connect?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
+    update?: TransferUpdateWithWhereUniqueWithoutLivestockInput | TransferUpdateWithWhereUniqueWithoutLivestockInput[]
+    updateMany?: TransferUpdateManyWithWhereWithoutLivestockInput | TransferUpdateManyWithWhereWithoutLivestockInput[]
+    deleteMany?: TransferScalarWhereInput | TransferScalarWhereInput[]
   }
 
   export type LivestockCreateNestedOneWithoutMammalInput = {
@@ -24594,6 +24594,12 @@ export namespace Prisma {
     connect?: LivestockWhereUniqueInput
   }
 
+  export type FarmCreateNestedOneWithoutBreedingRecordsInput = {
+    create?: XOR<FarmCreateWithoutBreedingRecordsInput, FarmUncheckedCreateWithoutBreedingRecordsInput>
+    connectOrCreate?: FarmCreateOrConnectWithoutBreedingRecordsInput
+    connect?: FarmWhereUniqueInput
+  }
+
   export type LivestockCreateNestedOneWithoutBreedingSireInput = {
     create?: XOR<LivestockCreateWithoutBreedingSireInput, LivestockUncheckedCreateWithoutBreedingSireInput>
     connectOrCreate?: LivestockCreateOrConnectWithoutBreedingSireInput
@@ -24605,12 +24611,6 @@ export namespace Prisma {
     connectOrCreate?: OffspringCreateOrConnectWithoutBreedingRecordInput | OffspringCreateOrConnectWithoutBreedingRecordInput[]
     createMany?: OffspringCreateManyBreedingRecordInputEnvelope
     connect?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
-  }
-
-  export type FarmCreateNestedOneWithoutBreedingRecordsInput = {
-    create?: XOR<FarmCreateWithoutBreedingRecordsInput, FarmUncheckedCreateWithoutBreedingRecordsInput>
-    connectOrCreate?: FarmCreateOrConnectWithoutBreedingRecordsInput
-    connect?: FarmWhereUniqueInput
   }
 
   export type OffspringUncheckedCreateNestedManyWithoutBreedingRecordInput = {
@@ -24626,6 +24626,14 @@ export namespace Prisma {
     upsert?: LivestockUpsertWithoutBreedingDamInput
     connect?: LivestockWhereUniqueInput
     update?: XOR<XOR<LivestockUpdateToOneWithWhereWithoutBreedingDamInput, LivestockUpdateWithoutBreedingDamInput>, LivestockUncheckedUpdateWithoutBreedingDamInput>
+  }
+
+  export type FarmUpdateOneRequiredWithoutBreedingRecordsNestedInput = {
+    create?: XOR<FarmCreateWithoutBreedingRecordsInput, FarmUncheckedCreateWithoutBreedingRecordsInput>
+    connectOrCreate?: FarmCreateOrConnectWithoutBreedingRecordsInput
+    upsert?: FarmUpsertWithoutBreedingRecordsInput
+    connect?: FarmWhereUniqueInput
+    update?: XOR<XOR<FarmUpdateToOneWithWhereWithoutBreedingRecordsInput, FarmUpdateWithoutBreedingRecordsInput>, FarmUncheckedUpdateWithoutBreedingRecordsInput>
   }
 
   export type LivestockUpdateOneWithoutBreedingSireNestedInput = {
@@ -24650,14 +24658,6 @@ export namespace Prisma {
     update?: OffspringUpdateWithWhereUniqueWithoutBreedingRecordInput | OffspringUpdateWithWhereUniqueWithoutBreedingRecordInput[]
     updateMany?: OffspringUpdateManyWithWhereWithoutBreedingRecordInput | OffspringUpdateManyWithWhereWithoutBreedingRecordInput[]
     deleteMany?: OffspringScalarWhereInput | OffspringScalarWhereInput[]
-  }
-
-  export type FarmUpdateOneRequiredWithoutBreedingRecordsNestedInput = {
-    create?: XOR<FarmCreateWithoutBreedingRecordsInput, FarmUncheckedCreateWithoutBreedingRecordsInput>
-    connectOrCreate?: FarmCreateOrConnectWithoutBreedingRecordsInput
-    upsert?: FarmUpsertWithoutBreedingRecordsInput
-    connect?: FarmWhereUniqueInput
-    update?: XOR<XOR<FarmUpdateToOneWithWhereWithoutBreedingRecordsInput, FarmUpdateWithoutBreedingRecordsInput>, FarmUncheckedUpdateWithoutBreedingRecordsInput>
   }
 
   export type OffspringUncheckedUpdateManyWithoutBreedingRecordNestedInput = {
@@ -24947,9 +24947,9 @@ export namespace Prisma {
     farmingTypes?: FarmCreatefarmingTypesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    breedingRecords?: BreedingRecordCreateNestedManyWithoutFarmInput
     employees?: EmployeeFarmCreateNestedManyWithoutFarmInput
     livestock?: LivestockCreateNestedManyWithoutFarmInput
-    breedingRecords?: BreedingRecordCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutUserInput = {
@@ -24962,9 +24962,9 @@ export namespace Prisma {
     farmingTypes?: FarmCreatefarmingTypesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    breedingRecords?: BreedingRecordUncheckedCreateNestedManyWithoutFarmInput
     employees?: EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput
     livestock?: LivestockUncheckedCreateNestedManyWithoutFarmInput
-    breedingRecords?: BreedingRecordUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutUserInput = {
@@ -25007,76 +25007,6 @@ export namespace Prisma {
     userId?: StringFilter<"Farm"> | string
     createdAt?: DateTimeFilter<"Farm"> | Date | string
     updatedAt?: DateTimeFilter<"Farm"> | Date | string
-  }
-
-  export type EmployeeFarmCreateWithoutFarmInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    employee: EmployeeCreateNestedOneWithoutFarmsInput
-  }
-
-  export type EmployeeFarmUncheckedCreateWithoutFarmInput = {
-    id?: string
-    employeeId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type EmployeeFarmCreateOrConnectWithoutFarmInput = {
-    where: EmployeeFarmWhereUniqueInput
-    create: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput>
-  }
-
-  export type EmployeeFarmCreateManyFarmInputEnvelope = {
-    data: EmployeeFarmCreateManyFarmInput | EmployeeFarmCreateManyFarmInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type LivestockCreateWithoutFarmInput = {
-    id?: string
-    category: string
-    type: string
-    status?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    mammal?: MammalCreateNestedOneWithoutLivestockInput
-    poultry?: PoultryCreateNestedOneWithoutLivestockInput
-    mortality?: MortalityCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
-    transfer?: TransferCreateNestedManyWithoutLivestockInput
-    sale?: SaleCreateNestedOneWithoutLivestockInput
-    breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
-    breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
-    offspring?: OffspringCreateNestedManyWithoutLivestockInput
-  }
-
-  export type LivestockUncheckedCreateWithoutFarmInput = {
-    id?: string
-    category: string
-    type: string
-    status?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
-    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
-    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
-    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
-    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
-    breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
-    breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
-    offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
-  }
-
-  export type LivestockCreateOrConnectWithoutFarmInput = {
-    where: LivestockWhereUniqueInput
-    create: XOR<LivestockCreateWithoutFarmInput, LivestockUncheckedCreateWithoutFarmInput>
-  }
-
-  export type LivestockCreateManyFarmInputEnvelope = {
-    data: LivestockCreateManyFarmInput | LivestockCreateManyFarmInput[]
-    skipDuplicates?: boolean
   }
 
   export type BreedingRecordCreateWithoutFarmInput = {
@@ -25145,6 +25075,30 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type EmployeeFarmCreateWithoutFarmInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    employee: EmployeeCreateNestedOneWithoutFarmsInput
+  }
+
+  export type EmployeeFarmUncheckedCreateWithoutFarmInput = {
+    id?: string
+    employeeId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeFarmCreateOrConnectWithoutFarmInput = {
+    where: EmployeeFarmWhereUniqueInput
+    create: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput>
+  }
+
+  export type EmployeeFarmCreateManyFarmInputEnvelope = {
+    data: EmployeeFarmCreateManyFarmInput | EmployeeFarmCreateManyFarmInput[]
+    skipDuplicates?: boolean
+  }
+
   export type UserCreateWithoutFarmsInput = {
     id?: string
     firstName: string
@@ -25192,60 +25146,50 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutFarmsInput, UserUncheckedCreateWithoutFarmsInput>
   }
 
-  export type EmployeeFarmUpsertWithWhereUniqueWithoutFarmInput = {
-    where: EmployeeFarmWhereUniqueInput
-    update: XOR<EmployeeFarmUpdateWithoutFarmInput, EmployeeFarmUncheckedUpdateWithoutFarmInput>
-    create: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput>
+  export type LivestockCreateWithoutFarmInput = {
+    id?: string
+    category: string
+    type: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    status?: string
+    breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
+    mammal?: MammalCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityCreateNestedOneWithoutLivestockInput
+    offspring?: OffspringCreateNestedManyWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
   }
 
-  export type EmployeeFarmUpdateWithWhereUniqueWithoutFarmInput = {
-    where: EmployeeFarmWhereUniqueInput
-    data: XOR<EmployeeFarmUpdateWithoutFarmInput, EmployeeFarmUncheckedUpdateWithoutFarmInput>
+  export type LivestockUncheckedCreateWithoutFarmInput = {
+    id?: string
+    category: string
+    type: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    status?: string
+    breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
+    offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
   }
 
-  export type EmployeeFarmUpdateManyWithWhereWithoutFarmInput = {
-    where: EmployeeFarmScalarWhereInput
-    data: XOR<EmployeeFarmUpdateManyMutationInput, EmployeeFarmUncheckedUpdateManyWithoutFarmInput>
-  }
-
-  export type EmployeeFarmScalarWhereInput = {
-    AND?: EmployeeFarmScalarWhereInput | EmployeeFarmScalarWhereInput[]
-    OR?: EmployeeFarmScalarWhereInput[]
-    NOT?: EmployeeFarmScalarWhereInput | EmployeeFarmScalarWhereInput[]
-    id?: StringFilter<"EmployeeFarm"> | string
-    employeeId?: StringFilter<"EmployeeFarm"> | string
-    farmId?: StringFilter<"EmployeeFarm"> | string
-    createdAt?: DateTimeFilter<"EmployeeFarm"> | Date | string
-    updatedAt?: DateTimeFilter<"EmployeeFarm"> | Date | string
-  }
-
-  export type LivestockUpsertWithWhereUniqueWithoutFarmInput = {
+  export type LivestockCreateOrConnectWithoutFarmInput = {
     where: LivestockWhereUniqueInput
-    update: XOR<LivestockUpdateWithoutFarmInput, LivestockUncheckedUpdateWithoutFarmInput>
     create: XOR<LivestockCreateWithoutFarmInput, LivestockUncheckedCreateWithoutFarmInput>
   }
 
-  export type LivestockUpdateWithWhereUniqueWithoutFarmInput = {
-    where: LivestockWhereUniqueInput
-    data: XOR<LivestockUpdateWithoutFarmInput, LivestockUncheckedUpdateWithoutFarmInput>
-  }
-
-  export type LivestockUpdateManyWithWhereWithoutFarmInput = {
-    where: LivestockScalarWhereInput
-    data: XOR<LivestockUpdateManyMutationInput, LivestockUncheckedUpdateManyWithoutFarmInput>
-  }
-
-  export type LivestockScalarWhereInput = {
-    AND?: LivestockScalarWhereInput | LivestockScalarWhereInput[]
-    OR?: LivestockScalarWhereInput[]
-    NOT?: LivestockScalarWhereInput | LivestockScalarWhereInput[]
-    id?: StringFilter<"Livestock"> | string
-    farmId?: StringFilter<"Livestock"> | string
-    category?: StringFilter<"Livestock"> | string
-    type?: StringFilter<"Livestock"> | string
-    status?: StringFilter<"Livestock"> | string
-    createdAt?: DateTimeFilter<"Livestock"> | Date | string
-    updatedAt?: DateTimeFilter<"Livestock"> | Date | string
+  export type LivestockCreateManyFarmInputEnvelope = {
+    data: LivestockCreateManyFarmInput | LivestockCreateManyFarmInput[]
+    skipDuplicates?: boolean
   }
 
   export type BreedingRecordUpsertWithWhereUniqueWithoutFarmInput = {
@@ -25293,6 +25237,33 @@ export namespace Prisma {
     farmId?: StringFilter<"BreedingRecord"> | string
     createdAt?: DateTimeFilter<"BreedingRecord"> | Date | string
     updatedAt?: DateTimeFilter<"BreedingRecord"> | Date | string
+  }
+
+  export type EmployeeFarmUpsertWithWhereUniqueWithoutFarmInput = {
+    where: EmployeeFarmWhereUniqueInput
+    update: XOR<EmployeeFarmUpdateWithoutFarmInput, EmployeeFarmUncheckedUpdateWithoutFarmInput>
+    create: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput>
+  }
+
+  export type EmployeeFarmUpdateWithWhereUniqueWithoutFarmInput = {
+    where: EmployeeFarmWhereUniqueInput
+    data: XOR<EmployeeFarmUpdateWithoutFarmInput, EmployeeFarmUncheckedUpdateWithoutFarmInput>
+  }
+
+  export type EmployeeFarmUpdateManyWithWhereWithoutFarmInput = {
+    where: EmployeeFarmScalarWhereInput
+    data: XOR<EmployeeFarmUpdateManyMutationInput, EmployeeFarmUncheckedUpdateManyWithoutFarmInput>
+  }
+
+  export type EmployeeFarmScalarWhereInput = {
+    AND?: EmployeeFarmScalarWhereInput | EmployeeFarmScalarWhereInput[]
+    OR?: EmployeeFarmScalarWhereInput[]
+    NOT?: EmployeeFarmScalarWhereInput | EmployeeFarmScalarWhereInput[]
+    id?: StringFilter<"EmployeeFarm"> | string
+    employeeId?: StringFilter<"EmployeeFarm"> | string
+    farmId?: StringFilter<"EmployeeFarm"> | string
+    createdAt?: DateTimeFilter<"EmployeeFarm"> | Date | string
+    updatedAt?: DateTimeFilter<"EmployeeFarm"> | Date | string
   }
 
   export type UserUpsertWithoutFarmsInput = {
@@ -25346,6 +25317,35 @@ export namespace Prisma {
     isVerified?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LivestockUpsertWithWhereUniqueWithoutFarmInput = {
+    where: LivestockWhereUniqueInput
+    update: XOR<LivestockUpdateWithoutFarmInput, LivestockUncheckedUpdateWithoutFarmInput>
+    create: XOR<LivestockCreateWithoutFarmInput, LivestockUncheckedCreateWithoutFarmInput>
+  }
+
+  export type LivestockUpdateWithWhereUniqueWithoutFarmInput = {
+    where: LivestockWhereUniqueInput
+    data: XOR<LivestockUpdateWithoutFarmInput, LivestockUncheckedUpdateWithoutFarmInput>
+  }
+
+  export type LivestockUpdateManyWithWhereWithoutFarmInput = {
+    where: LivestockScalarWhereInput
+    data: XOR<LivestockUpdateManyMutationInput, LivestockUncheckedUpdateManyWithoutFarmInput>
+  }
+
+  export type LivestockScalarWhereInput = {
+    AND?: LivestockScalarWhereInput | LivestockScalarWhereInput[]
+    OR?: LivestockScalarWhereInput[]
+    NOT?: LivestockScalarWhereInput | LivestockScalarWhereInput[]
+    id?: StringFilter<"Livestock"> | string
+    farmId?: StringFilter<"Livestock"> | string
+    category?: StringFilter<"Livestock"> | string
+    type?: StringFilter<"Livestock"> | string
+    createdAt?: DateTimeFilter<"Livestock"> | Date | string
+    updatedAt?: DateTimeFilter<"Livestock"> | Date | string
+    status?: StringFilter<"Livestock"> | string
   }
 
   export type EmployeeBenefitCreateWithoutEmployeeInput = {
@@ -25503,9 +25503,9 @@ export namespace Prisma {
     farmingTypes?: FarmCreatefarmingTypesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
-    livestock?: LivestockCreateNestedManyWithoutFarmInput
     breedingRecords?: BreedingRecordCreateNestedManyWithoutFarmInput
     user: UserCreateNestedOneWithoutFarmsInput
+    livestock?: LivestockCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutEmployeesInput = {
@@ -25519,8 +25519,8 @@ export namespace Prisma {
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    livestock?: LivestockUncheckedCreateNestedManyWithoutFarmInput
     breedingRecords?: BreedingRecordUncheckedCreateNestedManyWithoutFarmInput
+    livestock?: LivestockUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutEmployeesInput = {
@@ -25606,9 +25606,9 @@ export namespace Prisma {
     farmingTypes?: FarmUpdatefarmingTypesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    livestock?: LivestockUpdateManyWithoutFarmNestedInput
     breedingRecords?: BreedingRecordUpdateManyWithoutFarmNestedInput
     user?: UserUpdateOneRequiredWithoutFarmsNestedInput
+    livestock?: LivestockUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutEmployeesInput = {
@@ -25622,8 +25622,8 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    livestock?: LivestockUncheckedUpdateManyWithoutFarmNestedInput
     breedingRecords?: BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput
+    livestock?: LivestockUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type EmployeeCreateWithoutBenefitsInput = {
@@ -25734,257 +25734,6 @@ export namespace Prisma {
     farms?: EmployeeFarmUncheckedUpdateManyWithoutEmployeeNestedInput
   }
 
-  export type FarmCreateWithoutLivestockInput = {
-    id?: string
-    name: string
-    county: string
-    administrativeLocation: string
-    size: number
-    ownership: string
-    farmingTypes?: FarmCreatefarmingTypesInput | string[]
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    employees?: EmployeeFarmCreateNestedManyWithoutFarmInput
-    breedingRecords?: BreedingRecordCreateNestedManyWithoutFarmInput
-    user: UserCreateNestedOneWithoutFarmsInput
-  }
-
-  export type FarmUncheckedCreateWithoutLivestockInput = {
-    id?: string
-    name: string
-    county: string
-    administrativeLocation: string
-    size: number
-    ownership: string
-    farmingTypes?: FarmCreatefarmingTypesInput | string[]
-    userId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    employees?: EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput
-    breedingRecords?: BreedingRecordUncheckedCreateNestedManyWithoutFarmInput
-  }
-
-  export type FarmCreateOrConnectWithoutLivestockInput = {
-    where: FarmWhereUniqueInput
-    create: XOR<FarmCreateWithoutLivestockInput, FarmUncheckedCreateWithoutLivestockInput>
-  }
-
-  export type MammalCreateWithoutLivestockInput = {
-    id?: string
-    idNumber: string
-    breedType: string
-    phenotype?: string | null
-    dateOfBirth: string
-    gender: string
-    sireId?: string | null
-    sireCode?: string | null
-    damId?: string | null
-    damCode?: string | null
-    birthWeight?: number | null
-    currentWeight?: number | null
-    lastWeighingDate?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type MammalUncheckedCreateWithoutLivestockInput = {
-    id?: string
-    idNumber: string
-    breedType: string
-    phenotype?: string | null
-    dateOfBirth: string
-    gender: string
-    sireId?: string | null
-    sireCode?: string | null
-    damId?: string | null
-    damCode?: string | null
-    birthWeight?: number | null
-    currentWeight?: number | null
-    lastWeighingDate?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type MammalCreateOrConnectWithoutLivestockInput = {
-    where: MammalWhereUniqueInput
-    create: XOR<MammalCreateWithoutLivestockInput, MammalUncheckedCreateWithoutLivestockInput>
-  }
-
-  export type PoultryCreateWithoutLivestockInput = {
-    id?: string
-    flockId: string
-    dateOfStocking: Date | string
-    gender: string
-    initialQuantity: number
-    currentQuantity: number
-    breedType: string
-    sourceOfBirds: string
-    initialAverageWeight?: number | null
-    currentAverageWeight?: number | null
-    lastWeighingDate?: Date | string | null
-    mortalityRate?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type PoultryUncheckedCreateWithoutLivestockInput = {
-    id?: string
-    flockId: string
-    dateOfStocking: Date | string
-    gender: string
-    initialQuantity: number
-    currentQuantity: number
-    breedType: string
-    sourceOfBirds: string
-    initialAverageWeight?: number | null
-    currentAverageWeight?: number | null
-    lastWeighingDate?: Date | string | null
-    mortalityRate?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type PoultryCreateOrConnectWithoutLivestockInput = {
-    where: PoultryWhereUniqueInput
-    create: XOR<PoultryCreateWithoutLivestockInput, PoultryUncheckedCreateWithoutLivestockInput>
-  }
-
-  export type MortalityCreateWithoutLivestockInput = {
-    id?: string
-    date: Date | string
-    cause: string
-    description?: string | null
-    reportedBy?: string | null
-    attachments?: MortalityCreateattachmentsInput | string[]
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type MortalityUncheckedCreateWithoutLivestockInput = {
-    id?: string
-    date: Date | string
-    cause: string
-    description?: string | null
-    reportedBy?: string | null
-    attachments?: MortalityCreateattachmentsInput | string[]
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type MortalityCreateOrConnectWithoutLivestockInput = {
-    where: MortalityWhereUniqueInput
-    create: XOR<MortalityCreateWithoutLivestockInput, MortalityUncheckedCreateWithoutLivestockInput>
-  }
-
-  export type HealthEventCreateWithoutLivestockInput = {
-    id?: string
-    eventType: string
-    date: Date | string
-    description: string
-    performedBy?: string | null
-    medications?: HealthEventCreatemedicationsInput | string[]
-    dosage?: string | null
-    cost?: number | null
-    nextScheduled?: Date | string | null
-    attachments?: HealthEventCreateattachmentsInput | string[]
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type HealthEventUncheckedCreateWithoutLivestockInput = {
-    id?: string
-    eventType: string
-    date: Date | string
-    description: string
-    performedBy?: string | null
-    medications?: HealthEventCreatemedicationsInput | string[]
-    dosage?: string | null
-    cost?: number | null
-    nextScheduled?: Date | string | null
-    attachments?: HealthEventCreateattachmentsInput | string[]
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type HealthEventCreateOrConnectWithoutLivestockInput = {
-    where: HealthEventWhereUniqueInput
-    create: XOR<HealthEventCreateWithoutLivestockInput, HealthEventUncheckedCreateWithoutLivestockInput>
-  }
-
-  export type HealthEventCreateManyLivestockInputEnvelope = {
-    data: HealthEventCreateManyLivestockInput | HealthEventCreateManyLivestockInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type TransferCreateWithoutLivestockInput = {
-    id?: string
-    fromFarmId: string
-    toFarmId: string
-    transferDate: Date | string
-    reason?: string | null
-    transportMethod?: string | null
-    handlingPrecautions?: string | null
-    attachments?: TransferCreateattachmentsInput | string[]
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type TransferUncheckedCreateWithoutLivestockInput = {
-    id?: string
-    fromFarmId: string
-    toFarmId: string
-    transferDate: Date | string
-    reason?: string | null
-    transportMethod?: string | null
-    handlingPrecautions?: string | null
-    attachments?: TransferCreateattachmentsInput | string[]
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type TransferCreateOrConnectWithoutLivestockInput = {
-    where: TransferWhereUniqueInput
-    create: XOR<TransferCreateWithoutLivestockInput, TransferUncheckedCreateWithoutLivestockInput>
-  }
-
-  export type TransferCreateManyLivestockInputEnvelope = {
-    data: TransferCreateManyLivestockInput | TransferCreateManyLivestockInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type SaleCreateWithoutLivestockInput = {
-    id?: string
-    saleDate: Date | string
-    buyerName: string
-    buyerContact?: string | null
-    saleAmount: number
-    paymentMethod: string
-    receiptNumber?: string | null
-    notes?: string | null
-    attachments?: SaleCreateattachmentsInput | string[]
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type SaleUncheckedCreateWithoutLivestockInput = {
-    id?: string
-    saleDate: Date | string
-    buyerName: string
-    buyerContact?: string | null
-    saleAmount: number
-    paymentMethod: string
-    receiptNumber?: string | null
-    notes?: string | null
-    attachments?: SaleCreateattachmentsInput | string[]
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type SaleCreateOrConnectWithoutLivestockInput = {
-    where: SaleWhereUniqueInput
-    create: XOR<SaleCreateWithoutLivestockInput, SaleUncheckedCreateWithoutLivestockInput>
-  }
-
   export type BreedingRecordCreateWithoutDamInput = {
     id?: string
     purpose: string
@@ -26008,9 +25757,9 @@ export namespace Prisma {
     offspringSex?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutBreedingRecordsInput
     sire?: LivestockCreateNestedOneWithoutBreedingSireInput
     offspring?: OffspringCreateNestedManyWithoutBreedingRecordInput
-    farm: FarmCreateNestedOneWithoutBreedingRecordsInput
   }
 
   export type BreedingRecordUncheckedCreateWithoutDamInput = {
@@ -26075,8 +25824,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     dam: LivestockCreateNestedOneWithoutBreedingDamInput
-    offspring?: OffspringCreateNestedManyWithoutBreedingRecordInput
     farm: FarmCreateNestedOneWithoutBreedingRecordsInput
+    offspring?: OffspringCreateNestedManyWithoutBreedingRecordInput
   }
 
   export type BreedingRecordUncheckedCreateWithoutSireInput = {
@@ -26117,6 +25866,149 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type HealthEventCreateWithoutLivestockInput = {
+    id?: string
+    eventType: string
+    date: Date | string
+    description: string
+    performedBy?: string | null
+    medications?: HealthEventCreatemedicationsInput | string[]
+    dosage?: string | null
+    cost?: number | null
+    nextScheduled?: Date | string | null
+    attachments?: HealthEventCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type HealthEventUncheckedCreateWithoutLivestockInput = {
+    id?: string
+    eventType: string
+    date: Date | string
+    description: string
+    performedBy?: string | null
+    medications?: HealthEventCreatemedicationsInput | string[]
+    dosage?: string | null
+    cost?: number | null
+    nextScheduled?: Date | string | null
+    attachments?: HealthEventCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type HealthEventCreateOrConnectWithoutLivestockInput = {
+    where: HealthEventWhereUniqueInput
+    create: XOR<HealthEventCreateWithoutLivestockInput, HealthEventUncheckedCreateWithoutLivestockInput>
+  }
+
+  export type HealthEventCreateManyLivestockInputEnvelope = {
+    data: HealthEventCreateManyLivestockInput | HealthEventCreateManyLivestockInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FarmCreateWithoutLivestockInput = {
+    id?: string
+    name: string
+    county: string
+    administrativeLocation: string
+    size: number
+    ownership: string
+    farmingTypes?: FarmCreatefarmingTypesInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    breedingRecords?: BreedingRecordCreateNestedManyWithoutFarmInput
+    employees?: EmployeeFarmCreateNestedManyWithoutFarmInput
+    user: UserCreateNestedOneWithoutFarmsInput
+  }
+
+  export type FarmUncheckedCreateWithoutLivestockInput = {
+    id?: string
+    name: string
+    county: string
+    administrativeLocation: string
+    size: number
+    ownership: string
+    farmingTypes?: FarmCreatefarmingTypesInput | string[]
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    breedingRecords?: BreedingRecordUncheckedCreateNestedManyWithoutFarmInput
+    employees?: EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput
+  }
+
+  export type FarmCreateOrConnectWithoutLivestockInput = {
+    where: FarmWhereUniqueInput
+    create: XOR<FarmCreateWithoutLivestockInput, FarmUncheckedCreateWithoutLivestockInput>
+  }
+
+  export type MammalCreateWithoutLivestockInput = {
+    id?: string
+    idNumber: string
+    breedType: string
+    phenotype?: string | null
+    dateOfBirth: string
+    gender: string
+    sireId?: string | null
+    sireCode?: string | null
+    damId?: string | null
+    damCode?: string | null
+    birthWeight?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    currentWeight?: number | null
+    lastWeighingDate?: Date | string | null
+  }
+
+  export type MammalUncheckedCreateWithoutLivestockInput = {
+    id?: string
+    idNumber: string
+    breedType: string
+    phenotype?: string | null
+    dateOfBirth: string
+    gender: string
+    sireId?: string | null
+    sireCode?: string | null
+    damId?: string | null
+    damCode?: string | null
+    birthWeight?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    currentWeight?: number | null
+    lastWeighingDate?: Date | string | null
+  }
+
+  export type MammalCreateOrConnectWithoutLivestockInput = {
+    where: MammalWhereUniqueInput
+    create: XOR<MammalCreateWithoutLivestockInput, MammalUncheckedCreateWithoutLivestockInput>
+  }
+
+  export type MortalityCreateWithoutLivestockInput = {
+    id?: string
+    date: Date | string
+    cause: string
+    description?: string | null
+    reportedBy?: string | null
+    attachments?: MortalityCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MortalityUncheckedCreateWithoutLivestockInput = {
+    id?: string
+    date: Date | string
+    cause: string
+    description?: string | null
+    reportedBy?: string | null
+    attachments?: MortalityCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MortalityCreateOrConnectWithoutLivestockInput = {
+    where: MortalityWhereUniqueInput
+    create: XOR<MortalityCreateWithoutLivestockInput, MortalityUncheckedCreateWithoutLivestockInput>
+  }
+
   export type OffspringCreateWithoutLivestockInput = {
     id?: string
     offspringId: string
@@ -26151,170 +26043,144 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type FarmUpsertWithoutLivestockInput = {
-    update: XOR<FarmUpdateWithoutLivestockInput, FarmUncheckedUpdateWithoutLivestockInput>
-    create: XOR<FarmCreateWithoutLivestockInput, FarmUncheckedCreateWithoutLivestockInput>
-    where?: FarmWhereInput
+  export type PoultryCreateWithoutLivestockInput = {
+    id?: string
+    flockId: string
+    dateOfStocking: Date | string
+    gender: string
+    initialQuantity: number
+    currentQuantity: number
+    breedType: string
+    sourceOfBirds: string
+    initialAverageWeight?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    currentAverageWeight?: number | null
+    lastWeighingDate?: Date | string | null
+    mortalityRate?: number | null
   }
 
-  export type FarmUpdateToOneWithWhereWithoutLivestockInput = {
-    where?: FarmWhereInput
-    data: XOR<FarmUpdateWithoutLivestockInput, FarmUncheckedUpdateWithoutLivestockInput>
+  export type PoultryUncheckedCreateWithoutLivestockInput = {
+    id?: string
+    flockId: string
+    dateOfStocking: Date | string
+    gender: string
+    initialQuantity: number
+    currentQuantity: number
+    breedType: string
+    sourceOfBirds: string
+    initialAverageWeight?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    currentAverageWeight?: number | null
+    lastWeighingDate?: Date | string | null
+    mortalityRate?: number | null
   }
 
-  export type FarmUpdateWithoutLivestockInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    county?: StringFieldUpdateOperationsInput | string
-    administrativeLocation?: StringFieldUpdateOperationsInput | string
-    size?: FloatFieldUpdateOperationsInput | number
-    ownership?: StringFieldUpdateOperationsInput | string
-    farmingTypes?: FarmUpdatefarmingTypesInput | string[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    employees?: EmployeeFarmUpdateManyWithoutFarmNestedInput
-    breedingRecords?: BreedingRecordUpdateManyWithoutFarmNestedInput
-    user?: UserUpdateOneRequiredWithoutFarmsNestedInput
-  }
-
-  export type FarmUncheckedUpdateWithoutLivestockInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    county?: StringFieldUpdateOperationsInput | string
-    administrativeLocation?: StringFieldUpdateOperationsInput | string
-    size?: FloatFieldUpdateOperationsInput | number
-    ownership?: StringFieldUpdateOperationsInput | string
-    farmingTypes?: FarmUpdatefarmingTypesInput | string[]
-    userId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    employees?: EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput
-    breedingRecords?: BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput
-  }
-
-  export type MammalUpsertWithoutLivestockInput = {
-    update: XOR<MammalUpdateWithoutLivestockInput, MammalUncheckedUpdateWithoutLivestockInput>
-    create: XOR<MammalCreateWithoutLivestockInput, MammalUncheckedCreateWithoutLivestockInput>
-    where?: MammalWhereInput
-  }
-
-  export type MammalUpdateToOneWithWhereWithoutLivestockInput = {
-    where?: MammalWhereInput
-    data: XOR<MammalUpdateWithoutLivestockInput, MammalUncheckedUpdateWithoutLivestockInput>
-  }
-
-  export type MammalUpdateWithoutLivestockInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    idNumber?: StringFieldUpdateOperationsInput | string
-    breedType?: StringFieldUpdateOperationsInput | string
-    phenotype?: NullableStringFieldUpdateOperationsInput | string | null
-    dateOfBirth?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    sireId?: NullableStringFieldUpdateOperationsInput | string | null
-    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
-    damId?: NullableStringFieldUpdateOperationsInput | string | null
-    damCode?: NullableStringFieldUpdateOperationsInput | string | null
-    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
-    currentWeight?: NullableFloatFieldUpdateOperationsInput | number | null
-    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type MammalUncheckedUpdateWithoutLivestockInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    idNumber?: StringFieldUpdateOperationsInput | string
-    breedType?: StringFieldUpdateOperationsInput | string
-    phenotype?: NullableStringFieldUpdateOperationsInput | string | null
-    dateOfBirth?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    sireId?: NullableStringFieldUpdateOperationsInput | string | null
-    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
-    damId?: NullableStringFieldUpdateOperationsInput | string | null
-    damCode?: NullableStringFieldUpdateOperationsInput | string | null
-    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
-    currentWeight?: NullableFloatFieldUpdateOperationsInput | number | null
-    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type PoultryUpsertWithoutLivestockInput = {
-    update: XOR<PoultryUpdateWithoutLivestockInput, PoultryUncheckedUpdateWithoutLivestockInput>
+  export type PoultryCreateOrConnectWithoutLivestockInput = {
+    where: PoultryWhereUniqueInput
     create: XOR<PoultryCreateWithoutLivestockInput, PoultryUncheckedCreateWithoutLivestockInput>
-    where?: PoultryWhereInput
   }
 
-  export type PoultryUpdateToOneWithWhereWithoutLivestockInput = {
-    where?: PoultryWhereInput
-    data: XOR<PoultryUpdateWithoutLivestockInput, PoultryUncheckedUpdateWithoutLivestockInput>
+  export type SaleCreateWithoutLivestockInput = {
+    id?: string
+    saleDate: Date | string
+    buyerName: string
+    buyerContact?: string | null
+    saleAmount: number
+    paymentMethod: string
+    receiptNumber?: string | null
+    notes?: string | null
+    attachments?: SaleCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type PoultryUpdateWithoutLivestockInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    flockId?: StringFieldUpdateOperationsInput | string
-    dateOfStocking?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
-    initialQuantity?: IntFieldUpdateOperationsInput | number
-    currentQuantity?: IntFieldUpdateOperationsInput | number
-    breedType?: StringFieldUpdateOperationsInput | string
-    sourceOfBirds?: StringFieldUpdateOperationsInput | string
-    initialAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
-    currentAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
-    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    mortalityRate?: NullableFloatFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type SaleUncheckedCreateWithoutLivestockInput = {
+    id?: string
+    saleDate: Date | string
+    buyerName: string
+    buyerContact?: string | null
+    saleAmount: number
+    paymentMethod: string
+    receiptNumber?: string | null
+    notes?: string | null
+    attachments?: SaleCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type PoultryUncheckedUpdateWithoutLivestockInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    flockId?: StringFieldUpdateOperationsInput | string
-    dateOfStocking?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
-    initialQuantity?: IntFieldUpdateOperationsInput | number
-    currentQuantity?: IntFieldUpdateOperationsInput | number
-    breedType?: StringFieldUpdateOperationsInput | string
-    sourceOfBirds?: StringFieldUpdateOperationsInput | string
-    initialAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
-    currentAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
-    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    mortalityRate?: NullableFloatFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type SaleCreateOrConnectWithoutLivestockInput = {
+    where: SaleWhereUniqueInput
+    create: XOR<SaleCreateWithoutLivestockInput, SaleUncheckedCreateWithoutLivestockInput>
   }
 
-  export type MortalityUpsertWithoutLivestockInput = {
-    update: XOR<MortalityUpdateWithoutLivestockInput, MortalityUncheckedUpdateWithoutLivestockInput>
-    create: XOR<MortalityCreateWithoutLivestockInput, MortalityUncheckedCreateWithoutLivestockInput>
-    where?: MortalityWhereInput
+  export type TransferCreateWithoutLivestockInput = {
+    id?: string
+    fromFarmId: string
+    toFarmId: string
+    transferDate: Date | string
+    reason?: string | null
+    transportMethod?: string | null
+    handlingPrecautions?: string | null
+    attachments?: TransferCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type MortalityUpdateToOneWithWhereWithoutLivestockInput = {
-    where?: MortalityWhereInput
-    data: XOR<MortalityUpdateWithoutLivestockInput, MortalityUncheckedUpdateWithoutLivestockInput>
+  export type TransferUncheckedCreateWithoutLivestockInput = {
+    id?: string
+    fromFarmId: string
+    toFarmId: string
+    transferDate: Date | string
+    reason?: string | null
+    transportMethod?: string | null
+    handlingPrecautions?: string | null
+    attachments?: TransferCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type MortalityUpdateWithoutLivestockInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    cause?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reportedBy?: NullableStringFieldUpdateOperationsInput | string | null
-    attachments?: MortalityUpdateattachmentsInput | string[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type TransferCreateOrConnectWithoutLivestockInput = {
+    where: TransferWhereUniqueInput
+    create: XOR<TransferCreateWithoutLivestockInput, TransferUncheckedCreateWithoutLivestockInput>
   }
 
-  export type MortalityUncheckedUpdateWithoutLivestockInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    cause?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reportedBy?: NullableStringFieldUpdateOperationsInput | string | null
-    attachments?: MortalityUpdateattachmentsInput | string[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type TransferCreateManyLivestockInputEnvelope = {
+    data: TransferCreateManyLivestockInput | TransferCreateManyLivestockInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BreedingRecordUpsertWithWhereUniqueWithoutDamInput = {
+    where: BreedingRecordWhereUniqueInput
+    update: XOR<BreedingRecordUpdateWithoutDamInput, BreedingRecordUncheckedUpdateWithoutDamInput>
+    create: XOR<BreedingRecordCreateWithoutDamInput, BreedingRecordUncheckedCreateWithoutDamInput>
+  }
+
+  export type BreedingRecordUpdateWithWhereUniqueWithoutDamInput = {
+    where: BreedingRecordWhereUniqueInput
+    data: XOR<BreedingRecordUpdateWithoutDamInput, BreedingRecordUncheckedUpdateWithoutDamInput>
+  }
+
+  export type BreedingRecordUpdateManyWithWhereWithoutDamInput = {
+    where: BreedingRecordScalarWhereInput
+    data: XOR<BreedingRecordUpdateManyMutationInput, BreedingRecordUncheckedUpdateManyWithoutDamInput>
+  }
+
+  export type BreedingRecordUpsertWithWhereUniqueWithoutSireInput = {
+    where: BreedingRecordWhereUniqueInput
+    update: XOR<BreedingRecordUpdateWithoutSireInput, BreedingRecordUncheckedUpdateWithoutSireInput>
+    create: XOR<BreedingRecordCreateWithoutSireInput, BreedingRecordUncheckedCreateWithoutSireInput>
+  }
+
+  export type BreedingRecordUpdateWithWhereUniqueWithoutSireInput = {
+    where: BreedingRecordWhereUniqueInput
+    data: XOR<BreedingRecordUpdateWithoutSireInput, BreedingRecordUncheckedUpdateWithoutSireInput>
+  }
+
+  export type BreedingRecordUpdateManyWithWhereWithoutSireInput = {
+    where: BreedingRecordScalarWhereInput
+    data: XOR<BreedingRecordUpdateManyMutationInput, BreedingRecordUncheckedUpdateManyWithoutSireInput>
   }
 
   export type HealthEventUpsertWithWhereUniqueWithoutLivestockInput = {
@@ -26352,37 +26218,202 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"HealthEvent"> | Date | string
   }
 
-  export type TransferUpsertWithWhereUniqueWithoutLivestockInput = {
-    where: TransferWhereUniqueInput
-    update: XOR<TransferUpdateWithoutLivestockInput, TransferUncheckedUpdateWithoutLivestockInput>
-    create: XOR<TransferCreateWithoutLivestockInput, TransferUncheckedCreateWithoutLivestockInput>
+  export type FarmUpsertWithoutLivestockInput = {
+    update: XOR<FarmUpdateWithoutLivestockInput, FarmUncheckedUpdateWithoutLivestockInput>
+    create: XOR<FarmCreateWithoutLivestockInput, FarmUncheckedCreateWithoutLivestockInput>
+    where?: FarmWhereInput
   }
 
-  export type TransferUpdateWithWhereUniqueWithoutLivestockInput = {
-    where: TransferWhereUniqueInput
-    data: XOR<TransferUpdateWithoutLivestockInput, TransferUncheckedUpdateWithoutLivestockInput>
+  export type FarmUpdateToOneWithWhereWithoutLivestockInput = {
+    where?: FarmWhereInput
+    data: XOR<FarmUpdateWithoutLivestockInput, FarmUncheckedUpdateWithoutLivestockInput>
   }
 
-  export type TransferUpdateManyWithWhereWithoutLivestockInput = {
-    where: TransferScalarWhereInput
-    data: XOR<TransferUpdateManyMutationInput, TransferUncheckedUpdateManyWithoutLivestockInput>
+  export type FarmUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    county?: StringFieldUpdateOperationsInput | string
+    administrativeLocation?: StringFieldUpdateOperationsInput | string
+    size?: FloatFieldUpdateOperationsInput | number
+    ownership?: StringFieldUpdateOperationsInput | string
+    farmingTypes?: FarmUpdatefarmingTypesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    breedingRecords?: BreedingRecordUpdateManyWithoutFarmNestedInput
+    employees?: EmployeeFarmUpdateManyWithoutFarmNestedInput
+    user?: UserUpdateOneRequiredWithoutFarmsNestedInput
   }
 
-  export type TransferScalarWhereInput = {
-    AND?: TransferScalarWhereInput | TransferScalarWhereInput[]
-    OR?: TransferScalarWhereInput[]
-    NOT?: TransferScalarWhereInput | TransferScalarWhereInput[]
-    id?: StringFilter<"Transfer"> | string
-    livestockId?: StringFilter<"Transfer"> | string
-    fromFarmId?: StringFilter<"Transfer"> | string
-    toFarmId?: StringFilter<"Transfer"> | string
-    transferDate?: DateTimeFilter<"Transfer"> | Date | string
-    reason?: StringNullableFilter<"Transfer"> | string | null
-    transportMethod?: StringNullableFilter<"Transfer"> | string | null
-    handlingPrecautions?: StringNullableFilter<"Transfer"> | string | null
-    attachments?: StringNullableListFilter<"Transfer">
-    createdAt?: DateTimeFilter<"Transfer"> | Date | string
-    updatedAt?: DateTimeFilter<"Transfer"> | Date | string
+  export type FarmUncheckedUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    county?: StringFieldUpdateOperationsInput | string
+    administrativeLocation?: StringFieldUpdateOperationsInput | string
+    size?: FloatFieldUpdateOperationsInput | number
+    ownership?: StringFieldUpdateOperationsInput | string
+    farmingTypes?: FarmUpdatefarmingTypesInput | string[]
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    breedingRecords?: BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput
+    employees?: EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput
+  }
+
+  export type MammalUpsertWithoutLivestockInput = {
+    update: XOR<MammalUpdateWithoutLivestockInput, MammalUncheckedUpdateWithoutLivestockInput>
+    create: XOR<MammalCreateWithoutLivestockInput, MammalUncheckedCreateWithoutLivestockInput>
+    where?: MammalWhereInput
+  }
+
+  export type MammalUpdateToOneWithWhereWithoutLivestockInput = {
+    where?: MammalWhereInput
+    data: XOR<MammalUpdateWithoutLivestockInput, MammalUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type MammalUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    idNumber?: StringFieldUpdateOperationsInput | string
+    breedType?: StringFieldUpdateOperationsInput | string
+    phenotype?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfBirth?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    sireId?: NullableStringFieldUpdateOperationsInput | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    damId?: NullableStringFieldUpdateOperationsInput | string | null
+    damCode?: NullableStringFieldUpdateOperationsInput | string | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    currentWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type MammalUncheckedUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    idNumber?: StringFieldUpdateOperationsInput | string
+    breedType?: StringFieldUpdateOperationsInput | string
+    phenotype?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfBirth?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    sireId?: NullableStringFieldUpdateOperationsInput | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    damId?: NullableStringFieldUpdateOperationsInput | string | null
+    damCode?: NullableStringFieldUpdateOperationsInput | string | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    currentWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type MortalityUpsertWithoutLivestockInput = {
+    update: XOR<MortalityUpdateWithoutLivestockInput, MortalityUncheckedUpdateWithoutLivestockInput>
+    create: XOR<MortalityCreateWithoutLivestockInput, MortalityUncheckedCreateWithoutLivestockInput>
+    where?: MortalityWhereInput
+  }
+
+  export type MortalityUpdateToOneWithWhereWithoutLivestockInput = {
+    where?: MortalityWhereInput
+    data: XOR<MortalityUpdateWithoutLivestockInput, MortalityUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type MortalityUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    cause?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    reportedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: MortalityUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MortalityUncheckedUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    cause?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    reportedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: MortalityUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OffspringUpsertWithWhereUniqueWithoutLivestockInput = {
+    where: OffspringWhereUniqueInput
+    update: XOR<OffspringUpdateWithoutLivestockInput, OffspringUncheckedUpdateWithoutLivestockInput>
+    create: XOR<OffspringCreateWithoutLivestockInput, OffspringUncheckedCreateWithoutLivestockInput>
+  }
+
+  export type OffspringUpdateWithWhereUniqueWithoutLivestockInput = {
+    where: OffspringWhereUniqueInput
+    data: XOR<OffspringUpdateWithoutLivestockInput, OffspringUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type OffspringUpdateManyWithWhereWithoutLivestockInput = {
+    where: OffspringScalarWhereInput
+    data: XOR<OffspringUpdateManyMutationInput, OffspringUncheckedUpdateManyWithoutLivestockInput>
+  }
+
+  export type OffspringScalarWhereInput = {
+    AND?: OffspringScalarWhereInput | OffspringScalarWhereInput[]
+    OR?: OffspringScalarWhereInput[]
+    NOT?: OffspringScalarWhereInput | OffspringScalarWhereInput[]
+    id?: StringFilter<"Offspring"> | string
+    breedingRecordId?: StringFilter<"Offspring"> | string
+    livestockId?: StringNullableFilter<"Offspring"> | string | null
+    offspringId?: StringFilter<"Offspring"> | string
+    sex?: StringFilter<"Offspring"> | string
+    birthWeight?: FloatNullableFilter<"Offspring"> | number | null
+    notes?: StringNullableFilter<"Offspring"> | string | null
+    status?: StringFilter<"Offspring"> | string
+    createdAt?: DateTimeFilter<"Offspring"> | Date | string
+    updatedAt?: DateTimeFilter<"Offspring"> | Date | string
+  }
+
+  export type PoultryUpsertWithoutLivestockInput = {
+    update: XOR<PoultryUpdateWithoutLivestockInput, PoultryUncheckedUpdateWithoutLivestockInput>
+    create: XOR<PoultryCreateWithoutLivestockInput, PoultryUncheckedCreateWithoutLivestockInput>
+    where?: PoultryWhereInput
+  }
+
+  export type PoultryUpdateToOneWithWhereWithoutLivestockInput = {
+    where?: PoultryWhereInput
+    data: XOR<PoultryUpdateWithoutLivestockInput, PoultryUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type PoultryUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    flockId?: StringFieldUpdateOperationsInput | string
+    dateOfStocking?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
+    initialQuantity?: IntFieldUpdateOperationsInput | number
+    currentQuantity?: IntFieldUpdateOperationsInput | number
+    breedType?: StringFieldUpdateOperationsInput | string
+    sourceOfBirds?: StringFieldUpdateOperationsInput | string
+    initialAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    currentAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mortalityRate?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type PoultryUncheckedUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    flockId?: StringFieldUpdateOperationsInput | string
+    dateOfStocking?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
+    initialQuantity?: IntFieldUpdateOperationsInput | number
+    currentQuantity?: IntFieldUpdateOperationsInput | number
+    breedType?: StringFieldUpdateOperationsInput | string
+    sourceOfBirds?: StringFieldUpdateOperationsInput | string
+    initialAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    currentAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mortalityRate?: NullableFloatFieldUpdateOperationsInput | number | null
   }
 
   export type SaleUpsertWithoutLivestockInput = {
@@ -26424,86 +26455,55 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type BreedingRecordUpsertWithWhereUniqueWithoutDamInput = {
-    where: BreedingRecordWhereUniqueInput
-    update: XOR<BreedingRecordUpdateWithoutDamInput, BreedingRecordUncheckedUpdateWithoutDamInput>
-    create: XOR<BreedingRecordCreateWithoutDamInput, BreedingRecordUncheckedCreateWithoutDamInput>
+  export type TransferUpsertWithWhereUniqueWithoutLivestockInput = {
+    where: TransferWhereUniqueInput
+    update: XOR<TransferUpdateWithoutLivestockInput, TransferUncheckedUpdateWithoutLivestockInput>
+    create: XOR<TransferCreateWithoutLivestockInput, TransferUncheckedCreateWithoutLivestockInput>
   }
 
-  export type BreedingRecordUpdateWithWhereUniqueWithoutDamInput = {
-    where: BreedingRecordWhereUniqueInput
-    data: XOR<BreedingRecordUpdateWithoutDamInput, BreedingRecordUncheckedUpdateWithoutDamInput>
+  export type TransferUpdateWithWhereUniqueWithoutLivestockInput = {
+    where: TransferWhereUniqueInput
+    data: XOR<TransferUpdateWithoutLivestockInput, TransferUncheckedUpdateWithoutLivestockInput>
   }
 
-  export type BreedingRecordUpdateManyWithWhereWithoutDamInput = {
-    where: BreedingRecordScalarWhereInput
-    data: XOR<BreedingRecordUpdateManyMutationInput, BreedingRecordUncheckedUpdateManyWithoutDamInput>
+  export type TransferUpdateManyWithWhereWithoutLivestockInput = {
+    where: TransferScalarWhereInput
+    data: XOR<TransferUpdateManyMutationInput, TransferUncheckedUpdateManyWithoutLivestockInput>
   }
 
-  export type BreedingRecordUpsertWithWhereUniqueWithoutSireInput = {
-    where: BreedingRecordWhereUniqueInput
-    update: XOR<BreedingRecordUpdateWithoutSireInput, BreedingRecordUncheckedUpdateWithoutSireInput>
-    create: XOR<BreedingRecordCreateWithoutSireInput, BreedingRecordUncheckedCreateWithoutSireInput>
-  }
-
-  export type BreedingRecordUpdateWithWhereUniqueWithoutSireInput = {
-    where: BreedingRecordWhereUniqueInput
-    data: XOR<BreedingRecordUpdateWithoutSireInput, BreedingRecordUncheckedUpdateWithoutSireInput>
-  }
-
-  export type BreedingRecordUpdateManyWithWhereWithoutSireInput = {
-    where: BreedingRecordScalarWhereInput
-    data: XOR<BreedingRecordUpdateManyMutationInput, BreedingRecordUncheckedUpdateManyWithoutSireInput>
-  }
-
-  export type OffspringUpsertWithWhereUniqueWithoutLivestockInput = {
-    where: OffspringWhereUniqueInput
-    update: XOR<OffspringUpdateWithoutLivestockInput, OffspringUncheckedUpdateWithoutLivestockInput>
-    create: XOR<OffspringCreateWithoutLivestockInput, OffspringUncheckedCreateWithoutLivestockInput>
-  }
-
-  export type OffspringUpdateWithWhereUniqueWithoutLivestockInput = {
-    where: OffspringWhereUniqueInput
-    data: XOR<OffspringUpdateWithoutLivestockInput, OffspringUncheckedUpdateWithoutLivestockInput>
-  }
-
-  export type OffspringUpdateManyWithWhereWithoutLivestockInput = {
-    where: OffspringScalarWhereInput
-    data: XOR<OffspringUpdateManyMutationInput, OffspringUncheckedUpdateManyWithoutLivestockInput>
-  }
-
-  export type OffspringScalarWhereInput = {
-    AND?: OffspringScalarWhereInput | OffspringScalarWhereInput[]
-    OR?: OffspringScalarWhereInput[]
-    NOT?: OffspringScalarWhereInput | OffspringScalarWhereInput[]
-    id?: StringFilter<"Offspring"> | string
-    breedingRecordId?: StringFilter<"Offspring"> | string
-    livestockId?: StringNullableFilter<"Offspring"> | string | null
-    offspringId?: StringFilter<"Offspring"> | string
-    sex?: StringFilter<"Offspring"> | string
-    birthWeight?: FloatNullableFilter<"Offspring"> | number | null
-    notes?: StringNullableFilter<"Offspring"> | string | null
-    status?: StringFilter<"Offspring"> | string
-    createdAt?: DateTimeFilter<"Offspring"> | Date | string
-    updatedAt?: DateTimeFilter<"Offspring"> | Date | string
+  export type TransferScalarWhereInput = {
+    AND?: TransferScalarWhereInput | TransferScalarWhereInput[]
+    OR?: TransferScalarWhereInput[]
+    NOT?: TransferScalarWhereInput | TransferScalarWhereInput[]
+    id?: StringFilter<"Transfer"> | string
+    livestockId?: StringFilter<"Transfer"> | string
+    fromFarmId?: StringFilter<"Transfer"> | string
+    toFarmId?: StringFilter<"Transfer"> | string
+    transferDate?: DateTimeFilter<"Transfer"> | Date | string
+    reason?: StringNullableFilter<"Transfer"> | string | null
+    transportMethod?: StringNullableFilter<"Transfer"> | string | null
+    handlingPrecautions?: StringNullableFilter<"Transfer"> | string | null
+    attachments?: StringNullableListFilter<"Transfer">
+    createdAt?: DateTimeFilter<"Transfer"> | Date | string
+    updatedAt?: DateTimeFilter<"Transfer"> | Date | string
   }
 
   export type LivestockCreateWithoutMammalInput = {
     id?: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    farm: FarmCreateNestedOneWithoutLivestockInput
-    poultry?: PoultryCreateNestedOneWithoutLivestockInput
-    mortality?: MortalityCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
-    transfer?: TransferCreateNestedManyWithoutLivestockInput
-    sale?: SaleCreateNestedOneWithoutLivestockInput
+    status?: string
     breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
     breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
+    farm: FarmCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityCreateNestedOneWithoutLivestockInput
     offspring?: OffspringCreateNestedManyWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
   }
 
   export type LivestockUncheckedCreateWithoutMammalInput = {
@@ -26511,17 +26511,17 @@ export namespace Prisma {
     farmId: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
-    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
-    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
-    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    status?: string
     breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
     breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
     offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
   }
 
   export type LivestockCreateOrConnectWithoutMammalInput = {
@@ -26544,18 +26544,18 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
-    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
-    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
-    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
-    transfer?: TransferUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    status?: StringFieldUpdateOperationsInput | string
     breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
     breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
+    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
+    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
     offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
   }
 
   export type LivestockUncheckedUpdateWithoutMammalInput = {
@@ -26563,35 +26563,35 @@ export namespace Prisma {
     farmId?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
-    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
-    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
-    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    status?: StringFieldUpdateOperationsInput | string
     breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
     breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
+    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
     offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
   }
 
   export type LivestockCreateWithoutPoultryInput = {
     id?: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    status?: string
+    breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
     farm: FarmCreateNestedOneWithoutLivestockInput
     mammal?: MammalCreateNestedOneWithoutLivestockInput
     mortality?: MortalityCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
-    transfer?: TransferCreateNestedManyWithoutLivestockInput
-    sale?: SaleCreateNestedOneWithoutLivestockInput
-    breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
-    breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
     offspring?: OffspringCreateNestedManyWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
   }
 
   export type LivestockUncheckedCreateWithoutPoultryInput = {
@@ -26599,17 +26599,17 @@ export namespace Prisma {
     farmId: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
-    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
-    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
-    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    status?: string
     breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
     breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
     offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
   }
 
   export type LivestockCreateOrConnectWithoutPoultryInput = {
@@ -26632,18 +26632,18 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
     farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
     mammal?: MammalUpdateOneWithoutLivestockNestedInput
     mortality?: MortalityUpdateOneWithoutLivestockNestedInput
-    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
-    transfer?: TransferUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUpdateOneWithoutLivestockNestedInput
-    breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
-    breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
     offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
   }
 
   export type LivestockUncheckedUpdateWithoutPoultryInput = {
@@ -26651,35 +26651,35 @@ export namespace Prisma {
     farmId?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
-    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
-    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
-    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    status?: StringFieldUpdateOperationsInput | string
     breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
     breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
+    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
     offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
   }
 
   export type LivestockCreateWithoutMortalityInput = {
     id?: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    farm: FarmCreateNestedOneWithoutLivestockInput
-    mammal?: MammalCreateNestedOneWithoutLivestockInput
-    poultry?: PoultryCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
-    transfer?: TransferCreateNestedManyWithoutLivestockInput
-    sale?: SaleCreateNestedOneWithoutLivestockInput
+    status?: string
     breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
     breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
+    farm: FarmCreateNestedOneWithoutLivestockInput
+    mammal?: MammalCreateNestedOneWithoutLivestockInput
     offspring?: OffspringCreateNestedManyWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
   }
 
   export type LivestockUncheckedCreateWithoutMortalityInput = {
@@ -26687,17 +26687,17 @@ export namespace Prisma {
     farmId: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
-    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
-    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
-    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    status?: string
     breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
     breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
     offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
   }
 
   export type LivestockCreateOrConnectWithoutMortalityInput = {
@@ -26720,18 +26720,18 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
-    mammal?: MammalUpdateOneWithoutLivestockNestedInput
-    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
-    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
-    transfer?: TransferUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    status?: StringFieldUpdateOperationsInput | string
     breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
     breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
+    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
+    mammal?: MammalUpdateOneWithoutLivestockNestedInput
     offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
   }
 
   export type LivestockUncheckedUpdateWithoutMortalityInput = {
@@ -26739,35 +26739,35 @@ export namespace Prisma {
     farmId?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
-    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
-    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
-    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    status?: StringFieldUpdateOperationsInput | string
     breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
     breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
+    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
     offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
   }
 
   export type LivestockCreateWithoutHealthEventInput = {
     id?: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    farm: FarmCreateNestedOneWithoutLivestockInput
-    mammal?: MammalCreateNestedOneWithoutLivestockInput
-    poultry?: PoultryCreateNestedOneWithoutLivestockInput
-    mortality?: MortalityCreateNestedOneWithoutLivestockInput
-    transfer?: TransferCreateNestedManyWithoutLivestockInput
-    sale?: SaleCreateNestedOneWithoutLivestockInput
+    status?: string
     breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
     breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+    farm: FarmCreateNestedOneWithoutLivestockInput
+    mammal?: MammalCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityCreateNestedOneWithoutLivestockInput
     offspring?: OffspringCreateNestedManyWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
   }
 
   export type LivestockUncheckedCreateWithoutHealthEventInput = {
@@ -26775,17 +26775,17 @@ export namespace Prisma {
     farmId: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
-    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
-    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
-    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
-    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    status?: string
     breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
     breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
     offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
   }
 
   export type LivestockCreateOrConnectWithoutHealthEventInput = {
@@ -26808,18 +26808,18 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
-    mammal?: MammalUpdateOneWithoutLivestockNestedInput
-    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
-    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
-    transfer?: TransferUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    status?: StringFieldUpdateOperationsInput | string
     breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
     breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
+    mammal?: MammalUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
     offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
   }
 
   export type LivestockUncheckedUpdateWithoutHealthEventInput = {
@@ -26827,35 +26827,35 @@ export namespace Prisma {
     farmId?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
-    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
-    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
-    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    status?: StringFieldUpdateOperationsInput | string
     breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
     breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
     offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
   }
 
   export type LivestockCreateWithoutTransferInput = {
     id?: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    farm: FarmCreateNestedOneWithoutLivestockInput
-    mammal?: MammalCreateNestedOneWithoutLivestockInput
-    poultry?: PoultryCreateNestedOneWithoutLivestockInput
-    mortality?: MortalityCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
-    sale?: SaleCreateNestedOneWithoutLivestockInput
+    status?: string
     breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
     breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
+    farm: FarmCreateNestedOneWithoutLivestockInput
+    mammal?: MammalCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityCreateNestedOneWithoutLivestockInput
     offspring?: OffspringCreateNestedManyWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
   }
 
   export type LivestockUncheckedCreateWithoutTransferInput = {
@@ -26863,17 +26863,17 @@ export namespace Prisma {
     farmId: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
-    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
-    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
-    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    status?: string
     breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
     breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
     offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
   }
 
   export type LivestockCreateOrConnectWithoutTransferInput = {
@@ -26896,18 +26896,18 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
-    mammal?: MammalUpdateOneWithoutLivestockNestedInput
-    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
-    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
-    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    status?: StringFieldUpdateOperationsInput | string
     breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
     breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
+    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
+    mammal?: MammalUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
     offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
   }
 
   export type LivestockUncheckedUpdateWithoutTransferInput = {
@@ -26915,35 +26915,35 @@ export namespace Prisma {
     farmId?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
-    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
-    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
-    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    status?: StringFieldUpdateOperationsInput | string
     breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
     breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
+    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
     offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
   }
 
   export type LivestockCreateWithoutSaleInput = {
     id?: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    farm: FarmCreateNestedOneWithoutLivestockInput
-    mammal?: MammalCreateNestedOneWithoutLivestockInput
-    poultry?: PoultryCreateNestedOneWithoutLivestockInput
-    mortality?: MortalityCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
-    transfer?: TransferCreateNestedManyWithoutLivestockInput
+    status?: string
     breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
     breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
+    farm: FarmCreateNestedOneWithoutLivestockInput
+    mammal?: MammalCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityCreateNestedOneWithoutLivestockInput
     offspring?: OffspringCreateNestedManyWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
   }
 
   export type LivestockUncheckedCreateWithoutSaleInput = {
@@ -26951,17 +26951,17 @@ export namespace Prisma {
     farmId: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
-    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
-    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
-    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
+    status?: string
     breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
     breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
     offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
   }
 
   export type LivestockCreateOrConnectWithoutSaleInput = {
@@ -26984,18 +26984,18 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
-    mammal?: MammalUpdateOneWithoutLivestockNestedInput
-    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
-    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
-    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
-    transfer?: TransferUpdateManyWithoutLivestockNestedInput
+    status?: StringFieldUpdateOperationsInput | string
     breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
     breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
+    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
+    mammal?: MammalUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
     offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
   }
 
   export type LivestockUncheckedUpdateWithoutSaleInput = {
@@ -27003,35 +27003,35 @@ export namespace Prisma {
     farmId?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
-    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
-    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
-    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
-    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
+    status?: StringFieldUpdateOperationsInput | string
     breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
     breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
+    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
     offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
   }
 
   export type LivestockCreateWithoutBreedingDamInput = {
     id?: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    status?: string
+    breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
     farm: FarmCreateNestedOneWithoutLivestockInput
     mammal?: MammalCreateNestedOneWithoutLivestockInput
-    poultry?: PoultryCreateNestedOneWithoutLivestockInput
     mortality?: MortalityCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
-    transfer?: TransferCreateNestedManyWithoutLivestockInput
-    sale?: SaleCreateNestedOneWithoutLivestockInput
-    breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
     offspring?: OffspringCreateNestedManyWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
   }
 
   export type LivestockUncheckedCreateWithoutBreedingDamInput = {
@@ -27039,17 +27039,17 @@ export namespace Prisma {
     farmId: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
-    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
-    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
-    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
-    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    status?: string
     breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
     offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
   }
 
   export type LivestockCreateOrConnectWithoutBreedingDamInput = {
@@ -27057,22 +27057,57 @@ export namespace Prisma {
     create: XOR<LivestockCreateWithoutBreedingDamInput, LivestockUncheckedCreateWithoutBreedingDamInput>
   }
 
+  export type FarmCreateWithoutBreedingRecordsInput = {
+    id?: string
+    name: string
+    county: string
+    administrativeLocation: string
+    size: number
+    ownership: string
+    farmingTypes?: FarmCreatefarmingTypesInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    employees?: EmployeeFarmCreateNestedManyWithoutFarmInput
+    user: UserCreateNestedOneWithoutFarmsInput
+    livestock?: LivestockCreateNestedManyWithoutFarmInput
+  }
+
+  export type FarmUncheckedCreateWithoutBreedingRecordsInput = {
+    id?: string
+    name: string
+    county: string
+    administrativeLocation: string
+    size: number
+    ownership: string
+    farmingTypes?: FarmCreatefarmingTypesInput | string[]
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    employees?: EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput
+    livestock?: LivestockUncheckedCreateNestedManyWithoutFarmInput
+  }
+
+  export type FarmCreateOrConnectWithoutBreedingRecordsInput = {
+    where: FarmWhereUniqueInput
+    create: XOR<FarmCreateWithoutBreedingRecordsInput, FarmUncheckedCreateWithoutBreedingRecordsInput>
+  }
+
   export type LivestockCreateWithoutBreedingSireInput = {
     id?: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    status?: string
+    breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
     farm: FarmCreateNestedOneWithoutLivestockInput
     mammal?: MammalCreateNestedOneWithoutLivestockInput
-    poultry?: PoultryCreateNestedOneWithoutLivestockInput
     mortality?: MortalityCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
-    transfer?: TransferCreateNestedManyWithoutLivestockInput
-    sale?: SaleCreateNestedOneWithoutLivestockInput
-    breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
     offspring?: OffspringCreateNestedManyWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
   }
 
   export type LivestockUncheckedCreateWithoutBreedingSireInput = {
@@ -27080,17 +27115,17 @@ export namespace Prisma {
     farmId: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
-    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
-    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
-    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
-    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    status?: string
     breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
     offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
   }
 
   export type LivestockCreateOrConnectWithoutBreedingSireInput = {
@@ -27132,41 +27167,6 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type FarmCreateWithoutBreedingRecordsInput = {
-    id?: string
-    name: string
-    county: string
-    administrativeLocation: string
-    size: number
-    ownership: string
-    farmingTypes?: FarmCreatefarmingTypesInput | string[]
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    employees?: EmployeeFarmCreateNestedManyWithoutFarmInput
-    livestock?: LivestockCreateNestedManyWithoutFarmInput
-    user: UserCreateNestedOneWithoutFarmsInput
-  }
-
-  export type FarmUncheckedCreateWithoutBreedingRecordsInput = {
-    id?: string
-    name: string
-    county: string
-    administrativeLocation: string
-    size: number
-    ownership: string
-    farmingTypes?: FarmCreatefarmingTypesInput | string[]
-    userId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    employees?: EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput
-    livestock?: LivestockUncheckedCreateNestedManyWithoutFarmInput
-  }
-
-  export type FarmCreateOrConnectWithoutBreedingRecordsInput = {
-    where: FarmWhereUniqueInput
-    create: XOR<FarmCreateWithoutBreedingRecordsInput, FarmUncheckedCreateWithoutBreedingRecordsInput>
-  }
-
   export type LivestockUpsertWithoutBreedingDamInput = {
     update: XOR<LivestockUpdateWithoutBreedingDamInput, LivestockUncheckedUpdateWithoutBreedingDamInput>
     create: XOR<LivestockCreateWithoutBreedingDamInput, LivestockUncheckedCreateWithoutBreedingDamInput>
@@ -27182,18 +27182,18 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
     farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
     mammal?: MammalUpdateOneWithoutLivestockNestedInput
-    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
     mortality?: MortalityUpdateOneWithoutLivestockNestedInput
-    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
-    transfer?: TransferUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUpdateOneWithoutLivestockNestedInput
-    breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
     offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
   }
 
   export type LivestockUncheckedUpdateWithoutBreedingDamInput = {
@@ -27201,80 +27201,17 @@ export namespace Prisma {
     farmId?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
-    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
-    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
-    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
-    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    status?: StringFieldUpdateOperationsInput | string
     breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
-    offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
-  }
-
-  export type LivestockUpsertWithoutBreedingSireInput = {
-    update: XOR<LivestockUpdateWithoutBreedingSireInput, LivestockUncheckedUpdateWithoutBreedingSireInput>
-    create: XOR<LivestockCreateWithoutBreedingSireInput, LivestockUncheckedCreateWithoutBreedingSireInput>
-    where?: LivestockWhereInput
-  }
-
-  export type LivestockUpdateToOneWithWhereWithoutBreedingSireInput = {
-    where?: LivestockWhereInput
-    data: XOR<LivestockUpdateWithoutBreedingSireInput, LivestockUncheckedUpdateWithoutBreedingSireInput>
-  }
-
-  export type LivestockUpdateWithoutBreedingSireInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    category?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
-    mammal?: MammalUpdateOneWithoutLivestockNestedInput
-    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
-    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
-    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
-    transfer?: TransferUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUpdateOneWithoutLivestockNestedInput
-    breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
-    offspring?: OffspringUpdateManyWithoutLivestockNestedInput
-  }
-
-  export type LivestockUncheckedUpdateWithoutBreedingSireInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    farmId?: StringFieldUpdateOperationsInput | string
-    category?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
-    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
-    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
     healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
-    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
-    breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
     offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
-  }
-
-  export type OffspringUpsertWithWhereUniqueWithoutBreedingRecordInput = {
-    where: OffspringWhereUniqueInput
-    update: XOR<OffspringUpdateWithoutBreedingRecordInput, OffspringUncheckedUpdateWithoutBreedingRecordInput>
-    create: XOR<OffspringCreateWithoutBreedingRecordInput, OffspringUncheckedCreateWithoutBreedingRecordInput>
-  }
-
-  export type OffspringUpdateWithWhereUniqueWithoutBreedingRecordInput = {
-    where: OffspringWhereUniqueInput
-    data: XOR<OffspringUpdateWithoutBreedingRecordInput, OffspringUncheckedUpdateWithoutBreedingRecordInput>
-  }
-
-  export type OffspringUpdateManyWithWhereWithoutBreedingRecordInput = {
-    where: OffspringScalarWhereInput
-    data: XOR<OffspringUpdateManyMutationInput, OffspringUncheckedUpdateManyWithoutBreedingRecordInput>
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
   }
 
   export type FarmUpsertWithoutBreedingRecordsInput = {
@@ -27299,8 +27236,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     employees?: EmployeeFarmUpdateManyWithoutFarmNestedInput
-    livestock?: LivestockUpdateManyWithoutFarmNestedInput
     user?: UserUpdateOneRequiredWithoutFarmsNestedInput
+    livestock?: LivestockUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutBreedingRecordsInput = {
@@ -27316,6 +27253,69 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     employees?: EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput
     livestock?: LivestockUncheckedUpdateManyWithoutFarmNestedInput
+  }
+
+  export type LivestockUpsertWithoutBreedingSireInput = {
+    update: XOR<LivestockUpdateWithoutBreedingSireInput, LivestockUncheckedUpdateWithoutBreedingSireInput>
+    create: XOR<LivestockCreateWithoutBreedingSireInput, LivestockUncheckedCreateWithoutBreedingSireInput>
+    where?: LivestockWhereInput
+  }
+
+  export type LivestockUpdateToOneWithWhereWithoutBreedingSireInput = {
+    where?: LivestockWhereInput
+    data: XOR<LivestockUpdateWithoutBreedingSireInput, LivestockUncheckedUpdateWithoutBreedingSireInput>
+  }
+
+  export type LivestockUpdateWithoutBreedingSireInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
+    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
+    mammal?: MammalUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
+    offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockUncheckedUpdateWithoutBreedingSireInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
+    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
+    offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type OffspringUpsertWithWhereUniqueWithoutBreedingRecordInput = {
+    where: OffspringWhereUniqueInput
+    update: XOR<OffspringUpdateWithoutBreedingRecordInput, OffspringUncheckedUpdateWithoutBreedingRecordInput>
+    create: XOR<OffspringCreateWithoutBreedingRecordInput, OffspringUncheckedCreateWithoutBreedingRecordInput>
+  }
+
+  export type OffspringUpdateWithWhereUniqueWithoutBreedingRecordInput = {
+    where: OffspringWhereUniqueInput
+    data: XOR<OffspringUpdateWithoutBreedingRecordInput, OffspringUncheckedUpdateWithoutBreedingRecordInput>
+  }
+
+  export type OffspringUpdateManyWithWhereWithoutBreedingRecordInput = {
+    where: OffspringScalarWhereInput
+    data: XOR<OffspringUpdateManyMutationInput, OffspringUncheckedUpdateManyWithoutBreedingRecordInput>
   }
 
   export type BreedingRecordCreateWithoutOffspringInput = {
@@ -27342,8 +27342,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     dam: LivestockCreateNestedOneWithoutBreedingDamInput
-    sire?: LivestockCreateNestedOneWithoutBreedingSireInput
     farm: FarmCreateNestedOneWithoutBreedingRecordsInput
+    sire?: LivestockCreateNestedOneWithoutBreedingSireInput
   }
 
   export type BreedingRecordUncheckedCreateWithoutOffspringInput = {
@@ -27383,18 +27383,18 @@ export namespace Prisma {
     id?: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    farm: FarmCreateNestedOneWithoutLivestockInput
-    mammal?: MammalCreateNestedOneWithoutLivestockInput
-    poultry?: PoultryCreateNestedOneWithoutLivestockInput
-    mortality?: MortalityCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
-    transfer?: TransferCreateNestedManyWithoutLivestockInput
-    sale?: SaleCreateNestedOneWithoutLivestockInput
+    status?: string
     breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
     breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
+    farm: FarmCreateNestedOneWithoutLivestockInput
+    mammal?: MammalCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
   }
 
   export type LivestockUncheckedCreateWithoutOffspringInput = {
@@ -27402,17 +27402,17 @@ export namespace Prisma {
     farmId: string
     category: string
     type: string
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
-    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
-    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
-    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
-    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
-    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    status?: string
     breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
     breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
   }
 
   export type LivestockCreateOrConnectWithoutOffspringInput = {
@@ -27455,8 +27455,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     dam?: LivestockUpdateOneRequiredWithoutBreedingDamNestedInput
-    sire?: LivestockUpdateOneWithoutBreedingSireNestedInput
     farm?: FarmUpdateOneRequiredWithoutBreedingRecordsNestedInput
+    sire?: LivestockUpdateOneWithoutBreedingSireNestedInput
   }
 
   export type BreedingRecordUncheckedUpdateWithoutOffspringInput = {
@@ -27502,18 +27502,18 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
-    mammal?: MammalUpdateOneWithoutLivestockNestedInput
-    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
-    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
-    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
-    transfer?: TransferUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    status?: StringFieldUpdateOperationsInput | string
     breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
     breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
+    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
+    mammal?: MammalUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
   }
 
   export type LivestockUncheckedUpdateWithoutOffspringInput = {
@@ -27521,17 +27521,17 @@ export namespace Prisma {
     farmId?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
-    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
-    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
-    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
-    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    status?: StringFieldUpdateOperationsInput | string
     breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
     breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
+    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
   }
 
   export type FarmCreateManyUserInput = {
@@ -27556,9 +27556,9 @@ export namespace Prisma {
     farmingTypes?: FarmUpdatefarmingTypesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    breedingRecords?: BreedingRecordUpdateManyWithoutFarmNestedInput
     employees?: EmployeeFarmUpdateManyWithoutFarmNestedInput
     livestock?: LivestockUpdateManyWithoutFarmNestedInput
-    breedingRecords?: BreedingRecordUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutUserInput = {
@@ -27571,9 +27571,9 @@ export namespace Prisma {
     farmingTypes?: FarmUpdatefarmingTypesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    breedingRecords?: BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput
     employees?: EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput
     livestock?: LivestockUncheckedUpdateManyWithoutFarmNestedInput
-    breedingRecords?: BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateManyWithoutUserInput = {
@@ -27586,22 +27586,6 @@ export namespace Prisma {
     farmingTypes?: FarmUpdatefarmingTypesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type EmployeeFarmCreateManyFarmInput = {
-    id?: string
-    employeeId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type LivestockCreateManyFarmInput = {
-    id?: string
-    category: string
-    type: string
-    status?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
   }
 
   export type BreedingRecordCreateManyFarmInput = {
@@ -27631,70 +27615,20 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type EmployeeFarmUpdateWithoutFarmInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    employee?: EmployeeUpdateOneRequiredWithoutFarmsNestedInput
+  export type EmployeeFarmCreateManyFarmInput = {
+    id?: string
+    employeeId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type EmployeeFarmUncheckedUpdateWithoutFarmInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    employeeId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type EmployeeFarmUncheckedUpdateManyWithoutFarmInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    employeeId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type LivestockUpdateWithoutFarmInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    category?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    mammal?: MammalUpdateOneWithoutLivestockNestedInput
-    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
-    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
-    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
-    transfer?: TransferUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUpdateOneWithoutLivestockNestedInput
-    breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
-    breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
-    offspring?: OffspringUpdateManyWithoutLivestockNestedInput
-  }
-
-  export type LivestockUncheckedUpdateWithoutFarmInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    category?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
-    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
-    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
-    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
-    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
-    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
-    breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
-    breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
-    offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
-  }
-
-  export type LivestockUncheckedUpdateManyWithoutFarmInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    category?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type LivestockCreateManyFarmInput = {
+    id?: string
+    category: string
+    type: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    status?: string
   }
 
   export type BreedingRecordUpdateWithoutFarmInput = {
@@ -27780,6 +27714,72 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type EmployeeFarmUpdateWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employee?: EmployeeUpdateOneRequiredWithoutFarmsNestedInput
+  }
+
+  export type EmployeeFarmUncheckedUpdateWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeFarmUncheckedUpdateManyWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LivestockUpdateWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
+    mammal?: MammalUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
+    offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockUncheckedUpdateWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
+    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
+    offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockUncheckedUpdateManyWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+  }
+
   export type EmployeeBenefitCreateManyEmployeeInput = {
     id?: string
     name: string
@@ -27840,34 +27840,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type HealthEventCreateManyLivestockInput = {
-    id?: string
-    eventType: string
-    date: Date | string
-    description: string
-    performedBy?: string | null
-    medications?: HealthEventCreatemedicationsInput | string[]
-    dosage?: string | null
-    cost?: number | null
-    nextScheduled?: Date | string | null
-    attachments?: HealthEventCreateattachmentsInput | string[]
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type TransferCreateManyLivestockInput = {
-    id?: string
-    fromFarmId: string
-    toFarmId: string
-    transferDate: Date | string
-    reason?: string | null
-    transportMethod?: string | null
-    handlingPrecautions?: string | null
-    attachments?: TransferCreateattachmentsInput | string[]
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
   export type BreedingRecordCreateManyDamInput = {
     id?: string
     sireId?: string | null
@@ -27922,6 +27894,21 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
+  export type HealthEventCreateManyLivestockInput = {
+    id?: string
+    eventType: string
+    date: Date | string
+    description: string
+    performedBy?: string | null
+    medications?: HealthEventCreatemedicationsInput | string[]
+    dosage?: string | null
+    cost?: number | null
+    nextScheduled?: Date | string | null
+    attachments?: HealthEventCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
   export type OffspringCreateManyLivestockInput = {
     id?: string
     breedingRecordId: string
@@ -27934,88 +27921,17 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type HealthEventUpdateWithoutLivestockInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    eventType?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    description?: StringFieldUpdateOperationsInput | string
-    performedBy?: NullableStringFieldUpdateOperationsInput | string | null
-    medications?: HealthEventUpdatemedicationsInput | string[]
-    dosage?: NullableStringFieldUpdateOperationsInput | string | null
-    cost?: NullableFloatFieldUpdateOperationsInput | number | null
-    nextScheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    attachments?: HealthEventUpdateattachmentsInput | string[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type HealthEventUncheckedUpdateWithoutLivestockInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    eventType?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    description?: StringFieldUpdateOperationsInput | string
-    performedBy?: NullableStringFieldUpdateOperationsInput | string | null
-    medications?: HealthEventUpdatemedicationsInput | string[]
-    dosage?: NullableStringFieldUpdateOperationsInput | string | null
-    cost?: NullableFloatFieldUpdateOperationsInput | number | null
-    nextScheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    attachments?: HealthEventUpdateattachmentsInput | string[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type HealthEventUncheckedUpdateManyWithoutLivestockInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    eventType?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    description?: StringFieldUpdateOperationsInput | string
-    performedBy?: NullableStringFieldUpdateOperationsInput | string | null
-    medications?: HealthEventUpdatemedicationsInput | string[]
-    dosage?: NullableStringFieldUpdateOperationsInput | string | null
-    cost?: NullableFloatFieldUpdateOperationsInput | number | null
-    nextScheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    attachments?: HealthEventUpdateattachmentsInput | string[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type TransferUpdateWithoutLivestockInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    fromFarmId?: StringFieldUpdateOperationsInput | string
-    toFarmId?: StringFieldUpdateOperationsInput | string
-    transferDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    reason?: NullableStringFieldUpdateOperationsInput | string | null
-    transportMethod?: NullableStringFieldUpdateOperationsInput | string | null
-    handlingPrecautions?: NullableStringFieldUpdateOperationsInput | string | null
-    attachments?: TransferUpdateattachmentsInput | string[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type TransferUncheckedUpdateWithoutLivestockInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    fromFarmId?: StringFieldUpdateOperationsInput | string
-    toFarmId?: StringFieldUpdateOperationsInput | string
-    transferDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    reason?: NullableStringFieldUpdateOperationsInput | string | null
-    transportMethod?: NullableStringFieldUpdateOperationsInput | string | null
-    handlingPrecautions?: NullableStringFieldUpdateOperationsInput | string | null
-    attachments?: TransferUpdateattachmentsInput | string[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type TransferUncheckedUpdateManyWithoutLivestockInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    fromFarmId?: StringFieldUpdateOperationsInput | string
-    toFarmId?: StringFieldUpdateOperationsInput | string
-    transferDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    reason?: NullableStringFieldUpdateOperationsInput | string | null
-    transportMethod?: NullableStringFieldUpdateOperationsInput | string | null
-    handlingPrecautions?: NullableStringFieldUpdateOperationsInput | string | null
-    attachments?: TransferUpdateattachmentsInput | string[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type TransferCreateManyLivestockInput = {
+    id?: string
+    fromFarmId: string
+    toFarmId: string
+    transferDate: Date | string
+    reason?: string | null
+    transportMethod?: string | null
+    handlingPrecautions?: string | null
+    attachments?: TransferCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type BreedingRecordUpdateWithoutDamInput = {
@@ -28041,9 +27957,9 @@ export namespace Prisma {
     offspringSex?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutBreedingRecordsNestedInput
     sire?: LivestockUpdateOneWithoutBreedingSireNestedInput
     offspring?: OffspringUpdateManyWithoutBreedingRecordNestedInput
-    farm?: FarmUpdateOneRequiredWithoutBreedingRecordsNestedInput
   }
 
   export type BreedingRecordUncheckedUpdateWithoutDamInput = {
@@ -28125,8 +28041,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     dam?: LivestockUpdateOneRequiredWithoutBreedingDamNestedInput
-    offspring?: OffspringUpdateManyWithoutBreedingRecordNestedInput
     farm?: FarmUpdateOneRequiredWithoutBreedingRecordsNestedInput
+    offspring?: OffspringUpdateManyWithoutBreedingRecordNestedInput
   }
 
   export type BreedingRecordUncheckedUpdateWithoutSireInput = {
@@ -28184,6 +28100,51 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type HealthEventUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    eventType?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: StringFieldUpdateOperationsInput | string
+    performedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    medications?: HealthEventUpdatemedicationsInput | string[]
+    dosage?: NullableStringFieldUpdateOperationsInput | string | null
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    nextScheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    attachments?: HealthEventUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HealthEventUncheckedUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    eventType?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: StringFieldUpdateOperationsInput | string
+    performedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    medications?: HealthEventUpdatemedicationsInput | string[]
+    dosage?: NullableStringFieldUpdateOperationsInput | string | null
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    nextScheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    attachments?: HealthEventUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HealthEventUncheckedUpdateManyWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    eventType?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: StringFieldUpdateOperationsInput | string
+    performedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    medications?: HealthEventUpdatemedicationsInput | string[]
+    dosage?: NullableStringFieldUpdateOperationsInput | string | null
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    nextScheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    attachments?: HealthEventUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type OffspringUpdateWithoutLivestockInput = {
     id?: StringFieldUpdateOperationsInput | string
     offspringId?: StringFieldUpdateOperationsInput | string
@@ -28216,6 +28177,45 @@ export namespace Prisma {
     birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TransferUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fromFarmId?: StringFieldUpdateOperationsInput | string
+    toFarmId?: StringFieldUpdateOperationsInput | string
+    transferDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    transportMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    handlingPrecautions?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: TransferUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TransferUncheckedUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fromFarmId?: StringFieldUpdateOperationsInput | string
+    toFarmId?: StringFieldUpdateOperationsInput | string
+    transferDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    transportMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    handlingPrecautions?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: TransferUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TransferUncheckedUpdateManyWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fromFarmId?: StringFieldUpdateOperationsInput | string
+    toFarmId?: StringFieldUpdateOperationsInput | string
+    transferDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    transportMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    handlingPrecautions?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: TransferUpdateattachmentsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

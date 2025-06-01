@@ -41,10 +41,10 @@ model Farm {
   userId                 String
   createdAt              DateTime         @default(now())
   updatedAt              DateTime         @updatedAt
-  employees              EmployeeFarm[]
-  livestock              Livestock[]
   breedingRecords        BreedingRecord[]
+  employees              EmployeeFarm[]
   user                   User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  livestock              Livestock[]
 }
 
 model Employee {
@@ -96,25 +96,23 @@ model EmployeeBenefit {
 }
 
 model Livestock {
-  id        String   @id @default(cuid())
-  farmId    String
-  farm      Farm     @relation(fields: [farmId], references: [id], onDelete: Cascade)
-  category  String // mammal or poultry
-  type      String // e.g., dairy cow, beef cattle, layer, broiler
-  status    String   @default("active") // active, deceased, sold, transferred
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  // Relations
-  mammal       Mammal?
-  poultry      Poultry?
-  mortality    Mortality?
-  healthEvent  HealthEvent[]
-  transfer     Transfer[]
-  sale         Sale?
+  id           String           @id @default(cuid())
+  farmId       String
+  category     String
+  type         String
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+  status       String           @default("active")
   breedingDam  BreedingRecord[] @relation("dam")
   breedingSire BreedingRecord[] @relation("sire")
+  healthEvent  HealthEvent[]
+  farm         Farm             @relation(fields: [farmId], references: [id], onDelete: Cascade)
+  mammal       Mammal?
+  mortality    Mortality?
   offspring    Offspring[]
+  poultry      Poultry?
+  sale         Sale?
+  transfer     Transfer[]
 }
 
 model Mammal {
@@ -130,10 +128,10 @@ model Mammal {
   damId            String?
   damCode          String?
   birthWeight      Float?
-  currentWeight    Float?
-  lastWeighingDate DateTime?
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt
+  currentWeight    Float?
+  lastWeighingDate DateTime?
   livestock        Livestock @relation(fields: [livestockId], references: [id], onDelete: Cascade)
 }
 
@@ -148,11 +146,11 @@ model Poultry {
   breedType            String
   sourceOfBirds        String
   initialAverageWeight Float?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
   currentAverageWeight Float?
   lastWeighingDate     DateTime?
   mortalityRate        Float?    @default(0)
-  createdAt            DateTime  @default(now())
-  updatedAt            DateTime  @updatedAt
   livestock            Livestock @relation(fields: [livestockId], references: [id], onDelete: Cascade)
 }
 
@@ -163,7 +161,7 @@ model Mortality {
   cause       String
   description String?
   reportedBy  String?
-  attachments String[] // URLs to photos or documents
+  attachments String[]
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   livestock   Livestock @relation(fields: [livestockId], references: [id], onDelete: Cascade)
@@ -172,7 +170,7 @@ model Mortality {
 model HealthEvent {
   id            String    @id @default(cuid())
   livestockId   String
-  eventType     String // vaccination, treatment, check-up, etc.
+  eventType     String
   date          DateTime
   description   String
   performedBy   String?
@@ -180,7 +178,7 @@ model HealthEvent {
   dosage        String?
   cost          Float?
   nextScheduled DateTime?
-  attachments   String[] // URLs to photos or documents
+  attachments   String[]
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   livestock     Livestock @relation(fields: [livestockId], references: [id])
@@ -195,7 +193,7 @@ model Transfer {
   reason              String?
   transportMethod     String?
   handlingPrecautions String?
-  attachments         String[] // URLs to photos or documents
+  attachments         String[]
   createdAt           DateTime  @default(now())
   updatedAt           DateTime  @updatedAt
   livestock           Livestock @relation(fields: [livestockId], references: [id])
@@ -204,7 +202,6 @@ model Transfer {
 model Sale {
   id            String    @id @default(cuid())
   livestockId   String    @unique
-  livestock     Livestock @relation(fields: [livestockId], references: [id], onDelete: Cascade)
   saleDate      DateTime
   buyerName     String
   buyerContact  String?
@@ -215,60 +212,52 @@ model Sale {
   attachments   String[]
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+  livestock     Livestock @relation(fields: [livestockId], references: [id], onDelete: Cascade)
 }
 
 model BreedingRecord {
-  id            String     @id @default(cuid())
-  damId         String // Female animal
-  dam           Livestock  @relation("dam", fields: [damId], references: [id], onDelete: Cascade)
-  sireId        String? // Male animal (optional for AI)
-  sire          Livestock? @relation("sire", fields: [sireId], references: [id], onDelete: SetNull)
-  purpose       String // Improve Milk Production, Stocking Number, Immunity
-  strategy      String // Cross Breeding, Breeding Within Breeds, Breeding Between Breeds
-  serviceType   String // Natural Mating, Artificial Insemination
-  serviceDate   DateTime
-  numServices   Int        @default(1)
-  firstHeatDate DateTime?
-
-  // AI specific fields
-  sireCode String? // For AI, the code of the semen used
-  aiType   String? // Sex Cell Semen, Regular AI
-  aiSource String? // Local, Imported
-  aiCost   Float? // Cost of AI service
-
-  // Gestation details
-  gestationDays     Int // Expected gestation period in days
+  id                String      @id @default(cuid())
+  damId             String
+  sireId            String?
+  purpose           String
+  strategy          String
+  serviceType       String
+  serviceDate       DateTime
+  numServices       Int         @default(1)
+  firstHeatDate     DateTime?
+  sireCode          String?
+  aiType            String?
+  aiSource          String?
+  aiCost            Float?
+  gestationDays     Int
   expectedBirthDate DateTime
-
-  // Birth details (if recorded)
-  birthRecorded  Boolean   @default(false)
-  birthDate      DateTime?
-  deliveryMethod String? // Natural Birth, Assisted, Cesarean
-  youngOnes      Int? // Number of offspring
-  birthWeight    Float? // For single births
-  litterWeight   Float? // For multiple births (e.g., swine)
-  offspringSex   String? // Description of offspring sex distribution
-
-  // Relations
-  offspring Offspring[]
-
-  farmId    String // For easy filtering by farm
-  farm      Farm     @relation(fields: [farmId], references: [id], onDelete: Cascade)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  birthRecorded     Boolean     @default(false)
+  birthDate         DateTime?
+  deliveryMethod    String?
+  youngOnes         Int?
+  birthWeight       Float?
+  litterWeight      Float?
+  offspringSex      String?
+  farmId            String
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+  dam               Livestock   @relation("dam", fields: [damId], references: [id], onDelete: Cascade)
+  farm              Farm        @relation(fields: [farmId], references: [id], onDelete: Cascade)
+  sire              Livestock?  @relation("sire", fields: [sireId], references: [id])
+  offspring         Offspring[]
 }
 
 model Offspring {
   id               String         @id @default(cuid())
   breedingRecordId String
-  breedingRecord   BreedingRecord @relation(fields: [breedingRecordId], references: [id], onDelete: Cascade)
-  livestockId      String? // If registered as livestock
-  livestock        Livestock?     @relation(fields: [livestockId], references: [id], onDelete: SetNull)
-  offspringId      String // ID/tag number assigned to the offspring
-  sex              String // Male, Female
+  livestockId      String?
+  offspringId      String
+  sex              String
   birthWeight      Float?
   notes            String?
-  status           String         @default("alive") // alive, deceased, sold, transferred
+  status           String         @default("alive")
   createdAt        DateTime       @default(now())
   updatedAt        DateTime       @updatedAt
+  breedingRecord   BreedingRecord @relation(fields: [breedingRecordId], references: [id], onDelete: Cascade)
+  livestock        Livestock?     @relation(fields: [livestockId], references: [id])
 }
