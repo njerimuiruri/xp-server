@@ -129,8 +129,11 @@ exports.Prisma.UserScalarFieldEnum = {
   dob: 'dob',
   residenceCounty: 'residenceCounty',
   residenceLocation: 'residenceLocation',
+  constituency: 'constituency',
+  residenceConstituency: 'residenceConstituency',
   email: 'email',
   phoneNumber: 'phoneNumber',
+  nationalId: 'nationalId',
   businessNumber: 'businessNumber',
   pin: 'pin',
   yearsOfExperience: 'yearsOfExperience',
@@ -198,9 +201,9 @@ exports.Prisma.LivestockScalarFieldEnum = {
   farmId: 'farmId',
   category: 'category',
   type: 'type',
+  status: 'status',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  status: 'status'
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.MammalScalarFieldEnum = {
@@ -216,10 +219,10 @@ exports.Prisma.MammalScalarFieldEnum = {
   damId: 'damId',
   damCode: 'damCode',
   birthWeight: 'birthWeight',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
   currentWeight: 'currentWeight',
-  lastWeighingDate: 'lastWeighingDate'
+  lastWeighingDate: 'lastWeighingDate',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.PoultryScalarFieldEnum = {
@@ -233,11 +236,11 @@ exports.Prisma.PoultryScalarFieldEnum = {
   breedType: 'breedType',
   sourceOfBirds: 'sourceOfBirds',
   initialAverageWeight: 'initialAverageWeight',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
   currentAverageWeight: 'currentAverageWeight',
   lastWeighingDate: 'lastWeighingDate',
-  mortalityRate: 'mortalityRate'
+  mortalityRate: 'mortalityRate',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.MortalityScalarFieldEnum = {
