@@ -23,6 +23,66 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  * 
  */
 export type Farm = $Result.DefaultSelection<Prisma.$FarmPayload>
+/**
+ * Model Employee
+ * 
+ */
+export type Employee = $Result.DefaultSelection<Prisma.$EmployeePayload>
+/**
+ * Model EmployeeFarm
+ * 
+ */
+export type EmployeeFarm = $Result.DefaultSelection<Prisma.$EmployeeFarmPayload>
+/**
+ * Model EmployeeBenefit
+ * 
+ */
+export type EmployeeBenefit = $Result.DefaultSelection<Prisma.$EmployeeBenefitPayload>
+/**
+ * Model Livestock
+ * 
+ */
+export type Livestock = $Result.DefaultSelection<Prisma.$LivestockPayload>
+/**
+ * Model Mammal
+ * 
+ */
+export type Mammal = $Result.DefaultSelection<Prisma.$MammalPayload>
+/**
+ * Model Poultry
+ * 
+ */
+export type Poultry = $Result.DefaultSelection<Prisma.$PoultryPayload>
+/**
+ * Model Mortality
+ * 
+ */
+export type Mortality = $Result.DefaultSelection<Prisma.$MortalityPayload>
+/**
+ * Model HealthEvent
+ * 
+ */
+export type HealthEvent = $Result.DefaultSelection<Prisma.$HealthEventPayload>
+/**
+ * Model Transfer
+ * 
+ */
+export type Transfer = $Result.DefaultSelection<Prisma.$TransferPayload>
+/**
+ * Model Sale
+ * 
+ */
+export type Sale = $Result.DefaultSelection<Prisma.$SalePayload>
+/**
+ * Model BreedingRecord
+ * 
+ */
+export type BreedingRecord = $Result.DefaultSelection<Prisma.$BreedingRecordPayload>
+/**
+ * Model Offspring
+ * 
+ */
+export type Offspring = $Result.DefaultSelection<Prisma.$OffspringPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -168,6 +228,126 @@ export class PrismaClient<
     * ```
     */
   get farm(): Prisma.FarmDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.employee`: Exposes CRUD operations for the **Employee** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Employees
+    * const employees = await prisma.employee.findMany()
+    * ```
+    */
+  get employee(): Prisma.EmployeeDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.employeeFarm`: Exposes CRUD operations for the **EmployeeFarm** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more EmployeeFarms
+    * const employeeFarms = await prisma.employeeFarm.findMany()
+    * ```
+    */
+  get employeeFarm(): Prisma.EmployeeFarmDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.employeeBenefit`: Exposes CRUD operations for the **EmployeeBenefit** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more EmployeeBenefits
+    * const employeeBenefits = await prisma.employeeBenefit.findMany()
+    * ```
+    */
+  get employeeBenefit(): Prisma.EmployeeBenefitDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.livestock`: Exposes CRUD operations for the **Livestock** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Livestocks
+    * const livestocks = await prisma.livestock.findMany()
+    * ```
+    */
+  get livestock(): Prisma.LivestockDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.mammal`: Exposes CRUD operations for the **Mammal** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Mammals
+    * const mammals = await prisma.mammal.findMany()
+    * ```
+    */
+  get mammal(): Prisma.MammalDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.poultry`: Exposes CRUD operations for the **Poultry** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Poultries
+    * const poultries = await prisma.poultry.findMany()
+    * ```
+    */
+  get poultry(): Prisma.PoultryDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.mortality`: Exposes CRUD operations for the **Mortality** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Mortalities
+    * const mortalities = await prisma.mortality.findMany()
+    * ```
+    */
+  get mortality(): Prisma.MortalityDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.healthEvent`: Exposes CRUD operations for the **HealthEvent** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more HealthEvents
+    * const healthEvents = await prisma.healthEvent.findMany()
+    * ```
+    */
+  get healthEvent(): Prisma.HealthEventDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.transfer`: Exposes CRUD operations for the **Transfer** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Transfers
+    * const transfers = await prisma.transfer.findMany()
+    * ```
+    */
+  get transfer(): Prisma.TransferDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.sale`: Exposes CRUD operations for the **Sale** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Sales
+    * const sales = await prisma.sale.findMany()
+    * ```
+    */
+  get sale(): Prisma.SaleDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.breedingRecord`: Exposes CRUD operations for the **BreedingRecord** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BreedingRecords
+    * const breedingRecords = await prisma.breedingRecord.findMany()
+    * ```
+    */
+  get breedingRecord(): Prisma.BreedingRecordDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.offspring`: Exposes CRUD operations for the **Offspring** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Offsprings
+    * const offsprings = await prisma.offspring.findMany()
+    * ```
+    */
+  get offspring(): Prisma.OffspringDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -609,7 +789,19 @@ export namespace Prisma {
 
   export const ModelName: {
     User: 'User',
-    Farm: 'Farm'
+    Farm: 'Farm',
+    Employee: 'Employee',
+    EmployeeFarm: 'EmployeeFarm',
+    EmployeeBenefit: 'EmployeeBenefit',
+    Livestock: 'Livestock',
+    Mammal: 'Mammal',
+    Poultry: 'Poultry',
+    Mortality: 'Mortality',
+    HealthEvent: 'HealthEvent',
+    Transfer: 'Transfer',
+    Sale: 'Sale',
+    BreedingRecord: 'BreedingRecord',
+    Offspring: 'Offspring'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -628,7 +820,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "farm"
+      modelProps: "user" | "farm" | "employee" | "employeeFarm" | "employeeBenefit" | "livestock" | "mammal" | "poultry" | "mortality" | "healthEvent" | "transfer" | "sale" | "breedingRecord" | "offspring"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -780,6 +972,894 @@ export namespace Prisma {
           }
         }
       }
+      Employee: {
+        payload: Prisma.$EmployeePayload<ExtArgs>
+        fields: Prisma.EmployeeFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EmployeeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EmployeeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+          }
+          findFirst: {
+            args: Prisma.EmployeeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EmployeeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+          }
+          findMany: {
+            args: Prisma.EmployeeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>[]
+          }
+          create: {
+            args: Prisma.EmployeeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+          }
+          createMany: {
+            args: Prisma.EmployeeCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.EmployeeCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>[]
+          }
+          delete: {
+            args: Prisma.EmployeeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+          }
+          update: {
+            args: Prisma.EmployeeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+          }
+          deleteMany: {
+            args: Prisma.EmployeeDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EmployeeUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.EmployeeUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>[]
+          }
+          upsert: {
+            args: Prisma.EmployeeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+          }
+          aggregate: {
+            args: Prisma.EmployeeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEmployee>
+          }
+          groupBy: {
+            args: Prisma.EmployeeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EmployeeGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EmployeeCountArgs<ExtArgs>
+            result: $Utils.Optional<EmployeeCountAggregateOutputType> | number
+          }
+        }
+      }
+      EmployeeFarm: {
+        payload: Prisma.$EmployeeFarmPayload<ExtArgs>
+        fields: Prisma.EmployeeFarmFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EmployeeFarmFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EmployeeFarmFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload>
+          }
+          findFirst: {
+            args: Prisma.EmployeeFarmFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EmployeeFarmFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload>
+          }
+          findMany: {
+            args: Prisma.EmployeeFarmFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload>[]
+          }
+          create: {
+            args: Prisma.EmployeeFarmCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload>
+          }
+          createMany: {
+            args: Prisma.EmployeeFarmCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.EmployeeFarmCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload>[]
+          }
+          delete: {
+            args: Prisma.EmployeeFarmDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload>
+          }
+          update: {
+            args: Prisma.EmployeeFarmUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload>
+          }
+          deleteMany: {
+            args: Prisma.EmployeeFarmDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EmployeeFarmUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.EmployeeFarmUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload>[]
+          }
+          upsert: {
+            args: Prisma.EmployeeFarmUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeFarmPayload>
+          }
+          aggregate: {
+            args: Prisma.EmployeeFarmAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEmployeeFarm>
+          }
+          groupBy: {
+            args: Prisma.EmployeeFarmGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EmployeeFarmGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EmployeeFarmCountArgs<ExtArgs>
+            result: $Utils.Optional<EmployeeFarmCountAggregateOutputType> | number
+          }
+        }
+      }
+      EmployeeBenefit: {
+        payload: Prisma.$EmployeeBenefitPayload<ExtArgs>
+        fields: Prisma.EmployeeBenefitFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EmployeeBenefitFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EmployeeBenefitFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload>
+          }
+          findFirst: {
+            args: Prisma.EmployeeBenefitFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EmployeeBenefitFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload>
+          }
+          findMany: {
+            args: Prisma.EmployeeBenefitFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload>[]
+          }
+          create: {
+            args: Prisma.EmployeeBenefitCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload>
+          }
+          createMany: {
+            args: Prisma.EmployeeBenefitCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.EmployeeBenefitCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload>[]
+          }
+          delete: {
+            args: Prisma.EmployeeBenefitDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload>
+          }
+          update: {
+            args: Prisma.EmployeeBenefitUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload>
+          }
+          deleteMany: {
+            args: Prisma.EmployeeBenefitDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EmployeeBenefitUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.EmployeeBenefitUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload>[]
+          }
+          upsert: {
+            args: Prisma.EmployeeBenefitUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeeBenefitPayload>
+          }
+          aggregate: {
+            args: Prisma.EmployeeBenefitAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEmployeeBenefit>
+          }
+          groupBy: {
+            args: Prisma.EmployeeBenefitGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EmployeeBenefitGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EmployeeBenefitCountArgs<ExtArgs>
+            result: $Utils.Optional<EmployeeBenefitCountAggregateOutputType> | number
+          }
+        }
+      }
+      Livestock: {
+        payload: Prisma.$LivestockPayload<ExtArgs>
+        fields: Prisma.LivestockFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LivestockFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LivestockPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LivestockFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LivestockPayload>
+          }
+          findFirst: {
+            args: Prisma.LivestockFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LivestockPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LivestockFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LivestockPayload>
+          }
+          findMany: {
+            args: Prisma.LivestockFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LivestockPayload>[]
+          }
+          create: {
+            args: Prisma.LivestockCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LivestockPayload>
+          }
+          createMany: {
+            args: Prisma.LivestockCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LivestockCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LivestockPayload>[]
+          }
+          delete: {
+            args: Prisma.LivestockDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LivestockPayload>
+          }
+          update: {
+            args: Prisma.LivestockUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LivestockPayload>
+          }
+          deleteMany: {
+            args: Prisma.LivestockDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LivestockUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LivestockUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LivestockPayload>[]
+          }
+          upsert: {
+            args: Prisma.LivestockUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LivestockPayload>
+          }
+          aggregate: {
+            args: Prisma.LivestockAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLivestock>
+          }
+          groupBy: {
+            args: Prisma.LivestockGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LivestockGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LivestockCountArgs<ExtArgs>
+            result: $Utils.Optional<LivestockCountAggregateOutputType> | number
+          }
+        }
+      }
+      Mammal: {
+        payload: Prisma.$MammalPayload<ExtArgs>
+        fields: Prisma.MammalFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MammalFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MammalPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MammalFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MammalPayload>
+          }
+          findFirst: {
+            args: Prisma.MammalFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MammalPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MammalFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MammalPayload>
+          }
+          findMany: {
+            args: Prisma.MammalFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MammalPayload>[]
+          }
+          create: {
+            args: Prisma.MammalCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MammalPayload>
+          }
+          createMany: {
+            args: Prisma.MammalCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.MammalCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MammalPayload>[]
+          }
+          delete: {
+            args: Prisma.MammalDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MammalPayload>
+          }
+          update: {
+            args: Prisma.MammalUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MammalPayload>
+          }
+          deleteMany: {
+            args: Prisma.MammalDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MammalUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.MammalUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MammalPayload>[]
+          }
+          upsert: {
+            args: Prisma.MammalUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MammalPayload>
+          }
+          aggregate: {
+            args: Prisma.MammalAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMammal>
+          }
+          groupBy: {
+            args: Prisma.MammalGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MammalGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MammalCountArgs<ExtArgs>
+            result: $Utils.Optional<MammalCountAggregateOutputType> | number
+          }
+        }
+      }
+      Poultry: {
+        payload: Prisma.$PoultryPayload<ExtArgs>
+        fields: Prisma.PoultryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PoultryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PoultryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PoultryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PoultryPayload>
+          }
+          findFirst: {
+            args: Prisma.PoultryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PoultryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PoultryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PoultryPayload>
+          }
+          findMany: {
+            args: Prisma.PoultryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PoultryPayload>[]
+          }
+          create: {
+            args: Prisma.PoultryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PoultryPayload>
+          }
+          createMany: {
+            args: Prisma.PoultryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PoultryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PoultryPayload>[]
+          }
+          delete: {
+            args: Prisma.PoultryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PoultryPayload>
+          }
+          update: {
+            args: Prisma.PoultryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PoultryPayload>
+          }
+          deleteMany: {
+            args: Prisma.PoultryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PoultryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PoultryUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PoultryPayload>[]
+          }
+          upsert: {
+            args: Prisma.PoultryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PoultryPayload>
+          }
+          aggregate: {
+            args: Prisma.PoultryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePoultry>
+          }
+          groupBy: {
+            args: Prisma.PoultryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PoultryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PoultryCountArgs<ExtArgs>
+            result: $Utils.Optional<PoultryCountAggregateOutputType> | number
+          }
+        }
+      }
+      Mortality: {
+        payload: Prisma.$MortalityPayload<ExtArgs>
+        fields: Prisma.MortalityFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MortalityFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MortalityPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MortalityFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MortalityPayload>
+          }
+          findFirst: {
+            args: Prisma.MortalityFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MortalityPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MortalityFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MortalityPayload>
+          }
+          findMany: {
+            args: Prisma.MortalityFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MortalityPayload>[]
+          }
+          create: {
+            args: Prisma.MortalityCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MortalityPayload>
+          }
+          createMany: {
+            args: Prisma.MortalityCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.MortalityCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MortalityPayload>[]
+          }
+          delete: {
+            args: Prisma.MortalityDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MortalityPayload>
+          }
+          update: {
+            args: Prisma.MortalityUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MortalityPayload>
+          }
+          deleteMany: {
+            args: Prisma.MortalityDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MortalityUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.MortalityUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MortalityPayload>[]
+          }
+          upsert: {
+            args: Prisma.MortalityUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MortalityPayload>
+          }
+          aggregate: {
+            args: Prisma.MortalityAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMortality>
+          }
+          groupBy: {
+            args: Prisma.MortalityGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MortalityGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MortalityCountArgs<ExtArgs>
+            result: $Utils.Optional<MortalityCountAggregateOutputType> | number
+          }
+        }
+      }
+      HealthEvent: {
+        payload: Prisma.$HealthEventPayload<ExtArgs>
+        fields: Prisma.HealthEventFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.HealthEventFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthEventPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.HealthEventFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthEventPayload>
+          }
+          findFirst: {
+            args: Prisma.HealthEventFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthEventPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.HealthEventFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthEventPayload>
+          }
+          findMany: {
+            args: Prisma.HealthEventFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthEventPayload>[]
+          }
+          create: {
+            args: Prisma.HealthEventCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthEventPayload>
+          }
+          createMany: {
+            args: Prisma.HealthEventCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.HealthEventCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthEventPayload>[]
+          }
+          delete: {
+            args: Prisma.HealthEventDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthEventPayload>
+          }
+          update: {
+            args: Prisma.HealthEventUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthEventPayload>
+          }
+          deleteMany: {
+            args: Prisma.HealthEventDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.HealthEventUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.HealthEventUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthEventPayload>[]
+          }
+          upsert: {
+            args: Prisma.HealthEventUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthEventPayload>
+          }
+          aggregate: {
+            args: Prisma.HealthEventAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateHealthEvent>
+          }
+          groupBy: {
+            args: Prisma.HealthEventGroupByArgs<ExtArgs>
+            result: $Utils.Optional<HealthEventGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.HealthEventCountArgs<ExtArgs>
+            result: $Utils.Optional<HealthEventCountAggregateOutputType> | number
+          }
+        }
+      }
+      Transfer: {
+        payload: Prisma.$TransferPayload<ExtArgs>
+        fields: Prisma.TransferFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TransferFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransferPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TransferFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransferPayload>
+          }
+          findFirst: {
+            args: Prisma.TransferFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransferPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TransferFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransferPayload>
+          }
+          findMany: {
+            args: Prisma.TransferFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransferPayload>[]
+          }
+          create: {
+            args: Prisma.TransferCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransferPayload>
+          }
+          createMany: {
+            args: Prisma.TransferCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TransferCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransferPayload>[]
+          }
+          delete: {
+            args: Prisma.TransferDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransferPayload>
+          }
+          update: {
+            args: Prisma.TransferUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransferPayload>
+          }
+          deleteMany: {
+            args: Prisma.TransferDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TransferUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TransferUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransferPayload>[]
+          }
+          upsert: {
+            args: Prisma.TransferUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransferPayload>
+          }
+          aggregate: {
+            args: Prisma.TransferAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTransfer>
+          }
+          groupBy: {
+            args: Prisma.TransferGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TransferGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TransferCountArgs<ExtArgs>
+            result: $Utils.Optional<TransferCountAggregateOutputType> | number
+          }
+        }
+      }
+      Sale: {
+        payload: Prisma.$SalePayload<ExtArgs>
+        fields: Prisma.SaleFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SaleFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SaleFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload>
+          }
+          findFirst: {
+            args: Prisma.SaleFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SaleFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload>
+          }
+          findMany: {
+            args: Prisma.SaleFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload>[]
+          }
+          create: {
+            args: Prisma.SaleCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload>
+          }
+          createMany: {
+            args: Prisma.SaleCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SaleCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload>[]
+          }
+          delete: {
+            args: Prisma.SaleDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload>
+          }
+          update: {
+            args: Prisma.SaleUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload>
+          }
+          deleteMany: {
+            args: Prisma.SaleDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SaleUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SaleUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload>[]
+          }
+          upsert: {
+            args: Prisma.SaleUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload>
+          }
+          aggregate: {
+            args: Prisma.SaleAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSale>
+          }
+          groupBy: {
+            args: Prisma.SaleGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SaleGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SaleCountArgs<ExtArgs>
+            result: $Utils.Optional<SaleCountAggregateOutputType> | number
+          }
+        }
+      }
+      BreedingRecord: {
+        payload: Prisma.$BreedingRecordPayload<ExtArgs>
+        fields: Prisma.BreedingRecordFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BreedingRecordFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreedingRecordPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BreedingRecordFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreedingRecordPayload>
+          }
+          findFirst: {
+            args: Prisma.BreedingRecordFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreedingRecordPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BreedingRecordFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreedingRecordPayload>
+          }
+          findMany: {
+            args: Prisma.BreedingRecordFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreedingRecordPayload>[]
+          }
+          create: {
+            args: Prisma.BreedingRecordCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreedingRecordPayload>
+          }
+          createMany: {
+            args: Prisma.BreedingRecordCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BreedingRecordCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreedingRecordPayload>[]
+          }
+          delete: {
+            args: Prisma.BreedingRecordDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreedingRecordPayload>
+          }
+          update: {
+            args: Prisma.BreedingRecordUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreedingRecordPayload>
+          }
+          deleteMany: {
+            args: Prisma.BreedingRecordDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BreedingRecordUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BreedingRecordUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreedingRecordPayload>[]
+          }
+          upsert: {
+            args: Prisma.BreedingRecordUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreedingRecordPayload>
+          }
+          aggregate: {
+            args: Prisma.BreedingRecordAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBreedingRecord>
+          }
+          groupBy: {
+            args: Prisma.BreedingRecordGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BreedingRecordGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BreedingRecordCountArgs<ExtArgs>
+            result: $Utils.Optional<BreedingRecordCountAggregateOutputType> | number
+          }
+        }
+      }
+      Offspring: {
+        payload: Prisma.$OffspringPayload<ExtArgs>
+        fields: Prisma.OffspringFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.OffspringFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OffspringPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.OffspringFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OffspringPayload>
+          }
+          findFirst: {
+            args: Prisma.OffspringFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OffspringPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.OffspringFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OffspringPayload>
+          }
+          findMany: {
+            args: Prisma.OffspringFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OffspringPayload>[]
+          }
+          create: {
+            args: Prisma.OffspringCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OffspringPayload>
+          }
+          createMany: {
+            args: Prisma.OffspringCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.OffspringCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OffspringPayload>[]
+          }
+          delete: {
+            args: Prisma.OffspringDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OffspringPayload>
+          }
+          update: {
+            args: Prisma.OffspringUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OffspringPayload>
+          }
+          deleteMany: {
+            args: Prisma.OffspringDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.OffspringUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.OffspringUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OffspringPayload>[]
+          }
+          upsert: {
+            args: Prisma.OffspringUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OffspringPayload>
+          }
+          aggregate: {
+            args: Prisma.OffspringAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateOffspring>
+          }
+          groupBy: {
+            args: Prisma.OffspringGroupByArgs<ExtArgs>
+            result: $Utils.Optional<OffspringGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.OffspringCountArgs<ExtArgs>
+            result: $Utils.Optional<OffspringCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -866,6 +1946,18 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     user?: UserOmit
     farm?: FarmOmit
+    employee?: EmployeeOmit
+    employeeFarm?: EmployeeFarmOmit
+    employeeBenefit?: EmployeeBenefitOmit
+    livestock?: LivestockOmit
+    mammal?: MammalOmit
+    poultry?: PoultryOmit
+    mortality?: MortalityOmit
+    healthEvent?: HealthEventOmit
+    transfer?: TransferOmit
+    sale?: SaleOmit
+    breedingRecord?: BreedingRecordOmit
+    offspring?: OffspringOmit
   }
 
   /* Types for Logging */
@@ -983,6 +2075,193 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountFarmsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: FarmWhereInput
+  }
+
+
+  /**
+   * Count Type FarmCountOutputType
+   */
+
+  export type FarmCountOutputType = {
+    employees: number
+    livestock: number
+    breedingRecords: number
+  }
+
+  export type FarmCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employees?: boolean | FarmCountOutputTypeCountEmployeesArgs
+    livestock?: boolean | FarmCountOutputTypeCountLivestockArgs
+    breedingRecords?: boolean | FarmCountOutputTypeCountBreedingRecordsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * FarmCountOutputType without action
+   */
+  export type FarmCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FarmCountOutputType
+     */
+    select?: FarmCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * FarmCountOutputType without action
+   */
+  export type FarmCountOutputTypeCountEmployeesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmployeeFarmWhereInput
+  }
+
+  /**
+   * FarmCountOutputType without action
+   */
+  export type FarmCountOutputTypeCountLivestockArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LivestockWhereInput
+  }
+
+  /**
+   * FarmCountOutputType without action
+   */
+  export type FarmCountOutputTypeCountBreedingRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BreedingRecordWhereInput
+  }
+
+
+  /**
+   * Count Type EmployeeCountOutputType
+   */
+
+  export type EmployeeCountOutputType = {
+    benefits: number
+    farms: number
+  }
+
+  export type EmployeeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    benefits?: boolean | EmployeeCountOutputTypeCountBenefitsArgs
+    farms?: boolean | EmployeeCountOutputTypeCountFarmsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * EmployeeCountOutputType without action
+   */
+  export type EmployeeCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeCountOutputType
+     */
+    select?: EmployeeCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * EmployeeCountOutputType without action
+   */
+  export type EmployeeCountOutputTypeCountBenefitsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmployeeBenefitWhereInput
+  }
+
+  /**
+   * EmployeeCountOutputType without action
+   */
+  export type EmployeeCountOutputTypeCountFarmsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmployeeFarmWhereInput
+  }
+
+
+  /**
+   * Count Type LivestockCountOutputType
+   */
+
+  export type LivestockCountOutputType = {
+    healthEvent: number
+    transfer: number
+    breedingDam: number
+    breedingSire: number
+    offspring: number
+  }
+
+  export type LivestockCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    healthEvent?: boolean | LivestockCountOutputTypeCountHealthEventArgs
+    transfer?: boolean | LivestockCountOutputTypeCountTransferArgs
+    breedingDam?: boolean | LivestockCountOutputTypeCountBreedingDamArgs
+    breedingSire?: boolean | LivestockCountOutputTypeCountBreedingSireArgs
+    offspring?: boolean | LivestockCountOutputTypeCountOffspringArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * LivestockCountOutputType without action
+   */
+  export type LivestockCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LivestockCountOutputType
+     */
+    select?: LivestockCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * LivestockCountOutputType without action
+   */
+  export type LivestockCountOutputTypeCountHealthEventArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HealthEventWhereInput
+  }
+
+  /**
+   * LivestockCountOutputType without action
+   */
+  export type LivestockCountOutputTypeCountTransferArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TransferWhereInput
+  }
+
+  /**
+   * LivestockCountOutputType without action
+   */
+  export type LivestockCountOutputTypeCountBreedingDamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BreedingRecordWhereInput
+  }
+
+  /**
+   * LivestockCountOutputType without action
+   */
+  export type LivestockCountOutputTypeCountBreedingSireArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BreedingRecordWhereInput
+  }
+
+  /**
+   * LivestockCountOutputType without action
+   */
+  export type LivestockCountOutputTypeCountOffspringArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OffspringWhereInput
+  }
+
+
+  /**
+   * Count Type BreedingRecordCountOutputType
+   */
+
+  export type BreedingRecordCountOutputType = {
+    offspring: number
+  }
+
+  export type BreedingRecordCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    offspring?: boolean | BreedingRecordCountOutputTypeCountOffspringArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * BreedingRecordCountOutputType without action
+   */
+  export type BreedingRecordCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreedingRecordCountOutputType
+     */
+    select?: BreedingRecordCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * BreedingRecordCountOutputType without action
+   */
+  export type BreedingRecordCountOutputTypeCountOffspringArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OffspringWhereInput
   }
 
 
@@ -2497,7 +3776,11 @@ export namespace Prisma {
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    employees?: boolean | Farm$employeesArgs<ExtArgs>
+    livestock?: boolean | Farm$livestockArgs<ExtArgs>
+    breedingRecords?: boolean | Farm$breedingRecordsArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
+    _count?: boolean | FarmCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["farm"]>
 
   export type FarmSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2543,7 +3826,11 @@ export namespace Prisma {
 
   export type FarmOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "county" | "administrativeLocation" | "size" | "ownership" | "farmingTypes" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["farm"]>
   export type FarmInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employees?: boolean | Farm$employeesArgs<ExtArgs>
+    livestock?: boolean | Farm$livestockArgs<ExtArgs>
+    breedingRecords?: boolean | Farm$breedingRecordsArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
+    _count?: boolean | FarmCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type FarmIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -2555,6 +3842,9 @@ export namespace Prisma {
   export type $FarmPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Farm"
     objects: {
+      employees: Prisma.$EmployeeFarmPayload<ExtArgs>[]
+      livestock: Prisma.$LivestockPayload<ExtArgs>[]
+      breedingRecords: Prisma.$BreedingRecordPayload<ExtArgs>[]
       user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -2962,6 +4252,9 @@ export namespace Prisma {
    */
   export interface Prisma__FarmClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    employees<T extends Farm$employeesArgs<ExtArgs> = {}>(args?: Subset<T, Farm$employeesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    livestock<T extends Farm$livestockArgs<ExtArgs> = {}>(args?: Subset<T, Farm$livestockArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    breedingRecords<T extends Farm$breedingRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Farm$breedingRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreedingRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -3398,6 +4691,78 @@ export namespace Prisma {
   }
 
   /**
+   * Farm.employees
+   */
+  export type Farm$employeesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    where?: EmployeeFarmWhereInput
+    orderBy?: EmployeeFarmOrderByWithRelationInput | EmployeeFarmOrderByWithRelationInput[]
+    cursor?: EmployeeFarmWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EmployeeFarmScalarFieldEnum | EmployeeFarmScalarFieldEnum[]
+  }
+
+  /**
+   * Farm.livestock
+   */
+  export type Farm$livestockArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Livestock
+     */
+    select?: LivestockSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Livestock
+     */
+    omit?: LivestockOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LivestockInclude<ExtArgs> | null
+    where?: LivestockWhereInput
+    orderBy?: LivestockOrderByWithRelationInput | LivestockOrderByWithRelationInput[]
+    cursor?: LivestockWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LivestockScalarFieldEnum | LivestockScalarFieldEnum[]
+  }
+
+  /**
+   * Farm.breedingRecords
+   */
+  export type Farm$breedingRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreedingRecord
+     */
+    select?: BreedingRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreedingRecord
+     */
+    omit?: BreedingRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreedingRecordInclude<ExtArgs> | null
+    where?: BreedingRecordWhereInput
+    orderBy?: BreedingRecordOrderByWithRelationInput | BreedingRecordOrderByWithRelationInput[]
+    cursor?: BreedingRecordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BreedingRecordScalarFieldEnum | BreedingRecordScalarFieldEnum[]
+  }
+
+  /**
    * Farm without action
    */
   export type FarmDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3413,6 +4778,14512 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: FarmInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Employee
+   */
+
+  export type AggregateEmployee = {
+    _count: EmployeeCountAggregateOutputType | null
+    _avg: EmployeeAvgAggregateOutputType | null
+    _sum: EmployeeSumAggregateOutputType | null
+    _min: EmployeeMinAggregateOutputType | null
+    _max: EmployeeMaxAggregateOutputType | null
+  }
+
+  export type EmployeeAvgAggregateOutputType = {
+    salary: number | null
+  }
+
+  export type EmployeeSumAggregateOutputType = {
+    salary: number | null
+  }
+
+  export type EmployeeMinAggregateOutputType = {
+    id: string | null
+    firstName: string | null
+    middleName: string | null
+    lastName: string | null
+    phone: string | null
+    emergencyContact: string | null
+    idNumber: string | null
+    idPhoto: string | null
+    employeeType: string | null
+    dateOfEmployment: Date | null
+    endDate: Date | null
+    role: string | null
+    customRole: string | null
+    paymentSchedule: string | null
+    salary: number | null
+    typeOfEngagement: string | null
+    workSchedule: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmployeeMaxAggregateOutputType = {
+    id: string | null
+    firstName: string | null
+    middleName: string | null
+    lastName: string | null
+    phone: string | null
+    emergencyContact: string | null
+    idNumber: string | null
+    idPhoto: string | null
+    employeeType: string | null
+    dateOfEmployment: Date | null
+    endDate: Date | null
+    role: string | null
+    customRole: string | null
+    paymentSchedule: string | null
+    salary: number | null
+    typeOfEngagement: string | null
+    workSchedule: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmployeeCountAggregateOutputType = {
+    id: number
+    firstName: number
+    middleName: number
+    lastName: number
+    phone: number
+    emergencyContact: number
+    idNumber: number
+    idPhoto: number
+    employeeType: number
+    dateOfEmployment: number
+    endDate: number
+    role: number
+    customRole: number
+    paymentSchedule: number
+    salary: number
+    typeOfEngagement: number
+    workSchedule: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type EmployeeAvgAggregateInputType = {
+    salary?: true
+  }
+
+  export type EmployeeSumAggregateInputType = {
+    salary?: true
+  }
+
+  export type EmployeeMinAggregateInputType = {
+    id?: true
+    firstName?: true
+    middleName?: true
+    lastName?: true
+    phone?: true
+    emergencyContact?: true
+    idNumber?: true
+    idPhoto?: true
+    employeeType?: true
+    dateOfEmployment?: true
+    endDate?: true
+    role?: true
+    customRole?: true
+    paymentSchedule?: true
+    salary?: true
+    typeOfEngagement?: true
+    workSchedule?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmployeeMaxAggregateInputType = {
+    id?: true
+    firstName?: true
+    middleName?: true
+    lastName?: true
+    phone?: true
+    emergencyContact?: true
+    idNumber?: true
+    idPhoto?: true
+    employeeType?: true
+    dateOfEmployment?: true
+    endDate?: true
+    role?: true
+    customRole?: true
+    paymentSchedule?: true
+    salary?: true
+    typeOfEngagement?: true
+    workSchedule?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmployeeCountAggregateInputType = {
+    id?: true
+    firstName?: true
+    middleName?: true
+    lastName?: true
+    phone?: true
+    emergencyContact?: true
+    idNumber?: true
+    idPhoto?: true
+    employeeType?: true
+    dateOfEmployment?: true
+    endDate?: true
+    role?: true
+    customRole?: true
+    paymentSchedule?: true
+    salary?: true
+    typeOfEngagement?: true
+    workSchedule?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type EmployeeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Employee to aggregate.
+     */
+    where?: EmployeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Employees to fetch.
+     */
+    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EmployeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Employees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Employees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Employees
+    **/
+    _count?: true | EmployeeCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: EmployeeAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: EmployeeSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EmployeeMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EmployeeMaxAggregateInputType
+  }
+
+  export type GetEmployeeAggregateType<T extends EmployeeAggregateArgs> = {
+        [P in keyof T & keyof AggregateEmployee]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEmployee[P]>
+      : GetScalarType<T[P], AggregateEmployee[P]>
+  }
+
+
+
+
+  export type EmployeeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmployeeWhereInput
+    orderBy?: EmployeeOrderByWithAggregationInput | EmployeeOrderByWithAggregationInput[]
+    by: EmployeeScalarFieldEnum[] | EmployeeScalarFieldEnum
+    having?: EmployeeScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EmployeeCountAggregateInputType | true
+    _avg?: EmployeeAvgAggregateInputType
+    _sum?: EmployeeSumAggregateInputType
+    _min?: EmployeeMinAggregateInputType
+    _max?: EmployeeMaxAggregateInputType
+  }
+
+  export type EmployeeGroupByOutputType = {
+    id: string
+    firstName: string
+    middleName: string | null
+    lastName: string
+    phone: string
+    emergencyContact: string | null
+    idNumber: string
+    idPhoto: string | null
+    employeeType: string
+    dateOfEmployment: Date
+    endDate: Date | null
+    role: string
+    customRole: string | null
+    paymentSchedule: string
+    salary: number
+    typeOfEngagement: string | null
+    workSchedule: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: EmployeeCountAggregateOutputType | null
+    _avg: EmployeeAvgAggregateOutputType | null
+    _sum: EmployeeSumAggregateOutputType | null
+    _min: EmployeeMinAggregateOutputType | null
+    _max: EmployeeMaxAggregateOutputType | null
+  }
+
+  type GetEmployeeGroupByPayload<T extends EmployeeGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EmployeeGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EmployeeGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EmployeeGroupByOutputType[P]>
+            : GetScalarType<T[P], EmployeeGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EmployeeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    firstName?: boolean
+    middleName?: boolean
+    lastName?: boolean
+    phone?: boolean
+    emergencyContact?: boolean
+    idNumber?: boolean
+    idPhoto?: boolean
+    employeeType?: boolean
+    dateOfEmployment?: boolean
+    endDate?: boolean
+    role?: boolean
+    customRole?: boolean
+    paymentSchedule?: boolean
+    salary?: boolean
+    typeOfEngagement?: boolean
+    workSchedule?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    benefits?: boolean | Employee$benefitsArgs<ExtArgs>
+    farms?: boolean | Employee$farmsArgs<ExtArgs>
+    _count?: boolean | EmployeeCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employee"]>
+
+  export type EmployeeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    firstName?: boolean
+    middleName?: boolean
+    lastName?: boolean
+    phone?: boolean
+    emergencyContact?: boolean
+    idNumber?: boolean
+    idPhoto?: boolean
+    employeeType?: boolean
+    dateOfEmployment?: boolean
+    endDate?: boolean
+    role?: boolean
+    customRole?: boolean
+    paymentSchedule?: boolean
+    salary?: boolean
+    typeOfEngagement?: boolean
+    workSchedule?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["employee"]>
+
+  export type EmployeeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    firstName?: boolean
+    middleName?: boolean
+    lastName?: boolean
+    phone?: boolean
+    emergencyContact?: boolean
+    idNumber?: boolean
+    idPhoto?: boolean
+    employeeType?: boolean
+    dateOfEmployment?: boolean
+    endDate?: boolean
+    role?: boolean
+    customRole?: boolean
+    paymentSchedule?: boolean
+    salary?: boolean
+    typeOfEngagement?: boolean
+    workSchedule?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["employee"]>
+
+  export type EmployeeSelectScalar = {
+    id?: boolean
+    firstName?: boolean
+    middleName?: boolean
+    lastName?: boolean
+    phone?: boolean
+    emergencyContact?: boolean
+    idNumber?: boolean
+    idPhoto?: boolean
+    employeeType?: boolean
+    dateOfEmployment?: boolean
+    endDate?: boolean
+    role?: boolean
+    customRole?: boolean
+    paymentSchedule?: boolean
+    salary?: boolean
+    typeOfEngagement?: boolean
+    workSchedule?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type EmployeeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "middleName" | "lastName" | "phone" | "emergencyContact" | "idNumber" | "idPhoto" | "employeeType" | "dateOfEmployment" | "endDate" | "role" | "customRole" | "paymentSchedule" | "salary" | "typeOfEngagement" | "workSchedule" | "createdAt" | "updatedAt", ExtArgs["result"]["employee"]>
+  export type EmployeeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    benefits?: boolean | Employee$benefitsArgs<ExtArgs>
+    farms?: boolean | Employee$farmsArgs<ExtArgs>
+    _count?: boolean | EmployeeCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type EmployeeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type EmployeeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $EmployeePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Employee"
+    objects: {
+      benefits: Prisma.$EmployeeBenefitPayload<ExtArgs>[]
+      farms: Prisma.$EmployeeFarmPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      firstName: string
+      middleName: string | null
+      lastName: string
+      phone: string
+      emergencyContact: string | null
+      idNumber: string
+      idPhoto: string | null
+      employeeType: string
+      dateOfEmployment: Date
+      endDate: Date | null
+      role: string
+      customRole: string | null
+      paymentSchedule: string
+      salary: number
+      typeOfEngagement: string | null
+      workSchedule: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["employee"]>
+    composites: {}
+  }
+
+  type EmployeeGetPayload<S extends boolean | null | undefined | EmployeeDefaultArgs> = $Result.GetResult<Prisma.$EmployeePayload, S>
+
+  type EmployeeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<EmployeeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: EmployeeCountAggregateInputType | true
+    }
+
+  export interface EmployeeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Employee'], meta: { name: 'Employee' } }
+    /**
+     * Find zero or one Employee that matches the filter.
+     * @param {EmployeeFindUniqueArgs} args - Arguments to find a Employee
+     * @example
+     * // Get one Employee
+     * const employee = await prisma.employee.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends EmployeeFindUniqueArgs>(args: SelectSubset<T, EmployeeFindUniqueArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Employee that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {EmployeeFindUniqueOrThrowArgs} args - Arguments to find a Employee
+     * @example
+     * // Get one Employee
+     * const employee = await prisma.employee.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends EmployeeFindUniqueOrThrowArgs>(args: SelectSubset<T, EmployeeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Employee that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFindFirstArgs} args - Arguments to find a Employee
+     * @example
+     * // Get one Employee
+     * const employee = await prisma.employee.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends EmployeeFindFirstArgs>(args?: SelectSubset<T, EmployeeFindFirstArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Employee that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFindFirstOrThrowArgs} args - Arguments to find a Employee
+     * @example
+     * // Get one Employee
+     * const employee = await prisma.employee.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends EmployeeFindFirstOrThrowArgs>(args?: SelectSubset<T, EmployeeFindFirstOrThrowArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Employees that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Employees
+     * const employees = await prisma.employee.findMany()
+     * 
+     * // Get first 10 Employees
+     * const employees = await prisma.employee.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const employeeWithIdOnly = await prisma.employee.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends EmployeeFindManyArgs>(args?: SelectSubset<T, EmployeeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Employee.
+     * @param {EmployeeCreateArgs} args - Arguments to create a Employee.
+     * @example
+     * // Create one Employee
+     * const Employee = await prisma.employee.create({
+     *   data: {
+     *     // ... data to create a Employee
+     *   }
+     * })
+     * 
+     */
+    create<T extends EmployeeCreateArgs>(args: SelectSubset<T, EmployeeCreateArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Employees.
+     * @param {EmployeeCreateManyArgs} args - Arguments to create many Employees.
+     * @example
+     * // Create many Employees
+     * const employee = await prisma.employee.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends EmployeeCreateManyArgs>(args?: SelectSubset<T, EmployeeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Employees and returns the data saved in the database.
+     * @param {EmployeeCreateManyAndReturnArgs} args - Arguments to create many Employees.
+     * @example
+     * // Create many Employees
+     * const employee = await prisma.employee.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Employees and only return the `id`
+     * const employeeWithIdOnly = await prisma.employee.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends EmployeeCreateManyAndReturnArgs>(args?: SelectSubset<T, EmployeeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Employee.
+     * @param {EmployeeDeleteArgs} args - Arguments to delete one Employee.
+     * @example
+     * // Delete one Employee
+     * const Employee = await prisma.employee.delete({
+     *   where: {
+     *     // ... filter to delete one Employee
+     *   }
+     * })
+     * 
+     */
+    delete<T extends EmployeeDeleteArgs>(args: SelectSubset<T, EmployeeDeleteArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Employee.
+     * @param {EmployeeUpdateArgs} args - Arguments to update one Employee.
+     * @example
+     * // Update one Employee
+     * const employee = await prisma.employee.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends EmployeeUpdateArgs>(args: SelectSubset<T, EmployeeUpdateArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Employees.
+     * @param {EmployeeDeleteManyArgs} args - Arguments to filter Employees to delete.
+     * @example
+     * // Delete a few Employees
+     * const { count } = await prisma.employee.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends EmployeeDeleteManyArgs>(args?: SelectSubset<T, EmployeeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Employees.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Employees
+     * const employee = await prisma.employee.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends EmployeeUpdateManyArgs>(args: SelectSubset<T, EmployeeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Employees and returns the data updated in the database.
+     * @param {EmployeeUpdateManyAndReturnArgs} args - Arguments to update many Employees.
+     * @example
+     * // Update many Employees
+     * const employee = await prisma.employee.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Employees and only return the `id`
+     * const employeeWithIdOnly = await prisma.employee.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends EmployeeUpdateManyAndReturnArgs>(args: SelectSubset<T, EmployeeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Employee.
+     * @param {EmployeeUpsertArgs} args - Arguments to update or create a Employee.
+     * @example
+     * // Update or create a Employee
+     * const employee = await prisma.employee.upsert({
+     *   create: {
+     *     // ... data to create a Employee
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Employee we want to update
+     *   }
+     * })
+     */
+    upsert<T extends EmployeeUpsertArgs>(args: SelectSubset<T, EmployeeUpsertArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Employees.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeCountArgs} args - Arguments to filter Employees to count.
+     * @example
+     * // Count the number of Employees
+     * const count = await prisma.employee.count({
+     *   where: {
+     *     // ... the filter for the Employees we want to count
+     *   }
+     * })
+    **/
+    count<T extends EmployeeCountArgs>(
+      args?: Subset<T, EmployeeCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EmployeeCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Employee.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EmployeeAggregateArgs>(args: Subset<T, EmployeeAggregateArgs>): Prisma.PrismaPromise<GetEmployeeAggregateType<T>>
+
+    /**
+     * Group by Employee.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EmployeeGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EmployeeGroupByArgs['orderBy'] }
+        : { orderBy?: EmployeeGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EmployeeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmployeeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Employee model
+   */
+  readonly fields: EmployeeFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Employee.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EmployeeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    benefits<T extends Employee$benefitsArgs<ExtArgs> = {}>(args?: Subset<T, Employee$benefitsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    farms<T extends Employee$farmsArgs<ExtArgs> = {}>(args?: Subset<T, Employee$farmsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Employee model
+   */
+  interface EmployeeFieldRefs {
+    readonly id: FieldRef<"Employee", 'String'>
+    readonly firstName: FieldRef<"Employee", 'String'>
+    readonly middleName: FieldRef<"Employee", 'String'>
+    readonly lastName: FieldRef<"Employee", 'String'>
+    readonly phone: FieldRef<"Employee", 'String'>
+    readonly emergencyContact: FieldRef<"Employee", 'String'>
+    readonly idNumber: FieldRef<"Employee", 'String'>
+    readonly idPhoto: FieldRef<"Employee", 'String'>
+    readonly employeeType: FieldRef<"Employee", 'String'>
+    readonly dateOfEmployment: FieldRef<"Employee", 'DateTime'>
+    readonly endDate: FieldRef<"Employee", 'DateTime'>
+    readonly role: FieldRef<"Employee", 'String'>
+    readonly customRole: FieldRef<"Employee", 'String'>
+    readonly paymentSchedule: FieldRef<"Employee", 'String'>
+    readonly salary: FieldRef<"Employee", 'Float'>
+    readonly typeOfEngagement: FieldRef<"Employee", 'String'>
+    readonly workSchedule: FieldRef<"Employee", 'String'>
+    readonly createdAt: FieldRef<"Employee", 'DateTime'>
+    readonly updatedAt: FieldRef<"Employee", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Employee findUnique
+   */
+  export type EmployeeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * Filter, which Employee to fetch.
+     */
+    where: EmployeeWhereUniqueInput
+  }
+
+  /**
+   * Employee findUniqueOrThrow
+   */
+  export type EmployeeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * Filter, which Employee to fetch.
+     */
+    where: EmployeeWhereUniqueInput
+  }
+
+  /**
+   * Employee findFirst
+   */
+  export type EmployeeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * Filter, which Employee to fetch.
+     */
+    where?: EmployeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Employees to fetch.
+     */
+    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Employees.
+     */
+    cursor?: EmployeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Employees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Employees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Employees.
+     */
+    distinct?: EmployeeScalarFieldEnum | EmployeeScalarFieldEnum[]
+  }
+
+  /**
+   * Employee findFirstOrThrow
+   */
+  export type EmployeeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * Filter, which Employee to fetch.
+     */
+    where?: EmployeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Employees to fetch.
+     */
+    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Employees.
+     */
+    cursor?: EmployeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Employees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Employees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Employees.
+     */
+    distinct?: EmployeeScalarFieldEnum | EmployeeScalarFieldEnum[]
+  }
+
+  /**
+   * Employee findMany
+   */
+  export type EmployeeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * Filter, which Employees to fetch.
+     */
+    where?: EmployeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Employees to fetch.
+     */
+    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Employees.
+     */
+    cursor?: EmployeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Employees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Employees.
+     */
+    skip?: number
+    distinct?: EmployeeScalarFieldEnum | EmployeeScalarFieldEnum[]
+  }
+
+  /**
+   * Employee create
+   */
+  export type EmployeeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Employee.
+     */
+    data: XOR<EmployeeCreateInput, EmployeeUncheckedCreateInput>
+  }
+
+  /**
+   * Employee createMany
+   */
+  export type EmployeeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Employees.
+     */
+    data: EmployeeCreateManyInput | EmployeeCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Employee createManyAndReturn
+   */
+  export type EmployeeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * The data used to create many Employees.
+     */
+    data: EmployeeCreateManyInput | EmployeeCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Employee update
+   */
+  export type EmployeeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Employee.
+     */
+    data: XOR<EmployeeUpdateInput, EmployeeUncheckedUpdateInput>
+    /**
+     * Choose, which Employee to update.
+     */
+    where: EmployeeWhereUniqueInput
+  }
+
+  /**
+   * Employee updateMany
+   */
+  export type EmployeeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Employees.
+     */
+    data: XOR<EmployeeUpdateManyMutationInput, EmployeeUncheckedUpdateManyInput>
+    /**
+     * Filter which Employees to update
+     */
+    where?: EmployeeWhereInput
+    /**
+     * Limit how many Employees to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Employee updateManyAndReturn
+   */
+  export type EmployeeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * The data used to update Employees.
+     */
+    data: XOR<EmployeeUpdateManyMutationInput, EmployeeUncheckedUpdateManyInput>
+    /**
+     * Filter which Employees to update
+     */
+    where?: EmployeeWhereInput
+    /**
+     * Limit how many Employees to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Employee upsert
+   */
+  export type EmployeeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Employee to update in case it exists.
+     */
+    where: EmployeeWhereUniqueInput
+    /**
+     * In case the Employee found by the `where` argument doesn't exist, create a new Employee with this data.
+     */
+    create: XOR<EmployeeCreateInput, EmployeeUncheckedCreateInput>
+    /**
+     * In case the Employee was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EmployeeUpdateInput, EmployeeUncheckedUpdateInput>
+  }
+
+  /**
+   * Employee delete
+   */
+  export type EmployeeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * Filter which Employee to delete.
+     */
+    where: EmployeeWhereUniqueInput
+  }
+
+  /**
+   * Employee deleteMany
+   */
+  export type EmployeeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Employees to delete
+     */
+    where?: EmployeeWhereInput
+    /**
+     * Limit how many Employees to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Employee.benefits
+   */
+  export type Employee$benefitsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    where?: EmployeeBenefitWhereInput
+    orderBy?: EmployeeBenefitOrderByWithRelationInput | EmployeeBenefitOrderByWithRelationInput[]
+    cursor?: EmployeeBenefitWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EmployeeBenefitScalarFieldEnum | EmployeeBenefitScalarFieldEnum[]
+  }
+
+  /**
+   * Employee.farms
+   */
+  export type Employee$farmsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    where?: EmployeeFarmWhereInput
+    orderBy?: EmployeeFarmOrderByWithRelationInput | EmployeeFarmOrderByWithRelationInput[]
+    cursor?: EmployeeFarmWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EmployeeFarmScalarFieldEnum | EmployeeFarmScalarFieldEnum[]
+  }
+
+  /**
+   * Employee without action
+   */
+  export type EmployeeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model EmployeeFarm
+   */
+
+  export type AggregateEmployeeFarm = {
+    _count: EmployeeFarmCountAggregateOutputType | null
+    _min: EmployeeFarmMinAggregateOutputType | null
+    _max: EmployeeFarmMaxAggregateOutputType | null
+  }
+
+  export type EmployeeFarmMinAggregateOutputType = {
+    id: string | null
+    employeeId: string | null
+    farmId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmployeeFarmMaxAggregateOutputType = {
+    id: string | null
+    employeeId: string | null
+    farmId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmployeeFarmCountAggregateOutputType = {
+    id: number
+    employeeId: number
+    farmId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type EmployeeFarmMinAggregateInputType = {
+    id?: true
+    employeeId?: true
+    farmId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmployeeFarmMaxAggregateInputType = {
+    id?: true
+    employeeId?: true
+    farmId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmployeeFarmCountAggregateInputType = {
+    id?: true
+    employeeId?: true
+    farmId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type EmployeeFarmAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EmployeeFarm to aggregate.
+     */
+    where?: EmployeeFarmWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmployeeFarms to fetch.
+     */
+    orderBy?: EmployeeFarmOrderByWithRelationInput | EmployeeFarmOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EmployeeFarmWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmployeeFarms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmployeeFarms.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned EmployeeFarms
+    **/
+    _count?: true | EmployeeFarmCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EmployeeFarmMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EmployeeFarmMaxAggregateInputType
+  }
+
+  export type GetEmployeeFarmAggregateType<T extends EmployeeFarmAggregateArgs> = {
+        [P in keyof T & keyof AggregateEmployeeFarm]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEmployeeFarm[P]>
+      : GetScalarType<T[P], AggregateEmployeeFarm[P]>
+  }
+
+
+
+
+  export type EmployeeFarmGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmployeeFarmWhereInput
+    orderBy?: EmployeeFarmOrderByWithAggregationInput | EmployeeFarmOrderByWithAggregationInput[]
+    by: EmployeeFarmScalarFieldEnum[] | EmployeeFarmScalarFieldEnum
+    having?: EmployeeFarmScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EmployeeFarmCountAggregateInputType | true
+    _min?: EmployeeFarmMinAggregateInputType
+    _max?: EmployeeFarmMaxAggregateInputType
+  }
+
+  export type EmployeeFarmGroupByOutputType = {
+    id: string
+    employeeId: string
+    farmId: string
+    createdAt: Date
+    updatedAt: Date
+    _count: EmployeeFarmCountAggregateOutputType | null
+    _min: EmployeeFarmMinAggregateOutputType | null
+    _max: EmployeeFarmMaxAggregateOutputType | null
+  }
+
+  type GetEmployeeFarmGroupByPayload<T extends EmployeeFarmGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EmployeeFarmGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EmployeeFarmGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EmployeeFarmGroupByOutputType[P]>
+            : GetScalarType<T[P], EmployeeFarmGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EmployeeFarmSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    employeeId?: boolean
+    farmId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employeeFarm"]>
+
+  export type EmployeeFarmSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    employeeId?: boolean
+    farmId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employeeFarm"]>
+
+  export type EmployeeFarmSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    employeeId?: boolean
+    farmId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employeeFarm"]>
+
+  export type EmployeeFarmSelectScalar = {
+    id?: boolean
+    employeeId?: boolean
+    farmId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type EmployeeFarmOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "employeeId" | "farmId" | "createdAt" | "updatedAt", ExtArgs["result"]["employeeFarm"]>
+  export type EmployeeFarmInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }
+  export type EmployeeFarmIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }
+  export type EmployeeFarmIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }
+
+  export type $EmployeeFarmPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "EmployeeFarm"
+    objects: {
+      employee: Prisma.$EmployeePayload<ExtArgs>
+      farm: Prisma.$FarmPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      employeeId: string
+      farmId: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["employeeFarm"]>
+    composites: {}
+  }
+
+  type EmployeeFarmGetPayload<S extends boolean | null | undefined | EmployeeFarmDefaultArgs> = $Result.GetResult<Prisma.$EmployeeFarmPayload, S>
+
+  type EmployeeFarmCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<EmployeeFarmFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: EmployeeFarmCountAggregateInputType | true
+    }
+
+  export interface EmployeeFarmDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['EmployeeFarm'], meta: { name: 'EmployeeFarm' } }
+    /**
+     * Find zero or one EmployeeFarm that matches the filter.
+     * @param {EmployeeFarmFindUniqueArgs} args - Arguments to find a EmployeeFarm
+     * @example
+     * // Get one EmployeeFarm
+     * const employeeFarm = await prisma.employeeFarm.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends EmployeeFarmFindUniqueArgs>(args: SelectSubset<T, EmployeeFarmFindUniqueArgs<ExtArgs>>): Prisma__EmployeeFarmClient<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one EmployeeFarm that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {EmployeeFarmFindUniqueOrThrowArgs} args - Arguments to find a EmployeeFarm
+     * @example
+     * // Get one EmployeeFarm
+     * const employeeFarm = await prisma.employeeFarm.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends EmployeeFarmFindUniqueOrThrowArgs>(args: SelectSubset<T, EmployeeFarmFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EmployeeFarmClient<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EmployeeFarm that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFarmFindFirstArgs} args - Arguments to find a EmployeeFarm
+     * @example
+     * // Get one EmployeeFarm
+     * const employeeFarm = await prisma.employeeFarm.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends EmployeeFarmFindFirstArgs>(args?: SelectSubset<T, EmployeeFarmFindFirstArgs<ExtArgs>>): Prisma__EmployeeFarmClient<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EmployeeFarm that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFarmFindFirstOrThrowArgs} args - Arguments to find a EmployeeFarm
+     * @example
+     * // Get one EmployeeFarm
+     * const employeeFarm = await prisma.employeeFarm.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends EmployeeFarmFindFirstOrThrowArgs>(args?: SelectSubset<T, EmployeeFarmFindFirstOrThrowArgs<ExtArgs>>): Prisma__EmployeeFarmClient<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more EmployeeFarms that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFarmFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all EmployeeFarms
+     * const employeeFarms = await prisma.employeeFarm.findMany()
+     * 
+     * // Get first 10 EmployeeFarms
+     * const employeeFarms = await prisma.employeeFarm.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const employeeFarmWithIdOnly = await prisma.employeeFarm.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends EmployeeFarmFindManyArgs>(args?: SelectSubset<T, EmployeeFarmFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a EmployeeFarm.
+     * @param {EmployeeFarmCreateArgs} args - Arguments to create a EmployeeFarm.
+     * @example
+     * // Create one EmployeeFarm
+     * const EmployeeFarm = await prisma.employeeFarm.create({
+     *   data: {
+     *     // ... data to create a EmployeeFarm
+     *   }
+     * })
+     * 
+     */
+    create<T extends EmployeeFarmCreateArgs>(args: SelectSubset<T, EmployeeFarmCreateArgs<ExtArgs>>): Prisma__EmployeeFarmClient<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many EmployeeFarms.
+     * @param {EmployeeFarmCreateManyArgs} args - Arguments to create many EmployeeFarms.
+     * @example
+     * // Create many EmployeeFarms
+     * const employeeFarm = await prisma.employeeFarm.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends EmployeeFarmCreateManyArgs>(args?: SelectSubset<T, EmployeeFarmCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many EmployeeFarms and returns the data saved in the database.
+     * @param {EmployeeFarmCreateManyAndReturnArgs} args - Arguments to create many EmployeeFarms.
+     * @example
+     * // Create many EmployeeFarms
+     * const employeeFarm = await prisma.employeeFarm.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many EmployeeFarms and only return the `id`
+     * const employeeFarmWithIdOnly = await prisma.employeeFarm.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends EmployeeFarmCreateManyAndReturnArgs>(args?: SelectSubset<T, EmployeeFarmCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a EmployeeFarm.
+     * @param {EmployeeFarmDeleteArgs} args - Arguments to delete one EmployeeFarm.
+     * @example
+     * // Delete one EmployeeFarm
+     * const EmployeeFarm = await prisma.employeeFarm.delete({
+     *   where: {
+     *     // ... filter to delete one EmployeeFarm
+     *   }
+     * })
+     * 
+     */
+    delete<T extends EmployeeFarmDeleteArgs>(args: SelectSubset<T, EmployeeFarmDeleteArgs<ExtArgs>>): Prisma__EmployeeFarmClient<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one EmployeeFarm.
+     * @param {EmployeeFarmUpdateArgs} args - Arguments to update one EmployeeFarm.
+     * @example
+     * // Update one EmployeeFarm
+     * const employeeFarm = await prisma.employeeFarm.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends EmployeeFarmUpdateArgs>(args: SelectSubset<T, EmployeeFarmUpdateArgs<ExtArgs>>): Prisma__EmployeeFarmClient<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more EmployeeFarms.
+     * @param {EmployeeFarmDeleteManyArgs} args - Arguments to filter EmployeeFarms to delete.
+     * @example
+     * // Delete a few EmployeeFarms
+     * const { count } = await prisma.employeeFarm.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends EmployeeFarmDeleteManyArgs>(args?: SelectSubset<T, EmployeeFarmDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EmployeeFarms.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFarmUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many EmployeeFarms
+     * const employeeFarm = await prisma.employeeFarm.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends EmployeeFarmUpdateManyArgs>(args: SelectSubset<T, EmployeeFarmUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EmployeeFarms and returns the data updated in the database.
+     * @param {EmployeeFarmUpdateManyAndReturnArgs} args - Arguments to update many EmployeeFarms.
+     * @example
+     * // Update many EmployeeFarms
+     * const employeeFarm = await prisma.employeeFarm.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more EmployeeFarms and only return the `id`
+     * const employeeFarmWithIdOnly = await prisma.employeeFarm.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends EmployeeFarmUpdateManyAndReturnArgs>(args: SelectSubset<T, EmployeeFarmUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one EmployeeFarm.
+     * @param {EmployeeFarmUpsertArgs} args - Arguments to update or create a EmployeeFarm.
+     * @example
+     * // Update or create a EmployeeFarm
+     * const employeeFarm = await prisma.employeeFarm.upsert({
+     *   create: {
+     *     // ... data to create a EmployeeFarm
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the EmployeeFarm we want to update
+     *   }
+     * })
+     */
+    upsert<T extends EmployeeFarmUpsertArgs>(args: SelectSubset<T, EmployeeFarmUpsertArgs<ExtArgs>>): Prisma__EmployeeFarmClient<$Result.GetResult<Prisma.$EmployeeFarmPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of EmployeeFarms.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFarmCountArgs} args - Arguments to filter EmployeeFarms to count.
+     * @example
+     * // Count the number of EmployeeFarms
+     * const count = await prisma.employeeFarm.count({
+     *   where: {
+     *     // ... the filter for the EmployeeFarms we want to count
+     *   }
+     * })
+    **/
+    count<T extends EmployeeFarmCountArgs>(
+      args?: Subset<T, EmployeeFarmCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EmployeeFarmCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a EmployeeFarm.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFarmAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EmployeeFarmAggregateArgs>(args: Subset<T, EmployeeFarmAggregateArgs>): Prisma.PrismaPromise<GetEmployeeFarmAggregateType<T>>
+
+    /**
+     * Group by EmployeeFarm.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFarmGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EmployeeFarmGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EmployeeFarmGroupByArgs['orderBy'] }
+        : { orderBy?: EmployeeFarmGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EmployeeFarmGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmployeeFarmGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the EmployeeFarm model
+   */
+  readonly fields: EmployeeFarmFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for EmployeeFarm.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EmployeeFarmClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    employee<T extends EmployeeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmployeeDefaultArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    farm<T extends FarmDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FarmDefaultArgs<ExtArgs>>): Prisma__FarmClient<$Result.GetResult<Prisma.$FarmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the EmployeeFarm model
+   */
+  interface EmployeeFarmFieldRefs {
+    readonly id: FieldRef<"EmployeeFarm", 'String'>
+    readonly employeeId: FieldRef<"EmployeeFarm", 'String'>
+    readonly farmId: FieldRef<"EmployeeFarm", 'String'>
+    readonly createdAt: FieldRef<"EmployeeFarm", 'DateTime'>
+    readonly updatedAt: FieldRef<"EmployeeFarm", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * EmployeeFarm findUnique
+   */
+  export type EmployeeFarmFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeFarm to fetch.
+     */
+    where: EmployeeFarmWhereUniqueInput
+  }
+
+  /**
+   * EmployeeFarm findUniqueOrThrow
+   */
+  export type EmployeeFarmFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeFarm to fetch.
+     */
+    where: EmployeeFarmWhereUniqueInput
+  }
+
+  /**
+   * EmployeeFarm findFirst
+   */
+  export type EmployeeFarmFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeFarm to fetch.
+     */
+    where?: EmployeeFarmWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmployeeFarms to fetch.
+     */
+    orderBy?: EmployeeFarmOrderByWithRelationInput | EmployeeFarmOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EmployeeFarms.
+     */
+    cursor?: EmployeeFarmWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmployeeFarms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmployeeFarms.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EmployeeFarms.
+     */
+    distinct?: EmployeeFarmScalarFieldEnum | EmployeeFarmScalarFieldEnum[]
+  }
+
+  /**
+   * EmployeeFarm findFirstOrThrow
+   */
+  export type EmployeeFarmFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeFarm to fetch.
+     */
+    where?: EmployeeFarmWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmployeeFarms to fetch.
+     */
+    orderBy?: EmployeeFarmOrderByWithRelationInput | EmployeeFarmOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EmployeeFarms.
+     */
+    cursor?: EmployeeFarmWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmployeeFarms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmployeeFarms.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EmployeeFarms.
+     */
+    distinct?: EmployeeFarmScalarFieldEnum | EmployeeFarmScalarFieldEnum[]
+  }
+
+  /**
+   * EmployeeFarm findMany
+   */
+  export type EmployeeFarmFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeFarms to fetch.
+     */
+    where?: EmployeeFarmWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmployeeFarms to fetch.
+     */
+    orderBy?: EmployeeFarmOrderByWithRelationInput | EmployeeFarmOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing EmployeeFarms.
+     */
+    cursor?: EmployeeFarmWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmployeeFarms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmployeeFarms.
+     */
+    skip?: number
+    distinct?: EmployeeFarmScalarFieldEnum | EmployeeFarmScalarFieldEnum[]
+  }
+
+  /**
+   * EmployeeFarm create
+   */
+  export type EmployeeFarmCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    /**
+     * The data needed to create a EmployeeFarm.
+     */
+    data: XOR<EmployeeFarmCreateInput, EmployeeFarmUncheckedCreateInput>
+  }
+
+  /**
+   * EmployeeFarm createMany
+   */
+  export type EmployeeFarmCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many EmployeeFarms.
+     */
+    data: EmployeeFarmCreateManyInput | EmployeeFarmCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * EmployeeFarm createManyAndReturn
+   */
+  export type EmployeeFarmCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * The data used to create many EmployeeFarms.
+     */
+    data: EmployeeFarmCreateManyInput | EmployeeFarmCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EmployeeFarm update
+   */
+  export type EmployeeFarmUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    /**
+     * The data needed to update a EmployeeFarm.
+     */
+    data: XOR<EmployeeFarmUpdateInput, EmployeeFarmUncheckedUpdateInput>
+    /**
+     * Choose, which EmployeeFarm to update.
+     */
+    where: EmployeeFarmWhereUniqueInput
+  }
+
+  /**
+   * EmployeeFarm updateMany
+   */
+  export type EmployeeFarmUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update EmployeeFarms.
+     */
+    data: XOR<EmployeeFarmUpdateManyMutationInput, EmployeeFarmUncheckedUpdateManyInput>
+    /**
+     * Filter which EmployeeFarms to update
+     */
+    where?: EmployeeFarmWhereInput
+    /**
+     * Limit how many EmployeeFarms to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * EmployeeFarm updateManyAndReturn
+   */
+  export type EmployeeFarmUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * The data used to update EmployeeFarms.
+     */
+    data: XOR<EmployeeFarmUpdateManyMutationInput, EmployeeFarmUncheckedUpdateManyInput>
+    /**
+     * Filter which EmployeeFarms to update
+     */
+    where?: EmployeeFarmWhereInput
+    /**
+     * Limit how many EmployeeFarms to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EmployeeFarm upsert
+   */
+  export type EmployeeFarmUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    /**
+     * The filter to search for the EmployeeFarm to update in case it exists.
+     */
+    where: EmployeeFarmWhereUniqueInput
+    /**
+     * In case the EmployeeFarm found by the `where` argument doesn't exist, create a new EmployeeFarm with this data.
+     */
+    create: XOR<EmployeeFarmCreateInput, EmployeeFarmUncheckedCreateInput>
+    /**
+     * In case the EmployeeFarm was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EmployeeFarmUpdateInput, EmployeeFarmUncheckedUpdateInput>
+  }
+
+  /**
+   * EmployeeFarm delete
+   */
+  export type EmployeeFarmDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+    /**
+     * Filter which EmployeeFarm to delete.
+     */
+    where: EmployeeFarmWhereUniqueInput
+  }
+
+  /**
+   * EmployeeFarm deleteMany
+   */
+  export type EmployeeFarmDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EmployeeFarms to delete
+     */
+    where?: EmployeeFarmWhereInput
+    /**
+     * Limit how many EmployeeFarms to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * EmployeeFarm without action
+   */
+  export type EmployeeFarmDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeFarm
+     */
+    select?: EmployeeFarmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeFarm
+     */
+    omit?: EmployeeFarmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeFarmInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model EmployeeBenefit
+   */
+
+  export type AggregateEmployeeBenefit = {
+    _count: EmployeeBenefitCountAggregateOutputType | null
+    _avg: EmployeeBenefitAvgAggregateOutputType | null
+    _sum: EmployeeBenefitSumAggregateOutputType | null
+    _min: EmployeeBenefitMinAggregateOutputType | null
+    _max: EmployeeBenefitMaxAggregateOutputType | null
+  }
+
+  export type EmployeeBenefitAvgAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type EmployeeBenefitSumAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type EmployeeBenefitMinAggregateOutputType = {
+    id: string | null
+    employeeId: string | null
+    name: string | null
+    amount: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmployeeBenefitMaxAggregateOutputType = {
+    id: string | null
+    employeeId: string | null
+    name: string | null
+    amount: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmployeeBenefitCountAggregateOutputType = {
+    id: number
+    employeeId: number
+    name: number
+    amount: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type EmployeeBenefitAvgAggregateInputType = {
+    amount?: true
+  }
+
+  export type EmployeeBenefitSumAggregateInputType = {
+    amount?: true
+  }
+
+  export type EmployeeBenefitMinAggregateInputType = {
+    id?: true
+    employeeId?: true
+    name?: true
+    amount?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmployeeBenefitMaxAggregateInputType = {
+    id?: true
+    employeeId?: true
+    name?: true
+    amount?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmployeeBenefitCountAggregateInputType = {
+    id?: true
+    employeeId?: true
+    name?: true
+    amount?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type EmployeeBenefitAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EmployeeBenefit to aggregate.
+     */
+    where?: EmployeeBenefitWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmployeeBenefits to fetch.
+     */
+    orderBy?: EmployeeBenefitOrderByWithRelationInput | EmployeeBenefitOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EmployeeBenefitWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmployeeBenefits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmployeeBenefits.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned EmployeeBenefits
+    **/
+    _count?: true | EmployeeBenefitCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: EmployeeBenefitAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: EmployeeBenefitSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EmployeeBenefitMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EmployeeBenefitMaxAggregateInputType
+  }
+
+  export type GetEmployeeBenefitAggregateType<T extends EmployeeBenefitAggregateArgs> = {
+        [P in keyof T & keyof AggregateEmployeeBenefit]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEmployeeBenefit[P]>
+      : GetScalarType<T[P], AggregateEmployeeBenefit[P]>
+  }
+
+
+
+
+  export type EmployeeBenefitGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmployeeBenefitWhereInput
+    orderBy?: EmployeeBenefitOrderByWithAggregationInput | EmployeeBenefitOrderByWithAggregationInput[]
+    by: EmployeeBenefitScalarFieldEnum[] | EmployeeBenefitScalarFieldEnum
+    having?: EmployeeBenefitScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EmployeeBenefitCountAggregateInputType | true
+    _avg?: EmployeeBenefitAvgAggregateInputType
+    _sum?: EmployeeBenefitSumAggregateInputType
+    _min?: EmployeeBenefitMinAggregateInputType
+    _max?: EmployeeBenefitMaxAggregateInputType
+  }
+
+  export type EmployeeBenefitGroupByOutputType = {
+    id: string
+    employeeId: string
+    name: string
+    amount: number | null
+    createdAt: Date
+    updatedAt: Date
+    _count: EmployeeBenefitCountAggregateOutputType | null
+    _avg: EmployeeBenefitAvgAggregateOutputType | null
+    _sum: EmployeeBenefitSumAggregateOutputType | null
+    _min: EmployeeBenefitMinAggregateOutputType | null
+    _max: EmployeeBenefitMaxAggregateOutputType | null
+  }
+
+  type GetEmployeeBenefitGroupByPayload<T extends EmployeeBenefitGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EmployeeBenefitGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EmployeeBenefitGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EmployeeBenefitGroupByOutputType[P]>
+            : GetScalarType<T[P], EmployeeBenefitGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EmployeeBenefitSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    employeeId?: boolean
+    name?: boolean
+    amount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employeeBenefit"]>
+
+  export type EmployeeBenefitSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    employeeId?: boolean
+    name?: boolean
+    amount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employeeBenefit"]>
+
+  export type EmployeeBenefitSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    employeeId?: boolean
+    name?: boolean
+    amount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employeeBenefit"]>
+
+  export type EmployeeBenefitSelectScalar = {
+    id?: boolean
+    employeeId?: boolean
+    name?: boolean
+    amount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type EmployeeBenefitOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "employeeId" | "name" | "amount" | "createdAt" | "updatedAt", ExtArgs["result"]["employeeBenefit"]>
+  export type EmployeeBenefitInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+  }
+  export type EmployeeBenefitIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+  }
+  export type EmployeeBenefitIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
+  }
+
+  export type $EmployeeBenefitPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "EmployeeBenefit"
+    objects: {
+      employee: Prisma.$EmployeePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      employeeId: string
+      name: string
+      amount: number | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["employeeBenefit"]>
+    composites: {}
+  }
+
+  type EmployeeBenefitGetPayload<S extends boolean | null | undefined | EmployeeBenefitDefaultArgs> = $Result.GetResult<Prisma.$EmployeeBenefitPayload, S>
+
+  type EmployeeBenefitCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<EmployeeBenefitFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: EmployeeBenefitCountAggregateInputType | true
+    }
+
+  export interface EmployeeBenefitDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['EmployeeBenefit'], meta: { name: 'EmployeeBenefit' } }
+    /**
+     * Find zero or one EmployeeBenefit that matches the filter.
+     * @param {EmployeeBenefitFindUniqueArgs} args - Arguments to find a EmployeeBenefit
+     * @example
+     * // Get one EmployeeBenefit
+     * const employeeBenefit = await prisma.employeeBenefit.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends EmployeeBenefitFindUniqueArgs>(args: SelectSubset<T, EmployeeBenefitFindUniqueArgs<ExtArgs>>): Prisma__EmployeeBenefitClient<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one EmployeeBenefit that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {EmployeeBenefitFindUniqueOrThrowArgs} args - Arguments to find a EmployeeBenefit
+     * @example
+     * // Get one EmployeeBenefit
+     * const employeeBenefit = await prisma.employeeBenefit.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends EmployeeBenefitFindUniqueOrThrowArgs>(args: SelectSubset<T, EmployeeBenefitFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EmployeeBenefitClient<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EmployeeBenefit that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeBenefitFindFirstArgs} args - Arguments to find a EmployeeBenefit
+     * @example
+     * // Get one EmployeeBenefit
+     * const employeeBenefit = await prisma.employeeBenefit.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends EmployeeBenefitFindFirstArgs>(args?: SelectSubset<T, EmployeeBenefitFindFirstArgs<ExtArgs>>): Prisma__EmployeeBenefitClient<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EmployeeBenefit that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeBenefitFindFirstOrThrowArgs} args - Arguments to find a EmployeeBenefit
+     * @example
+     * // Get one EmployeeBenefit
+     * const employeeBenefit = await prisma.employeeBenefit.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends EmployeeBenefitFindFirstOrThrowArgs>(args?: SelectSubset<T, EmployeeBenefitFindFirstOrThrowArgs<ExtArgs>>): Prisma__EmployeeBenefitClient<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more EmployeeBenefits that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeBenefitFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all EmployeeBenefits
+     * const employeeBenefits = await prisma.employeeBenefit.findMany()
+     * 
+     * // Get first 10 EmployeeBenefits
+     * const employeeBenefits = await prisma.employeeBenefit.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const employeeBenefitWithIdOnly = await prisma.employeeBenefit.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends EmployeeBenefitFindManyArgs>(args?: SelectSubset<T, EmployeeBenefitFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a EmployeeBenefit.
+     * @param {EmployeeBenefitCreateArgs} args - Arguments to create a EmployeeBenefit.
+     * @example
+     * // Create one EmployeeBenefit
+     * const EmployeeBenefit = await prisma.employeeBenefit.create({
+     *   data: {
+     *     // ... data to create a EmployeeBenefit
+     *   }
+     * })
+     * 
+     */
+    create<T extends EmployeeBenefitCreateArgs>(args: SelectSubset<T, EmployeeBenefitCreateArgs<ExtArgs>>): Prisma__EmployeeBenefitClient<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many EmployeeBenefits.
+     * @param {EmployeeBenefitCreateManyArgs} args - Arguments to create many EmployeeBenefits.
+     * @example
+     * // Create many EmployeeBenefits
+     * const employeeBenefit = await prisma.employeeBenefit.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends EmployeeBenefitCreateManyArgs>(args?: SelectSubset<T, EmployeeBenefitCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many EmployeeBenefits and returns the data saved in the database.
+     * @param {EmployeeBenefitCreateManyAndReturnArgs} args - Arguments to create many EmployeeBenefits.
+     * @example
+     * // Create many EmployeeBenefits
+     * const employeeBenefit = await prisma.employeeBenefit.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many EmployeeBenefits and only return the `id`
+     * const employeeBenefitWithIdOnly = await prisma.employeeBenefit.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends EmployeeBenefitCreateManyAndReturnArgs>(args?: SelectSubset<T, EmployeeBenefitCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a EmployeeBenefit.
+     * @param {EmployeeBenefitDeleteArgs} args - Arguments to delete one EmployeeBenefit.
+     * @example
+     * // Delete one EmployeeBenefit
+     * const EmployeeBenefit = await prisma.employeeBenefit.delete({
+     *   where: {
+     *     // ... filter to delete one EmployeeBenefit
+     *   }
+     * })
+     * 
+     */
+    delete<T extends EmployeeBenefitDeleteArgs>(args: SelectSubset<T, EmployeeBenefitDeleteArgs<ExtArgs>>): Prisma__EmployeeBenefitClient<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one EmployeeBenefit.
+     * @param {EmployeeBenefitUpdateArgs} args - Arguments to update one EmployeeBenefit.
+     * @example
+     * // Update one EmployeeBenefit
+     * const employeeBenefit = await prisma.employeeBenefit.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends EmployeeBenefitUpdateArgs>(args: SelectSubset<T, EmployeeBenefitUpdateArgs<ExtArgs>>): Prisma__EmployeeBenefitClient<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more EmployeeBenefits.
+     * @param {EmployeeBenefitDeleteManyArgs} args - Arguments to filter EmployeeBenefits to delete.
+     * @example
+     * // Delete a few EmployeeBenefits
+     * const { count } = await prisma.employeeBenefit.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends EmployeeBenefitDeleteManyArgs>(args?: SelectSubset<T, EmployeeBenefitDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EmployeeBenefits.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeBenefitUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many EmployeeBenefits
+     * const employeeBenefit = await prisma.employeeBenefit.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends EmployeeBenefitUpdateManyArgs>(args: SelectSubset<T, EmployeeBenefitUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EmployeeBenefits and returns the data updated in the database.
+     * @param {EmployeeBenefitUpdateManyAndReturnArgs} args - Arguments to update many EmployeeBenefits.
+     * @example
+     * // Update many EmployeeBenefits
+     * const employeeBenefit = await prisma.employeeBenefit.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more EmployeeBenefits and only return the `id`
+     * const employeeBenefitWithIdOnly = await prisma.employeeBenefit.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends EmployeeBenefitUpdateManyAndReturnArgs>(args: SelectSubset<T, EmployeeBenefitUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one EmployeeBenefit.
+     * @param {EmployeeBenefitUpsertArgs} args - Arguments to update or create a EmployeeBenefit.
+     * @example
+     * // Update or create a EmployeeBenefit
+     * const employeeBenefit = await prisma.employeeBenefit.upsert({
+     *   create: {
+     *     // ... data to create a EmployeeBenefit
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the EmployeeBenefit we want to update
+     *   }
+     * })
+     */
+    upsert<T extends EmployeeBenefitUpsertArgs>(args: SelectSubset<T, EmployeeBenefitUpsertArgs<ExtArgs>>): Prisma__EmployeeBenefitClient<$Result.GetResult<Prisma.$EmployeeBenefitPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of EmployeeBenefits.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeBenefitCountArgs} args - Arguments to filter EmployeeBenefits to count.
+     * @example
+     * // Count the number of EmployeeBenefits
+     * const count = await prisma.employeeBenefit.count({
+     *   where: {
+     *     // ... the filter for the EmployeeBenefits we want to count
+     *   }
+     * })
+    **/
+    count<T extends EmployeeBenefitCountArgs>(
+      args?: Subset<T, EmployeeBenefitCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EmployeeBenefitCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a EmployeeBenefit.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeBenefitAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EmployeeBenefitAggregateArgs>(args: Subset<T, EmployeeBenefitAggregateArgs>): Prisma.PrismaPromise<GetEmployeeBenefitAggregateType<T>>
+
+    /**
+     * Group by EmployeeBenefit.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeBenefitGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EmployeeBenefitGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EmployeeBenefitGroupByArgs['orderBy'] }
+        : { orderBy?: EmployeeBenefitGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EmployeeBenefitGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmployeeBenefitGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the EmployeeBenefit model
+   */
+  readonly fields: EmployeeBenefitFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for EmployeeBenefit.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EmployeeBenefitClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    employee<T extends EmployeeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmployeeDefaultArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the EmployeeBenefit model
+   */
+  interface EmployeeBenefitFieldRefs {
+    readonly id: FieldRef<"EmployeeBenefit", 'String'>
+    readonly employeeId: FieldRef<"EmployeeBenefit", 'String'>
+    readonly name: FieldRef<"EmployeeBenefit", 'String'>
+    readonly amount: FieldRef<"EmployeeBenefit", 'Float'>
+    readonly createdAt: FieldRef<"EmployeeBenefit", 'DateTime'>
+    readonly updatedAt: FieldRef<"EmployeeBenefit", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * EmployeeBenefit findUnique
+   */
+  export type EmployeeBenefitFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeBenefit to fetch.
+     */
+    where: EmployeeBenefitWhereUniqueInput
+  }
+
+  /**
+   * EmployeeBenefit findUniqueOrThrow
+   */
+  export type EmployeeBenefitFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeBenefit to fetch.
+     */
+    where: EmployeeBenefitWhereUniqueInput
+  }
+
+  /**
+   * EmployeeBenefit findFirst
+   */
+  export type EmployeeBenefitFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeBenefit to fetch.
+     */
+    where?: EmployeeBenefitWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmployeeBenefits to fetch.
+     */
+    orderBy?: EmployeeBenefitOrderByWithRelationInput | EmployeeBenefitOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EmployeeBenefits.
+     */
+    cursor?: EmployeeBenefitWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmployeeBenefits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmployeeBenefits.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EmployeeBenefits.
+     */
+    distinct?: EmployeeBenefitScalarFieldEnum | EmployeeBenefitScalarFieldEnum[]
+  }
+
+  /**
+   * EmployeeBenefit findFirstOrThrow
+   */
+  export type EmployeeBenefitFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeBenefit to fetch.
+     */
+    where?: EmployeeBenefitWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmployeeBenefits to fetch.
+     */
+    orderBy?: EmployeeBenefitOrderByWithRelationInput | EmployeeBenefitOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EmployeeBenefits.
+     */
+    cursor?: EmployeeBenefitWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmployeeBenefits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmployeeBenefits.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EmployeeBenefits.
+     */
+    distinct?: EmployeeBenefitScalarFieldEnum | EmployeeBenefitScalarFieldEnum[]
+  }
+
+  /**
+   * EmployeeBenefit findMany
+   */
+  export type EmployeeBenefitFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    /**
+     * Filter, which EmployeeBenefits to fetch.
+     */
+    where?: EmployeeBenefitWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmployeeBenefits to fetch.
+     */
+    orderBy?: EmployeeBenefitOrderByWithRelationInput | EmployeeBenefitOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing EmployeeBenefits.
+     */
+    cursor?: EmployeeBenefitWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmployeeBenefits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmployeeBenefits.
+     */
+    skip?: number
+    distinct?: EmployeeBenefitScalarFieldEnum | EmployeeBenefitScalarFieldEnum[]
+  }
+
+  /**
+   * EmployeeBenefit create
+   */
+  export type EmployeeBenefitCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    /**
+     * The data needed to create a EmployeeBenefit.
+     */
+    data: XOR<EmployeeBenefitCreateInput, EmployeeBenefitUncheckedCreateInput>
+  }
+
+  /**
+   * EmployeeBenefit createMany
+   */
+  export type EmployeeBenefitCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many EmployeeBenefits.
+     */
+    data: EmployeeBenefitCreateManyInput | EmployeeBenefitCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * EmployeeBenefit createManyAndReturn
+   */
+  export type EmployeeBenefitCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * The data used to create many EmployeeBenefits.
+     */
+    data: EmployeeBenefitCreateManyInput | EmployeeBenefitCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EmployeeBenefit update
+   */
+  export type EmployeeBenefitUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    /**
+     * The data needed to update a EmployeeBenefit.
+     */
+    data: XOR<EmployeeBenefitUpdateInput, EmployeeBenefitUncheckedUpdateInput>
+    /**
+     * Choose, which EmployeeBenefit to update.
+     */
+    where: EmployeeBenefitWhereUniqueInput
+  }
+
+  /**
+   * EmployeeBenefit updateMany
+   */
+  export type EmployeeBenefitUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update EmployeeBenefits.
+     */
+    data: XOR<EmployeeBenefitUpdateManyMutationInput, EmployeeBenefitUncheckedUpdateManyInput>
+    /**
+     * Filter which EmployeeBenefits to update
+     */
+    where?: EmployeeBenefitWhereInput
+    /**
+     * Limit how many EmployeeBenefits to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * EmployeeBenefit updateManyAndReturn
+   */
+  export type EmployeeBenefitUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * The data used to update EmployeeBenefits.
+     */
+    data: XOR<EmployeeBenefitUpdateManyMutationInput, EmployeeBenefitUncheckedUpdateManyInput>
+    /**
+     * Filter which EmployeeBenefits to update
+     */
+    where?: EmployeeBenefitWhereInput
+    /**
+     * Limit how many EmployeeBenefits to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EmployeeBenefit upsert
+   */
+  export type EmployeeBenefitUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    /**
+     * The filter to search for the EmployeeBenefit to update in case it exists.
+     */
+    where: EmployeeBenefitWhereUniqueInput
+    /**
+     * In case the EmployeeBenefit found by the `where` argument doesn't exist, create a new EmployeeBenefit with this data.
+     */
+    create: XOR<EmployeeBenefitCreateInput, EmployeeBenefitUncheckedCreateInput>
+    /**
+     * In case the EmployeeBenefit was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EmployeeBenefitUpdateInput, EmployeeBenefitUncheckedUpdateInput>
+  }
+
+  /**
+   * EmployeeBenefit delete
+   */
+  export type EmployeeBenefitDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+    /**
+     * Filter which EmployeeBenefit to delete.
+     */
+    where: EmployeeBenefitWhereUniqueInput
+  }
+
+  /**
+   * EmployeeBenefit deleteMany
+   */
+  export type EmployeeBenefitDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EmployeeBenefits to delete
+     */
+    where?: EmployeeBenefitWhereInput
+    /**
+     * Limit how many EmployeeBenefits to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * EmployeeBenefit without action
+   */
+  export type EmployeeBenefitDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmployeeBenefit
+     */
+    select?: EmployeeBenefitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmployeeBenefit
+     */
+    omit?: EmployeeBenefitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeBenefitInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Livestock
+   */
+
+  export type AggregateLivestock = {
+    _count: LivestockCountAggregateOutputType | null
+    _min: LivestockMinAggregateOutputType | null
+    _max: LivestockMaxAggregateOutputType | null
+  }
+
+  export type LivestockMinAggregateOutputType = {
+    id: string | null
+    farmId: string | null
+    category: string | null
+    type: string | null
+    status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type LivestockMaxAggregateOutputType = {
+    id: string | null
+    farmId: string | null
+    category: string | null
+    type: string | null
+    status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type LivestockCountAggregateOutputType = {
+    id: number
+    farmId: number
+    category: number
+    type: number
+    status: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type LivestockMinAggregateInputType = {
+    id?: true
+    farmId?: true
+    category?: true
+    type?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type LivestockMaxAggregateInputType = {
+    id?: true
+    farmId?: true
+    category?: true
+    type?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type LivestockCountAggregateInputType = {
+    id?: true
+    farmId?: true
+    category?: true
+    type?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type LivestockAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Livestock to aggregate.
+     */
+    where?: LivestockWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Livestocks to fetch.
+     */
+    orderBy?: LivestockOrderByWithRelationInput | LivestockOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LivestockWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Livestocks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Livestocks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Livestocks
+    **/
+    _count?: true | LivestockCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LivestockMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LivestockMaxAggregateInputType
+  }
+
+  export type GetLivestockAggregateType<T extends LivestockAggregateArgs> = {
+        [P in keyof T & keyof AggregateLivestock]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLivestock[P]>
+      : GetScalarType<T[P], AggregateLivestock[P]>
+  }
+
+
+
+
+  export type LivestockGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LivestockWhereInput
+    orderBy?: LivestockOrderByWithAggregationInput | LivestockOrderByWithAggregationInput[]
+    by: LivestockScalarFieldEnum[] | LivestockScalarFieldEnum
+    having?: LivestockScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LivestockCountAggregateInputType | true
+    _min?: LivestockMinAggregateInputType
+    _max?: LivestockMaxAggregateInputType
+  }
+
+  export type LivestockGroupByOutputType = {
+    id: string
+    farmId: string
+    category: string
+    type: string
+    status: string
+    createdAt: Date
+    updatedAt: Date
+    _count: LivestockCountAggregateOutputType | null
+    _min: LivestockMinAggregateOutputType | null
+    _max: LivestockMaxAggregateOutputType | null
+  }
+
+  type GetLivestockGroupByPayload<T extends LivestockGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LivestockGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LivestockGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LivestockGroupByOutputType[P]>
+            : GetScalarType<T[P], LivestockGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LivestockSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    farmId?: boolean
+    category?: boolean
+    type?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+    mammal?: boolean | Livestock$mammalArgs<ExtArgs>
+    poultry?: boolean | Livestock$poultryArgs<ExtArgs>
+    mortality?: boolean | Livestock$mortalityArgs<ExtArgs>
+    healthEvent?: boolean | Livestock$healthEventArgs<ExtArgs>
+    transfer?: boolean | Livestock$transferArgs<ExtArgs>
+    sale?: boolean | Livestock$saleArgs<ExtArgs>
+    breedingDam?: boolean | Livestock$breedingDamArgs<ExtArgs>
+    breedingSire?: boolean | Livestock$breedingSireArgs<ExtArgs>
+    offspring?: boolean | Livestock$offspringArgs<ExtArgs>
+    _count?: boolean | LivestockCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["livestock"]>
+
+  export type LivestockSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    farmId?: boolean
+    category?: boolean
+    type?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["livestock"]>
+
+  export type LivestockSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    farmId?: boolean
+    category?: boolean
+    type?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["livestock"]>
+
+  export type LivestockSelectScalar = {
+    id?: boolean
+    farmId?: boolean
+    category?: boolean
+    type?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type LivestockOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "farmId" | "category" | "type" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["livestock"]>
+  export type LivestockInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+    mammal?: boolean | Livestock$mammalArgs<ExtArgs>
+    poultry?: boolean | Livestock$poultryArgs<ExtArgs>
+    mortality?: boolean | Livestock$mortalityArgs<ExtArgs>
+    healthEvent?: boolean | Livestock$healthEventArgs<ExtArgs>
+    transfer?: boolean | Livestock$transferArgs<ExtArgs>
+    sale?: boolean | Livestock$saleArgs<ExtArgs>
+    breedingDam?: boolean | Livestock$breedingDamArgs<ExtArgs>
+    breedingSire?: boolean | Livestock$breedingSireArgs<ExtArgs>
+    offspring?: boolean | Livestock$offspringArgs<ExtArgs>
+    _count?: boolean | LivestockCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type LivestockIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }
+  export type LivestockIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }
+
+  export type $LivestockPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Livestock"
+    objects: {
+      farm: Prisma.$FarmPayload<ExtArgs>
+      mammal: Prisma.$MammalPayload<ExtArgs> | null
+      poultry: Prisma.$PoultryPayload<ExtArgs> | null
+      mortality: Prisma.$MortalityPayload<ExtArgs> | null
+      healthEvent: Prisma.$HealthEventPayload<ExtArgs>[]
+      transfer: Prisma.$TransferPayload<ExtArgs>[]
+      sale: Prisma.$SalePayload<ExtArgs> | null
+      breedingDam: Prisma.$BreedingRecordPayload<ExtArgs>[]
+      breedingSire: Prisma.$BreedingRecordPayload<ExtArgs>[]
+      offspring: Prisma.$OffspringPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      farmId: string
+      category: string
+      type: string
+      status: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["livestock"]>
+    composites: {}
+  }
+
+  type LivestockGetPayload<S extends boolean | null | undefined | LivestockDefaultArgs> = $Result.GetResult<Prisma.$LivestockPayload, S>
+
+  type LivestockCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LivestockFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LivestockCountAggregateInputType | true
+    }
+
+  export interface LivestockDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Livestock'], meta: { name: 'Livestock' } }
+    /**
+     * Find zero or one Livestock that matches the filter.
+     * @param {LivestockFindUniqueArgs} args - Arguments to find a Livestock
+     * @example
+     * // Get one Livestock
+     * const livestock = await prisma.livestock.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LivestockFindUniqueArgs>(args: SelectSubset<T, LivestockFindUniqueArgs<ExtArgs>>): Prisma__LivestockClient<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Livestock that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LivestockFindUniqueOrThrowArgs} args - Arguments to find a Livestock
+     * @example
+     * // Get one Livestock
+     * const livestock = await prisma.livestock.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LivestockFindUniqueOrThrowArgs>(args: SelectSubset<T, LivestockFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LivestockClient<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Livestock that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LivestockFindFirstArgs} args - Arguments to find a Livestock
+     * @example
+     * // Get one Livestock
+     * const livestock = await prisma.livestock.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LivestockFindFirstArgs>(args?: SelectSubset<T, LivestockFindFirstArgs<ExtArgs>>): Prisma__LivestockClient<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Livestock that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LivestockFindFirstOrThrowArgs} args - Arguments to find a Livestock
+     * @example
+     * // Get one Livestock
+     * const livestock = await prisma.livestock.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LivestockFindFirstOrThrowArgs>(args?: SelectSubset<T, LivestockFindFirstOrThrowArgs<ExtArgs>>): Prisma__LivestockClient<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Livestocks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LivestockFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Livestocks
+     * const livestocks = await prisma.livestock.findMany()
+     * 
+     * // Get first 10 Livestocks
+     * const livestocks = await prisma.livestock.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const livestockWithIdOnly = await prisma.livestock.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LivestockFindManyArgs>(args?: SelectSubset<T, LivestockFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Livestock.
+     * @param {LivestockCreateArgs} args - Arguments to create a Livestock.
+     * @example
+     * // Create one Livestock
+     * const Livestock = await prisma.livestock.create({
+     *   data: {
+     *     // ... data to create a Livestock
+     *   }
+     * })
+     * 
+     */
+    create<T extends LivestockCreateArgs>(args: SelectSubset<T, LivestockCreateArgs<ExtArgs>>): Prisma__LivestockClient<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Livestocks.
+     * @param {LivestockCreateManyArgs} args - Arguments to create many Livestocks.
+     * @example
+     * // Create many Livestocks
+     * const livestock = await prisma.livestock.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LivestockCreateManyArgs>(args?: SelectSubset<T, LivestockCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Livestocks and returns the data saved in the database.
+     * @param {LivestockCreateManyAndReturnArgs} args - Arguments to create many Livestocks.
+     * @example
+     * // Create many Livestocks
+     * const livestock = await prisma.livestock.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Livestocks and only return the `id`
+     * const livestockWithIdOnly = await prisma.livestock.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LivestockCreateManyAndReturnArgs>(args?: SelectSubset<T, LivestockCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Livestock.
+     * @param {LivestockDeleteArgs} args - Arguments to delete one Livestock.
+     * @example
+     * // Delete one Livestock
+     * const Livestock = await prisma.livestock.delete({
+     *   where: {
+     *     // ... filter to delete one Livestock
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LivestockDeleteArgs>(args: SelectSubset<T, LivestockDeleteArgs<ExtArgs>>): Prisma__LivestockClient<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Livestock.
+     * @param {LivestockUpdateArgs} args - Arguments to update one Livestock.
+     * @example
+     * // Update one Livestock
+     * const livestock = await prisma.livestock.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LivestockUpdateArgs>(args: SelectSubset<T, LivestockUpdateArgs<ExtArgs>>): Prisma__LivestockClient<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Livestocks.
+     * @param {LivestockDeleteManyArgs} args - Arguments to filter Livestocks to delete.
+     * @example
+     * // Delete a few Livestocks
+     * const { count } = await prisma.livestock.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LivestockDeleteManyArgs>(args?: SelectSubset<T, LivestockDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Livestocks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LivestockUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Livestocks
+     * const livestock = await prisma.livestock.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LivestockUpdateManyArgs>(args: SelectSubset<T, LivestockUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Livestocks and returns the data updated in the database.
+     * @param {LivestockUpdateManyAndReturnArgs} args - Arguments to update many Livestocks.
+     * @example
+     * // Update many Livestocks
+     * const livestock = await prisma.livestock.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Livestocks and only return the `id`
+     * const livestockWithIdOnly = await prisma.livestock.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LivestockUpdateManyAndReturnArgs>(args: SelectSubset<T, LivestockUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Livestock.
+     * @param {LivestockUpsertArgs} args - Arguments to update or create a Livestock.
+     * @example
+     * // Update or create a Livestock
+     * const livestock = await prisma.livestock.upsert({
+     *   create: {
+     *     // ... data to create a Livestock
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Livestock we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LivestockUpsertArgs>(args: SelectSubset<T, LivestockUpsertArgs<ExtArgs>>): Prisma__LivestockClient<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Livestocks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LivestockCountArgs} args - Arguments to filter Livestocks to count.
+     * @example
+     * // Count the number of Livestocks
+     * const count = await prisma.livestock.count({
+     *   where: {
+     *     // ... the filter for the Livestocks we want to count
+     *   }
+     * })
+    **/
+    count<T extends LivestockCountArgs>(
+      args?: Subset<T, LivestockCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LivestockCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Livestock.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LivestockAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LivestockAggregateArgs>(args: Subset<T, LivestockAggregateArgs>): Prisma.PrismaPromise<GetLivestockAggregateType<T>>
+
+    /**
+     * Group by Livestock.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LivestockGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LivestockGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LivestockGroupByArgs['orderBy'] }
+        : { orderBy?: LivestockGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LivestockGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLivestockGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Livestock model
+   */
+  readonly fields: LivestockFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Livestock.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LivestockClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    farm<T extends FarmDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FarmDefaultArgs<ExtArgs>>): Prisma__FarmClient<$Result.GetResult<Prisma.$FarmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    mammal<T extends Livestock$mammalArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$mammalArgs<ExtArgs>>): Prisma__MammalClient<$Result.GetResult<Prisma.$MammalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    poultry<T extends Livestock$poultryArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$poultryArgs<ExtArgs>>): Prisma__PoultryClient<$Result.GetResult<Prisma.$PoultryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    mortality<T extends Livestock$mortalityArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$mortalityArgs<ExtArgs>>): Prisma__MortalityClient<$Result.GetResult<Prisma.$MortalityPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    healthEvent<T extends Livestock$healthEventArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$healthEventArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HealthEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    transfer<T extends Livestock$transferArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$transferArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransferPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sale<T extends Livestock$saleArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$saleArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    breedingDam<T extends Livestock$breedingDamArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$breedingDamArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreedingRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    breedingSire<T extends Livestock$breedingSireArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$breedingSireArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreedingRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    offspring<T extends Livestock$offspringArgs<ExtArgs> = {}>(args?: Subset<T, Livestock$offspringArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OffspringPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Livestock model
+   */
+  interface LivestockFieldRefs {
+    readonly id: FieldRef<"Livestock", 'String'>
+    readonly farmId: FieldRef<"Livestock", 'String'>
+    readonly category: FieldRef<"Livestock", 'String'>
+    readonly type: FieldRef<"Livestock", 'String'>
+    readonly status: FieldRef<"Livestock", 'String'>
+    readonly createdAt: FieldRef<"Livestock", 'DateTime'>
+    readonly updatedAt: FieldRef<"Livestock", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Livestock findUnique
+   */
+  export type LivestockFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Livestock
+     */
+    select?: LivestockSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Livestock
+     */
+    omit?: LivestockOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LivestockInclude<ExtArgs> | null
+    /**
+     * Filter, which Livestock to fetch.
+     */
+    where: LivestockWhereUniqueInput
+  }
+
+  /**
+   * Livestock findUniqueOrThrow
+   */
+  export type LivestockFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Livestock
+     */
+    select?: LivestockSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Livestock
+     */
+    omit?: LivestockOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LivestockInclude<ExtArgs> | null
+    /**
+     * Filter, which Livestock to fetch.
+     */
+    where: LivestockWhereUniqueInput
+  }
+
+  /**
+   * Livestock findFirst
+   */
+  export type LivestockFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Livestock
+     */
+    select?: LivestockSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Livestock
+     */
+    omit?: LivestockOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LivestockInclude<ExtArgs> | null
+    /**
+     * Filter, which Livestock to fetch.
+     */
+    where?: LivestockWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Livestocks to fetch.
+     */
+    orderBy?: LivestockOrderByWithRelationInput | LivestockOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Livestocks.
+     */
+    cursor?: LivestockWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Livestocks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Livestocks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Livestocks.
+     */
+    distinct?: LivestockScalarFieldEnum | LivestockScalarFieldEnum[]
+  }
+
+  /**
+   * Livestock findFirstOrThrow
+   */
+  export type LivestockFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Livestock
+     */
+    select?: LivestockSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Livestock
+     */
+    omit?: LivestockOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LivestockInclude<ExtArgs> | null
+    /**
+     * Filter, which Livestock to fetch.
+     */
+    where?: LivestockWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Livestocks to fetch.
+     */
+    orderBy?: LivestockOrderByWithRelationInput | LivestockOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Livestocks.
+     */
+    cursor?: LivestockWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Livestocks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Livestocks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Livestocks.
+     */
+    distinct?: LivestockScalarFieldEnum | LivestockScalarFieldEnum[]
+  }
+
+  /**
+   * Livestock findMany
+   */
+  export type LivestockFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Livestock
+     */
+    select?: LivestockSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Livestock
+     */
+    omit?: LivestockOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LivestockInclude<ExtArgs> | null
+    /**
+     * Filter, which Livestocks to fetch.
+     */
+    where?: LivestockWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Livestocks to fetch.
+     */
+    orderBy?: LivestockOrderByWithRelationInput | LivestockOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Livestocks.
+     */
+    cursor?: LivestockWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Livestocks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Livestocks.
+     */
+    skip?: number
+    distinct?: LivestockScalarFieldEnum | LivestockScalarFieldEnum[]
+  }
+
+  /**
+   * Livestock create
+   */
+  export type LivestockCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Livestock
+     */
+    select?: LivestockSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Livestock
+     */
+    omit?: LivestockOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LivestockInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Livestock.
+     */
+    data: XOR<LivestockCreateInput, LivestockUncheckedCreateInput>
+  }
+
+  /**
+   * Livestock createMany
+   */
+  export type LivestockCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Livestocks.
+     */
+    data: LivestockCreateManyInput | LivestockCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Livestock createManyAndReturn
+   */
+  export type LivestockCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Livestock
+     */
+    select?: LivestockSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Livestock
+     */
+    omit?: LivestockOmit<ExtArgs> | null
+    /**
+     * The data used to create many Livestocks.
+     */
+    data: LivestockCreateManyInput | LivestockCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LivestockIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Livestock update
+   */
+  export type LivestockUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Livestock
+     */
+    select?: LivestockSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Livestock
+     */
+    omit?: LivestockOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LivestockInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Livestock.
+     */
+    data: XOR<LivestockUpdateInput, LivestockUncheckedUpdateInput>
+    /**
+     * Choose, which Livestock to update.
+     */
+    where: LivestockWhereUniqueInput
+  }
+
+  /**
+   * Livestock updateMany
+   */
+  export type LivestockUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Livestocks.
+     */
+    data: XOR<LivestockUpdateManyMutationInput, LivestockUncheckedUpdateManyInput>
+    /**
+     * Filter which Livestocks to update
+     */
+    where?: LivestockWhereInput
+    /**
+     * Limit how many Livestocks to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Livestock updateManyAndReturn
+   */
+  export type LivestockUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Livestock
+     */
+    select?: LivestockSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Livestock
+     */
+    omit?: LivestockOmit<ExtArgs> | null
+    /**
+     * The data used to update Livestocks.
+     */
+    data: XOR<LivestockUpdateManyMutationInput, LivestockUncheckedUpdateManyInput>
+    /**
+     * Filter which Livestocks to update
+     */
+    where?: LivestockWhereInput
+    /**
+     * Limit how many Livestocks to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LivestockIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Livestock upsert
+   */
+  export type LivestockUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Livestock
+     */
+    select?: LivestockSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Livestock
+     */
+    omit?: LivestockOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LivestockInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Livestock to update in case it exists.
+     */
+    where: LivestockWhereUniqueInput
+    /**
+     * In case the Livestock found by the `where` argument doesn't exist, create a new Livestock with this data.
+     */
+    create: XOR<LivestockCreateInput, LivestockUncheckedCreateInput>
+    /**
+     * In case the Livestock was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LivestockUpdateInput, LivestockUncheckedUpdateInput>
+  }
+
+  /**
+   * Livestock delete
+   */
+  export type LivestockDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Livestock
+     */
+    select?: LivestockSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Livestock
+     */
+    omit?: LivestockOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LivestockInclude<ExtArgs> | null
+    /**
+     * Filter which Livestock to delete.
+     */
+    where: LivestockWhereUniqueInput
+  }
+
+  /**
+   * Livestock deleteMany
+   */
+  export type LivestockDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Livestocks to delete
+     */
+    where?: LivestockWhereInput
+    /**
+     * Limit how many Livestocks to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Livestock.mammal
+   */
+  export type Livestock$mammalArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mammal
+     */
+    select?: MammalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mammal
+     */
+    omit?: MammalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MammalInclude<ExtArgs> | null
+    where?: MammalWhereInput
+  }
+
+  /**
+   * Livestock.poultry
+   */
+  export type Livestock$poultryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Poultry
+     */
+    select?: PoultrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Poultry
+     */
+    omit?: PoultryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PoultryInclude<ExtArgs> | null
+    where?: PoultryWhereInput
+  }
+
+  /**
+   * Livestock.mortality
+   */
+  export type Livestock$mortalityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mortality
+     */
+    select?: MortalitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mortality
+     */
+    omit?: MortalityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MortalityInclude<ExtArgs> | null
+    where?: MortalityWhereInput
+  }
+
+  /**
+   * Livestock.healthEvent
+   */
+  export type Livestock$healthEventArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthEvent
+     */
+    select?: HealthEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthEvent
+     */
+    omit?: HealthEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthEventInclude<ExtArgs> | null
+    where?: HealthEventWhereInput
+    orderBy?: HealthEventOrderByWithRelationInput | HealthEventOrderByWithRelationInput[]
+    cursor?: HealthEventWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: HealthEventScalarFieldEnum | HealthEventScalarFieldEnum[]
+  }
+
+  /**
+   * Livestock.transfer
+   */
+  export type Livestock$transferArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transfer
+     */
+    select?: TransferSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Transfer
+     */
+    omit?: TransferOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransferInclude<ExtArgs> | null
+    where?: TransferWhereInput
+    orderBy?: TransferOrderByWithRelationInput | TransferOrderByWithRelationInput[]
+    cursor?: TransferWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TransferScalarFieldEnum | TransferScalarFieldEnum[]
+  }
+
+  /**
+   * Livestock.sale
+   */
+  export type Livestock$saleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    where?: SaleWhereInput
+  }
+
+  /**
+   * Livestock.breedingDam
+   */
+  export type Livestock$breedingDamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreedingRecord
+     */
+    select?: BreedingRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreedingRecord
+     */
+    omit?: BreedingRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreedingRecordInclude<ExtArgs> | null
+    where?: BreedingRecordWhereInput
+    orderBy?: BreedingRecordOrderByWithRelationInput | BreedingRecordOrderByWithRelationInput[]
+    cursor?: BreedingRecordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BreedingRecordScalarFieldEnum | BreedingRecordScalarFieldEnum[]
+  }
+
+  /**
+   * Livestock.breedingSire
+   */
+  export type Livestock$breedingSireArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreedingRecord
+     */
+    select?: BreedingRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreedingRecord
+     */
+    omit?: BreedingRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreedingRecordInclude<ExtArgs> | null
+    where?: BreedingRecordWhereInput
+    orderBy?: BreedingRecordOrderByWithRelationInput | BreedingRecordOrderByWithRelationInput[]
+    cursor?: BreedingRecordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BreedingRecordScalarFieldEnum | BreedingRecordScalarFieldEnum[]
+  }
+
+  /**
+   * Livestock.offspring
+   */
+  export type Livestock$offspringArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Offspring
+     */
+    select?: OffspringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Offspring
+     */
+    omit?: OffspringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OffspringInclude<ExtArgs> | null
+    where?: OffspringWhereInput
+    orderBy?: OffspringOrderByWithRelationInput | OffspringOrderByWithRelationInput[]
+    cursor?: OffspringWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OffspringScalarFieldEnum | OffspringScalarFieldEnum[]
+  }
+
+  /**
+   * Livestock without action
+   */
+  export type LivestockDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Livestock
+     */
+    select?: LivestockSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Livestock
+     */
+    omit?: LivestockOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LivestockInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Mammal
+   */
+
+  export type AggregateMammal = {
+    _count: MammalCountAggregateOutputType | null
+    _avg: MammalAvgAggregateOutputType | null
+    _sum: MammalSumAggregateOutputType | null
+    _min: MammalMinAggregateOutputType | null
+    _max: MammalMaxAggregateOutputType | null
+  }
+
+  export type MammalAvgAggregateOutputType = {
+    birthWeight: number | null
+    currentWeight: number | null
+  }
+
+  export type MammalSumAggregateOutputType = {
+    birthWeight: number | null
+    currentWeight: number | null
+  }
+
+  export type MammalMinAggregateOutputType = {
+    id: string | null
+    livestockId: string | null
+    idNumber: string | null
+    breedType: string | null
+    phenotype: string | null
+    dateOfBirth: string | null
+    gender: string | null
+    sireId: string | null
+    sireCode: string | null
+    damId: string | null
+    damCode: string | null
+    birthWeight: number | null
+    currentWeight: number | null
+    lastWeighingDate: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type MammalMaxAggregateOutputType = {
+    id: string | null
+    livestockId: string | null
+    idNumber: string | null
+    breedType: string | null
+    phenotype: string | null
+    dateOfBirth: string | null
+    gender: string | null
+    sireId: string | null
+    sireCode: string | null
+    damId: string | null
+    damCode: string | null
+    birthWeight: number | null
+    currentWeight: number | null
+    lastWeighingDate: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type MammalCountAggregateOutputType = {
+    id: number
+    livestockId: number
+    idNumber: number
+    breedType: number
+    phenotype: number
+    dateOfBirth: number
+    gender: number
+    sireId: number
+    sireCode: number
+    damId: number
+    damCode: number
+    birthWeight: number
+    currentWeight: number
+    lastWeighingDate: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type MammalAvgAggregateInputType = {
+    birthWeight?: true
+    currentWeight?: true
+  }
+
+  export type MammalSumAggregateInputType = {
+    birthWeight?: true
+    currentWeight?: true
+  }
+
+  export type MammalMinAggregateInputType = {
+    id?: true
+    livestockId?: true
+    idNumber?: true
+    breedType?: true
+    phenotype?: true
+    dateOfBirth?: true
+    gender?: true
+    sireId?: true
+    sireCode?: true
+    damId?: true
+    damCode?: true
+    birthWeight?: true
+    currentWeight?: true
+    lastWeighingDate?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type MammalMaxAggregateInputType = {
+    id?: true
+    livestockId?: true
+    idNumber?: true
+    breedType?: true
+    phenotype?: true
+    dateOfBirth?: true
+    gender?: true
+    sireId?: true
+    sireCode?: true
+    damId?: true
+    damCode?: true
+    birthWeight?: true
+    currentWeight?: true
+    lastWeighingDate?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type MammalCountAggregateInputType = {
+    id?: true
+    livestockId?: true
+    idNumber?: true
+    breedType?: true
+    phenotype?: true
+    dateOfBirth?: true
+    gender?: true
+    sireId?: true
+    sireCode?: true
+    damId?: true
+    damCode?: true
+    birthWeight?: true
+    currentWeight?: true
+    lastWeighingDate?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type MammalAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Mammal to aggregate.
+     */
+    where?: MammalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Mammals to fetch.
+     */
+    orderBy?: MammalOrderByWithRelationInput | MammalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MammalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Mammals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Mammals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Mammals
+    **/
+    _count?: true | MammalCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: MammalAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: MammalSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MammalMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MammalMaxAggregateInputType
+  }
+
+  export type GetMammalAggregateType<T extends MammalAggregateArgs> = {
+        [P in keyof T & keyof AggregateMammal]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMammal[P]>
+      : GetScalarType<T[P], AggregateMammal[P]>
+  }
+
+
+
+
+  export type MammalGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MammalWhereInput
+    orderBy?: MammalOrderByWithAggregationInput | MammalOrderByWithAggregationInput[]
+    by: MammalScalarFieldEnum[] | MammalScalarFieldEnum
+    having?: MammalScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MammalCountAggregateInputType | true
+    _avg?: MammalAvgAggregateInputType
+    _sum?: MammalSumAggregateInputType
+    _min?: MammalMinAggregateInputType
+    _max?: MammalMaxAggregateInputType
+  }
+
+  export type MammalGroupByOutputType = {
+    id: string
+    livestockId: string
+    idNumber: string
+    breedType: string
+    phenotype: string | null
+    dateOfBirth: string
+    gender: string
+    sireId: string | null
+    sireCode: string | null
+    damId: string | null
+    damCode: string | null
+    birthWeight: number | null
+    currentWeight: number | null
+    lastWeighingDate: Date | null
+    createdAt: Date
+    updatedAt: Date
+    _count: MammalCountAggregateOutputType | null
+    _avg: MammalAvgAggregateOutputType | null
+    _sum: MammalSumAggregateOutputType | null
+    _min: MammalMinAggregateOutputType | null
+    _max: MammalMaxAggregateOutputType | null
+  }
+
+  type GetMammalGroupByPayload<T extends MammalGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MammalGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MammalGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MammalGroupByOutputType[P]>
+            : GetScalarType<T[P], MammalGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MammalSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    livestockId?: boolean
+    idNumber?: boolean
+    breedType?: boolean
+    phenotype?: boolean
+    dateOfBirth?: boolean
+    gender?: boolean
+    sireId?: boolean
+    sireCode?: boolean
+    damId?: boolean
+    damCode?: boolean
+    birthWeight?: boolean
+    currentWeight?: boolean
+    lastWeighingDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["mammal"]>
+
+  export type MammalSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    livestockId?: boolean
+    idNumber?: boolean
+    breedType?: boolean
+    phenotype?: boolean
+    dateOfBirth?: boolean
+    gender?: boolean
+    sireId?: boolean
+    sireCode?: boolean
+    damId?: boolean
+    damCode?: boolean
+    birthWeight?: boolean
+    currentWeight?: boolean
+    lastWeighingDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["mammal"]>
+
+  export type MammalSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    livestockId?: boolean
+    idNumber?: boolean
+    breedType?: boolean
+    phenotype?: boolean
+    dateOfBirth?: boolean
+    gender?: boolean
+    sireId?: boolean
+    sireCode?: boolean
+    damId?: boolean
+    damCode?: boolean
+    birthWeight?: boolean
+    currentWeight?: boolean
+    lastWeighingDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["mammal"]>
+
+  export type MammalSelectScalar = {
+    id?: boolean
+    livestockId?: boolean
+    idNumber?: boolean
+    breedType?: boolean
+    phenotype?: boolean
+    dateOfBirth?: boolean
+    gender?: boolean
+    sireId?: boolean
+    sireCode?: boolean
+    damId?: boolean
+    damCode?: boolean
+    birthWeight?: boolean
+    currentWeight?: boolean
+    lastWeighingDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type MammalOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "livestockId" | "idNumber" | "breedType" | "phenotype" | "dateOfBirth" | "gender" | "sireId" | "sireCode" | "damId" | "damCode" | "birthWeight" | "currentWeight" | "lastWeighingDate" | "createdAt" | "updatedAt", ExtArgs["result"]["mammal"]>
+  export type MammalInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }
+  export type MammalIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }
+  export type MammalIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }
+
+  export type $MammalPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Mammal"
+    objects: {
+      livestock: Prisma.$LivestockPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      livestockId: string
+      idNumber: string
+      breedType: string
+      phenotype: string | null
+      dateOfBirth: string
+      gender: string
+      sireId: string | null
+      sireCode: string | null
+      damId: string | null
+      damCode: string | null
+      birthWeight: number | null
+      currentWeight: number | null
+      lastWeighingDate: Date | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["mammal"]>
+    composites: {}
+  }
+
+  type MammalGetPayload<S extends boolean | null | undefined | MammalDefaultArgs> = $Result.GetResult<Prisma.$MammalPayload, S>
+
+  type MammalCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MammalFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MammalCountAggregateInputType | true
+    }
+
+  export interface MammalDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Mammal'], meta: { name: 'Mammal' } }
+    /**
+     * Find zero or one Mammal that matches the filter.
+     * @param {MammalFindUniqueArgs} args - Arguments to find a Mammal
+     * @example
+     * // Get one Mammal
+     * const mammal = await prisma.mammal.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MammalFindUniqueArgs>(args: SelectSubset<T, MammalFindUniqueArgs<ExtArgs>>): Prisma__MammalClient<$Result.GetResult<Prisma.$MammalPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Mammal that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MammalFindUniqueOrThrowArgs} args - Arguments to find a Mammal
+     * @example
+     * // Get one Mammal
+     * const mammal = await prisma.mammal.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MammalFindUniqueOrThrowArgs>(args: SelectSubset<T, MammalFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MammalClient<$Result.GetResult<Prisma.$MammalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Mammal that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MammalFindFirstArgs} args - Arguments to find a Mammal
+     * @example
+     * // Get one Mammal
+     * const mammal = await prisma.mammal.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MammalFindFirstArgs>(args?: SelectSubset<T, MammalFindFirstArgs<ExtArgs>>): Prisma__MammalClient<$Result.GetResult<Prisma.$MammalPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Mammal that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MammalFindFirstOrThrowArgs} args - Arguments to find a Mammal
+     * @example
+     * // Get one Mammal
+     * const mammal = await prisma.mammal.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MammalFindFirstOrThrowArgs>(args?: SelectSubset<T, MammalFindFirstOrThrowArgs<ExtArgs>>): Prisma__MammalClient<$Result.GetResult<Prisma.$MammalPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Mammals that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MammalFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Mammals
+     * const mammals = await prisma.mammal.findMany()
+     * 
+     * // Get first 10 Mammals
+     * const mammals = await prisma.mammal.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const mammalWithIdOnly = await prisma.mammal.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MammalFindManyArgs>(args?: SelectSubset<T, MammalFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MammalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Mammal.
+     * @param {MammalCreateArgs} args - Arguments to create a Mammal.
+     * @example
+     * // Create one Mammal
+     * const Mammal = await prisma.mammal.create({
+     *   data: {
+     *     // ... data to create a Mammal
+     *   }
+     * })
+     * 
+     */
+    create<T extends MammalCreateArgs>(args: SelectSubset<T, MammalCreateArgs<ExtArgs>>): Prisma__MammalClient<$Result.GetResult<Prisma.$MammalPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Mammals.
+     * @param {MammalCreateManyArgs} args - Arguments to create many Mammals.
+     * @example
+     * // Create many Mammals
+     * const mammal = await prisma.mammal.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MammalCreateManyArgs>(args?: SelectSubset<T, MammalCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Mammals and returns the data saved in the database.
+     * @param {MammalCreateManyAndReturnArgs} args - Arguments to create many Mammals.
+     * @example
+     * // Create many Mammals
+     * const mammal = await prisma.mammal.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Mammals and only return the `id`
+     * const mammalWithIdOnly = await prisma.mammal.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MammalCreateManyAndReturnArgs>(args?: SelectSubset<T, MammalCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MammalPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Mammal.
+     * @param {MammalDeleteArgs} args - Arguments to delete one Mammal.
+     * @example
+     * // Delete one Mammal
+     * const Mammal = await prisma.mammal.delete({
+     *   where: {
+     *     // ... filter to delete one Mammal
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MammalDeleteArgs>(args: SelectSubset<T, MammalDeleteArgs<ExtArgs>>): Prisma__MammalClient<$Result.GetResult<Prisma.$MammalPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Mammal.
+     * @param {MammalUpdateArgs} args - Arguments to update one Mammal.
+     * @example
+     * // Update one Mammal
+     * const mammal = await prisma.mammal.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MammalUpdateArgs>(args: SelectSubset<T, MammalUpdateArgs<ExtArgs>>): Prisma__MammalClient<$Result.GetResult<Prisma.$MammalPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Mammals.
+     * @param {MammalDeleteManyArgs} args - Arguments to filter Mammals to delete.
+     * @example
+     * // Delete a few Mammals
+     * const { count } = await prisma.mammal.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MammalDeleteManyArgs>(args?: SelectSubset<T, MammalDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Mammals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MammalUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Mammals
+     * const mammal = await prisma.mammal.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MammalUpdateManyArgs>(args: SelectSubset<T, MammalUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Mammals and returns the data updated in the database.
+     * @param {MammalUpdateManyAndReturnArgs} args - Arguments to update many Mammals.
+     * @example
+     * // Update many Mammals
+     * const mammal = await prisma.mammal.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Mammals and only return the `id`
+     * const mammalWithIdOnly = await prisma.mammal.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MammalUpdateManyAndReturnArgs>(args: SelectSubset<T, MammalUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MammalPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Mammal.
+     * @param {MammalUpsertArgs} args - Arguments to update or create a Mammal.
+     * @example
+     * // Update or create a Mammal
+     * const mammal = await prisma.mammal.upsert({
+     *   create: {
+     *     // ... data to create a Mammal
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Mammal we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MammalUpsertArgs>(args: SelectSubset<T, MammalUpsertArgs<ExtArgs>>): Prisma__MammalClient<$Result.GetResult<Prisma.$MammalPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Mammals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MammalCountArgs} args - Arguments to filter Mammals to count.
+     * @example
+     * // Count the number of Mammals
+     * const count = await prisma.mammal.count({
+     *   where: {
+     *     // ... the filter for the Mammals we want to count
+     *   }
+     * })
+    **/
+    count<T extends MammalCountArgs>(
+      args?: Subset<T, MammalCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MammalCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Mammal.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MammalAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MammalAggregateArgs>(args: Subset<T, MammalAggregateArgs>): Prisma.PrismaPromise<GetMammalAggregateType<T>>
+
+    /**
+     * Group by Mammal.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MammalGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MammalGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MammalGroupByArgs['orderBy'] }
+        : { orderBy?: MammalGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MammalGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMammalGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Mammal model
+   */
+  readonly fields: MammalFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Mammal.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MammalClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    livestock<T extends LivestockDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LivestockDefaultArgs<ExtArgs>>): Prisma__LivestockClient<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Mammal model
+   */
+  interface MammalFieldRefs {
+    readonly id: FieldRef<"Mammal", 'String'>
+    readonly livestockId: FieldRef<"Mammal", 'String'>
+    readonly idNumber: FieldRef<"Mammal", 'String'>
+    readonly breedType: FieldRef<"Mammal", 'String'>
+    readonly phenotype: FieldRef<"Mammal", 'String'>
+    readonly dateOfBirth: FieldRef<"Mammal", 'String'>
+    readonly gender: FieldRef<"Mammal", 'String'>
+    readonly sireId: FieldRef<"Mammal", 'String'>
+    readonly sireCode: FieldRef<"Mammal", 'String'>
+    readonly damId: FieldRef<"Mammal", 'String'>
+    readonly damCode: FieldRef<"Mammal", 'String'>
+    readonly birthWeight: FieldRef<"Mammal", 'Float'>
+    readonly currentWeight: FieldRef<"Mammal", 'Float'>
+    readonly lastWeighingDate: FieldRef<"Mammal", 'DateTime'>
+    readonly createdAt: FieldRef<"Mammal", 'DateTime'>
+    readonly updatedAt: FieldRef<"Mammal", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Mammal findUnique
+   */
+  export type MammalFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mammal
+     */
+    select?: MammalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mammal
+     */
+    omit?: MammalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MammalInclude<ExtArgs> | null
+    /**
+     * Filter, which Mammal to fetch.
+     */
+    where: MammalWhereUniqueInput
+  }
+
+  /**
+   * Mammal findUniqueOrThrow
+   */
+  export type MammalFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mammal
+     */
+    select?: MammalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mammal
+     */
+    omit?: MammalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MammalInclude<ExtArgs> | null
+    /**
+     * Filter, which Mammal to fetch.
+     */
+    where: MammalWhereUniqueInput
+  }
+
+  /**
+   * Mammal findFirst
+   */
+  export type MammalFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mammal
+     */
+    select?: MammalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mammal
+     */
+    omit?: MammalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MammalInclude<ExtArgs> | null
+    /**
+     * Filter, which Mammal to fetch.
+     */
+    where?: MammalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Mammals to fetch.
+     */
+    orderBy?: MammalOrderByWithRelationInput | MammalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Mammals.
+     */
+    cursor?: MammalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Mammals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Mammals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Mammals.
+     */
+    distinct?: MammalScalarFieldEnum | MammalScalarFieldEnum[]
+  }
+
+  /**
+   * Mammal findFirstOrThrow
+   */
+  export type MammalFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mammal
+     */
+    select?: MammalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mammal
+     */
+    omit?: MammalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MammalInclude<ExtArgs> | null
+    /**
+     * Filter, which Mammal to fetch.
+     */
+    where?: MammalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Mammals to fetch.
+     */
+    orderBy?: MammalOrderByWithRelationInput | MammalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Mammals.
+     */
+    cursor?: MammalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Mammals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Mammals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Mammals.
+     */
+    distinct?: MammalScalarFieldEnum | MammalScalarFieldEnum[]
+  }
+
+  /**
+   * Mammal findMany
+   */
+  export type MammalFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mammal
+     */
+    select?: MammalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mammal
+     */
+    omit?: MammalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MammalInclude<ExtArgs> | null
+    /**
+     * Filter, which Mammals to fetch.
+     */
+    where?: MammalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Mammals to fetch.
+     */
+    orderBy?: MammalOrderByWithRelationInput | MammalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Mammals.
+     */
+    cursor?: MammalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Mammals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Mammals.
+     */
+    skip?: number
+    distinct?: MammalScalarFieldEnum | MammalScalarFieldEnum[]
+  }
+
+  /**
+   * Mammal create
+   */
+  export type MammalCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mammal
+     */
+    select?: MammalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mammal
+     */
+    omit?: MammalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MammalInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Mammal.
+     */
+    data: XOR<MammalCreateInput, MammalUncheckedCreateInput>
+  }
+
+  /**
+   * Mammal createMany
+   */
+  export type MammalCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Mammals.
+     */
+    data: MammalCreateManyInput | MammalCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Mammal createManyAndReturn
+   */
+  export type MammalCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mammal
+     */
+    select?: MammalSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mammal
+     */
+    omit?: MammalOmit<ExtArgs> | null
+    /**
+     * The data used to create many Mammals.
+     */
+    data: MammalCreateManyInput | MammalCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MammalIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Mammal update
+   */
+  export type MammalUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mammal
+     */
+    select?: MammalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mammal
+     */
+    omit?: MammalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MammalInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Mammal.
+     */
+    data: XOR<MammalUpdateInput, MammalUncheckedUpdateInput>
+    /**
+     * Choose, which Mammal to update.
+     */
+    where: MammalWhereUniqueInput
+  }
+
+  /**
+   * Mammal updateMany
+   */
+  export type MammalUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Mammals.
+     */
+    data: XOR<MammalUpdateManyMutationInput, MammalUncheckedUpdateManyInput>
+    /**
+     * Filter which Mammals to update
+     */
+    where?: MammalWhereInput
+    /**
+     * Limit how many Mammals to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Mammal updateManyAndReturn
+   */
+  export type MammalUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mammal
+     */
+    select?: MammalSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mammal
+     */
+    omit?: MammalOmit<ExtArgs> | null
+    /**
+     * The data used to update Mammals.
+     */
+    data: XOR<MammalUpdateManyMutationInput, MammalUncheckedUpdateManyInput>
+    /**
+     * Filter which Mammals to update
+     */
+    where?: MammalWhereInput
+    /**
+     * Limit how many Mammals to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MammalIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Mammal upsert
+   */
+  export type MammalUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mammal
+     */
+    select?: MammalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mammal
+     */
+    omit?: MammalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MammalInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Mammal to update in case it exists.
+     */
+    where: MammalWhereUniqueInput
+    /**
+     * In case the Mammal found by the `where` argument doesn't exist, create a new Mammal with this data.
+     */
+    create: XOR<MammalCreateInput, MammalUncheckedCreateInput>
+    /**
+     * In case the Mammal was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MammalUpdateInput, MammalUncheckedUpdateInput>
+  }
+
+  /**
+   * Mammal delete
+   */
+  export type MammalDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mammal
+     */
+    select?: MammalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mammal
+     */
+    omit?: MammalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MammalInclude<ExtArgs> | null
+    /**
+     * Filter which Mammal to delete.
+     */
+    where: MammalWhereUniqueInput
+  }
+
+  /**
+   * Mammal deleteMany
+   */
+  export type MammalDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Mammals to delete
+     */
+    where?: MammalWhereInput
+    /**
+     * Limit how many Mammals to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Mammal without action
+   */
+  export type MammalDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mammal
+     */
+    select?: MammalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mammal
+     */
+    omit?: MammalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MammalInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Poultry
+   */
+
+  export type AggregatePoultry = {
+    _count: PoultryCountAggregateOutputType | null
+    _avg: PoultryAvgAggregateOutputType | null
+    _sum: PoultrySumAggregateOutputType | null
+    _min: PoultryMinAggregateOutputType | null
+    _max: PoultryMaxAggregateOutputType | null
+  }
+
+  export type PoultryAvgAggregateOutputType = {
+    initialQuantity: number | null
+    currentQuantity: number | null
+    initialAverageWeight: number | null
+    currentAverageWeight: number | null
+    mortalityRate: number | null
+  }
+
+  export type PoultrySumAggregateOutputType = {
+    initialQuantity: number | null
+    currentQuantity: number | null
+    initialAverageWeight: number | null
+    currentAverageWeight: number | null
+    mortalityRate: number | null
+  }
+
+  export type PoultryMinAggregateOutputType = {
+    id: string | null
+    livestockId: string | null
+    flockId: string | null
+    dateOfStocking: Date | null
+    gender: string | null
+    initialQuantity: number | null
+    currentQuantity: number | null
+    breedType: string | null
+    sourceOfBirds: string | null
+    initialAverageWeight: number | null
+    currentAverageWeight: number | null
+    lastWeighingDate: Date | null
+    mortalityRate: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PoultryMaxAggregateOutputType = {
+    id: string | null
+    livestockId: string | null
+    flockId: string | null
+    dateOfStocking: Date | null
+    gender: string | null
+    initialQuantity: number | null
+    currentQuantity: number | null
+    breedType: string | null
+    sourceOfBirds: string | null
+    initialAverageWeight: number | null
+    currentAverageWeight: number | null
+    lastWeighingDate: Date | null
+    mortalityRate: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PoultryCountAggregateOutputType = {
+    id: number
+    livestockId: number
+    flockId: number
+    dateOfStocking: number
+    gender: number
+    initialQuantity: number
+    currentQuantity: number
+    breedType: number
+    sourceOfBirds: number
+    initialAverageWeight: number
+    currentAverageWeight: number
+    lastWeighingDate: number
+    mortalityRate: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type PoultryAvgAggregateInputType = {
+    initialQuantity?: true
+    currentQuantity?: true
+    initialAverageWeight?: true
+    currentAverageWeight?: true
+    mortalityRate?: true
+  }
+
+  export type PoultrySumAggregateInputType = {
+    initialQuantity?: true
+    currentQuantity?: true
+    initialAverageWeight?: true
+    currentAverageWeight?: true
+    mortalityRate?: true
+  }
+
+  export type PoultryMinAggregateInputType = {
+    id?: true
+    livestockId?: true
+    flockId?: true
+    dateOfStocking?: true
+    gender?: true
+    initialQuantity?: true
+    currentQuantity?: true
+    breedType?: true
+    sourceOfBirds?: true
+    initialAverageWeight?: true
+    currentAverageWeight?: true
+    lastWeighingDate?: true
+    mortalityRate?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PoultryMaxAggregateInputType = {
+    id?: true
+    livestockId?: true
+    flockId?: true
+    dateOfStocking?: true
+    gender?: true
+    initialQuantity?: true
+    currentQuantity?: true
+    breedType?: true
+    sourceOfBirds?: true
+    initialAverageWeight?: true
+    currentAverageWeight?: true
+    lastWeighingDate?: true
+    mortalityRate?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PoultryCountAggregateInputType = {
+    id?: true
+    livestockId?: true
+    flockId?: true
+    dateOfStocking?: true
+    gender?: true
+    initialQuantity?: true
+    currentQuantity?: true
+    breedType?: true
+    sourceOfBirds?: true
+    initialAverageWeight?: true
+    currentAverageWeight?: true
+    lastWeighingDate?: true
+    mortalityRate?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type PoultryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Poultry to aggregate.
+     */
+    where?: PoultryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Poultries to fetch.
+     */
+    orderBy?: PoultryOrderByWithRelationInput | PoultryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PoultryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Poultries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Poultries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Poultries
+    **/
+    _count?: true | PoultryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PoultryAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PoultrySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PoultryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PoultryMaxAggregateInputType
+  }
+
+  export type GetPoultryAggregateType<T extends PoultryAggregateArgs> = {
+        [P in keyof T & keyof AggregatePoultry]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePoultry[P]>
+      : GetScalarType<T[P], AggregatePoultry[P]>
+  }
+
+
+
+
+  export type PoultryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PoultryWhereInput
+    orderBy?: PoultryOrderByWithAggregationInput | PoultryOrderByWithAggregationInput[]
+    by: PoultryScalarFieldEnum[] | PoultryScalarFieldEnum
+    having?: PoultryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PoultryCountAggregateInputType | true
+    _avg?: PoultryAvgAggregateInputType
+    _sum?: PoultrySumAggregateInputType
+    _min?: PoultryMinAggregateInputType
+    _max?: PoultryMaxAggregateInputType
+  }
+
+  export type PoultryGroupByOutputType = {
+    id: string
+    livestockId: string
+    flockId: string
+    dateOfStocking: Date
+    gender: string
+    initialQuantity: number
+    currentQuantity: number
+    breedType: string
+    sourceOfBirds: string
+    initialAverageWeight: number | null
+    currentAverageWeight: number | null
+    lastWeighingDate: Date | null
+    mortalityRate: number | null
+    createdAt: Date
+    updatedAt: Date
+    _count: PoultryCountAggregateOutputType | null
+    _avg: PoultryAvgAggregateOutputType | null
+    _sum: PoultrySumAggregateOutputType | null
+    _min: PoultryMinAggregateOutputType | null
+    _max: PoultryMaxAggregateOutputType | null
+  }
+
+  type GetPoultryGroupByPayload<T extends PoultryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PoultryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PoultryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PoultryGroupByOutputType[P]>
+            : GetScalarType<T[P], PoultryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PoultrySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    livestockId?: boolean
+    flockId?: boolean
+    dateOfStocking?: boolean
+    gender?: boolean
+    initialQuantity?: boolean
+    currentQuantity?: boolean
+    breedType?: boolean
+    sourceOfBirds?: boolean
+    initialAverageWeight?: boolean
+    currentAverageWeight?: boolean
+    lastWeighingDate?: boolean
+    mortalityRate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["poultry"]>
+
+  export type PoultrySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    livestockId?: boolean
+    flockId?: boolean
+    dateOfStocking?: boolean
+    gender?: boolean
+    initialQuantity?: boolean
+    currentQuantity?: boolean
+    breedType?: boolean
+    sourceOfBirds?: boolean
+    initialAverageWeight?: boolean
+    currentAverageWeight?: boolean
+    lastWeighingDate?: boolean
+    mortalityRate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["poultry"]>
+
+  export type PoultrySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    livestockId?: boolean
+    flockId?: boolean
+    dateOfStocking?: boolean
+    gender?: boolean
+    initialQuantity?: boolean
+    currentQuantity?: boolean
+    breedType?: boolean
+    sourceOfBirds?: boolean
+    initialAverageWeight?: boolean
+    currentAverageWeight?: boolean
+    lastWeighingDate?: boolean
+    mortalityRate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["poultry"]>
+
+  export type PoultrySelectScalar = {
+    id?: boolean
+    livestockId?: boolean
+    flockId?: boolean
+    dateOfStocking?: boolean
+    gender?: boolean
+    initialQuantity?: boolean
+    currentQuantity?: boolean
+    breedType?: boolean
+    sourceOfBirds?: boolean
+    initialAverageWeight?: boolean
+    currentAverageWeight?: boolean
+    lastWeighingDate?: boolean
+    mortalityRate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type PoultryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "livestockId" | "flockId" | "dateOfStocking" | "gender" | "initialQuantity" | "currentQuantity" | "breedType" | "sourceOfBirds" | "initialAverageWeight" | "currentAverageWeight" | "lastWeighingDate" | "mortalityRate" | "createdAt" | "updatedAt", ExtArgs["result"]["poultry"]>
+  export type PoultryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }
+  export type PoultryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }
+  export type PoultryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }
+
+  export type $PoultryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Poultry"
+    objects: {
+      livestock: Prisma.$LivestockPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      livestockId: string
+      flockId: string
+      dateOfStocking: Date
+      gender: string
+      initialQuantity: number
+      currentQuantity: number
+      breedType: string
+      sourceOfBirds: string
+      initialAverageWeight: number | null
+      currentAverageWeight: number | null
+      lastWeighingDate: Date | null
+      mortalityRate: number | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["poultry"]>
+    composites: {}
+  }
+
+  type PoultryGetPayload<S extends boolean | null | undefined | PoultryDefaultArgs> = $Result.GetResult<Prisma.$PoultryPayload, S>
+
+  type PoultryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PoultryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PoultryCountAggregateInputType | true
+    }
+
+  export interface PoultryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Poultry'], meta: { name: 'Poultry' } }
+    /**
+     * Find zero or one Poultry that matches the filter.
+     * @param {PoultryFindUniqueArgs} args - Arguments to find a Poultry
+     * @example
+     * // Get one Poultry
+     * const poultry = await prisma.poultry.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PoultryFindUniqueArgs>(args: SelectSubset<T, PoultryFindUniqueArgs<ExtArgs>>): Prisma__PoultryClient<$Result.GetResult<Prisma.$PoultryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Poultry that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PoultryFindUniqueOrThrowArgs} args - Arguments to find a Poultry
+     * @example
+     * // Get one Poultry
+     * const poultry = await prisma.poultry.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PoultryFindUniqueOrThrowArgs>(args: SelectSubset<T, PoultryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PoultryClient<$Result.GetResult<Prisma.$PoultryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Poultry that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PoultryFindFirstArgs} args - Arguments to find a Poultry
+     * @example
+     * // Get one Poultry
+     * const poultry = await prisma.poultry.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PoultryFindFirstArgs>(args?: SelectSubset<T, PoultryFindFirstArgs<ExtArgs>>): Prisma__PoultryClient<$Result.GetResult<Prisma.$PoultryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Poultry that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PoultryFindFirstOrThrowArgs} args - Arguments to find a Poultry
+     * @example
+     * // Get one Poultry
+     * const poultry = await prisma.poultry.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PoultryFindFirstOrThrowArgs>(args?: SelectSubset<T, PoultryFindFirstOrThrowArgs<ExtArgs>>): Prisma__PoultryClient<$Result.GetResult<Prisma.$PoultryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Poultries that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PoultryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Poultries
+     * const poultries = await prisma.poultry.findMany()
+     * 
+     * // Get first 10 Poultries
+     * const poultries = await prisma.poultry.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const poultryWithIdOnly = await prisma.poultry.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PoultryFindManyArgs>(args?: SelectSubset<T, PoultryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PoultryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Poultry.
+     * @param {PoultryCreateArgs} args - Arguments to create a Poultry.
+     * @example
+     * // Create one Poultry
+     * const Poultry = await prisma.poultry.create({
+     *   data: {
+     *     // ... data to create a Poultry
+     *   }
+     * })
+     * 
+     */
+    create<T extends PoultryCreateArgs>(args: SelectSubset<T, PoultryCreateArgs<ExtArgs>>): Prisma__PoultryClient<$Result.GetResult<Prisma.$PoultryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Poultries.
+     * @param {PoultryCreateManyArgs} args - Arguments to create many Poultries.
+     * @example
+     * // Create many Poultries
+     * const poultry = await prisma.poultry.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PoultryCreateManyArgs>(args?: SelectSubset<T, PoultryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Poultries and returns the data saved in the database.
+     * @param {PoultryCreateManyAndReturnArgs} args - Arguments to create many Poultries.
+     * @example
+     * // Create many Poultries
+     * const poultry = await prisma.poultry.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Poultries and only return the `id`
+     * const poultryWithIdOnly = await prisma.poultry.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PoultryCreateManyAndReturnArgs>(args?: SelectSubset<T, PoultryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PoultryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Poultry.
+     * @param {PoultryDeleteArgs} args - Arguments to delete one Poultry.
+     * @example
+     * // Delete one Poultry
+     * const Poultry = await prisma.poultry.delete({
+     *   where: {
+     *     // ... filter to delete one Poultry
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PoultryDeleteArgs>(args: SelectSubset<T, PoultryDeleteArgs<ExtArgs>>): Prisma__PoultryClient<$Result.GetResult<Prisma.$PoultryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Poultry.
+     * @param {PoultryUpdateArgs} args - Arguments to update one Poultry.
+     * @example
+     * // Update one Poultry
+     * const poultry = await prisma.poultry.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PoultryUpdateArgs>(args: SelectSubset<T, PoultryUpdateArgs<ExtArgs>>): Prisma__PoultryClient<$Result.GetResult<Prisma.$PoultryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Poultries.
+     * @param {PoultryDeleteManyArgs} args - Arguments to filter Poultries to delete.
+     * @example
+     * // Delete a few Poultries
+     * const { count } = await prisma.poultry.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PoultryDeleteManyArgs>(args?: SelectSubset<T, PoultryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Poultries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PoultryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Poultries
+     * const poultry = await prisma.poultry.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PoultryUpdateManyArgs>(args: SelectSubset<T, PoultryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Poultries and returns the data updated in the database.
+     * @param {PoultryUpdateManyAndReturnArgs} args - Arguments to update many Poultries.
+     * @example
+     * // Update many Poultries
+     * const poultry = await prisma.poultry.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Poultries and only return the `id`
+     * const poultryWithIdOnly = await prisma.poultry.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PoultryUpdateManyAndReturnArgs>(args: SelectSubset<T, PoultryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PoultryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Poultry.
+     * @param {PoultryUpsertArgs} args - Arguments to update or create a Poultry.
+     * @example
+     * // Update or create a Poultry
+     * const poultry = await prisma.poultry.upsert({
+     *   create: {
+     *     // ... data to create a Poultry
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Poultry we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PoultryUpsertArgs>(args: SelectSubset<T, PoultryUpsertArgs<ExtArgs>>): Prisma__PoultryClient<$Result.GetResult<Prisma.$PoultryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Poultries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PoultryCountArgs} args - Arguments to filter Poultries to count.
+     * @example
+     * // Count the number of Poultries
+     * const count = await prisma.poultry.count({
+     *   where: {
+     *     // ... the filter for the Poultries we want to count
+     *   }
+     * })
+    **/
+    count<T extends PoultryCountArgs>(
+      args?: Subset<T, PoultryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PoultryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Poultry.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PoultryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PoultryAggregateArgs>(args: Subset<T, PoultryAggregateArgs>): Prisma.PrismaPromise<GetPoultryAggregateType<T>>
+
+    /**
+     * Group by Poultry.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PoultryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PoultryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PoultryGroupByArgs['orderBy'] }
+        : { orderBy?: PoultryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PoultryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPoultryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Poultry model
+   */
+  readonly fields: PoultryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Poultry.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PoultryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    livestock<T extends LivestockDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LivestockDefaultArgs<ExtArgs>>): Prisma__LivestockClient<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Poultry model
+   */
+  interface PoultryFieldRefs {
+    readonly id: FieldRef<"Poultry", 'String'>
+    readonly livestockId: FieldRef<"Poultry", 'String'>
+    readonly flockId: FieldRef<"Poultry", 'String'>
+    readonly dateOfStocking: FieldRef<"Poultry", 'DateTime'>
+    readonly gender: FieldRef<"Poultry", 'String'>
+    readonly initialQuantity: FieldRef<"Poultry", 'Int'>
+    readonly currentQuantity: FieldRef<"Poultry", 'Int'>
+    readonly breedType: FieldRef<"Poultry", 'String'>
+    readonly sourceOfBirds: FieldRef<"Poultry", 'String'>
+    readonly initialAverageWeight: FieldRef<"Poultry", 'Float'>
+    readonly currentAverageWeight: FieldRef<"Poultry", 'Float'>
+    readonly lastWeighingDate: FieldRef<"Poultry", 'DateTime'>
+    readonly mortalityRate: FieldRef<"Poultry", 'Float'>
+    readonly createdAt: FieldRef<"Poultry", 'DateTime'>
+    readonly updatedAt: FieldRef<"Poultry", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Poultry findUnique
+   */
+  export type PoultryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Poultry
+     */
+    select?: PoultrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Poultry
+     */
+    omit?: PoultryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PoultryInclude<ExtArgs> | null
+    /**
+     * Filter, which Poultry to fetch.
+     */
+    where: PoultryWhereUniqueInput
+  }
+
+  /**
+   * Poultry findUniqueOrThrow
+   */
+  export type PoultryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Poultry
+     */
+    select?: PoultrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Poultry
+     */
+    omit?: PoultryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PoultryInclude<ExtArgs> | null
+    /**
+     * Filter, which Poultry to fetch.
+     */
+    where: PoultryWhereUniqueInput
+  }
+
+  /**
+   * Poultry findFirst
+   */
+  export type PoultryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Poultry
+     */
+    select?: PoultrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Poultry
+     */
+    omit?: PoultryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PoultryInclude<ExtArgs> | null
+    /**
+     * Filter, which Poultry to fetch.
+     */
+    where?: PoultryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Poultries to fetch.
+     */
+    orderBy?: PoultryOrderByWithRelationInput | PoultryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Poultries.
+     */
+    cursor?: PoultryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Poultries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Poultries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Poultries.
+     */
+    distinct?: PoultryScalarFieldEnum | PoultryScalarFieldEnum[]
+  }
+
+  /**
+   * Poultry findFirstOrThrow
+   */
+  export type PoultryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Poultry
+     */
+    select?: PoultrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Poultry
+     */
+    omit?: PoultryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PoultryInclude<ExtArgs> | null
+    /**
+     * Filter, which Poultry to fetch.
+     */
+    where?: PoultryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Poultries to fetch.
+     */
+    orderBy?: PoultryOrderByWithRelationInput | PoultryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Poultries.
+     */
+    cursor?: PoultryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Poultries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Poultries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Poultries.
+     */
+    distinct?: PoultryScalarFieldEnum | PoultryScalarFieldEnum[]
+  }
+
+  /**
+   * Poultry findMany
+   */
+  export type PoultryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Poultry
+     */
+    select?: PoultrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Poultry
+     */
+    omit?: PoultryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PoultryInclude<ExtArgs> | null
+    /**
+     * Filter, which Poultries to fetch.
+     */
+    where?: PoultryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Poultries to fetch.
+     */
+    orderBy?: PoultryOrderByWithRelationInput | PoultryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Poultries.
+     */
+    cursor?: PoultryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Poultries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Poultries.
+     */
+    skip?: number
+    distinct?: PoultryScalarFieldEnum | PoultryScalarFieldEnum[]
+  }
+
+  /**
+   * Poultry create
+   */
+  export type PoultryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Poultry
+     */
+    select?: PoultrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Poultry
+     */
+    omit?: PoultryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PoultryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Poultry.
+     */
+    data: XOR<PoultryCreateInput, PoultryUncheckedCreateInput>
+  }
+
+  /**
+   * Poultry createMany
+   */
+  export type PoultryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Poultries.
+     */
+    data: PoultryCreateManyInput | PoultryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Poultry createManyAndReturn
+   */
+  export type PoultryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Poultry
+     */
+    select?: PoultrySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Poultry
+     */
+    omit?: PoultryOmit<ExtArgs> | null
+    /**
+     * The data used to create many Poultries.
+     */
+    data: PoultryCreateManyInput | PoultryCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PoultryIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Poultry update
+   */
+  export type PoultryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Poultry
+     */
+    select?: PoultrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Poultry
+     */
+    omit?: PoultryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PoultryInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Poultry.
+     */
+    data: XOR<PoultryUpdateInput, PoultryUncheckedUpdateInput>
+    /**
+     * Choose, which Poultry to update.
+     */
+    where: PoultryWhereUniqueInput
+  }
+
+  /**
+   * Poultry updateMany
+   */
+  export type PoultryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Poultries.
+     */
+    data: XOR<PoultryUpdateManyMutationInput, PoultryUncheckedUpdateManyInput>
+    /**
+     * Filter which Poultries to update
+     */
+    where?: PoultryWhereInput
+    /**
+     * Limit how many Poultries to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Poultry updateManyAndReturn
+   */
+  export type PoultryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Poultry
+     */
+    select?: PoultrySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Poultry
+     */
+    omit?: PoultryOmit<ExtArgs> | null
+    /**
+     * The data used to update Poultries.
+     */
+    data: XOR<PoultryUpdateManyMutationInput, PoultryUncheckedUpdateManyInput>
+    /**
+     * Filter which Poultries to update
+     */
+    where?: PoultryWhereInput
+    /**
+     * Limit how many Poultries to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PoultryIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Poultry upsert
+   */
+  export type PoultryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Poultry
+     */
+    select?: PoultrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Poultry
+     */
+    omit?: PoultryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PoultryInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Poultry to update in case it exists.
+     */
+    where: PoultryWhereUniqueInput
+    /**
+     * In case the Poultry found by the `where` argument doesn't exist, create a new Poultry with this data.
+     */
+    create: XOR<PoultryCreateInput, PoultryUncheckedCreateInput>
+    /**
+     * In case the Poultry was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PoultryUpdateInput, PoultryUncheckedUpdateInput>
+  }
+
+  /**
+   * Poultry delete
+   */
+  export type PoultryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Poultry
+     */
+    select?: PoultrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Poultry
+     */
+    omit?: PoultryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PoultryInclude<ExtArgs> | null
+    /**
+     * Filter which Poultry to delete.
+     */
+    where: PoultryWhereUniqueInput
+  }
+
+  /**
+   * Poultry deleteMany
+   */
+  export type PoultryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Poultries to delete
+     */
+    where?: PoultryWhereInput
+    /**
+     * Limit how many Poultries to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Poultry without action
+   */
+  export type PoultryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Poultry
+     */
+    select?: PoultrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Poultry
+     */
+    omit?: PoultryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PoultryInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Mortality
+   */
+
+  export type AggregateMortality = {
+    _count: MortalityCountAggregateOutputType | null
+    _min: MortalityMinAggregateOutputType | null
+    _max: MortalityMaxAggregateOutputType | null
+  }
+
+  export type MortalityMinAggregateOutputType = {
+    id: string | null
+    livestockId: string | null
+    date: Date | null
+    cause: string | null
+    description: string | null
+    reportedBy: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type MortalityMaxAggregateOutputType = {
+    id: string | null
+    livestockId: string | null
+    date: Date | null
+    cause: string | null
+    description: string | null
+    reportedBy: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type MortalityCountAggregateOutputType = {
+    id: number
+    livestockId: number
+    date: number
+    cause: number
+    description: number
+    reportedBy: number
+    attachments: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type MortalityMinAggregateInputType = {
+    id?: true
+    livestockId?: true
+    date?: true
+    cause?: true
+    description?: true
+    reportedBy?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type MortalityMaxAggregateInputType = {
+    id?: true
+    livestockId?: true
+    date?: true
+    cause?: true
+    description?: true
+    reportedBy?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type MortalityCountAggregateInputType = {
+    id?: true
+    livestockId?: true
+    date?: true
+    cause?: true
+    description?: true
+    reportedBy?: true
+    attachments?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type MortalityAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Mortality to aggregate.
+     */
+    where?: MortalityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Mortalities to fetch.
+     */
+    orderBy?: MortalityOrderByWithRelationInput | MortalityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MortalityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Mortalities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Mortalities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Mortalities
+    **/
+    _count?: true | MortalityCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MortalityMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MortalityMaxAggregateInputType
+  }
+
+  export type GetMortalityAggregateType<T extends MortalityAggregateArgs> = {
+        [P in keyof T & keyof AggregateMortality]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMortality[P]>
+      : GetScalarType<T[P], AggregateMortality[P]>
+  }
+
+
+
+
+  export type MortalityGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MortalityWhereInput
+    orderBy?: MortalityOrderByWithAggregationInput | MortalityOrderByWithAggregationInput[]
+    by: MortalityScalarFieldEnum[] | MortalityScalarFieldEnum
+    having?: MortalityScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MortalityCountAggregateInputType | true
+    _min?: MortalityMinAggregateInputType
+    _max?: MortalityMaxAggregateInputType
+  }
+
+  export type MortalityGroupByOutputType = {
+    id: string
+    livestockId: string
+    date: Date
+    cause: string
+    description: string | null
+    reportedBy: string | null
+    attachments: string[]
+    createdAt: Date
+    updatedAt: Date
+    _count: MortalityCountAggregateOutputType | null
+    _min: MortalityMinAggregateOutputType | null
+    _max: MortalityMaxAggregateOutputType | null
+  }
+
+  type GetMortalityGroupByPayload<T extends MortalityGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MortalityGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MortalityGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MortalityGroupByOutputType[P]>
+            : GetScalarType<T[P], MortalityGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MortalitySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    livestockId?: boolean
+    date?: boolean
+    cause?: boolean
+    description?: boolean
+    reportedBy?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["mortality"]>
+
+  export type MortalitySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    livestockId?: boolean
+    date?: boolean
+    cause?: boolean
+    description?: boolean
+    reportedBy?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["mortality"]>
+
+  export type MortalitySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    livestockId?: boolean
+    date?: boolean
+    cause?: boolean
+    description?: boolean
+    reportedBy?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["mortality"]>
+
+  export type MortalitySelectScalar = {
+    id?: boolean
+    livestockId?: boolean
+    date?: boolean
+    cause?: boolean
+    description?: boolean
+    reportedBy?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type MortalityOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "livestockId" | "date" | "cause" | "description" | "reportedBy" | "attachments" | "createdAt" | "updatedAt", ExtArgs["result"]["mortality"]>
+  export type MortalityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }
+  export type MortalityIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }
+  export type MortalityIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }
+
+  export type $MortalityPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Mortality"
+    objects: {
+      livestock: Prisma.$LivestockPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      livestockId: string
+      date: Date
+      cause: string
+      description: string | null
+      reportedBy: string | null
+      attachments: string[]
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["mortality"]>
+    composites: {}
+  }
+
+  type MortalityGetPayload<S extends boolean | null | undefined | MortalityDefaultArgs> = $Result.GetResult<Prisma.$MortalityPayload, S>
+
+  type MortalityCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MortalityFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MortalityCountAggregateInputType | true
+    }
+
+  export interface MortalityDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Mortality'], meta: { name: 'Mortality' } }
+    /**
+     * Find zero or one Mortality that matches the filter.
+     * @param {MortalityFindUniqueArgs} args - Arguments to find a Mortality
+     * @example
+     * // Get one Mortality
+     * const mortality = await prisma.mortality.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MortalityFindUniqueArgs>(args: SelectSubset<T, MortalityFindUniqueArgs<ExtArgs>>): Prisma__MortalityClient<$Result.GetResult<Prisma.$MortalityPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Mortality that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MortalityFindUniqueOrThrowArgs} args - Arguments to find a Mortality
+     * @example
+     * // Get one Mortality
+     * const mortality = await prisma.mortality.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MortalityFindUniqueOrThrowArgs>(args: SelectSubset<T, MortalityFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MortalityClient<$Result.GetResult<Prisma.$MortalityPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Mortality that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MortalityFindFirstArgs} args - Arguments to find a Mortality
+     * @example
+     * // Get one Mortality
+     * const mortality = await prisma.mortality.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MortalityFindFirstArgs>(args?: SelectSubset<T, MortalityFindFirstArgs<ExtArgs>>): Prisma__MortalityClient<$Result.GetResult<Prisma.$MortalityPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Mortality that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MortalityFindFirstOrThrowArgs} args - Arguments to find a Mortality
+     * @example
+     * // Get one Mortality
+     * const mortality = await prisma.mortality.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MortalityFindFirstOrThrowArgs>(args?: SelectSubset<T, MortalityFindFirstOrThrowArgs<ExtArgs>>): Prisma__MortalityClient<$Result.GetResult<Prisma.$MortalityPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Mortalities that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MortalityFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Mortalities
+     * const mortalities = await prisma.mortality.findMany()
+     * 
+     * // Get first 10 Mortalities
+     * const mortalities = await prisma.mortality.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const mortalityWithIdOnly = await prisma.mortality.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MortalityFindManyArgs>(args?: SelectSubset<T, MortalityFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MortalityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Mortality.
+     * @param {MortalityCreateArgs} args - Arguments to create a Mortality.
+     * @example
+     * // Create one Mortality
+     * const Mortality = await prisma.mortality.create({
+     *   data: {
+     *     // ... data to create a Mortality
+     *   }
+     * })
+     * 
+     */
+    create<T extends MortalityCreateArgs>(args: SelectSubset<T, MortalityCreateArgs<ExtArgs>>): Prisma__MortalityClient<$Result.GetResult<Prisma.$MortalityPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Mortalities.
+     * @param {MortalityCreateManyArgs} args - Arguments to create many Mortalities.
+     * @example
+     * // Create many Mortalities
+     * const mortality = await prisma.mortality.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MortalityCreateManyArgs>(args?: SelectSubset<T, MortalityCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Mortalities and returns the data saved in the database.
+     * @param {MortalityCreateManyAndReturnArgs} args - Arguments to create many Mortalities.
+     * @example
+     * // Create many Mortalities
+     * const mortality = await prisma.mortality.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Mortalities and only return the `id`
+     * const mortalityWithIdOnly = await prisma.mortality.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MortalityCreateManyAndReturnArgs>(args?: SelectSubset<T, MortalityCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MortalityPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Mortality.
+     * @param {MortalityDeleteArgs} args - Arguments to delete one Mortality.
+     * @example
+     * // Delete one Mortality
+     * const Mortality = await prisma.mortality.delete({
+     *   where: {
+     *     // ... filter to delete one Mortality
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MortalityDeleteArgs>(args: SelectSubset<T, MortalityDeleteArgs<ExtArgs>>): Prisma__MortalityClient<$Result.GetResult<Prisma.$MortalityPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Mortality.
+     * @param {MortalityUpdateArgs} args - Arguments to update one Mortality.
+     * @example
+     * // Update one Mortality
+     * const mortality = await prisma.mortality.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MortalityUpdateArgs>(args: SelectSubset<T, MortalityUpdateArgs<ExtArgs>>): Prisma__MortalityClient<$Result.GetResult<Prisma.$MortalityPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Mortalities.
+     * @param {MortalityDeleteManyArgs} args - Arguments to filter Mortalities to delete.
+     * @example
+     * // Delete a few Mortalities
+     * const { count } = await prisma.mortality.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MortalityDeleteManyArgs>(args?: SelectSubset<T, MortalityDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Mortalities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MortalityUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Mortalities
+     * const mortality = await prisma.mortality.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MortalityUpdateManyArgs>(args: SelectSubset<T, MortalityUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Mortalities and returns the data updated in the database.
+     * @param {MortalityUpdateManyAndReturnArgs} args - Arguments to update many Mortalities.
+     * @example
+     * // Update many Mortalities
+     * const mortality = await prisma.mortality.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Mortalities and only return the `id`
+     * const mortalityWithIdOnly = await prisma.mortality.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MortalityUpdateManyAndReturnArgs>(args: SelectSubset<T, MortalityUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MortalityPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Mortality.
+     * @param {MortalityUpsertArgs} args - Arguments to update or create a Mortality.
+     * @example
+     * // Update or create a Mortality
+     * const mortality = await prisma.mortality.upsert({
+     *   create: {
+     *     // ... data to create a Mortality
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Mortality we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MortalityUpsertArgs>(args: SelectSubset<T, MortalityUpsertArgs<ExtArgs>>): Prisma__MortalityClient<$Result.GetResult<Prisma.$MortalityPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Mortalities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MortalityCountArgs} args - Arguments to filter Mortalities to count.
+     * @example
+     * // Count the number of Mortalities
+     * const count = await prisma.mortality.count({
+     *   where: {
+     *     // ... the filter for the Mortalities we want to count
+     *   }
+     * })
+    **/
+    count<T extends MortalityCountArgs>(
+      args?: Subset<T, MortalityCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MortalityCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Mortality.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MortalityAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MortalityAggregateArgs>(args: Subset<T, MortalityAggregateArgs>): Prisma.PrismaPromise<GetMortalityAggregateType<T>>
+
+    /**
+     * Group by Mortality.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MortalityGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MortalityGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MortalityGroupByArgs['orderBy'] }
+        : { orderBy?: MortalityGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MortalityGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMortalityGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Mortality model
+   */
+  readonly fields: MortalityFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Mortality.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MortalityClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    livestock<T extends LivestockDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LivestockDefaultArgs<ExtArgs>>): Prisma__LivestockClient<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Mortality model
+   */
+  interface MortalityFieldRefs {
+    readonly id: FieldRef<"Mortality", 'String'>
+    readonly livestockId: FieldRef<"Mortality", 'String'>
+    readonly date: FieldRef<"Mortality", 'DateTime'>
+    readonly cause: FieldRef<"Mortality", 'String'>
+    readonly description: FieldRef<"Mortality", 'String'>
+    readonly reportedBy: FieldRef<"Mortality", 'String'>
+    readonly attachments: FieldRef<"Mortality", 'String[]'>
+    readonly createdAt: FieldRef<"Mortality", 'DateTime'>
+    readonly updatedAt: FieldRef<"Mortality", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Mortality findUnique
+   */
+  export type MortalityFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mortality
+     */
+    select?: MortalitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mortality
+     */
+    omit?: MortalityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MortalityInclude<ExtArgs> | null
+    /**
+     * Filter, which Mortality to fetch.
+     */
+    where: MortalityWhereUniqueInput
+  }
+
+  /**
+   * Mortality findUniqueOrThrow
+   */
+  export type MortalityFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mortality
+     */
+    select?: MortalitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mortality
+     */
+    omit?: MortalityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MortalityInclude<ExtArgs> | null
+    /**
+     * Filter, which Mortality to fetch.
+     */
+    where: MortalityWhereUniqueInput
+  }
+
+  /**
+   * Mortality findFirst
+   */
+  export type MortalityFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mortality
+     */
+    select?: MortalitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mortality
+     */
+    omit?: MortalityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MortalityInclude<ExtArgs> | null
+    /**
+     * Filter, which Mortality to fetch.
+     */
+    where?: MortalityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Mortalities to fetch.
+     */
+    orderBy?: MortalityOrderByWithRelationInput | MortalityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Mortalities.
+     */
+    cursor?: MortalityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Mortalities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Mortalities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Mortalities.
+     */
+    distinct?: MortalityScalarFieldEnum | MortalityScalarFieldEnum[]
+  }
+
+  /**
+   * Mortality findFirstOrThrow
+   */
+  export type MortalityFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mortality
+     */
+    select?: MortalitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mortality
+     */
+    omit?: MortalityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MortalityInclude<ExtArgs> | null
+    /**
+     * Filter, which Mortality to fetch.
+     */
+    where?: MortalityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Mortalities to fetch.
+     */
+    orderBy?: MortalityOrderByWithRelationInput | MortalityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Mortalities.
+     */
+    cursor?: MortalityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Mortalities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Mortalities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Mortalities.
+     */
+    distinct?: MortalityScalarFieldEnum | MortalityScalarFieldEnum[]
+  }
+
+  /**
+   * Mortality findMany
+   */
+  export type MortalityFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mortality
+     */
+    select?: MortalitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mortality
+     */
+    omit?: MortalityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MortalityInclude<ExtArgs> | null
+    /**
+     * Filter, which Mortalities to fetch.
+     */
+    where?: MortalityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Mortalities to fetch.
+     */
+    orderBy?: MortalityOrderByWithRelationInput | MortalityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Mortalities.
+     */
+    cursor?: MortalityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Mortalities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Mortalities.
+     */
+    skip?: number
+    distinct?: MortalityScalarFieldEnum | MortalityScalarFieldEnum[]
+  }
+
+  /**
+   * Mortality create
+   */
+  export type MortalityCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mortality
+     */
+    select?: MortalitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mortality
+     */
+    omit?: MortalityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MortalityInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Mortality.
+     */
+    data: XOR<MortalityCreateInput, MortalityUncheckedCreateInput>
+  }
+
+  /**
+   * Mortality createMany
+   */
+  export type MortalityCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Mortalities.
+     */
+    data: MortalityCreateManyInput | MortalityCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Mortality createManyAndReturn
+   */
+  export type MortalityCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mortality
+     */
+    select?: MortalitySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mortality
+     */
+    omit?: MortalityOmit<ExtArgs> | null
+    /**
+     * The data used to create many Mortalities.
+     */
+    data: MortalityCreateManyInput | MortalityCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MortalityIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Mortality update
+   */
+  export type MortalityUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mortality
+     */
+    select?: MortalitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mortality
+     */
+    omit?: MortalityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MortalityInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Mortality.
+     */
+    data: XOR<MortalityUpdateInput, MortalityUncheckedUpdateInput>
+    /**
+     * Choose, which Mortality to update.
+     */
+    where: MortalityWhereUniqueInput
+  }
+
+  /**
+   * Mortality updateMany
+   */
+  export type MortalityUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Mortalities.
+     */
+    data: XOR<MortalityUpdateManyMutationInput, MortalityUncheckedUpdateManyInput>
+    /**
+     * Filter which Mortalities to update
+     */
+    where?: MortalityWhereInput
+    /**
+     * Limit how many Mortalities to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Mortality updateManyAndReturn
+   */
+  export type MortalityUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mortality
+     */
+    select?: MortalitySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mortality
+     */
+    omit?: MortalityOmit<ExtArgs> | null
+    /**
+     * The data used to update Mortalities.
+     */
+    data: XOR<MortalityUpdateManyMutationInput, MortalityUncheckedUpdateManyInput>
+    /**
+     * Filter which Mortalities to update
+     */
+    where?: MortalityWhereInput
+    /**
+     * Limit how many Mortalities to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MortalityIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Mortality upsert
+   */
+  export type MortalityUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mortality
+     */
+    select?: MortalitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mortality
+     */
+    omit?: MortalityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MortalityInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Mortality to update in case it exists.
+     */
+    where: MortalityWhereUniqueInput
+    /**
+     * In case the Mortality found by the `where` argument doesn't exist, create a new Mortality with this data.
+     */
+    create: XOR<MortalityCreateInput, MortalityUncheckedCreateInput>
+    /**
+     * In case the Mortality was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MortalityUpdateInput, MortalityUncheckedUpdateInput>
+  }
+
+  /**
+   * Mortality delete
+   */
+  export type MortalityDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mortality
+     */
+    select?: MortalitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mortality
+     */
+    omit?: MortalityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MortalityInclude<ExtArgs> | null
+    /**
+     * Filter which Mortality to delete.
+     */
+    where: MortalityWhereUniqueInput
+  }
+
+  /**
+   * Mortality deleteMany
+   */
+  export type MortalityDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Mortalities to delete
+     */
+    where?: MortalityWhereInput
+    /**
+     * Limit how many Mortalities to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Mortality without action
+   */
+  export type MortalityDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mortality
+     */
+    select?: MortalitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mortality
+     */
+    omit?: MortalityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MortalityInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model HealthEvent
+   */
+
+  export type AggregateHealthEvent = {
+    _count: HealthEventCountAggregateOutputType | null
+    _avg: HealthEventAvgAggregateOutputType | null
+    _sum: HealthEventSumAggregateOutputType | null
+    _min: HealthEventMinAggregateOutputType | null
+    _max: HealthEventMaxAggregateOutputType | null
+  }
+
+  export type HealthEventAvgAggregateOutputType = {
+    cost: number | null
+  }
+
+  export type HealthEventSumAggregateOutputType = {
+    cost: number | null
+  }
+
+  export type HealthEventMinAggregateOutputType = {
+    id: string | null
+    livestockId: string | null
+    eventType: string | null
+    date: Date | null
+    description: string | null
+    performedBy: string | null
+    dosage: string | null
+    cost: number | null
+    nextScheduled: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type HealthEventMaxAggregateOutputType = {
+    id: string | null
+    livestockId: string | null
+    eventType: string | null
+    date: Date | null
+    description: string | null
+    performedBy: string | null
+    dosage: string | null
+    cost: number | null
+    nextScheduled: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type HealthEventCountAggregateOutputType = {
+    id: number
+    livestockId: number
+    eventType: number
+    date: number
+    description: number
+    performedBy: number
+    medications: number
+    dosage: number
+    cost: number
+    nextScheduled: number
+    attachments: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type HealthEventAvgAggregateInputType = {
+    cost?: true
+  }
+
+  export type HealthEventSumAggregateInputType = {
+    cost?: true
+  }
+
+  export type HealthEventMinAggregateInputType = {
+    id?: true
+    livestockId?: true
+    eventType?: true
+    date?: true
+    description?: true
+    performedBy?: true
+    dosage?: true
+    cost?: true
+    nextScheduled?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type HealthEventMaxAggregateInputType = {
+    id?: true
+    livestockId?: true
+    eventType?: true
+    date?: true
+    description?: true
+    performedBy?: true
+    dosage?: true
+    cost?: true
+    nextScheduled?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type HealthEventCountAggregateInputType = {
+    id?: true
+    livestockId?: true
+    eventType?: true
+    date?: true
+    description?: true
+    performedBy?: true
+    medications?: true
+    dosage?: true
+    cost?: true
+    nextScheduled?: true
+    attachments?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type HealthEventAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which HealthEvent to aggregate.
+     */
+    where?: HealthEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HealthEvents to fetch.
+     */
+    orderBy?: HealthEventOrderByWithRelationInput | HealthEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: HealthEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HealthEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HealthEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned HealthEvents
+    **/
+    _count?: true | HealthEventCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: HealthEventAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: HealthEventSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: HealthEventMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: HealthEventMaxAggregateInputType
+  }
+
+  export type GetHealthEventAggregateType<T extends HealthEventAggregateArgs> = {
+        [P in keyof T & keyof AggregateHealthEvent]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateHealthEvent[P]>
+      : GetScalarType<T[P], AggregateHealthEvent[P]>
+  }
+
+
+
+
+  export type HealthEventGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HealthEventWhereInput
+    orderBy?: HealthEventOrderByWithAggregationInput | HealthEventOrderByWithAggregationInput[]
+    by: HealthEventScalarFieldEnum[] | HealthEventScalarFieldEnum
+    having?: HealthEventScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: HealthEventCountAggregateInputType | true
+    _avg?: HealthEventAvgAggregateInputType
+    _sum?: HealthEventSumAggregateInputType
+    _min?: HealthEventMinAggregateInputType
+    _max?: HealthEventMaxAggregateInputType
+  }
+
+  export type HealthEventGroupByOutputType = {
+    id: string
+    livestockId: string
+    eventType: string
+    date: Date
+    description: string
+    performedBy: string | null
+    medications: string[]
+    dosage: string | null
+    cost: number | null
+    nextScheduled: Date | null
+    attachments: string[]
+    createdAt: Date
+    updatedAt: Date
+    _count: HealthEventCountAggregateOutputType | null
+    _avg: HealthEventAvgAggregateOutputType | null
+    _sum: HealthEventSumAggregateOutputType | null
+    _min: HealthEventMinAggregateOutputType | null
+    _max: HealthEventMaxAggregateOutputType | null
+  }
+
+  type GetHealthEventGroupByPayload<T extends HealthEventGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<HealthEventGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof HealthEventGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], HealthEventGroupByOutputType[P]>
+            : GetScalarType<T[P], HealthEventGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type HealthEventSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    livestockId?: boolean
+    eventType?: boolean
+    date?: boolean
+    description?: boolean
+    performedBy?: boolean
+    medications?: boolean
+    dosage?: boolean
+    cost?: boolean
+    nextScheduled?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["healthEvent"]>
+
+  export type HealthEventSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    livestockId?: boolean
+    eventType?: boolean
+    date?: boolean
+    description?: boolean
+    performedBy?: boolean
+    medications?: boolean
+    dosage?: boolean
+    cost?: boolean
+    nextScheduled?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["healthEvent"]>
+
+  export type HealthEventSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    livestockId?: boolean
+    eventType?: boolean
+    date?: boolean
+    description?: boolean
+    performedBy?: boolean
+    medications?: boolean
+    dosage?: boolean
+    cost?: boolean
+    nextScheduled?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["healthEvent"]>
+
+  export type HealthEventSelectScalar = {
+    id?: boolean
+    livestockId?: boolean
+    eventType?: boolean
+    date?: boolean
+    description?: boolean
+    performedBy?: boolean
+    medications?: boolean
+    dosage?: boolean
+    cost?: boolean
+    nextScheduled?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type HealthEventOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "livestockId" | "eventType" | "date" | "description" | "performedBy" | "medications" | "dosage" | "cost" | "nextScheduled" | "attachments" | "createdAt" | "updatedAt", ExtArgs["result"]["healthEvent"]>
+  export type HealthEventInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }
+  export type HealthEventIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }
+  export type HealthEventIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }
+
+  export type $HealthEventPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "HealthEvent"
+    objects: {
+      livestock: Prisma.$LivestockPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      livestockId: string
+      eventType: string
+      date: Date
+      description: string
+      performedBy: string | null
+      medications: string[]
+      dosage: string | null
+      cost: number | null
+      nextScheduled: Date | null
+      attachments: string[]
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["healthEvent"]>
+    composites: {}
+  }
+
+  type HealthEventGetPayload<S extends boolean | null | undefined | HealthEventDefaultArgs> = $Result.GetResult<Prisma.$HealthEventPayload, S>
+
+  type HealthEventCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<HealthEventFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: HealthEventCountAggregateInputType | true
+    }
+
+  export interface HealthEventDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['HealthEvent'], meta: { name: 'HealthEvent' } }
+    /**
+     * Find zero or one HealthEvent that matches the filter.
+     * @param {HealthEventFindUniqueArgs} args - Arguments to find a HealthEvent
+     * @example
+     * // Get one HealthEvent
+     * const healthEvent = await prisma.healthEvent.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends HealthEventFindUniqueArgs>(args: SelectSubset<T, HealthEventFindUniqueArgs<ExtArgs>>): Prisma__HealthEventClient<$Result.GetResult<Prisma.$HealthEventPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one HealthEvent that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {HealthEventFindUniqueOrThrowArgs} args - Arguments to find a HealthEvent
+     * @example
+     * // Get one HealthEvent
+     * const healthEvent = await prisma.healthEvent.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends HealthEventFindUniqueOrThrowArgs>(args: SelectSubset<T, HealthEventFindUniqueOrThrowArgs<ExtArgs>>): Prisma__HealthEventClient<$Result.GetResult<Prisma.$HealthEventPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first HealthEvent that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HealthEventFindFirstArgs} args - Arguments to find a HealthEvent
+     * @example
+     * // Get one HealthEvent
+     * const healthEvent = await prisma.healthEvent.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends HealthEventFindFirstArgs>(args?: SelectSubset<T, HealthEventFindFirstArgs<ExtArgs>>): Prisma__HealthEventClient<$Result.GetResult<Prisma.$HealthEventPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first HealthEvent that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HealthEventFindFirstOrThrowArgs} args - Arguments to find a HealthEvent
+     * @example
+     * // Get one HealthEvent
+     * const healthEvent = await prisma.healthEvent.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends HealthEventFindFirstOrThrowArgs>(args?: SelectSubset<T, HealthEventFindFirstOrThrowArgs<ExtArgs>>): Prisma__HealthEventClient<$Result.GetResult<Prisma.$HealthEventPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more HealthEvents that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HealthEventFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all HealthEvents
+     * const healthEvents = await prisma.healthEvent.findMany()
+     * 
+     * // Get first 10 HealthEvents
+     * const healthEvents = await prisma.healthEvent.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const healthEventWithIdOnly = await prisma.healthEvent.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends HealthEventFindManyArgs>(args?: SelectSubset<T, HealthEventFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HealthEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a HealthEvent.
+     * @param {HealthEventCreateArgs} args - Arguments to create a HealthEvent.
+     * @example
+     * // Create one HealthEvent
+     * const HealthEvent = await prisma.healthEvent.create({
+     *   data: {
+     *     // ... data to create a HealthEvent
+     *   }
+     * })
+     * 
+     */
+    create<T extends HealthEventCreateArgs>(args: SelectSubset<T, HealthEventCreateArgs<ExtArgs>>): Prisma__HealthEventClient<$Result.GetResult<Prisma.$HealthEventPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many HealthEvents.
+     * @param {HealthEventCreateManyArgs} args - Arguments to create many HealthEvents.
+     * @example
+     * // Create many HealthEvents
+     * const healthEvent = await prisma.healthEvent.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends HealthEventCreateManyArgs>(args?: SelectSubset<T, HealthEventCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many HealthEvents and returns the data saved in the database.
+     * @param {HealthEventCreateManyAndReturnArgs} args - Arguments to create many HealthEvents.
+     * @example
+     * // Create many HealthEvents
+     * const healthEvent = await prisma.healthEvent.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many HealthEvents and only return the `id`
+     * const healthEventWithIdOnly = await prisma.healthEvent.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends HealthEventCreateManyAndReturnArgs>(args?: SelectSubset<T, HealthEventCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HealthEventPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a HealthEvent.
+     * @param {HealthEventDeleteArgs} args - Arguments to delete one HealthEvent.
+     * @example
+     * // Delete one HealthEvent
+     * const HealthEvent = await prisma.healthEvent.delete({
+     *   where: {
+     *     // ... filter to delete one HealthEvent
+     *   }
+     * })
+     * 
+     */
+    delete<T extends HealthEventDeleteArgs>(args: SelectSubset<T, HealthEventDeleteArgs<ExtArgs>>): Prisma__HealthEventClient<$Result.GetResult<Prisma.$HealthEventPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one HealthEvent.
+     * @param {HealthEventUpdateArgs} args - Arguments to update one HealthEvent.
+     * @example
+     * // Update one HealthEvent
+     * const healthEvent = await prisma.healthEvent.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends HealthEventUpdateArgs>(args: SelectSubset<T, HealthEventUpdateArgs<ExtArgs>>): Prisma__HealthEventClient<$Result.GetResult<Prisma.$HealthEventPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more HealthEvents.
+     * @param {HealthEventDeleteManyArgs} args - Arguments to filter HealthEvents to delete.
+     * @example
+     * // Delete a few HealthEvents
+     * const { count } = await prisma.healthEvent.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends HealthEventDeleteManyArgs>(args?: SelectSubset<T, HealthEventDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more HealthEvents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HealthEventUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many HealthEvents
+     * const healthEvent = await prisma.healthEvent.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends HealthEventUpdateManyArgs>(args: SelectSubset<T, HealthEventUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more HealthEvents and returns the data updated in the database.
+     * @param {HealthEventUpdateManyAndReturnArgs} args - Arguments to update many HealthEvents.
+     * @example
+     * // Update many HealthEvents
+     * const healthEvent = await prisma.healthEvent.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more HealthEvents and only return the `id`
+     * const healthEventWithIdOnly = await prisma.healthEvent.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends HealthEventUpdateManyAndReturnArgs>(args: SelectSubset<T, HealthEventUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HealthEventPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one HealthEvent.
+     * @param {HealthEventUpsertArgs} args - Arguments to update or create a HealthEvent.
+     * @example
+     * // Update or create a HealthEvent
+     * const healthEvent = await prisma.healthEvent.upsert({
+     *   create: {
+     *     // ... data to create a HealthEvent
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the HealthEvent we want to update
+     *   }
+     * })
+     */
+    upsert<T extends HealthEventUpsertArgs>(args: SelectSubset<T, HealthEventUpsertArgs<ExtArgs>>): Prisma__HealthEventClient<$Result.GetResult<Prisma.$HealthEventPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of HealthEvents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HealthEventCountArgs} args - Arguments to filter HealthEvents to count.
+     * @example
+     * // Count the number of HealthEvents
+     * const count = await prisma.healthEvent.count({
+     *   where: {
+     *     // ... the filter for the HealthEvents we want to count
+     *   }
+     * })
+    **/
+    count<T extends HealthEventCountArgs>(
+      args?: Subset<T, HealthEventCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], HealthEventCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a HealthEvent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HealthEventAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends HealthEventAggregateArgs>(args: Subset<T, HealthEventAggregateArgs>): Prisma.PrismaPromise<GetHealthEventAggregateType<T>>
+
+    /**
+     * Group by HealthEvent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HealthEventGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends HealthEventGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: HealthEventGroupByArgs['orderBy'] }
+        : { orderBy?: HealthEventGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, HealthEventGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetHealthEventGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the HealthEvent model
+   */
+  readonly fields: HealthEventFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for HealthEvent.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__HealthEventClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    livestock<T extends LivestockDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LivestockDefaultArgs<ExtArgs>>): Prisma__LivestockClient<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the HealthEvent model
+   */
+  interface HealthEventFieldRefs {
+    readonly id: FieldRef<"HealthEvent", 'String'>
+    readonly livestockId: FieldRef<"HealthEvent", 'String'>
+    readonly eventType: FieldRef<"HealthEvent", 'String'>
+    readonly date: FieldRef<"HealthEvent", 'DateTime'>
+    readonly description: FieldRef<"HealthEvent", 'String'>
+    readonly performedBy: FieldRef<"HealthEvent", 'String'>
+    readonly medications: FieldRef<"HealthEvent", 'String[]'>
+    readonly dosage: FieldRef<"HealthEvent", 'String'>
+    readonly cost: FieldRef<"HealthEvent", 'Float'>
+    readonly nextScheduled: FieldRef<"HealthEvent", 'DateTime'>
+    readonly attachments: FieldRef<"HealthEvent", 'String[]'>
+    readonly createdAt: FieldRef<"HealthEvent", 'DateTime'>
+    readonly updatedAt: FieldRef<"HealthEvent", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * HealthEvent findUnique
+   */
+  export type HealthEventFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthEvent
+     */
+    select?: HealthEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthEvent
+     */
+    omit?: HealthEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthEventInclude<ExtArgs> | null
+    /**
+     * Filter, which HealthEvent to fetch.
+     */
+    where: HealthEventWhereUniqueInput
+  }
+
+  /**
+   * HealthEvent findUniqueOrThrow
+   */
+  export type HealthEventFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthEvent
+     */
+    select?: HealthEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthEvent
+     */
+    omit?: HealthEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthEventInclude<ExtArgs> | null
+    /**
+     * Filter, which HealthEvent to fetch.
+     */
+    where: HealthEventWhereUniqueInput
+  }
+
+  /**
+   * HealthEvent findFirst
+   */
+  export type HealthEventFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthEvent
+     */
+    select?: HealthEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthEvent
+     */
+    omit?: HealthEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthEventInclude<ExtArgs> | null
+    /**
+     * Filter, which HealthEvent to fetch.
+     */
+    where?: HealthEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HealthEvents to fetch.
+     */
+    orderBy?: HealthEventOrderByWithRelationInput | HealthEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for HealthEvents.
+     */
+    cursor?: HealthEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HealthEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HealthEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of HealthEvents.
+     */
+    distinct?: HealthEventScalarFieldEnum | HealthEventScalarFieldEnum[]
+  }
+
+  /**
+   * HealthEvent findFirstOrThrow
+   */
+  export type HealthEventFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthEvent
+     */
+    select?: HealthEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthEvent
+     */
+    omit?: HealthEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthEventInclude<ExtArgs> | null
+    /**
+     * Filter, which HealthEvent to fetch.
+     */
+    where?: HealthEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HealthEvents to fetch.
+     */
+    orderBy?: HealthEventOrderByWithRelationInput | HealthEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for HealthEvents.
+     */
+    cursor?: HealthEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HealthEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HealthEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of HealthEvents.
+     */
+    distinct?: HealthEventScalarFieldEnum | HealthEventScalarFieldEnum[]
+  }
+
+  /**
+   * HealthEvent findMany
+   */
+  export type HealthEventFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthEvent
+     */
+    select?: HealthEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthEvent
+     */
+    omit?: HealthEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthEventInclude<ExtArgs> | null
+    /**
+     * Filter, which HealthEvents to fetch.
+     */
+    where?: HealthEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HealthEvents to fetch.
+     */
+    orderBy?: HealthEventOrderByWithRelationInput | HealthEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing HealthEvents.
+     */
+    cursor?: HealthEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HealthEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HealthEvents.
+     */
+    skip?: number
+    distinct?: HealthEventScalarFieldEnum | HealthEventScalarFieldEnum[]
+  }
+
+  /**
+   * HealthEvent create
+   */
+  export type HealthEventCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthEvent
+     */
+    select?: HealthEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthEvent
+     */
+    omit?: HealthEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthEventInclude<ExtArgs> | null
+    /**
+     * The data needed to create a HealthEvent.
+     */
+    data: XOR<HealthEventCreateInput, HealthEventUncheckedCreateInput>
+  }
+
+  /**
+   * HealthEvent createMany
+   */
+  export type HealthEventCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many HealthEvents.
+     */
+    data: HealthEventCreateManyInput | HealthEventCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * HealthEvent createManyAndReturn
+   */
+  export type HealthEventCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthEvent
+     */
+    select?: HealthEventSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthEvent
+     */
+    omit?: HealthEventOmit<ExtArgs> | null
+    /**
+     * The data used to create many HealthEvents.
+     */
+    data: HealthEventCreateManyInput | HealthEventCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthEventIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * HealthEvent update
+   */
+  export type HealthEventUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthEvent
+     */
+    select?: HealthEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthEvent
+     */
+    omit?: HealthEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthEventInclude<ExtArgs> | null
+    /**
+     * The data needed to update a HealthEvent.
+     */
+    data: XOR<HealthEventUpdateInput, HealthEventUncheckedUpdateInput>
+    /**
+     * Choose, which HealthEvent to update.
+     */
+    where: HealthEventWhereUniqueInput
+  }
+
+  /**
+   * HealthEvent updateMany
+   */
+  export type HealthEventUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update HealthEvents.
+     */
+    data: XOR<HealthEventUpdateManyMutationInput, HealthEventUncheckedUpdateManyInput>
+    /**
+     * Filter which HealthEvents to update
+     */
+    where?: HealthEventWhereInput
+    /**
+     * Limit how many HealthEvents to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * HealthEvent updateManyAndReturn
+   */
+  export type HealthEventUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthEvent
+     */
+    select?: HealthEventSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthEvent
+     */
+    omit?: HealthEventOmit<ExtArgs> | null
+    /**
+     * The data used to update HealthEvents.
+     */
+    data: XOR<HealthEventUpdateManyMutationInput, HealthEventUncheckedUpdateManyInput>
+    /**
+     * Filter which HealthEvents to update
+     */
+    where?: HealthEventWhereInput
+    /**
+     * Limit how many HealthEvents to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthEventIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * HealthEvent upsert
+   */
+  export type HealthEventUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthEvent
+     */
+    select?: HealthEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthEvent
+     */
+    omit?: HealthEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthEventInclude<ExtArgs> | null
+    /**
+     * The filter to search for the HealthEvent to update in case it exists.
+     */
+    where: HealthEventWhereUniqueInput
+    /**
+     * In case the HealthEvent found by the `where` argument doesn't exist, create a new HealthEvent with this data.
+     */
+    create: XOR<HealthEventCreateInput, HealthEventUncheckedCreateInput>
+    /**
+     * In case the HealthEvent was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<HealthEventUpdateInput, HealthEventUncheckedUpdateInput>
+  }
+
+  /**
+   * HealthEvent delete
+   */
+  export type HealthEventDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthEvent
+     */
+    select?: HealthEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthEvent
+     */
+    omit?: HealthEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthEventInclude<ExtArgs> | null
+    /**
+     * Filter which HealthEvent to delete.
+     */
+    where: HealthEventWhereUniqueInput
+  }
+
+  /**
+   * HealthEvent deleteMany
+   */
+  export type HealthEventDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which HealthEvents to delete
+     */
+    where?: HealthEventWhereInput
+    /**
+     * Limit how many HealthEvents to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * HealthEvent without action
+   */
+  export type HealthEventDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthEvent
+     */
+    select?: HealthEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthEvent
+     */
+    omit?: HealthEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthEventInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Transfer
+   */
+
+  export type AggregateTransfer = {
+    _count: TransferCountAggregateOutputType | null
+    _min: TransferMinAggregateOutputType | null
+    _max: TransferMaxAggregateOutputType | null
+  }
+
+  export type TransferMinAggregateOutputType = {
+    id: string | null
+    livestockId: string | null
+    fromFarmId: string | null
+    toFarmId: string | null
+    transferDate: Date | null
+    reason: string | null
+    transportMethod: string | null
+    handlingPrecautions: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TransferMaxAggregateOutputType = {
+    id: string | null
+    livestockId: string | null
+    fromFarmId: string | null
+    toFarmId: string | null
+    transferDate: Date | null
+    reason: string | null
+    transportMethod: string | null
+    handlingPrecautions: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TransferCountAggregateOutputType = {
+    id: number
+    livestockId: number
+    fromFarmId: number
+    toFarmId: number
+    transferDate: number
+    reason: number
+    transportMethod: number
+    handlingPrecautions: number
+    attachments: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type TransferMinAggregateInputType = {
+    id?: true
+    livestockId?: true
+    fromFarmId?: true
+    toFarmId?: true
+    transferDate?: true
+    reason?: true
+    transportMethod?: true
+    handlingPrecautions?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TransferMaxAggregateInputType = {
+    id?: true
+    livestockId?: true
+    fromFarmId?: true
+    toFarmId?: true
+    transferDate?: true
+    reason?: true
+    transportMethod?: true
+    handlingPrecautions?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TransferCountAggregateInputType = {
+    id?: true
+    livestockId?: true
+    fromFarmId?: true
+    toFarmId?: true
+    transferDate?: true
+    reason?: true
+    transportMethod?: true
+    handlingPrecautions?: true
+    attachments?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type TransferAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Transfer to aggregate.
+     */
+    where?: TransferWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Transfers to fetch.
+     */
+    orderBy?: TransferOrderByWithRelationInput | TransferOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TransferWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Transfers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Transfers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Transfers
+    **/
+    _count?: true | TransferCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TransferMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TransferMaxAggregateInputType
+  }
+
+  export type GetTransferAggregateType<T extends TransferAggregateArgs> = {
+        [P in keyof T & keyof AggregateTransfer]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTransfer[P]>
+      : GetScalarType<T[P], AggregateTransfer[P]>
+  }
+
+
+
+
+  export type TransferGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TransferWhereInput
+    orderBy?: TransferOrderByWithAggregationInput | TransferOrderByWithAggregationInput[]
+    by: TransferScalarFieldEnum[] | TransferScalarFieldEnum
+    having?: TransferScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TransferCountAggregateInputType | true
+    _min?: TransferMinAggregateInputType
+    _max?: TransferMaxAggregateInputType
+  }
+
+  export type TransferGroupByOutputType = {
+    id: string
+    livestockId: string
+    fromFarmId: string
+    toFarmId: string
+    transferDate: Date
+    reason: string | null
+    transportMethod: string | null
+    handlingPrecautions: string | null
+    attachments: string[]
+    createdAt: Date
+    updatedAt: Date
+    _count: TransferCountAggregateOutputType | null
+    _min: TransferMinAggregateOutputType | null
+    _max: TransferMaxAggregateOutputType | null
+  }
+
+  type GetTransferGroupByPayload<T extends TransferGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TransferGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TransferGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TransferGroupByOutputType[P]>
+            : GetScalarType<T[P], TransferGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TransferSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    livestockId?: boolean
+    fromFarmId?: boolean
+    toFarmId?: boolean
+    transferDate?: boolean
+    reason?: boolean
+    transportMethod?: boolean
+    handlingPrecautions?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["transfer"]>
+
+  export type TransferSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    livestockId?: boolean
+    fromFarmId?: boolean
+    toFarmId?: boolean
+    transferDate?: boolean
+    reason?: boolean
+    transportMethod?: boolean
+    handlingPrecautions?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["transfer"]>
+
+  export type TransferSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    livestockId?: boolean
+    fromFarmId?: boolean
+    toFarmId?: boolean
+    transferDate?: boolean
+    reason?: boolean
+    transportMethod?: boolean
+    handlingPrecautions?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["transfer"]>
+
+  export type TransferSelectScalar = {
+    id?: boolean
+    livestockId?: boolean
+    fromFarmId?: boolean
+    toFarmId?: boolean
+    transferDate?: boolean
+    reason?: boolean
+    transportMethod?: boolean
+    handlingPrecautions?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type TransferOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "livestockId" | "fromFarmId" | "toFarmId" | "transferDate" | "reason" | "transportMethod" | "handlingPrecautions" | "attachments" | "createdAt" | "updatedAt", ExtArgs["result"]["transfer"]>
+  export type TransferInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }
+  export type TransferIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }
+  export type TransferIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }
+
+  export type $TransferPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Transfer"
+    objects: {
+      livestock: Prisma.$LivestockPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      livestockId: string
+      fromFarmId: string
+      toFarmId: string
+      transferDate: Date
+      reason: string | null
+      transportMethod: string | null
+      handlingPrecautions: string | null
+      attachments: string[]
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["transfer"]>
+    composites: {}
+  }
+
+  type TransferGetPayload<S extends boolean | null | undefined | TransferDefaultArgs> = $Result.GetResult<Prisma.$TransferPayload, S>
+
+  type TransferCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TransferFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TransferCountAggregateInputType | true
+    }
+
+  export interface TransferDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Transfer'], meta: { name: 'Transfer' } }
+    /**
+     * Find zero or one Transfer that matches the filter.
+     * @param {TransferFindUniqueArgs} args - Arguments to find a Transfer
+     * @example
+     * // Get one Transfer
+     * const transfer = await prisma.transfer.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TransferFindUniqueArgs>(args: SelectSubset<T, TransferFindUniqueArgs<ExtArgs>>): Prisma__TransferClient<$Result.GetResult<Prisma.$TransferPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Transfer that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TransferFindUniqueOrThrowArgs} args - Arguments to find a Transfer
+     * @example
+     * // Get one Transfer
+     * const transfer = await prisma.transfer.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TransferFindUniqueOrThrowArgs>(args: SelectSubset<T, TransferFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TransferClient<$Result.GetResult<Prisma.$TransferPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Transfer that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransferFindFirstArgs} args - Arguments to find a Transfer
+     * @example
+     * // Get one Transfer
+     * const transfer = await prisma.transfer.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TransferFindFirstArgs>(args?: SelectSubset<T, TransferFindFirstArgs<ExtArgs>>): Prisma__TransferClient<$Result.GetResult<Prisma.$TransferPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Transfer that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransferFindFirstOrThrowArgs} args - Arguments to find a Transfer
+     * @example
+     * // Get one Transfer
+     * const transfer = await prisma.transfer.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TransferFindFirstOrThrowArgs>(args?: SelectSubset<T, TransferFindFirstOrThrowArgs<ExtArgs>>): Prisma__TransferClient<$Result.GetResult<Prisma.$TransferPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Transfers that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransferFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Transfers
+     * const transfers = await prisma.transfer.findMany()
+     * 
+     * // Get first 10 Transfers
+     * const transfers = await prisma.transfer.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const transferWithIdOnly = await prisma.transfer.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TransferFindManyArgs>(args?: SelectSubset<T, TransferFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransferPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Transfer.
+     * @param {TransferCreateArgs} args - Arguments to create a Transfer.
+     * @example
+     * // Create one Transfer
+     * const Transfer = await prisma.transfer.create({
+     *   data: {
+     *     // ... data to create a Transfer
+     *   }
+     * })
+     * 
+     */
+    create<T extends TransferCreateArgs>(args: SelectSubset<T, TransferCreateArgs<ExtArgs>>): Prisma__TransferClient<$Result.GetResult<Prisma.$TransferPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Transfers.
+     * @param {TransferCreateManyArgs} args - Arguments to create many Transfers.
+     * @example
+     * // Create many Transfers
+     * const transfer = await prisma.transfer.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TransferCreateManyArgs>(args?: SelectSubset<T, TransferCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Transfers and returns the data saved in the database.
+     * @param {TransferCreateManyAndReturnArgs} args - Arguments to create many Transfers.
+     * @example
+     * // Create many Transfers
+     * const transfer = await prisma.transfer.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Transfers and only return the `id`
+     * const transferWithIdOnly = await prisma.transfer.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TransferCreateManyAndReturnArgs>(args?: SelectSubset<T, TransferCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransferPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Transfer.
+     * @param {TransferDeleteArgs} args - Arguments to delete one Transfer.
+     * @example
+     * // Delete one Transfer
+     * const Transfer = await prisma.transfer.delete({
+     *   where: {
+     *     // ... filter to delete one Transfer
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TransferDeleteArgs>(args: SelectSubset<T, TransferDeleteArgs<ExtArgs>>): Prisma__TransferClient<$Result.GetResult<Prisma.$TransferPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Transfer.
+     * @param {TransferUpdateArgs} args - Arguments to update one Transfer.
+     * @example
+     * // Update one Transfer
+     * const transfer = await prisma.transfer.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TransferUpdateArgs>(args: SelectSubset<T, TransferUpdateArgs<ExtArgs>>): Prisma__TransferClient<$Result.GetResult<Prisma.$TransferPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Transfers.
+     * @param {TransferDeleteManyArgs} args - Arguments to filter Transfers to delete.
+     * @example
+     * // Delete a few Transfers
+     * const { count } = await prisma.transfer.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TransferDeleteManyArgs>(args?: SelectSubset<T, TransferDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Transfers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransferUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Transfers
+     * const transfer = await prisma.transfer.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TransferUpdateManyArgs>(args: SelectSubset<T, TransferUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Transfers and returns the data updated in the database.
+     * @param {TransferUpdateManyAndReturnArgs} args - Arguments to update many Transfers.
+     * @example
+     * // Update many Transfers
+     * const transfer = await prisma.transfer.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Transfers and only return the `id`
+     * const transferWithIdOnly = await prisma.transfer.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TransferUpdateManyAndReturnArgs>(args: SelectSubset<T, TransferUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransferPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Transfer.
+     * @param {TransferUpsertArgs} args - Arguments to update or create a Transfer.
+     * @example
+     * // Update or create a Transfer
+     * const transfer = await prisma.transfer.upsert({
+     *   create: {
+     *     // ... data to create a Transfer
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Transfer we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TransferUpsertArgs>(args: SelectSubset<T, TransferUpsertArgs<ExtArgs>>): Prisma__TransferClient<$Result.GetResult<Prisma.$TransferPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Transfers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransferCountArgs} args - Arguments to filter Transfers to count.
+     * @example
+     * // Count the number of Transfers
+     * const count = await prisma.transfer.count({
+     *   where: {
+     *     // ... the filter for the Transfers we want to count
+     *   }
+     * })
+    **/
+    count<T extends TransferCountArgs>(
+      args?: Subset<T, TransferCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TransferCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Transfer.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransferAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TransferAggregateArgs>(args: Subset<T, TransferAggregateArgs>): Prisma.PrismaPromise<GetTransferAggregateType<T>>
+
+    /**
+     * Group by Transfer.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransferGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TransferGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TransferGroupByArgs['orderBy'] }
+        : { orderBy?: TransferGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TransferGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTransferGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Transfer model
+   */
+  readonly fields: TransferFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Transfer.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TransferClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    livestock<T extends LivestockDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LivestockDefaultArgs<ExtArgs>>): Prisma__LivestockClient<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Transfer model
+   */
+  interface TransferFieldRefs {
+    readonly id: FieldRef<"Transfer", 'String'>
+    readonly livestockId: FieldRef<"Transfer", 'String'>
+    readonly fromFarmId: FieldRef<"Transfer", 'String'>
+    readonly toFarmId: FieldRef<"Transfer", 'String'>
+    readonly transferDate: FieldRef<"Transfer", 'DateTime'>
+    readonly reason: FieldRef<"Transfer", 'String'>
+    readonly transportMethod: FieldRef<"Transfer", 'String'>
+    readonly handlingPrecautions: FieldRef<"Transfer", 'String'>
+    readonly attachments: FieldRef<"Transfer", 'String[]'>
+    readonly createdAt: FieldRef<"Transfer", 'DateTime'>
+    readonly updatedAt: FieldRef<"Transfer", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Transfer findUnique
+   */
+  export type TransferFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transfer
+     */
+    select?: TransferSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Transfer
+     */
+    omit?: TransferOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransferInclude<ExtArgs> | null
+    /**
+     * Filter, which Transfer to fetch.
+     */
+    where: TransferWhereUniqueInput
+  }
+
+  /**
+   * Transfer findUniqueOrThrow
+   */
+  export type TransferFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transfer
+     */
+    select?: TransferSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Transfer
+     */
+    omit?: TransferOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransferInclude<ExtArgs> | null
+    /**
+     * Filter, which Transfer to fetch.
+     */
+    where: TransferWhereUniqueInput
+  }
+
+  /**
+   * Transfer findFirst
+   */
+  export type TransferFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transfer
+     */
+    select?: TransferSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Transfer
+     */
+    omit?: TransferOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransferInclude<ExtArgs> | null
+    /**
+     * Filter, which Transfer to fetch.
+     */
+    where?: TransferWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Transfers to fetch.
+     */
+    orderBy?: TransferOrderByWithRelationInput | TransferOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Transfers.
+     */
+    cursor?: TransferWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Transfers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Transfers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Transfers.
+     */
+    distinct?: TransferScalarFieldEnum | TransferScalarFieldEnum[]
+  }
+
+  /**
+   * Transfer findFirstOrThrow
+   */
+  export type TransferFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transfer
+     */
+    select?: TransferSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Transfer
+     */
+    omit?: TransferOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransferInclude<ExtArgs> | null
+    /**
+     * Filter, which Transfer to fetch.
+     */
+    where?: TransferWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Transfers to fetch.
+     */
+    orderBy?: TransferOrderByWithRelationInput | TransferOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Transfers.
+     */
+    cursor?: TransferWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Transfers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Transfers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Transfers.
+     */
+    distinct?: TransferScalarFieldEnum | TransferScalarFieldEnum[]
+  }
+
+  /**
+   * Transfer findMany
+   */
+  export type TransferFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transfer
+     */
+    select?: TransferSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Transfer
+     */
+    omit?: TransferOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransferInclude<ExtArgs> | null
+    /**
+     * Filter, which Transfers to fetch.
+     */
+    where?: TransferWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Transfers to fetch.
+     */
+    orderBy?: TransferOrderByWithRelationInput | TransferOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Transfers.
+     */
+    cursor?: TransferWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Transfers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Transfers.
+     */
+    skip?: number
+    distinct?: TransferScalarFieldEnum | TransferScalarFieldEnum[]
+  }
+
+  /**
+   * Transfer create
+   */
+  export type TransferCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transfer
+     */
+    select?: TransferSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Transfer
+     */
+    omit?: TransferOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransferInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Transfer.
+     */
+    data: XOR<TransferCreateInput, TransferUncheckedCreateInput>
+  }
+
+  /**
+   * Transfer createMany
+   */
+  export type TransferCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Transfers.
+     */
+    data: TransferCreateManyInput | TransferCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Transfer createManyAndReturn
+   */
+  export type TransferCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transfer
+     */
+    select?: TransferSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Transfer
+     */
+    omit?: TransferOmit<ExtArgs> | null
+    /**
+     * The data used to create many Transfers.
+     */
+    data: TransferCreateManyInput | TransferCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransferIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Transfer update
+   */
+  export type TransferUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transfer
+     */
+    select?: TransferSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Transfer
+     */
+    omit?: TransferOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransferInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Transfer.
+     */
+    data: XOR<TransferUpdateInput, TransferUncheckedUpdateInput>
+    /**
+     * Choose, which Transfer to update.
+     */
+    where: TransferWhereUniqueInput
+  }
+
+  /**
+   * Transfer updateMany
+   */
+  export type TransferUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Transfers.
+     */
+    data: XOR<TransferUpdateManyMutationInput, TransferUncheckedUpdateManyInput>
+    /**
+     * Filter which Transfers to update
+     */
+    where?: TransferWhereInput
+    /**
+     * Limit how many Transfers to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Transfer updateManyAndReturn
+   */
+  export type TransferUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transfer
+     */
+    select?: TransferSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Transfer
+     */
+    omit?: TransferOmit<ExtArgs> | null
+    /**
+     * The data used to update Transfers.
+     */
+    data: XOR<TransferUpdateManyMutationInput, TransferUncheckedUpdateManyInput>
+    /**
+     * Filter which Transfers to update
+     */
+    where?: TransferWhereInput
+    /**
+     * Limit how many Transfers to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransferIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Transfer upsert
+   */
+  export type TransferUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transfer
+     */
+    select?: TransferSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Transfer
+     */
+    omit?: TransferOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransferInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Transfer to update in case it exists.
+     */
+    where: TransferWhereUniqueInput
+    /**
+     * In case the Transfer found by the `where` argument doesn't exist, create a new Transfer with this data.
+     */
+    create: XOR<TransferCreateInput, TransferUncheckedCreateInput>
+    /**
+     * In case the Transfer was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TransferUpdateInput, TransferUncheckedUpdateInput>
+  }
+
+  /**
+   * Transfer delete
+   */
+  export type TransferDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transfer
+     */
+    select?: TransferSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Transfer
+     */
+    omit?: TransferOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransferInclude<ExtArgs> | null
+    /**
+     * Filter which Transfer to delete.
+     */
+    where: TransferWhereUniqueInput
+  }
+
+  /**
+   * Transfer deleteMany
+   */
+  export type TransferDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Transfers to delete
+     */
+    where?: TransferWhereInput
+    /**
+     * Limit how many Transfers to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Transfer without action
+   */
+  export type TransferDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transfer
+     */
+    select?: TransferSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Transfer
+     */
+    omit?: TransferOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransferInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Sale
+   */
+
+  export type AggregateSale = {
+    _count: SaleCountAggregateOutputType | null
+    _avg: SaleAvgAggregateOutputType | null
+    _sum: SaleSumAggregateOutputType | null
+    _min: SaleMinAggregateOutputType | null
+    _max: SaleMaxAggregateOutputType | null
+  }
+
+  export type SaleAvgAggregateOutputType = {
+    saleAmount: number | null
+  }
+
+  export type SaleSumAggregateOutputType = {
+    saleAmount: number | null
+  }
+
+  export type SaleMinAggregateOutputType = {
+    id: string | null
+    livestockId: string | null
+    saleDate: Date | null
+    buyerName: string | null
+    buyerContact: string | null
+    saleAmount: number | null
+    paymentMethod: string | null
+    receiptNumber: string | null
+    notes: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SaleMaxAggregateOutputType = {
+    id: string | null
+    livestockId: string | null
+    saleDate: Date | null
+    buyerName: string | null
+    buyerContact: string | null
+    saleAmount: number | null
+    paymentMethod: string | null
+    receiptNumber: string | null
+    notes: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SaleCountAggregateOutputType = {
+    id: number
+    livestockId: number
+    saleDate: number
+    buyerName: number
+    buyerContact: number
+    saleAmount: number
+    paymentMethod: number
+    receiptNumber: number
+    notes: number
+    attachments: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type SaleAvgAggregateInputType = {
+    saleAmount?: true
+  }
+
+  export type SaleSumAggregateInputType = {
+    saleAmount?: true
+  }
+
+  export type SaleMinAggregateInputType = {
+    id?: true
+    livestockId?: true
+    saleDate?: true
+    buyerName?: true
+    buyerContact?: true
+    saleAmount?: true
+    paymentMethod?: true
+    receiptNumber?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SaleMaxAggregateInputType = {
+    id?: true
+    livestockId?: true
+    saleDate?: true
+    buyerName?: true
+    buyerContact?: true
+    saleAmount?: true
+    paymentMethod?: true
+    receiptNumber?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SaleCountAggregateInputType = {
+    id?: true
+    livestockId?: true
+    saleDate?: true
+    buyerName?: true
+    buyerContact?: true
+    saleAmount?: true
+    paymentMethod?: true
+    receiptNumber?: true
+    notes?: true
+    attachments?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type SaleAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Sale to aggregate.
+     */
+    where?: SaleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sales to fetch.
+     */
+    orderBy?: SaleOrderByWithRelationInput | SaleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SaleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sales from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sales.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Sales
+    **/
+    _count?: true | SaleCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SaleAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SaleSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SaleMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SaleMaxAggregateInputType
+  }
+
+  export type GetSaleAggregateType<T extends SaleAggregateArgs> = {
+        [P in keyof T & keyof AggregateSale]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSale[P]>
+      : GetScalarType<T[P], AggregateSale[P]>
+  }
+
+
+
+
+  export type SaleGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SaleWhereInput
+    orderBy?: SaleOrderByWithAggregationInput | SaleOrderByWithAggregationInput[]
+    by: SaleScalarFieldEnum[] | SaleScalarFieldEnum
+    having?: SaleScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SaleCountAggregateInputType | true
+    _avg?: SaleAvgAggregateInputType
+    _sum?: SaleSumAggregateInputType
+    _min?: SaleMinAggregateInputType
+    _max?: SaleMaxAggregateInputType
+  }
+
+  export type SaleGroupByOutputType = {
+    id: string
+    livestockId: string
+    saleDate: Date
+    buyerName: string
+    buyerContact: string | null
+    saleAmount: number
+    paymentMethod: string
+    receiptNumber: string | null
+    notes: string | null
+    attachments: string[]
+    createdAt: Date
+    updatedAt: Date
+    _count: SaleCountAggregateOutputType | null
+    _avg: SaleAvgAggregateOutputType | null
+    _sum: SaleSumAggregateOutputType | null
+    _min: SaleMinAggregateOutputType | null
+    _max: SaleMaxAggregateOutputType | null
+  }
+
+  type GetSaleGroupByPayload<T extends SaleGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SaleGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SaleGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SaleGroupByOutputType[P]>
+            : GetScalarType<T[P], SaleGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SaleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    livestockId?: boolean
+    saleDate?: boolean
+    buyerName?: boolean
+    buyerContact?: boolean
+    saleAmount?: boolean
+    paymentMethod?: boolean
+    receiptNumber?: boolean
+    notes?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["sale"]>
+
+  export type SaleSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    livestockId?: boolean
+    saleDate?: boolean
+    buyerName?: boolean
+    buyerContact?: boolean
+    saleAmount?: boolean
+    paymentMethod?: boolean
+    receiptNumber?: boolean
+    notes?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["sale"]>
+
+  export type SaleSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    livestockId?: boolean
+    saleDate?: boolean
+    buyerName?: boolean
+    buyerContact?: boolean
+    saleAmount?: boolean
+    paymentMethod?: boolean
+    receiptNumber?: boolean
+    notes?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["sale"]>
+
+  export type SaleSelectScalar = {
+    id?: boolean
+    livestockId?: boolean
+    saleDate?: boolean
+    buyerName?: boolean
+    buyerContact?: boolean
+    saleAmount?: boolean
+    paymentMethod?: boolean
+    receiptNumber?: boolean
+    notes?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type SaleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "livestockId" | "saleDate" | "buyerName" | "buyerContact" | "saleAmount" | "paymentMethod" | "receiptNumber" | "notes" | "attachments" | "createdAt" | "updatedAt", ExtArgs["result"]["sale"]>
+  export type SaleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }
+  export type SaleIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }
+  export type SaleIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    livestock?: boolean | LivestockDefaultArgs<ExtArgs>
+  }
+
+  export type $SalePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Sale"
+    objects: {
+      livestock: Prisma.$LivestockPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      livestockId: string
+      saleDate: Date
+      buyerName: string
+      buyerContact: string | null
+      saleAmount: number
+      paymentMethod: string
+      receiptNumber: string | null
+      notes: string | null
+      attachments: string[]
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["sale"]>
+    composites: {}
+  }
+
+  type SaleGetPayload<S extends boolean | null | undefined | SaleDefaultArgs> = $Result.GetResult<Prisma.$SalePayload, S>
+
+  type SaleCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SaleFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SaleCountAggregateInputType | true
+    }
+
+  export interface SaleDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Sale'], meta: { name: 'Sale' } }
+    /**
+     * Find zero or one Sale that matches the filter.
+     * @param {SaleFindUniqueArgs} args - Arguments to find a Sale
+     * @example
+     * // Get one Sale
+     * const sale = await prisma.sale.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SaleFindUniqueArgs>(args: SelectSubset<T, SaleFindUniqueArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Sale that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SaleFindUniqueOrThrowArgs} args - Arguments to find a Sale
+     * @example
+     * // Get one Sale
+     * const sale = await prisma.sale.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SaleFindUniqueOrThrowArgs>(args: SelectSubset<T, SaleFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Sale that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleFindFirstArgs} args - Arguments to find a Sale
+     * @example
+     * // Get one Sale
+     * const sale = await prisma.sale.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SaleFindFirstArgs>(args?: SelectSubset<T, SaleFindFirstArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Sale that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleFindFirstOrThrowArgs} args - Arguments to find a Sale
+     * @example
+     * // Get one Sale
+     * const sale = await prisma.sale.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SaleFindFirstOrThrowArgs>(args?: SelectSubset<T, SaleFindFirstOrThrowArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Sales that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Sales
+     * const sales = await prisma.sale.findMany()
+     * 
+     * // Get first 10 Sales
+     * const sales = await prisma.sale.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const saleWithIdOnly = await prisma.sale.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SaleFindManyArgs>(args?: SelectSubset<T, SaleFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Sale.
+     * @param {SaleCreateArgs} args - Arguments to create a Sale.
+     * @example
+     * // Create one Sale
+     * const Sale = await prisma.sale.create({
+     *   data: {
+     *     // ... data to create a Sale
+     *   }
+     * })
+     * 
+     */
+    create<T extends SaleCreateArgs>(args: SelectSubset<T, SaleCreateArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Sales.
+     * @param {SaleCreateManyArgs} args - Arguments to create many Sales.
+     * @example
+     * // Create many Sales
+     * const sale = await prisma.sale.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SaleCreateManyArgs>(args?: SelectSubset<T, SaleCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Sales and returns the data saved in the database.
+     * @param {SaleCreateManyAndReturnArgs} args - Arguments to create many Sales.
+     * @example
+     * // Create many Sales
+     * const sale = await prisma.sale.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Sales and only return the `id`
+     * const saleWithIdOnly = await prisma.sale.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SaleCreateManyAndReturnArgs>(args?: SelectSubset<T, SaleCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Sale.
+     * @param {SaleDeleteArgs} args - Arguments to delete one Sale.
+     * @example
+     * // Delete one Sale
+     * const Sale = await prisma.sale.delete({
+     *   where: {
+     *     // ... filter to delete one Sale
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SaleDeleteArgs>(args: SelectSubset<T, SaleDeleteArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Sale.
+     * @param {SaleUpdateArgs} args - Arguments to update one Sale.
+     * @example
+     * // Update one Sale
+     * const sale = await prisma.sale.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SaleUpdateArgs>(args: SelectSubset<T, SaleUpdateArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Sales.
+     * @param {SaleDeleteManyArgs} args - Arguments to filter Sales to delete.
+     * @example
+     * // Delete a few Sales
+     * const { count } = await prisma.sale.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SaleDeleteManyArgs>(args?: SelectSubset<T, SaleDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Sales.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Sales
+     * const sale = await prisma.sale.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SaleUpdateManyArgs>(args: SelectSubset<T, SaleUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Sales and returns the data updated in the database.
+     * @param {SaleUpdateManyAndReturnArgs} args - Arguments to update many Sales.
+     * @example
+     * // Update many Sales
+     * const sale = await prisma.sale.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Sales and only return the `id`
+     * const saleWithIdOnly = await prisma.sale.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SaleUpdateManyAndReturnArgs>(args: SelectSubset<T, SaleUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Sale.
+     * @param {SaleUpsertArgs} args - Arguments to update or create a Sale.
+     * @example
+     * // Update or create a Sale
+     * const sale = await prisma.sale.upsert({
+     *   create: {
+     *     // ... data to create a Sale
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Sale we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SaleUpsertArgs>(args: SelectSubset<T, SaleUpsertArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Sales.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleCountArgs} args - Arguments to filter Sales to count.
+     * @example
+     * // Count the number of Sales
+     * const count = await prisma.sale.count({
+     *   where: {
+     *     // ... the filter for the Sales we want to count
+     *   }
+     * })
+    **/
+    count<T extends SaleCountArgs>(
+      args?: Subset<T, SaleCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SaleCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Sale.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SaleAggregateArgs>(args: Subset<T, SaleAggregateArgs>): Prisma.PrismaPromise<GetSaleAggregateType<T>>
+
+    /**
+     * Group by Sale.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SaleGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SaleGroupByArgs['orderBy'] }
+        : { orderBy?: SaleGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SaleGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSaleGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Sale model
+   */
+  readonly fields: SaleFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Sale.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SaleClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    livestock<T extends LivestockDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LivestockDefaultArgs<ExtArgs>>): Prisma__LivestockClient<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Sale model
+   */
+  interface SaleFieldRefs {
+    readonly id: FieldRef<"Sale", 'String'>
+    readonly livestockId: FieldRef<"Sale", 'String'>
+    readonly saleDate: FieldRef<"Sale", 'DateTime'>
+    readonly buyerName: FieldRef<"Sale", 'String'>
+    readonly buyerContact: FieldRef<"Sale", 'String'>
+    readonly saleAmount: FieldRef<"Sale", 'Float'>
+    readonly paymentMethod: FieldRef<"Sale", 'String'>
+    readonly receiptNumber: FieldRef<"Sale", 'String'>
+    readonly notes: FieldRef<"Sale", 'String'>
+    readonly attachments: FieldRef<"Sale", 'String[]'>
+    readonly createdAt: FieldRef<"Sale", 'DateTime'>
+    readonly updatedAt: FieldRef<"Sale", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Sale findUnique
+   */
+  export type SaleFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    /**
+     * Filter, which Sale to fetch.
+     */
+    where: SaleWhereUniqueInput
+  }
+
+  /**
+   * Sale findUniqueOrThrow
+   */
+  export type SaleFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    /**
+     * Filter, which Sale to fetch.
+     */
+    where: SaleWhereUniqueInput
+  }
+
+  /**
+   * Sale findFirst
+   */
+  export type SaleFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    /**
+     * Filter, which Sale to fetch.
+     */
+    where?: SaleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sales to fetch.
+     */
+    orderBy?: SaleOrderByWithRelationInput | SaleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Sales.
+     */
+    cursor?: SaleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sales from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sales.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Sales.
+     */
+    distinct?: SaleScalarFieldEnum | SaleScalarFieldEnum[]
+  }
+
+  /**
+   * Sale findFirstOrThrow
+   */
+  export type SaleFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    /**
+     * Filter, which Sale to fetch.
+     */
+    where?: SaleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sales to fetch.
+     */
+    orderBy?: SaleOrderByWithRelationInput | SaleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Sales.
+     */
+    cursor?: SaleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sales from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sales.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Sales.
+     */
+    distinct?: SaleScalarFieldEnum | SaleScalarFieldEnum[]
+  }
+
+  /**
+   * Sale findMany
+   */
+  export type SaleFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    /**
+     * Filter, which Sales to fetch.
+     */
+    where?: SaleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sales to fetch.
+     */
+    orderBy?: SaleOrderByWithRelationInput | SaleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Sales.
+     */
+    cursor?: SaleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sales from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sales.
+     */
+    skip?: number
+    distinct?: SaleScalarFieldEnum | SaleScalarFieldEnum[]
+  }
+
+  /**
+   * Sale create
+   */
+  export type SaleCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Sale.
+     */
+    data: XOR<SaleCreateInput, SaleUncheckedCreateInput>
+  }
+
+  /**
+   * Sale createMany
+   */
+  export type SaleCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Sales.
+     */
+    data: SaleCreateManyInput | SaleCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Sale createManyAndReturn
+   */
+  export type SaleCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * The data used to create many Sales.
+     */
+    data: SaleCreateManyInput | SaleCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Sale update
+   */
+  export type SaleUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Sale.
+     */
+    data: XOR<SaleUpdateInput, SaleUncheckedUpdateInput>
+    /**
+     * Choose, which Sale to update.
+     */
+    where: SaleWhereUniqueInput
+  }
+
+  /**
+   * Sale updateMany
+   */
+  export type SaleUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Sales.
+     */
+    data: XOR<SaleUpdateManyMutationInput, SaleUncheckedUpdateManyInput>
+    /**
+     * Filter which Sales to update
+     */
+    where?: SaleWhereInput
+    /**
+     * Limit how many Sales to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Sale updateManyAndReturn
+   */
+  export type SaleUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * The data used to update Sales.
+     */
+    data: XOR<SaleUpdateManyMutationInput, SaleUncheckedUpdateManyInput>
+    /**
+     * Filter which Sales to update
+     */
+    where?: SaleWhereInput
+    /**
+     * Limit how many Sales to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Sale upsert
+   */
+  export type SaleUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Sale to update in case it exists.
+     */
+    where: SaleWhereUniqueInput
+    /**
+     * In case the Sale found by the `where` argument doesn't exist, create a new Sale with this data.
+     */
+    create: XOR<SaleCreateInput, SaleUncheckedCreateInput>
+    /**
+     * In case the Sale was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SaleUpdateInput, SaleUncheckedUpdateInput>
+  }
+
+  /**
+   * Sale delete
+   */
+  export type SaleDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    /**
+     * Filter which Sale to delete.
+     */
+    where: SaleWhereUniqueInput
+  }
+
+  /**
+   * Sale deleteMany
+   */
+  export type SaleDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Sales to delete
+     */
+    where?: SaleWhereInput
+    /**
+     * Limit how many Sales to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Sale without action
+   */
+  export type SaleDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BreedingRecord
+   */
+
+  export type AggregateBreedingRecord = {
+    _count: BreedingRecordCountAggregateOutputType | null
+    _avg: BreedingRecordAvgAggregateOutputType | null
+    _sum: BreedingRecordSumAggregateOutputType | null
+    _min: BreedingRecordMinAggregateOutputType | null
+    _max: BreedingRecordMaxAggregateOutputType | null
+  }
+
+  export type BreedingRecordAvgAggregateOutputType = {
+    numServices: number | null
+    aiCost: number | null
+    gestationDays: number | null
+    youngOnes: number | null
+    birthWeight: number | null
+    litterWeight: number | null
+  }
+
+  export type BreedingRecordSumAggregateOutputType = {
+    numServices: number | null
+    aiCost: number | null
+    gestationDays: number | null
+    youngOnes: number | null
+    birthWeight: number | null
+    litterWeight: number | null
+  }
+
+  export type BreedingRecordMinAggregateOutputType = {
+    id: string | null
+    damId: string | null
+    sireId: string | null
+    purpose: string | null
+    strategy: string | null
+    serviceType: string | null
+    serviceDate: Date | null
+    numServices: number | null
+    firstHeatDate: Date | null
+    sireCode: string | null
+    aiType: string | null
+    aiSource: string | null
+    aiCost: number | null
+    gestationDays: number | null
+    expectedBirthDate: Date | null
+    birthRecorded: boolean | null
+    birthDate: Date | null
+    deliveryMethod: string | null
+    youngOnes: number | null
+    birthWeight: number | null
+    litterWeight: number | null
+    offspringSex: string | null
+    farmId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BreedingRecordMaxAggregateOutputType = {
+    id: string | null
+    damId: string | null
+    sireId: string | null
+    purpose: string | null
+    strategy: string | null
+    serviceType: string | null
+    serviceDate: Date | null
+    numServices: number | null
+    firstHeatDate: Date | null
+    sireCode: string | null
+    aiType: string | null
+    aiSource: string | null
+    aiCost: number | null
+    gestationDays: number | null
+    expectedBirthDate: Date | null
+    birthRecorded: boolean | null
+    birthDate: Date | null
+    deliveryMethod: string | null
+    youngOnes: number | null
+    birthWeight: number | null
+    litterWeight: number | null
+    offspringSex: string | null
+    farmId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BreedingRecordCountAggregateOutputType = {
+    id: number
+    damId: number
+    sireId: number
+    purpose: number
+    strategy: number
+    serviceType: number
+    serviceDate: number
+    numServices: number
+    firstHeatDate: number
+    sireCode: number
+    aiType: number
+    aiSource: number
+    aiCost: number
+    gestationDays: number
+    expectedBirthDate: number
+    birthRecorded: number
+    birthDate: number
+    deliveryMethod: number
+    youngOnes: number
+    birthWeight: number
+    litterWeight: number
+    offspringSex: number
+    farmId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type BreedingRecordAvgAggregateInputType = {
+    numServices?: true
+    aiCost?: true
+    gestationDays?: true
+    youngOnes?: true
+    birthWeight?: true
+    litterWeight?: true
+  }
+
+  export type BreedingRecordSumAggregateInputType = {
+    numServices?: true
+    aiCost?: true
+    gestationDays?: true
+    youngOnes?: true
+    birthWeight?: true
+    litterWeight?: true
+  }
+
+  export type BreedingRecordMinAggregateInputType = {
+    id?: true
+    damId?: true
+    sireId?: true
+    purpose?: true
+    strategy?: true
+    serviceType?: true
+    serviceDate?: true
+    numServices?: true
+    firstHeatDate?: true
+    sireCode?: true
+    aiType?: true
+    aiSource?: true
+    aiCost?: true
+    gestationDays?: true
+    expectedBirthDate?: true
+    birthRecorded?: true
+    birthDate?: true
+    deliveryMethod?: true
+    youngOnes?: true
+    birthWeight?: true
+    litterWeight?: true
+    offspringSex?: true
+    farmId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BreedingRecordMaxAggregateInputType = {
+    id?: true
+    damId?: true
+    sireId?: true
+    purpose?: true
+    strategy?: true
+    serviceType?: true
+    serviceDate?: true
+    numServices?: true
+    firstHeatDate?: true
+    sireCode?: true
+    aiType?: true
+    aiSource?: true
+    aiCost?: true
+    gestationDays?: true
+    expectedBirthDate?: true
+    birthRecorded?: true
+    birthDate?: true
+    deliveryMethod?: true
+    youngOnes?: true
+    birthWeight?: true
+    litterWeight?: true
+    offspringSex?: true
+    farmId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BreedingRecordCountAggregateInputType = {
+    id?: true
+    damId?: true
+    sireId?: true
+    purpose?: true
+    strategy?: true
+    serviceType?: true
+    serviceDate?: true
+    numServices?: true
+    firstHeatDate?: true
+    sireCode?: true
+    aiType?: true
+    aiSource?: true
+    aiCost?: true
+    gestationDays?: true
+    expectedBirthDate?: true
+    birthRecorded?: true
+    birthDate?: true
+    deliveryMethod?: true
+    youngOnes?: true
+    birthWeight?: true
+    litterWeight?: true
+    offspringSex?: true
+    farmId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type BreedingRecordAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BreedingRecord to aggregate.
+     */
+    where?: BreedingRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BreedingRecords to fetch.
+     */
+    orderBy?: BreedingRecordOrderByWithRelationInput | BreedingRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BreedingRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BreedingRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BreedingRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BreedingRecords
+    **/
+    _count?: true | BreedingRecordCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BreedingRecordAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BreedingRecordSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BreedingRecordMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BreedingRecordMaxAggregateInputType
+  }
+
+  export type GetBreedingRecordAggregateType<T extends BreedingRecordAggregateArgs> = {
+        [P in keyof T & keyof AggregateBreedingRecord]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBreedingRecord[P]>
+      : GetScalarType<T[P], AggregateBreedingRecord[P]>
+  }
+
+
+
+
+  export type BreedingRecordGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BreedingRecordWhereInput
+    orderBy?: BreedingRecordOrderByWithAggregationInput | BreedingRecordOrderByWithAggregationInput[]
+    by: BreedingRecordScalarFieldEnum[] | BreedingRecordScalarFieldEnum
+    having?: BreedingRecordScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BreedingRecordCountAggregateInputType | true
+    _avg?: BreedingRecordAvgAggregateInputType
+    _sum?: BreedingRecordSumAggregateInputType
+    _min?: BreedingRecordMinAggregateInputType
+    _max?: BreedingRecordMaxAggregateInputType
+  }
+
+  export type BreedingRecordGroupByOutputType = {
+    id: string
+    damId: string
+    sireId: string | null
+    purpose: string
+    strategy: string
+    serviceType: string
+    serviceDate: Date
+    numServices: number
+    firstHeatDate: Date | null
+    sireCode: string | null
+    aiType: string | null
+    aiSource: string | null
+    aiCost: number | null
+    gestationDays: number
+    expectedBirthDate: Date
+    birthRecorded: boolean
+    birthDate: Date | null
+    deliveryMethod: string | null
+    youngOnes: number | null
+    birthWeight: number | null
+    litterWeight: number | null
+    offspringSex: string | null
+    farmId: string
+    createdAt: Date
+    updatedAt: Date
+    _count: BreedingRecordCountAggregateOutputType | null
+    _avg: BreedingRecordAvgAggregateOutputType | null
+    _sum: BreedingRecordSumAggregateOutputType | null
+    _min: BreedingRecordMinAggregateOutputType | null
+    _max: BreedingRecordMaxAggregateOutputType | null
+  }
+
+  type GetBreedingRecordGroupByPayload<T extends BreedingRecordGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BreedingRecordGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BreedingRecordGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BreedingRecordGroupByOutputType[P]>
+            : GetScalarType<T[P], BreedingRecordGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BreedingRecordSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    damId?: boolean
+    sireId?: boolean
+    purpose?: boolean
+    strategy?: boolean
+    serviceType?: boolean
+    serviceDate?: boolean
+    numServices?: boolean
+    firstHeatDate?: boolean
+    sireCode?: boolean
+    aiType?: boolean
+    aiSource?: boolean
+    aiCost?: boolean
+    gestationDays?: boolean
+    expectedBirthDate?: boolean
+    birthRecorded?: boolean
+    birthDate?: boolean
+    deliveryMethod?: boolean
+    youngOnes?: boolean
+    birthWeight?: boolean
+    litterWeight?: boolean
+    offspringSex?: boolean
+    farmId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    dam?: boolean | LivestockDefaultArgs<ExtArgs>
+    sire?: boolean | BreedingRecord$sireArgs<ExtArgs>
+    offspring?: boolean | BreedingRecord$offspringArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+    _count?: boolean | BreedingRecordCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["breedingRecord"]>
+
+  export type BreedingRecordSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    damId?: boolean
+    sireId?: boolean
+    purpose?: boolean
+    strategy?: boolean
+    serviceType?: boolean
+    serviceDate?: boolean
+    numServices?: boolean
+    firstHeatDate?: boolean
+    sireCode?: boolean
+    aiType?: boolean
+    aiSource?: boolean
+    aiCost?: boolean
+    gestationDays?: boolean
+    expectedBirthDate?: boolean
+    birthRecorded?: boolean
+    birthDate?: boolean
+    deliveryMethod?: boolean
+    youngOnes?: boolean
+    birthWeight?: boolean
+    litterWeight?: boolean
+    offspringSex?: boolean
+    farmId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    dam?: boolean | LivestockDefaultArgs<ExtArgs>
+    sire?: boolean | BreedingRecord$sireArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["breedingRecord"]>
+
+  export type BreedingRecordSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    damId?: boolean
+    sireId?: boolean
+    purpose?: boolean
+    strategy?: boolean
+    serviceType?: boolean
+    serviceDate?: boolean
+    numServices?: boolean
+    firstHeatDate?: boolean
+    sireCode?: boolean
+    aiType?: boolean
+    aiSource?: boolean
+    aiCost?: boolean
+    gestationDays?: boolean
+    expectedBirthDate?: boolean
+    birthRecorded?: boolean
+    birthDate?: boolean
+    deliveryMethod?: boolean
+    youngOnes?: boolean
+    birthWeight?: boolean
+    litterWeight?: boolean
+    offspringSex?: boolean
+    farmId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    dam?: boolean | LivestockDefaultArgs<ExtArgs>
+    sire?: boolean | BreedingRecord$sireArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["breedingRecord"]>
+
+  export type BreedingRecordSelectScalar = {
+    id?: boolean
+    damId?: boolean
+    sireId?: boolean
+    purpose?: boolean
+    strategy?: boolean
+    serviceType?: boolean
+    serviceDate?: boolean
+    numServices?: boolean
+    firstHeatDate?: boolean
+    sireCode?: boolean
+    aiType?: boolean
+    aiSource?: boolean
+    aiCost?: boolean
+    gestationDays?: boolean
+    expectedBirthDate?: boolean
+    birthRecorded?: boolean
+    birthDate?: boolean
+    deliveryMethod?: boolean
+    youngOnes?: boolean
+    birthWeight?: boolean
+    litterWeight?: boolean
+    offspringSex?: boolean
+    farmId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type BreedingRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "damId" | "sireId" | "purpose" | "strategy" | "serviceType" | "serviceDate" | "numServices" | "firstHeatDate" | "sireCode" | "aiType" | "aiSource" | "aiCost" | "gestationDays" | "expectedBirthDate" | "birthRecorded" | "birthDate" | "deliveryMethod" | "youngOnes" | "birthWeight" | "litterWeight" | "offspringSex" | "farmId" | "createdAt" | "updatedAt", ExtArgs["result"]["breedingRecord"]>
+  export type BreedingRecordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    dam?: boolean | LivestockDefaultArgs<ExtArgs>
+    sire?: boolean | BreedingRecord$sireArgs<ExtArgs>
+    offspring?: boolean | BreedingRecord$offspringArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+    _count?: boolean | BreedingRecordCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type BreedingRecordIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    dam?: boolean | LivestockDefaultArgs<ExtArgs>
+    sire?: boolean | BreedingRecord$sireArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }
+  export type BreedingRecordIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    dam?: boolean | LivestockDefaultArgs<ExtArgs>
+    sire?: boolean | BreedingRecord$sireArgs<ExtArgs>
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }
+
+  export type $BreedingRecordPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BreedingRecord"
+    objects: {
+      dam: Prisma.$LivestockPayload<ExtArgs>
+      sire: Prisma.$LivestockPayload<ExtArgs> | null
+      offspring: Prisma.$OffspringPayload<ExtArgs>[]
+      farm: Prisma.$FarmPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      damId: string
+      sireId: string | null
+      purpose: string
+      strategy: string
+      serviceType: string
+      serviceDate: Date
+      numServices: number
+      firstHeatDate: Date | null
+      sireCode: string | null
+      aiType: string | null
+      aiSource: string | null
+      aiCost: number | null
+      gestationDays: number
+      expectedBirthDate: Date
+      birthRecorded: boolean
+      birthDate: Date | null
+      deliveryMethod: string | null
+      youngOnes: number | null
+      birthWeight: number | null
+      litterWeight: number | null
+      offspringSex: string | null
+      farmId: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["breedingRecord"]>
+    composites: {}
+  }
+
+  type BreedingRecordGetPayload<S extends boolean | null | undefined | BreedingRecordDefaultArgs> = $Result.GetResult<Prisma.$BreedingRecordPayload, S>
+
+  type BreedingRecordCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BreedingRecordFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BreedingRecordCountAggregateInputType | true
+    }
+
+  export interface BreedingRecordDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BreedingRecord'], meta: { name: 'BreedingRecord' } }
+    /**
+     * Find zero or one BreedingRecord that matches the filter.
+     * @param {BreedingRecordFindUniqueArgs} args - Arguments to find a BreedingRecord
+     * @example
+     * // Get one BreedingRecord
+     * const breedingRecord = await prisma.breedingRecord.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BreedingRecordFindUniqueArgs>(args: SelectSubset<T, BreedingRecordFindUniqueArgs<ExtArgs>>): Prisma__BreedingRecordClient<$Result.GetResult<Prisma.$BreedingRecordPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BreedingRecord that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BreedingRecordFindUniqueOrThrowArgs} args - Arguments to find a BreedingRecord
+     * @example
+     * // Get one BreedingRecord
+     * const breedingRecord = await prisma.breedingRecord.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BreedingRecordFindUniqueOrThrowArgs>(args: SelectSubset<T, BreedingRecordFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BreedingRecordClient<$Result.GetResult<Prisma.$BreedingRecordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BreedingRecord that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreedingRecordFindFirstArgs} args - Arguments to find a BreedingRecord
+     * @example
+     * // Get one BreedingRecord
+     * const breedingRecord = await prisma.breedingRecord.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BreedingRecordFindFirstArgs>(args?: SelectSubset<T, BreedingRecordFindFirstArgs<ExtArgs>>): Prisma__BreedingRecordClient<$Result.GetResult<Prisma.$BreedingRecordPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BreedingRecord that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreedingRecordFindFirstOrThrowArgs} args - Arguments to find a BreedingRecord
+     * @example
+     * // Get one BreedingRecord
+     * const breedingRecord = await prisma.breedingRecord.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BreedingRecordFindFirstOrThrowArgs>(args?: SelectSubset<T, BreedingRecordFindFirstOrThrowArgs<ExtArgs>>): Prisma__BreedingRecordClient<$Result.GetResult<Prisma.$BreedingRecordPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BreedingRecords that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreedingRecordFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BreedingRecords
+     * const breedingRecords = await prisma.breedingRecord.findMany()
+     * 
+     * // Get first 10 BreedingRecords
+     * const breedingRecords = await prisma.breedingRecord.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const breedingRecordWithIdOnly = await prisma.breedingRecord.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BreedingRecordFindManyArgs>(args?: SelectSubset<T, BreedingRecordFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreedingRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BreedingRecord.
+     * @param {BreedingRecordCreateArgs} args - Arguments to create a BreedingRecord.
+     * @example
+     * // Create one BreedingRecord
+     * const BreedingRecord = await prisma.breedingRecord.create({
+     *   data: {
+     *     // ... data to create a BreedingRecord
+     *   }
+     * })
+     * 
+     */
+    create<T extends BreedingRecordCreateArgs>(args: SelectSubset<T, BreedingRecordCreateArgs<ExtArgs>>): Prisma__BreedingRecordClient<$Result.GetResult<Prisma.$BreedingRecordPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BreedingRecords.
+     * @param {BreedingRecordCreateManyArgs} args - Arguments to create many BreedingRecords.
+     * @example
+     * // Create many BreedingRecords
+     * const breedingRecord = await prisma.breedingRecord.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BreedingRecordCreateManyArgs>(args?: SelectSubset<T, BreedingRecordCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many BreedingRecords and returns the data saved in the database.
+     * @param {BreedingRecordCreateManyAndReturnArgs} args - Arguments to create many BreedingRecords.
+     * @example
+     * // Create many BreedingRecords
+     * const breedingRecord = await prisma.breedingRecord.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many BreedingRecords and only return the `id`
+     * const breedingRecordWithIdOnly = await prisma.breedingRecord.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BreedingRecordCreateManyAndReturnArgs>(args?: SelectSubset<T, BreedingRecordCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreedingRecordPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a BreedingRecord.
+     * @param {BreedingRecordDeleteArgs} args - Arguments to delete one BreedingRecord.
+     * @example
+     * // Delete one BreedingRecord
+     * const BreedingRecord = await prisma.breedingRecord.delete({
+     *   where: {
+     *     // ... filter to delete one BreedingRecord
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BreedingRecordDeleteArgs>(args: SelectSubset<T, BreedingRecordDeleteArgs<ExtArgs>>): Prisma__BreedingRecordClient<$Result.GetResult<Prisma.$BreedingRecordPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BreedingRecord.
+     * @param {BreedingRecordUpdateArgs} args - Arguments to update one BreedingRecord.
+     * @example
+     * // Update one BreedingRecord
+     * const breedingRecord = await prisma.breedingRecord.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BreedingRecordUpdateArgs>(args: SelectSubset<T, BreedingRecordUpdateArgs<ExtArgs>>): Prisma__BreedingRecordClient<$Result.GetResult<Prisma.$BreedingRecordPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BreedingRecords.
+     * @param {BreedingRecordDeleteManyArgs} args - Arguments to filter BreedingRecords to delete.
+     * @example
+     * // Delete a few BreedingRecords
+     * const { count } = await prisma.breedingRecord.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BreedingRecordDeleteManyArgs>(args?: SelectSubset<T, BreedingRecordDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BreedingRecords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreedingRecordUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BreedingRecords
+     * const breedingRecord = await prisma.breedingRecord.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BreedingRecordUpdateManyArgs>(args: SelectSubset<T, BreedingRecordUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BreedingRecords and returns the data updated in the database.
+     * @param {BreedingRecordUpdateManyAndReturnArgs} args - Arguments to update many BreedingRecords.
+     * @example
+     * // Update many BreedingRecords
+     * const breedingRecord = await prisma.breedingRecord.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more BreedingRecords and only return the `id`
+     * const breedingRecordWithIdOnly = await prisma.breedingRecord.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BreedingRecordUpdateManyAndReturnArgs>(args: SelectSubset<T, BreedingRecordUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreedingRecordPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one BreedingRecord.
+     * @param {BreedingRecordUpsertArgs} args - Arguments to update or create a BreedingRecord.
+     * @example
+     * // Update or create a BreedingRecord
+     * const breedingRecord = await prisma.breedingRecord.upsert({
+     *   create: {
+     *     // ... data to create a BreedingRecord
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BreedingRecord we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BreedingRecordUpsertArgs>(args: SelectSubset<T, BreedingRecordUpsertArgs<ExtArgs>>): Prisma__BreedingRecordClient<$Result.GetResult<Prisma.$BreedingRecordPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BreedingRecords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreedingRecordCountArgs} args - Arguments to filter BreedingRecords to count.
+     * @example
+     * // Count the number of BreedingRecords
+     * const count = await prisma.breedingRecord.count({
+     *   where: {
+     *     // ... the filter for the BreedingRecords we want to count
+     *   }
+     * })
+    **/
+    count<T extends BreedingRecordCountArgs>(
+      args?: Subset<T, BreedingRecordCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BreedingRecordCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BreedingRecord.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreedingRecordAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BreedingRecordAggregateArgs>(args: Subset<T, BreedingRecordAggregateArgs>): Prisma.PrismaPromise<GetBreedingRecordAggregateType<T>>
+
+    /**
+     * Group by BreedingRecord.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreedingRecordGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BreedingRecordGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BreedingRecordGroupByArgs['orderBy'] }
+        : { orderBy?: BreedingRecordGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BreedingRecordGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBreedingRecordGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BreedingRecord model
+   */
+  readonly fields: BreedingRecordFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BreedingRecord.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BreedingRecordClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    dam<T extends LivestockDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LivestockDefaultArgs<ExtArgs>>): Prisma__LivestockClient<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    sire<T extends BreedingRecord$sireArgs<ExtArgs> = {}>(args?: Subset<T, BreedingRecord$sireArgs<ExtArgs>>): Prisma__LivestockClient<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    offspring<T extends BreedingRecord$offspringArgs<ExtArgs> = {}>(args?: Subset<T, BreedingRecord$offspringArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OffspringPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    farm<T extends FarmDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FarmDefaultArgs<ExtArgs>>): Prisma__FarmClient<$Result.GetResult<Prisma.$FarmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BreedingRecord model
+   */
+  interface BreedingRecordFieldRefs {
+    readonly id: FieldRef<"BreedingRecord", 'String'>
+    readonly damId: FieldRef<"BreedingRecord", 'String'>
+    readonly sireId: FieldRef<"BreedingRecord", 'String'>
+    readonly purpose: FieldRef<"BreedingRecord", 'String'>
+    readonly strategy: FieldRef<"BreedingRecord", 'String'>
+    readonly serviceType: FieldRef<"BreedingRecord", 'String'>
+    readonly serviceDate: FieldRef<"BreedingRecord", 'DateTime'>
+    readonly numServices: FieldRef<"BreedingRecord", 'Int'>
+    readonly firstHeatDate: FieldRef<"BreedingRecord", 'DateTime'>
+    readonly sireCode: FieldRef<"BreedingRecord", 'String'>
+    readonly aiType: FieldRef<"BreedingRecord", 'String'>
+    readonly aiSource: FieldRef<"BreedingRecord", 'String'>
+    readonly aiCost: FieldRef<"BreedingRecord", 'Float'>
+    readonly gestationDays: FieldRef<"BreedingRecord", 'Int'>
+    readonly expectedBirthDate: FieldRef<"BreedingRecord", 'DateTime'>
+    readonly birthRecorded: FieldRef<"BreedingRecord", 'Boolean'>
+    readonly birthDate: FieldRef<"BreedingRecord", 'DateTime'>
+    readonly deliveryMethod: FieldRef<"BreedingRecord", 'String'>
+    readonly youngOnes: FieldRef<"BreedingRecord", 'Int'>
+    readonly birthWeight: FieldRef<"BreedingRecord", 'Float'>
+    readonly litterWeight: FieldRef<"BreedingRecord", 'Float'>
+    readonly offspringSex: FieldRef<"BreedingRecord", 'String'>
+    readonly farmId: FieldRef<"BreedingRecord", 'String'>
+    readonly createdAt: FieldRef<"BreedingRecord", 'DateTime'>
+    readonly updatedAt: FieldRef<"BreedingRecord", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BreedingRecord findUnique
+   */
+  export type BreedingRecordFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreedingRecord
+     */
+    select?: BreedingRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreedingRecord
+     */
+    omit?: BreedingRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreedingRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which BreedingRecord to fetch.
+     */
+    where: BreedingRecordWhereUniqueInput
+  }
+
+  /**
+   * BreedingRecord findUniqueOrThrow
+   */
+  export type BreedingRecordFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreedingRecord
+     */
+    select?: BreedingRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreedingRecord
+     */
+    omit?: BreedingRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreedingRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which BreedingRecord to fetch.
+     */
+    where: BreedingRecordWhereUniqueInput
+  }
+
+  /**
+   * BreedingRecord findFirst
+   */
+  export type BreedingRecordFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreedingRecord
+     */
+    select?: BreedingRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreedingRecord
+     */
+    omit?: BreedingRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreedingRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which BreedingRecord to fetch.
+     */
+    where?: BreedingRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BreedingRecords to fetch.
+     */
+    orderBy?: BreedingRecordOrderByWithRelationInput | BreedingRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BreedingRecords.
+     */
+    cursor?: BreedingRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BreedingRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BreedingRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BreedingRecords.
+     */
+    distinct?: BreedingRecordScalarFieldEnum | BreedingRecordScalarFieldEnum[]
+  }
+
+  /**
+   * BreedingRecord findFirstOrThrow
+   */
+  export type BreedingRecordFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreedingRecord
+     */
+    select?: BreedingRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreedingRecord
+     */
+    omit?: BreedingRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreedingRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which BreedingRecord to fetch.
+     */
+    where?: BreedingRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BreedingRecords to fetch.
+     */
+    orderBy?: BreedingRecordOrderByWithRelationInput | BreedingRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BreedingRecords.
+     */
+    cursor?: BreedingRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BreedingRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BreedingRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BreedingRecords.
+     */
+    distinct?: BreedingRecordScalarFieldEnum | BreedingRecordScalarFieldEnum[]
+  }
+
+  /**
+   * BreedingRecord findMany
+   */
+  export type BreedingRecordFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreedingRecord
+     */
+    select?: BreedingRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreedingRecord
+     */
+    omit?: BreedingRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreedingRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which BreedingRecords to fetch.
+     */
+    where?: BreedingRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BreedingRecords to fetch.
+     */
+    orderBy?: BreedingRecordOrderByWithRelationInput | BreedingRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BreedingRecords.
+     */
+    cursor?: BreedingRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BreedingRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BreedingRecords.
+     */
+    skip?: number
+    distinct?: BreedingRecordScalarFieldEnum | BreedingRecordScalarFieldEnum[]
+  }
+
+  /**
+   * BreedingRecord create
+   */
+  export type BreedingRecordCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreedingRecord
+     */
+    select?: BreedingRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreedingRecord
+     */
+    omit?: BreedingRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreedingRecordInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BreedingRecord.
+     */
+    data: XOR<BreedingRecordCreateInput, BreedingRecordUncheckedCreateInput>
+  }
+
+  /**
+   * BreedingRecord createMany
+   */
+  export type BreedingRecordCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BreedingRecords.
+     */
+    data: BreedingRecordCreateManyInput | BreedingRecordCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BreedingRecord createManyAndReturn
+   */
+  export type BreedingRecordCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreedingRecord
+     */
+    select?: BreedingRecordSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreedingRecord
+     */
+    omit?: BreedingRecordOmit<ExtArgs> | null
+    /**
+     * The data used to create many BreedingRecords.
+     */
+    data: BreedingRecordCreateManyInput | BreedingRecordCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreedingRecordIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BreedingRecord update
+   */
+  export type BreedingRecordUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreedingRecord
+     */
+    select?: BreedingRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreedingRecord
+     */
+    omit?: BreedingRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreedingRecordInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BreedingRecord.
+     */
+    data: XOR<BreedingRecordUpdateInput, BreedingRecordUncheckedUpdateInput>
+    /**
+     * Choose, which BreedingRecord to update.
+     */
+    where: BreedingRecordWhereUniqueInput
+  }
+
+  /**
+   * BreedingRecord updateMany
+   */
+  export type BreedingRecordUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BreedingRecords.
+     */
+    data: XOR<BreedingRecordUpdateManyMutationInput, BreedingRecordUncheckedUpdateManyInput>
+    /**
+     * Filter which BreedingRecords to update
+     */
+    where?: BreedingRecordWhereInput
+    /**
+     * Limit how many BreedingRecords to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BreedingRecord updateManyAndReturn
+   */
+  export type BreedingRecordUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreedingRecord
+     */
+    select?: BreedingRecordSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreedingRecord
+     */
+    omit?: BreedingRecordOmit<ExtArgs> | null
+    /**
+     * The data used to update BreedingRecords.
+     */
+    data: XOR<BreedingRecordUpdateManyMutationInput, BreedingRecordUncheckedUpdateManyInput>
+    /**
+     * Filter which BreedingRecords to update
+     */
+    where?: BreedingRecordWhereInput
+    /**
+     * Limit how many BreedingRecords to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreedingRecordIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BreedingRecord upsert
+   */
+  export type BreedingRecordUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreedingRecord
+     */
+    select?: BreedingRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreedingRecord
+     */
+    omit?: BreedingRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreedingRecordInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BreedingRecord to update in case it exists.
+     */
+    where: BreedingRecordWhereUniqueInput
+    /**
+     * In case the BreedingRecord found by the `where` argument doesn't exist, create a new BreedingRecord with this data.
+     */
+    create: XOR<BreedingRecordCreateInput, BreedingRecordUncheckedCreateInput>
+    /**
+     * In case the BreedingRecord was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BreedingRecordUpdateInput, BreedingRecordUncheckedUpdateInput>
+  }
+
+  /**
+   * BreedingRecord delete
+   */
+  export type BreedingRecordDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreedingRecord
+     */
+    select?: BreedingRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreedingRecord
+     */
+    omit?: BreedingRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreedingRecordInclude<ExtArgs> | null
+    /**
+     * Filter which BreedingRecord to delete.
+     */
+    where: BreedingRecordWhereUniqueInput
+  }
+
+  /**
+   * BreedingRecord deleteMany
+   */
+  export type BreedingRecordDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BreedingRecords to delete
+     */
+    where?: BreedingRecordWhereInput
+    /**
+     * Limit how many BreedingRecords to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BreedingRecord.sire
+   */
+  export type BreedingRecord$sireArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Livestock
+     */
+    select?: LivestockSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Livestock
+     */
+    omit?: LivestockOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LivestockInclude<ExtArgs> | null
+    where?: LivestockWhereInput
+  }
+
+  /**
+   * BreedingRecord.offspring
+   */
+  export type BreedingRecord$offspringArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Offspring
+     */
+    select?: OffspringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Offspring
+     */
+    omit?: OffspringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OffspringInclude<ExtArgs> | null
+    where?: OffspringWhereInput
+    orderBy?: OffspringOrderByWithRelationInput | OffspringOrderByWithRelationInput[]
+    cursor?: OffspringWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OffspringScalarFieldEnum | OffspringScalarFieldEnum[]
+  }
+
+  /**
+   * BreedingRecord without action
+   */
+  export type BreedingRecordDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreedingRecord
+     */
+    select?: BreedingRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreedingRecord
+     */
+    omit?: BreedingRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreedingRecordInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Offspring
+   */
+
+  export type AggregateOffspring = {
+    _count: OffspringCountAggregateOutputType | null
+    _avg: OffspringAvgAggregateOutputType | null
+    _sum: OffspringSumAggregateOutputType | null
+    _min: OffspringMinAggregateOutputType | null
+    _max: OffspringMaxAggregateOutputType | null
+  }
+
+  export type OffspringAvgAggregateOutputType = {
+    birthWeight: number | null
+  }
+
+  export type OffspringSumAggregateOutputType = {
+    birthWeight: number | null
+  }
+
+  export type OffspringMinAggregateOutputType = {
+    id: string | null
+    breedingRecordId: string | null
+    livestockId: string | null
+    offspringId: string | null
+    sex: string | null
+    birthWeight: number | null
+    notes: string | null
+    status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type OffspringMaxAggregateOutputType = {
+    id: string | null
+    breedingRecordId: string | null
+    livestockId: string | null
+    offspringId: string | null
+    sex: string | null
+    birthWeight: number | null
+    notes: string | null
+    status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type OffspringCountAggregateOutputType = {
+    id: number
+    breedingRecordId: number
+    livestockId: number
+    offspringId: number
+    sex: number
+    birthWeight: number
+    notes: number
+    status: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type OffspringAvgAggregateInputType = {
+    birthWeight?: true
+  }
+
+  export type OffspringSumAggregateInputType = {
+    birthWeight?: true
+  }
+
+  export type OffspringMinAggregateInputType = {
+    id?: true
+    breedingRecordId?: true
+    livestockId?: true
+    offspringId?: true
+    sex?: true
+    birthWeight?: true
+    notes?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type OffspringMaxAggregateInputType = {
+    id?: true
+    breedingRecordId?: true
+    livestockId?: true
+    offspringId?: true
+    sex?: true
+    birthWeight?: true
+    notes?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type OffspringCountAggregateInputType = {
+    id?: true
+    breedingRecordId?: true
+    livestockId?: true
+    offspringId?: true
+    sex?: true
+    birthWeight?: true
+    notes?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type OffspringAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Offspring to aggregate.
+     */
+    where?: OffspringWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Offsprings to fetch.
+     */
+    orderBy?: OffspringOrderByWithRelationInput | OffspringOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: OffspringWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Offsprings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Offsprings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Offsprings
+    **/
+    _count?: true | OffspringCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: OffspringAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: OffspringSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: OffspringMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: OffspringMaxAggregateInputType
+  }
+
+  export type GetOffspringAggregateType<T extends OffspringAggregateArgs> = {
+        [P in keyof T & keyof AggregateOffspring]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateOffspring[P]>
+      : GetScalarType<T[P], AggregateOffspring[P]>
+  }
+
+
+
+
+  export type OffspringGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OffspringWhereInput
+    orderBy?: OffspringOrderByWithAggregationInput | OffspringOrderByWithAggregationInput[]
+    by: OffspringScalarFieldEnum[] | OffspringScalarFieldEnum
+    having?: OffspringScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: OffspringCountAggregateInputType | true
+    _avg?: OffspringAvgAggregateInputType
+    _sum?: OffspringSumAggregateInputType
+    _min?: OffspringMinAggregateInputType
+    _max?: OffspringMaxAggregateInputType
+  }
+
+  export type OffspringGroupByOutputType = {
+    id: string
+    breedingRecordId: string
+    livestockId: string | null
+    offspringId: string
+    sex: string
+    birthWeight: number | null
+    notes: string | null
+    status: string
+    createdAt: Date
+    updatedAt: Date
+    _count: OffspringCountAggregateOutputType | null
+    _avg: OffspringAvgAggregateOutputType | null
+    _sum: OffspringSumAggregateOutputType | null
+    _min: OffspringMinAggregateOutputType | null
+    _max: OffspringMaxAggregateOutputType | null
+  }
+
+  type GetOffspringGroupByPayload<T extends OffspringGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<OffspringGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof OffspringGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], OffspringGroupByOutputType[P]>
+            : GetScalarType<T[P], OffspringGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type OffspringSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    breedingRecordId?: boolean
+    livestockId?: boolean
+    offspringId?: boolean
+    sex?: boolean
+    birthWeight?: boolean
+    notes?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    breedingRecord?: boolean | BreedingRecordDefaultArgs<ExtArgs>
+    livestock?: boolean | Offspring$livestockArgs<ExtArgs>
+  }, ExtArgs["result"]["offspring"]>
+
+  export type OffspringSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    breedingRecordId?: boolean
+    livestockId?: boolean
+    offspringId?: boolean
+    sex?: boolean
+    birthWeight?: boolean
+    notes?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    breedingRecord?: boolean | BreedingRecordDefaultArgs<ExtArgs>
+    livestock?: boolean | Offspring$livestockArgs<ExtArgs>
+  }, ExtArgs["result"]["offspring"]>
+
+  export type OffspringSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    breedingRecordId?: boolean
+    livestockId?: boolean
+    offspringId?: boolean
+    sex?: boolean
+    birthWeight?: boolean
+    notes?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    breedingRecord?: boolean | BreedingRecordDefaultArgs<ExtArgs>
+    livestock?: boolean | Offspring$livestockArgs<ExtArgs>
+  }, ExtArgs["result"]["offspring"]>
+
+  export type OffspringSelectScalar = {
+    id?: boolean
+    breedingRecordId?: boolean
+    livestockId?: boolean
+    offspringId?: boolean
+    sex?: boolean
+    birthWeight?: boolean
+    notes?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type OffspringOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "breedingRecordId" | "livestockId" | "offspringId" | "sex" | "birthWeight" | "notes" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["offspring"]>
+  export type OffspringInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    breedingRecord?: boolean | BreedingRecordDefaultArgs<ExtArgs>
+    livestock?: boolean | Offspring$livestockArgs<ExtArgs>
+  }
+  export type OffspringIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    breedingRecord?: boolean | BreedingRecordDefaultArgs<ExtArgs>
+    livestock?: boolean | Offspring$livestockArgs<ExtArgs>
+  }
+  export type OffspringIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    breedingRecord?: boolean | BreedingRecordDefaultArgs<ExtArgs>
+    livestock?: boolean | Offspring$livestockArgs<ExtArgs>
+  }
+
+  export type $OffspringPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Offspring"
+    objects: {
+      breedingRecord: Prisma.$BreedingRecordPayload<ExtArgs>
+      livestock: Prisma.$LivestockPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      breedingRecordId: string
+      livestockId: string | null
+      offspringId: string
+      sex: string
+      birthWeight: number | null
+      notes: string | null
+      status: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["offspring"]>
+    composites: {}
+  }
+
+  type OffspringGetPayload<S extends boolean | null | undefined | OffspringDefaultArgs> = $Result.GetResult<Prisma.$OffspringPayload, S>
+
+  type OffspringCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<OffspringFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: OffspringCountAggregateInputType | true
+    }
+
+  export interface OffspringDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Offspring'], meta: { name: 'Offspring' } }
+    /**
+     * Find zero or one Offspring that matches the filter.
+     * @param {OffspringFindUniqueArgs} args - Arguments to find a Offspring
+     * @example
+     * // Get one Offspring
+     * const offspring = await prisma.offspring.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends OffspringFindUniqueArgs>(args: SelectSubset<T, OffspringFindUniqueArgs<ExtArgs>>): Prisma__OffspringClient<$Result.GetResult<Prisma.$OffspringPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Offspring that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {OffspringFindUniqueOrThrowArgs} args - Arguments to find a Offspring
+     * @example
+     * // Get one Offspring
+     * const offspring = await prisma.offspring.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends OffspringFindUniqueOrThrowArgs>(args: SelectSubset<T, OffspringFindUniqueOrThrowArgs<ExtArgs>>): Prisma__OffspringClient<$Result.GetResult<Prisma.$OffspringPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Offspring that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OffspringFindFirstArgs} args - Arguments to find a Offspring
+     * @example
+     * // Get one Offspring
+     * const offspring = await prisma.offspring.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends OffspringFindFirstArgs>(args?: SelectSubset<T, OffspringFindFirstArgs<ExtArgs>>): Prisma__OffspringClient<$Result.GetResult<Prisma.$OffspringPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Offspring that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OffspringFindFirstOrThrowArgs} args - Arguments to find a Offspring
+     * @example
+     * // Get one Offspring
+     * const offspring = await prisma.offspring.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends OffspringFindFirstOrThrowArgs>(args?: SelectSubset<T, OffspringFindFirstOrThrowArgs<ExtArgs>>): Prisma__OffspringClient<$Result.GetResult<Prisma.$OffspringPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Offsprings that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OffspringFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Offsprings
+     * const offsprings = await prisma.offspring.findMany()
+     * 
+     * // Get first 10 Offsprings
+     * const offsprings = await prisma.offspring.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const offspringWithIdOnly = await prisma.offspring.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends OffspringFindManyArgs>(args?: SelectSubset<T, OffspringFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OffspringPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Offspring.
+     * @param {OffspringCreateArgs} args - Arguments to create a Offspring.
+     * @example
+     * // Create one Offspring
+     * const Offspring = await prisma.offspring.create({
+     *   data: {
+     *     // ... data to create a Offspring
+     *   }
+     * })
+     * 
+     */
+    create<T extends OffspringCreateArgs>(args: SelectSubset<T, OffspringCreateArgs<ExtArgs>>): Prisma__OffspringClient<$Result.GetResult<Prisma.$OffspringPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Offsprings.
+     * @param {OffspringCreateManyArgs} args - Arguments to create many Offsprings.
+     * @example
+     * // Create many Offsprings
+     * const offspring = await prisma.offspring.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends OffspringCreateManyArgs>(args?: SelectSubset<T, OffspringCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Offsprings and returns the data saved in the database.
+     * @param {OffspringCreateManyAndReturnArgs} args - Arguments to create many Offsprings.
+     * @example
+     * // Create many Offsprings
+     * const offspring = await prisma.offspring.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Offsprings and only return the `id`
+     * const offspringWithIdOnly = await prisma.offspring.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends OffspringCreateManyAndReturnArgs>(args?: SelectSubset<T, OffspringCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OffspringPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Offspring.
+     * @param {OffspringDeleteArgs} args - Arguments to delete one Offspring.
+     * @example
+     * // Delete one Offspring
+     * const Offspring = await prisma.offspring.delete({
+     *   where: {
+     *     // ... filter to delete one Offspring
+     *   }
+     * })
+     * 
+     */
+    delete<T extends OffspringDeleteArgs>(args: SelectSubset<T, OffspringDeleteArgs<ExtArgs>>): Prisma__OffspringClient<$Result.GetResult<Prisma.$OffspringPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Offspring.
+     * @param {OffspringUpdateArgs} args - Arguments to update one Offspring.
+     * @example
+     * // Update one Offspring
+     * const offspring = await prisma.offspring.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends OffspringUpdateArgs>(args: SelectSubset<T, OffspringUpdateArgs<ExtArgs>>): Prisma__OffspringClient<$Result.GetResult<Prisma.$OffspringPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Offsprings.
+     * @param {OffspringDeleteManyArgs} args - Arguments to filter Offsprings to delete.
+     * @example
+     * // Delete a few Offsprings
+     * const { count } = await prisma.offspring.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends OffspringDeleteManyArgs>(args?: SelectSubset<T, OffspringDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Offsprings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OffspringUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Offsprings
+     * const offspring = await prisma.offspring.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends OffspringUpdateManyArgs>(args: SelectSubset<T, OffspringUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Offsprings and returns the data updated in the database.
+     * @param {OffspringUpdateManyAndReturnArgs} args - Arguments to update many Offsprings.
+     * @example
+     * // Update many Offsprings
+     * const offspring = await prisma.offspring.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Offsprings and only return the `id`
+     * const offspringWithIdOnly = await prisma.offspring.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends OffspringUpdateManyAndReturnArgs>(args: SelectSubset<T, OffspringUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OffspringPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Offspring.
+     * @param {OffspringUpsertArgs} args - Arguments to update or create a Offspring.
+     * @example
+     * // Update or create a Offspring
+     * const offspring = await prisma.offspring.upsert({
+     *   create: {
+     *     // ... data to create a Offspring
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Offspring we want to update
+     *   }
+     * })
+     */
+    upsert<T extends OffspringUpsertArgs>(args: SelectSubset<T, OffspringUpsertArgs<ExtArgs>>): Prisma__OffspringClient<$Result.GetResult<Prisma.$OffspringPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Offsprings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OffspringCountArgs} args - Arguments to filter Offsprings to count.
+     * @example
+     * // Count the number of Offsprings
+     * const count = await prisma.offspring.count({
+     *   where: {
+     *     // ... the filter for the Offsprings we want to count
+     *   }
+     * })
+    **/
+    count<T extends OffspringCountArgs>(
+      args?: Subset<T, OffspringCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], OffspringCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Offspring.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OffspringAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends OffspringAggregateArgs>(args: Subset<T, OffspringAggregateArgs>): Prisma.PrismaPromise<GetOffspringAggregateType<T>>
+
+    /**
+     * Group by Offspring.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OffspringGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends OffspringGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: OffspringGroupByArgs['orderBy'] }
+        : { orderBy?: OffspringGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, OffspringGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOffspringGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Offspring model
+   */
+  readonly fields: OffspringFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Offspring.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__OffspringClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    breedingRecord<T extends BreedingRecordDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BreedingRecordDefaultArgs<ExtArgs>>): Prisma__BreedingRecordClient<$Result.GetResult<Prisma.$BreedingRecordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    livestock<T extends Offspring$livestockArgs<ExtArgs> = {}>(args?: Subset<T, Offspring$livestockArgs<ExtArgs>>): Prisma__LivestockClient<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Offspring model
+   */
+  interface OffspringFieldRefs {
+    readonly id: FieldRef<"Offspring", 'String'>
+    readonly breedingRecordId: FieldRef<"Offspring", 'String'>
+    readonly livestockId: FieldRef<"Offspring", 'String'>
+    readonly offspringId: FieldRef<"Offspring", 'String'>
+    readonly sex: FieldRef<"Offspring", 'String'>
+    readonly birthWeight: FieldRef<"Offspring", 'Float'>
+    readonly notes: FieldRef<"Offspring", 'String'>
+    readonly status: FieldRef<"Offspring", 'String'>
+    readonly createdAt: FieldRef<"Offspring", 'DateTime'>
+    readonly updatedAt: FieldRef<"Offspring", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Offspring findUnique
+   */
+  export type OffspringFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Offspring
+     */
+    select?: OffspringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Offspring
+     */
+    omit?: OffspringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OffspringInclude<ExtArgs> | null
+    /**
+     * Filter, which Offspring to fetch.
+     */
+    where: OffspringWhereUniqueInput
+  }
+
+  /**
+   * Offspring findUniqueOrThrow
+   */
+  export type OffspringFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Offspring
+     */
+    select?: OffspringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Offspring
+     */
+    omit?: OffspringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OffspringInclude<ExtArgs> | null
+    /**
+     * Filter, which Offspring to fetch.
+     */
+    where: OffspringWhereUniqueInput
+  }
+
+  /**
+   * Offspring findFirst
+   */
+  export type OffspringFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Offspring
+     */
+    select?: OffspringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Offspring
+     */
+    omit?: OffspringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OffspringInclude<ExtArgs> | null
+    /**
+     * Filter, which Offspring to fetch.
+     */
+    where?: OffspringWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Offsprings to fetch.
+     */
+    orderBy?: OffspringOrderByWithRelationInput | OffspringOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Offsprings.
+     */
+    cursor?: OffspringWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Offsprings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Offsprings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Offsprings.
+     */
+    distinct?: OffspringScalarFieldEnum | OffspringScalarFieldEnum[]
+  }
+
+  /**
+   * Offspring findFirstOrThrow
+   */
+  export type OffspringFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Offspring
+     */
+    select?: OffspringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Offspring
+     */
+    omit?: OffspringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OffspringInclude<ExtArgs> | null
+    /**
+     * Filter, which Offspring to fetch.
+     */
+    where?: OffspringWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Offsprings to fetch.
+     */
+    orderBy?: OffspringOrderByWithRelationInput | OffspringOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Offsprings.
+     */
+    cursor?: OffspringWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Offsprings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Offsprings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Offsprings.
+     */
+    distinct?: OffspringScalarFieldEnum | OffspringScalarFieldEnum[]
+  }
+
+  /**
+   * Offspring findMany
+   */
+  export type OffspringFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Offspring
+     */
+    select?: OffspringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Offspring
+     */
+    omit?: OffspringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OffspringInclude<ExtArgs> | null
+    /**
+     * Filter, which Offsprings to fetch.
+     */
+    where?: OffspringWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Offsprings to fetch.
+     */
+    orderBy?: OffspringOrderByWithRelationInput | OffspringOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Offsprings.
+     */
+    cursor?: OffspringWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Offsprings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Offsprings.
+     */
+    skip?: number
+    distinct?: OffspringScalarFieldEnum | OffspringScalarFieldEnum[]
+  }
+
+  /**
+   * Offspring create
+   */
+  export type OffspringCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Offspring
+     */
+    select?: OffspringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Offspring
+     */
+    omit?: OffspringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OffspringInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Offspring.
+     */
+    data: XOR<OffspringCreateInput, OffspringUncheckedCreateInput>
+  }
+
+  /**
+   * Offspring createMany
+   */
+  export type OffspringCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Offsprings.
+     */
+    data: OffspringCreateManyInput | OffspringCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Offspring createManyAndReturn
+   */
+  export type OffspringCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Offspring
+     */
+    select?: OffspringSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Offspring
+     */
+    omit?: OffspringOmit<ExtArgs> | null
+    /**
+     * The data used to create many Offsprings.
+     */
+    data: OffspringCreateManyInput | OffspringCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OffspringIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Offspring update
+   */
+  export type OffspringUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Offspring
+     */
+    select?: OffspringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Offspring
+     */
+    omit?: OffspringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OffspringInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Offspring.
+     */
+    data: XOR<OffspringUpdateInput, OffspringUncheckedUpdateInput>
+    /**
+     * Choose, which Offspring to update.
+     */
+    where: OffspringWhereUniqueInput
+  }
+
+  /**
+   * Offspring updateMany
+   */
+  export type OffspringUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Offsprings.
+     */
+    data: XOR<OffspringUpdateManyMutationInput, OffspringUncheckedUpdateManyInput>
+    /**
+     * Filter which Offsprings to update
+     */
+    where?: OffspringWhereInput
+    /**
+     * Limit how many Offsprings to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Offspring updateManyAndReturn
+   */
+  export type OffspringUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Offspring
+     */
+    select?: OffspringSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Offspring
+     */
+    omit?: OffspringOmit<ExtArgs> | null
+    /**
+     * The data used to update Offsprings.
+     */
+    data: XOR<OffspringUpdateManyMutationInput, OffspringUncheckedUpdateManyInput>
+    /**
+     * Filter which Offsprings to update
+     */
+    where?: OffspringWhereInput
+    /**
+     * Limit how many Offsprings to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OffspringIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Offspring upsert
+   */
+  export type OffspringUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Offspring
+     */
+    select?: OffspringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Offspring
+     */
+    omit?: OffspringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OffspringInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Offspring to update in case it exists.
+     */
+    where: OffspringWhereUniqueInput
+    /**
+     * In case the Offspring found by the `where` argument doesn't exist, create a new Offspring with this data.
+     */
+    create: XOR<OffspringCreateInput, OffspringUncheckedCreateInput>
+    /**
+     * In case the Offspring was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<OffspringUpdateInput, OffspringUncheckedUpdateInput>
+  }
+
+  /**
+   * Offspring delete
+   */
+  export type OffspringDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Offspring
+     */
+    select?: OffspringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Offspring
+     */
+    omit?: OffspringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OffspringInclude<ExtArgs> | null
+    /**
+     * Filter which Offspring to delete.
+     */
+    where: OffspringWhereUniqueInput
+  }
+
+  /**
+   * Offspring deleteMany
+   */
+  export type OffspringDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Offsprings to delete
+     */
+    where?: OffspringWhereInput
+    /**
+     * Limit how many Offsprings to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Offspring.livestock
+   */
+  export type Offspring$livestockArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Livestock
+     */
+    select?: LivestockSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Livestock
+     */
+    omit?: LivestockOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LivestockInclude<ExtArgs> | null
+    where?: LivestockWhereInput
+  }
+
+  /**
+   * Offspring without action
+   */
+  export type OffspringDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Offspring
+     */
+    select?: OffspringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Offspring
+     */
+    omit?: OffspringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OffspringInclude<ExtArgs> | null
   }
 
 
@@ -3468,6 +19339,226 @@ export namespace Prisma {
   };
 
   export type FarmScalarFieldEnum = (typeof FarmScalarFieldEnum)[keyof typeof FarmScalarFieldEnum]
+
+
+  export const EmployeeScalarFieldEnum: {
+    id: 'id',
+    firstName: 'firstName',
+    middleName: 'middleName',
+    lastName: 'lastName',
+    phone: 'phone',
+    emergencyContact: 'emergencyContact',
+    idNumber: 'idNumber',
+    idPhoto: 'idPhoto',
+    employeeType: 'employeeType',
+    dateOfEmployment: 'dateOfEmployment',
+    endDate: 'endDate',
+    role: 'role',
+    customRole: 'customRole',
+    paymentSchedule: 'paymentSchedule',
+    salary: 'salary',
+    typeOfEngagement: 'typeOfEngagement',
+    workSchedule: 'workSchedule',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type EmployeeScalarFieldEnum = (typeof EmployeeScalarFieldEnum)[keyof typeof EmployeeScalarFieldEnum]
+
+
+  export const EmployeeFarmScalarFieldEnum: {
+    id: 'id',
+    employeeId: 'employeeId',
+    farmId: 'farmId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type EmployeeFarmScalarFieldEnum = (typeof EmployeeFarmScalarFieldEnum)[keyof typeof EmployeeFarmScalarFieldEnum]
+
+
+  export const EmployeeBenefitScalarFieldEnum: {
+    id: 'id',
+    employeeId: 'employeeId',
+    name: 'name',
+    amount: 'amount',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type EmployeeBenefitScalarFieldEnum = (typeof EmployeeBenefitScalarFieldEnum)[keyof typeof EmployeeBenefitScalarFieldEnum]
+
+
+  export const LivestockScalarFieldEnum: {
+    id: 'id',
+    farmId: 'farmId',
+    category: 'category',
+    type: 'type',
+    status: 'status',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type LivestockScalarFieldEnum = (typeof LivestockScalarFieldEnum)[keyof typeof LivestockScalarFieldEnum]
+
+
+  export const MammalScalarFieldEnum: {
+    id: 'id',
+    livestockId: 'livestockId',
+    idNumber: 'idNumber',
+    breedType: 'breedType',
+    phenotype: 'phenotype',
+    dateOfBirth: 'dateOfBirth',
+    gender: 'gender',
+    sireId: 'sireId',
+    sireCode: 'sireCode',
+    damId: 'damId',
+    damCode: 'damCode',
+    birthWeight: 'birthWeight',
+    currentWeight: 'currentWeight',
+    lastWeighingDate: 'lastWeighingDate',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type MammalScalarFieldEnum = (typeof MammalScalarFieldEnum)[keyof typeof MammalScalarFieldEnum]
+
+
+  export const PoultryScalarFieldEnum: {
+    id: 'id',
+    livestockId: 'livestockId',
+    flockId: 'flockId',
+    dateOfStocking: 'dateOfStocking',
+    gender: 'gender',
+    initialQuantity: 'initialQuantity',
+    currentQuantity: 'currentQuantity',
+    breedType: 'breedType',
+    sourceOfBirds: 'sourceOfBirds',
+    initialAverageWeight: 'initialAverageWeight',
+    currentAverageWeight: 'currentAverageWeight',
+    lastWeighingDate: 'lastWeighingDate',
+    mortalityRate: 'mortalityRate',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type PoultryScalarFieldEnum = (typeof PoultryScalarFieldEnum)[keyof typeof PoultryScalarFieldEnum]
+
+
+  export const MortalityScalarFieldEnum: {
+    id: 'id',
+    livestockId: 'livestockId',
+    date: 'date',
+    cause: 'cause',
+    description: 'description',
+    reportedBy: 'reportedBy',
+    attachments: 'attachments',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type MortalityScalarFieldEnum = (typeof MortalityScalarFieldEnum)[keyof typeof MortalityScalarFieldEnum]
+
+
+  export const HealthEventScalarFieldEnum: {
+    id: 'id',
+    livestockId: 'livestockId',
+    eventType: 'eventType',
+    date: 'date',
+    description: 'description',
+    performedBy: 'performedBy',
+    medications: 'medications',
+    dosage: 'dosage',
+    cost: 'cost',
+    nextScheduled: 'nextScheduled',
+    attachments: 'attachments',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type HealthEventScalarFieldEnum = (typeof HealthEventScalarFieldEnum)[keyof typeof HealthEventScalarFieldEnum]
+
+
+  export const TransferScalarFieldEnum: {
+    id: 'id',
+    livestockId: 'livestockId',
+    fromFarmId: 'fromFarmId',
+    toFarmId: 'toFarmId',
+    transferDate: 'transferDate',
+    reason: 'reason',
+    transportMethod: 'transportMethod',
+    handlingPrecautions: 'handlingPrecautions',
+    attachments: 'attachments',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type TransferScalarFieldEnum = (typeof TransferScalarFieldEnum)[keyof typeof TransferScalarFieldEnum]
+
+
+  export const SaleScalarFieldEnum: {
+    id: 'id',
+    livestockId: 'livestockId',
+    saleDate: 'saleDate',
+    buyerName: 'buyerName',
+    buyerContact: 'buyerContact',
+    saleAmount: 'saleAmount',
+    paymentMethod: 'paymentMethod',
+    receiptNumber: 'receiptNumber',
+    notes: 'notes',
+    attachments: 'attachments',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type SaleScalarFieldEnum = (typeof SaleScalarFieldEnum)[keyof typeof SaleScalarFieldEnum]
+
+
+  export const BreedingRecordScalarFieldEnum: {
+    id: 'id',
+    damId: 'damId',
+    sireId: 'sireId',
+    purpose: 'purpose',
+    strategy: 'strategy',
+    serviceType: 'serviceType',
+    serviceDate: 'serviceDate',
+    numServices: 'numServices',
+    firstHeatDate: 'firstHeatDate',
+    sireCode: 'sireCode',
+    aiType: 'aiType',
+    aiSource: 'aiSource',
+    aiCost: 'aiCost',
+    gestationDays: 'gestationDays',
+    expectedBirthDate: 'expectedBirthDate',
+    birthRecorded: 'birthRecorded',
+    birthDate: 'birthDate',
+    deliveryMethod: 'deliveryMethod',
+    youngOnes: 'youngOnes',
+    birthWeight: 'birthWeight',
+    litterWeight: 'litterWeight',
+    offspringSex: 'offspringSex',
+    farmId: 'farmId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type BreedingRecordScalarFieldEnum = (typeof BreedingRecordScalarFieldEnum)[keyof typeof BreedingRecordScalarFieldEnum]
+
+
+  export const OffspringScalarFieldEnum: {
+    id: 'id',
+    breedingRecordId: 'breedingRecordId',
+    livestockId: 'livestockId',
+    offspringId: 'offspringId',
+    sex: 'sex',
+    birthWeight: 'birthWeight',
+    notes: 'notes',
+    status: 'status',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type OffspringScalarFieldEnum = (typeof OffspringScalarFieldEnum)[keyof typeof OffspringScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3701,6 +19792,9 @@ export namespace Prisma {
     userId?: StringFilter<"Farm"> | string
     createdAt?: DateTimeFilter<"Farm"> | Date | string
     updatedAt?: DateTimeFilter<"Farm"> | Date | string
+    employees?: EmployeeFarmListRelationFilter
+    livestock?: LivestockListRelationFilter
+    breedingRecords?: BreedingRecordListRelationFilter
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
@@ -3715,6 +19809,9 @@ export namespace Prisma {
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    employees?: EmployeeFarmOrderByRelationAggregateInput
+    livestock?: LivestockOrderByRelationAggregateInput
+    breedingRecords?: BreedingRecordOrderByRelationAggregateInput
     user?: UserOrderByWithRelationInput
   }
 
@@ -3732,6 +19829,9 @@ export namespace Prisma {
     userId?: StringFilter<"Farm"> | string
     createdAt?: DateTimeFilter<"Farm"> | Date | string
     updatedAt?: DateTimeFilter<"Farm"> | Date | string
+    employees?: EmployeeFarmListRelationFilter
+    livestock?: LivestockListRelationFilter
+    breedingRecords?: BreedingRecordListRelationFilter
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
@@ -3767,6 +19867,1169 @@ export namespace Prisma {
     userId?: StringWithAggregatesFilter<"Farm"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Farm"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Farm"> | Date | string
+  }
+
+  export type EmployeeWhereInput = {
+    AND?: EmployeeWhereInput | EmployeeWhereInput[]
+    OR?: EmployeeWhereInput[]
+    NOT?: EmployeeWhereInput | EmployeeWhereInput[]
+    id?: StringFilter<"Employee"> | string
+    firstName?: StringFilter<"Employee"> | string
+    middleName?: StringNullableFilter<"Employee"> | string | null
+    lastName?: StringFilter<"Employee"> | string
+    phone?: StringFilter<"Employee"> | string
+    emergencyContact?: StringNullableFilter<"Employee"> | string | null
+    idNumber?: StringFilter<"Employee"> | string
+    idPhoto?: StringNullableFilter<"Employee"> | string | null
+    employeeType?: StringFilter<"Employee"> | string
+    dateOfEmployment?: DateTimeFilter<"Employee"> | Date | string
+    endDate?: DateTimeNullableFilter<"Employee"> | Date | string | null
+    role?: StringFilter<"Employee"> | string
+    customRole?: StringNullableFilter<"Employee"> | string | null
+    paymentSchedule?: StringFilter<"Employee"> | string
+    salary?: FloatFilter<"Employee"> | number
+    typeOfEngagement?: StringNullableFilter<"Employee"> | string | null
+    workSchedule?: StringNullableFilter<"Employee"> | string | null
+    createdAt?: DateTimeFilter<"Employee"> | Date | string
+    updatedAt?: DateTimeFilter<"Employee"> | Date | string
+    benefits?: EmployeeBenefitListRelationFilter
+    farms?: EmployeeFarmListRelationFilter
+  }
+
+  export type EmployeeOrderByWithRelationInput = {
+    id?: SortOrder
+    firstName?: SortOrder
+    middleName?: SortOrderInput | SortOrder
+    lastName?: SortOrder
+    phone?: SortOrder
+    emergencyContact?: SortOrderInput | SortOrder
+    idNumber?: SortOrder
+    idPhoto?: SortOrderInput | SortOrder
+    employeeType?: SortOrder
+    dateOfEmployment?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    role?: SortOrder
+    customRole?: SortOrderInput | SortOrder
+    paymentSchedule?: SortOrder
+    salary?: SortOrder
+    typeOfEngagement?: SortOrderInput | SortOrder
+    workSchedule?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    benefits?: EmployeeBenefitOrderByRelationAggregateInput
+    farms?: EmployeeFarmOrderByRelationAggregateInput
+  }
+
+  export type EmployeeWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    idNumber?: string
+    AND?: EmployeeWhereInput | EmployeeWhereInput[]
+    OR?: EmployeeWhereInput[]
+    NOT?: EmployeeWhereInput | EmployeeWhereInput[]
+    firstName?: StringFilter<"Employee"> | string
+    middleName?: StringNullableFilter<"Employee"> | string | null
+    lastName?: StringFilter<"Employee"> | string
+    phone?: StringFilter<"Employee"> | string
+    emergencyContact?: StringNullableFilter<"Employee"> | string | null
+    idPhoto?: StringNullableFilter<"Employee"> | string | null
+    employeeType?: StringFilter<"Employee"> | string
+    dateOfEmployment?: DateTimeFilter<"Employee"> | Date | string
+    endDate?: DateTimeNullableFilter<"Employee"> | Date | string | null
+    role?: StringFilter<"Employee"> | string
+    customRole?: StringNullableFilter<"Employee"> | string | null
+    paymentSchedule?: StringFilter<"Employee"> | string
+    salary?: FloatFilter<"Employee"> | number
+    typeOfEngagement?: StringNullableFilter<"Employee"> | string | null
+    workSchedule?: StringNullableFilter<"Employee"> | string | null
+    createdAt?: DateTimeFilter<"Employee"> | Date | string
+    updatedAt?: DateTimeFilter<"Employee"> | Date | string
+    benefits?: EmployeeBenefitListRelationFilter
+    farms?: EmployeeFarmListRelationFilter
+  }, "id" | "idNumber">
+
+  export type EmployeeOrderByWithAggregationInput = {
+    id?: SortOrder
+    firstName?: SortOrder
+    middleName?: SortOrderInput | SortOrder
+    lastName?: SortOrder
+    phone?: SortOrder
+    emergencyContact?: SortOrderInput | SortOrder
+    idNumber?: SortOrder
+    idPhoto?: SortOrderInput | SortOrder
+    employeeType?: SortOrder
+    dateOfEmployment?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    role?: SortOrder
+    customRole?: SortOrderInput | SortOrder
+    paymentSchedule?: SortOrder
+    salary?: SortOrder
+    typeOfEngagement?: SortOrderInput | SortOrder
+    workSchedule?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: EmployeeCountOrderByAggregateInput
+    _avg?: EmployeeAvgOrderByAggregateInput
+    _max?: EmployeeMaxOrderByAggregateInput
+    _min?: EmployeeMinOrderByAggregateInput
+    _sum?: EmployeeSumOrderByAggregateInput
+  }
+
+  export type EmployeeScalarWhereWithAggregatesInput = {
+    AND?: EmployeeScalarWhereWithAggregatesInput | EmployeeScalarWhereWithAggregatesInput[]
+    OR?: EmployeeScalarWhereWithAggregatesInput[]
+    NOT?: EmployeeScalarWhereWithAggregatesInput | EmployeeScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Employee"> | string
+    firstName?: StringWithAggregatesFilter<"Employee"> | string
+    middleName?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    lastName?: StringWithAggregatesFilter<"Employee"> | string
+    phone?: StringWithAggregatesFilter<"Employee"> | string
+    emergencyContact?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    idNumber?: StringWithAggregatesFilter<"Employee"> | string
+    idPhoto?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    employeeType?: StringWithAggregatesFilter<"Employee"> | string
+    dateOfEmployment?: DateTimeWithAggregatesFilter<"Employee"> | Date | string
+    endDate?: DateTimeNullableWithAggregatesFilter<"Employee"> | Date | string | null
+    role?: StringWithAggregatesFilter<"Employee"> | string
+    customRole?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    paymentSchedule?: StringWithAggregatesFilter<"Employee"> | string
+    salary?: FloatWithAggregatesFilter<"Employee"> | number
+    typeOfEngagement?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    workSchedule?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Employee"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Employee"> | Date | string
+  }
+
+  export type EmployeeFarmWhereInput = {
+    AND?: EmployeeFarmWhereInput | EmployeeFarmWhereInput[]
+    OR?: EmployeeFarmWhereInput[]
+    NOT?: EmployeeFarmWhereInput | EmployeeFarmWhereInput[]
+    id?: StringFilter<"EmployeeFarm"> | string
+    employeeId?: StringFilter<"EmployeeFarm"> | string
+    farmId?: StringFilter<"EmployeeFarm"> | string
+    createdAt?: DateTimeFilter<"EmployeeFarm"> | Date | string
+    updatedAt?: DateTimeFilter<"EmployeeFarm"> | Date | string
+    employee?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
+    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
+  }
+
+  export type EmployeeFarmOrderByWithRelationInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    farmId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    employee?: EmployeeOrderByWithRelationInput
+    farm?: FarmOrderByWithRelationInput
+  }
+
+  export type EmployeeFarmWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    employeeId_farmId?: EmployeeFarmEmployeeIdFarmIdCompoundUniqueInput
+    AND?: EmployeeFarmWhereInput | EmployeeFarmWhereInput[]
+    OR?: EmployeeFarmWhereInput[]
+    NOT?: EmployeeFarmWhereInput | EmployeeFarmWhereInput[]
+    employeeId?: StringFilter<"EmployeeFarm"> | string
+    farmId?: StringFilter<"EmployeeFarm"> | string
+    createdAt?: DateTimeFilter<"EmployeeFarm"> | Date | string
+    updatedAt?: DateTimeFilter<"EmployeeFarm"> | Date | string
+    employee?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
+    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
+  }, "id" | "employeeId_farmId">
+
+  export type EmployeeFarmOrderByWithAggregationInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    farmId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: EmployeeFarmCountOrderByAggregateInput
+    _max?: EmployeeFarmMaxOrderByAggregateInput
+    _min?: EmployeeFarmMinOrderByAggregateInput
+  }
+
+  export type EmployeeFarmScalarWhereWithAggregatesInput = {
+    AND?: EmployeeFarmScalarWhereWithAggregatesInput | EmployeeFarmScalarWhereWithAggregatesInput[]
+    OR?: EmployeeFarmScalarWhereWithAggregatesInput[]
+    NOT?: EmployeeFarmScalarWhereWithAggregatesInput | EmployeeFarmScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"EmployeeFarm"> | string
+    employeeId?: StringWithAggregatesFilter<"EmployeeFarm"> | string
+    farmId?: StringWithAggregatesFilter<"EmployeeFarm"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"EmployeeFarm"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"EmployeeFarm"> | Date | string
+  }
+
+  export type EmployeeBenefitWhereInput = {
+    AND?: EmployeeBenefitWhereInput | EmployeeBenefitWhereInput[]
+    OR?: EmployeeBenefitWhereInput[]
+    NOT?: EmployeeBenefitWhereInput | EmployeeBenefitWhereInput[]
+    id?: StringFilter<"EmployeeBenefit"> | string
+    employeeId?: StringFilter<"EmployeeBenefit"> | string
+    name?: StringFilter<"EmployeeBenefit"> | string
+    amount?: FloatNullableFilter<"EmployeeBenefit"> | number | null
+    createdAt?: DateTimeFilter<"EmployeeBenefit"> | Date | string
+    updatedAt?: DateTimeFilter<"EmployeeBenefit"> | Date | string
+    employee?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
+  }
+
+  export type EmployeeBenefitOrderByWithRelationInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    name?: SortOrder
+    amount?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    employee?: EmployeeOrderByWithRelationInput
+  }
+
+  export type EmployeeBenefitWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    employeeId_name?: EmployeeBenefitEmployeeIdNameCompoundUniqueInput
+    AND?: EmployeeBenefitWhereInput | EmployeeBenefitWhereInput[]
+    OR?: EmployeeBenefitWhereInput[]
+    NOT?: EmployeeBenefitWhereInput | EmployeeBenefitWhereInput[]
+    employeeId?: StringFilter<"EmployeeBenefit"> | string
+    name?: StringFilter<"EmployeeBenefit"> | string
+    amount?: FloatNullableFilter<"EmployeeBenefit"> | number | null
+    createdAt?: DateTimeFilter<"EmployeeBenefit"> | Date | string
+    updatedAt?: DateTimeFilter<"EmployeeBenefit"> | Date | string
+    employee?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
+  }, "id" | "employeeId_name">
+
+  export type EmployeeBenefitOrderByWithAggregationInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    name?: SortOrder
+    amount?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: EmployeeBenefitCountOrderByAggregateInput
+    _avg?: EmployeeBenefitAvgOrderByAggregateInput
+    _max?: EmployeeBenefitMaxOrderByAggregateInput
+    _min?: EmployeeBenefitMinOrderByAggregateInput
+    _sum?: EmployeeBenefitSumOrderByAggregateInput
+  }
+
+  export type EmployeeBenefitScalarWhereWithAggregatesInput = {
+    AND?: EmployeeBenefitScalarWhereWithAggregatesInput | EmployeeBenefitScalarWhereWithAggregatesInput[]
+    OR?: EmployeeBenefitScalarWhereWithAggregatesInput[]
+    NOT?: EmployeeBenefitScalarWhereWithAggregatesInput | EmployeeBenefitScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"EmployeeBenefit"> | string
+    employeeId?: StringWithAggregatesFilter<"EmployeeBenefit"> | string
+    name?: StringWithAggregatesFilter<"EmployeeBenefit"> | string
+    amount?: FloatNullableWithAggregatesFilter<"EmployeeBenefit"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"EmployeeBenefit"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"EmployeeBenefit"> | Date | string
+  }
+
+  export type LivestockWhereInput = {
+    AND?: LivestockWhereInput | LivestockWhereInput[]
+    OR?: LivestockWhereInput[]
+    NOT?: LivestockWhereInput | LivestockWhereInput[]
+    id?: StringFilter<"Livestock"> | string
+    farmId?: StringFilter<"Livestock"> | string
+    category?: StringFilter<"Livestock"> | string
+    type?: StringFilter<"Livestock"> | string
+    status?: StringFilter<"Livestock"> | string
+    createdAt?: DateTimeFilter<"Livestock"> | Date | string
+    updatedAt?: DateTimeFilter<"Livestock"> | Date | string
+    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
+    mammal?: XOR<MammalNullableScalarRelationFilter, MammalWhereInput> | null
+    poultry?: XOR<PoultryNullableScalarRelationFilter, PoultryWhereInput> | null
+    mortality?: XOR<MortalityNullableScalarRelationFilter, MortalityWhereInput> | null
+    healthEvent?: HealthEventListRelationFilter
+    transfer?: TransferListRelationFilter
+    sale?: XOR<SaleNullableScalarRelationFilter, SaleWhereInput> | null
+    breedingDam?: BreedingRecordListRelationFilter
+    breedingSire?: BreedingRecordListRelationFilter
+    offspring?: OffspringListRelationFilter
+  }
+
+  export type LivestockOrderByWithRelationInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    category?: SortOrder
+    type?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    farm?: FarmOrderByWithRelationInput
+    mammal?: MammalOrderByWithRelationInput
+    poultry?: PoultryOrderByWithRelationInput
+    mortality?: MortalityOrderByWithRelationInput
+    healthEvent?: HealthEventOrderByRelationAggregateInput
+    transfer?: TransferOrderByRelationAggregateInput
+    sale?: SaleOrderByWithRelationInput
+    breedingDam?: BreedingRecordOrderByRelationAggregateInput
+    breedingSire?: BreedingRecordOrderByRelationAggregateInput
+    offspring?: OffspringOrderByRelationAggregateInput
+  }
+
+  export type LivestockWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: LivestockWhereInput | LivestockWhereInput[]
+    OR?: LivestockWhereInput[]
+    NOT?: LivestockWhereInput | LivestockWhereInput[]
+    farmId?: StringFilter<"Livestock"> | string
+    category?: StringFilter<"Livestock"> | string
+    type?: StringFilter<"Livestock"> | string
+    status?: StringFilter<"Livestock"> | string
+    createdAt?: DateTimeFilter<"Livestock"> | Date | string
+    updatedAt?: DateTimeFilter<"Livestock"> | Date | string
+    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
+    mammal?: XOR<MammalNullableScalarRelationFilter, MammalWhereInput> | null
+    poultry?: XOR<PoultryNullableScalarRelationFilter, PoultryWhereInput> | null
+    mortality?: XOR<MortalityNullableScalarRelationFilter, MortalityWhereInput> | null
+    healthEvent?: HealthEventListRelationFilter
+    transfer?: TransferListRelationFilter
+    sale?: XOR<SaleNullableScalarRelationFilter, SaleWhereInput> | null
+    breedingDam?: BreedingRecordListRelationFilter
+    breedingSire?: BreedingRecordListRelationFilter
+    offspring?: OffspringListRelationFilter
+  }, "id">
+
+  export type LivestockOrderByWithAggregationInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    category?: SortOrder
+    type?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: LivestockCountOrderByAggregateInput
+    _max?: LivestockMaxOrderByAggregateInput
+    _min?: LivestockMinOrderByAggregateInput
+  }
+
+  export type LivestockScalarWhereWithAggregatesInput = {
+    AND?: LivestockScalarWhereWithAggregatesInput | LivestockScalarWhereWithAggregatesInput[]
+    OR?: LivestockScalarWhereWithAggregatesInput[]
+    NOT?: LivestockScalarWhereWithAggregatesInput | LivestockScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Livestock"> | string
+    farmId?: StringWithAggregatesFilter<"Livestock"> | string
+    category?: StringWithAggregatesFilter<"Livestock"> | string
+    type?: StringWithAggregatesFilter<"Livestock"> | string
+    status?: StringWithAggregatesFilter<"Livestock"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Livestock"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Livestock"> | Date | string
+  }
+
+  export type MammalWhereInput = {
+    AND?: MammalWhereInput | MammalWhereInput[]
+    OR?: MammalWhereInput[]
+    NOT?: MammalWhereInput | MammalWhereInput[]
+    id?: StringFilter<"Mammal"> | string
+    livestockId?: StringFilter<"Mammal"> | string
+    idNumber?: StringFilter<"Mammal"> | string
+    breedType?: StringFilter<"Mammal"> | string
+    phenotype?: StringNullableFilter<"Mammal"> | string | null
+    dateOfBirth?: StringFilter<"Mammal"> | string
+    gender?: StringFilter<"Mammal"> | string
+    sireId?: StringNullableFilter<"Mammal"> | string | null
+    sireCode?: StringNullableFilter<"Mammal"> | string | null
+    damId?: StringNullableFilter<"Mammal"> | string | null
+    damCode?: StringNullableFilter<"Mammal"> | string | null
+    birthWeight?: FloatNullableFilter<"Mammal"> | number | null
+    currentWeight?: FloatNullableFilter<"Mammal"> | number | null
+    lastWeighingDate?: DateTimeNullableFilter<"Mammal"> | Date | string | null
+    createdAt?: DateTimeFilter<"Mammal"> | Date | string
+    updatedAt?: DateTimeFilter<"Mammal"> | Date | string
+    livestock?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
+  }
+
+  export type MammalOrderByWithRelationInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    idNumber?: SortOrder
+    breedType?: SortOrder
+    phenotype?: SortOrderInput | SortOrder
+    dateOfBirth?: SortOrder
+    gender?: SortOrder
+    sireId?: SortOrderInput | SortOrder
+    sireCode?: SortOrderInput | SortOrder
+    damId?: SortOrderInput | SortOrder
+    damCode?: SortOrderInput | SortOrder
+    birthWeight?: SortOrderInput | SortOrder
+    currentWeight?: SortOrderInput | SortOrder
+    lastWeighingDate?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    livestock?: LivestockOrderByWithRelationInput
+  }
+
+  export type MammalWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    livestockId?: string
+    idNumber?: string
+    AND?: MammalWhereInput | MammalWhereInput[]
+    OR?: MammalWhereInput[]
+    NOT?: MammalWhereInput | MammalWhereInput[]
+    breedType?: StringFilter<"Mammal"> | string
+    phenotype?: StringNullableFilter<"Mammal"> | string | null
+    dateOfBirth?: StringFilter<"Mammal"> | string
+    gender?: StringFilter<"Mammal"> | string
+    sireId?: StringNullableFilter<"Mammal"> | string | null
+    sireCode?: StringNullableFilter<"Mammal"> | string | null
+    damId?: StringNullableFilter<"Mammal"> | string | null
+    damCode?: StringNullableFilter<"Mammal"> | string | null
+    birthWeight?: FloatNullableFilter<"Mammal"> | number | null
+    currentWeight?: FloatNullableFilter<"Mammal"> | number | null
+    lastWeighingDate?: DateTimeNullableFilter<"Mammal"> | Date | string | null
+    createdAt?: DateTimeFilter<"Mammal"> | Date | string
+    updatedAt?: DateTimeFilter<"Mammal"> | Date | string
+    livestock?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
+  }, "id" | "livestockId" | "idNumber">
+
+  export type MammalOrderByWithAggregationInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    idNumber?: SortOrder
+    breedType?: SortOrder
+    phenotype?: SortOrderInput | SortOrder
+    dateOfBirth?: SortOrder
+    gender?: SortOrder
+    sireId?: SortOrderInput | SortOrder
+    sireCode?: SortOrderInput | SortOrder
+    damId?: SortOrderInput | SortOrder
+    damCode?: SortOrderInput | SortOrder
+    birthWeight?: SortOrderInput | SortOrder
+    currentWeight?: SortOrderInput | SortOrder
+    lastWeighingDate?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: MammalCountOrderByAggregateInput
+    _avg?: MammalAvgOrderByAggregateInput
+    _max?: MammalMaxOrderByAggregateInput
+    _min?: MammalMinOrderByAggregateInput
+    _sum?: MammalSumOrderByAggregateInput
+  }
+
+  export type MammalScalarWhereWithAggregatesInput = {
+    AND?: MammalScalarWhereWithAggregatesInput | MammalScalarWhereWithAggregatesInput[]
+    OR?: MammalScalarWhereWithAggregatesInput[]
+    NOT?: MammalScalarWhereWithAggregatesInput | MammalScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Mammal"> | string
+    livestockId?: StringWithAggregatesFilter<"Mammal"> | string
+    idNumber?: StringWithAggregatesFilter<"Mammal"> | string
+    breedType?: StringWithAggregatesFilter<"Mammal"> | string
+    phenotype?: StringNullableWithAggregatesFilter<"Mammal"> | string | null
+    dateOfBirth?: StringWithAggregatesFilter<"Mammal"> | string
+    gender?: StringWithAggregatesFilter<"Mammal"> | string
+    sireId?: StringNullableWithAggregatesFilter<"Mammal"> | string | null
+    sireCode?: StringNullableWithAggregatesFilter<"Mammal"> | string | null
+    damId?: StringNullableWithAggregatesFilter<"Mammal"> | string | null
+    damCode?: StringNullableWithAggregatesFilter<"Mammal"> | string | null
+    birthWeight?: FloatNullableWithAggregatesFilter<"Mammal"> | number | null
+    currentWeight?: FloatNullableWithAggregatesFilter<"Mammal"> | number | null
+    lastWeighingDate?: DateTimeNullableWithAggregatesFilter<"Mammal"> | Date | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Mammal"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Mammal"> | Date | string
+  }
+
+  export type PoultryWhereInput = {
+    AND?: PoultryWhereInput | PoultryWhereInput[]
+    OR?: PoultryWhereInput[]
+    NOT?: PoultryWhereInput | PoultryWhereInput[]
+    id?: StringFilter<"Poultry"> | string
+    livestockId?: StringFilter<"Poultry"> | string
+    flockId?: StringFilter<"Poultry"> | string
+    dateOfStocking?: DateTimeFilter<"Poultry"> | Date | string
+    gender?: StringFilter<"Poultry"> | string
+    initialQuantity?: IntFilter<"Poultry"> | number
+    currentQuantity?: IntFilter<"Poultry"> | number
+    breedType?: StringFilter<"Poultry"> | string
+    sourceOfBirds?: StringFilter<"Poultry"> | string
+    initialAverageWeight?: FloatNullableFilter<"Poultry"> | number | null
+    currentAverageWeight?: FloatNullableFilter<"Poultry"> | number | null
+    lastWeighingDate?: DateTimeNullableFilter<"Poultry"> | Date | string | null
+    mortalityRate?: FloatNullableFilter<"Poultry"> | number | null
+    createdAt?: DateTimeFilter<"Poultry"> | Date | string
+    updatedAt?: DateTimeFilter<"Poultry"> | Date | string
+    livestock?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
+  }
+
+  export type PoultryOrderByWithRelationInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    flockId?: SortOrder
+    dateOfStocking?: SortOrder
+    gender?: SortOrder
+    initialQuantity?: SortOrder
+    currentQuantity?: SortOrder
+    breedType?: SortOrder
+    sourceOfBirds?: SortOrder
+    initialAverageWeight?: SortOrderInput | SortOrder
+    currentAverageWeight?: SortOrderInput | SortOrder
+    lastWeighingDate?: SortOrderInput | SortOrder
+    mortalityRate?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    livestock?: LivestockOrderByWithRelationInput
+  }
+
+  export type PoultryWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    livestockId?: string
+    flockId?: string
+    AND?: PoultryWhereInput | PoultryWhereInput[]
+    OR?: PoultryWhereInput[]
+    NOT?: PoultryWhereInput | PoultryWhereInput[]
+    dateOfStocking?: DateTimeFilter<"Poultry"> | Date | string
+    gender?: StringFilter<"Poultry"> | string
+    initialQuantity?: IntFilter<"Poultry"> | number
+    currentQuantity?: IntFilter<"Poultry"> | number
+    breedType?: StringFilter<"Poultry"> | string
+    sourceOfBirds?: StringFilter<"Poultry"> | string
+    initialAverageWeight?: FloatNullableFilter<"Poultry"> | number | null
+    currentAverageWeight?: FloatNullableFilter<"Poultry"> | number | null
+    lastWeighingDate?: DateTimeNullableFilter<"Poultry"> | Date | string | null
+    mortalityRate?: FloatNullableFilter<"Poultry"> | number | null
+    createdAt?: DateTimeFilter<"Poultry"> | Date | string
+    updatedAt?: DateTimeFilter<"Poultry"> | Date | string
+    livestock?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
+  }, "id" | "livestockId" | "flockId">
+
+  export type PoultryOrderByWithAggregationInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    flockId?: SortOrder
+    dateOfStocking?: SortOrder
+    gender?: SortOrder
+    initialQuantity?: SortOrder
+    currentQuantity?: SortOrder
+    breedType?: SortOrder
+    sourceOfBirds?: SortOrder
+    initialAverageWeight?: SortOrderInput | SortOrder
+    currentAverageWeight?: SortOrderInput | SortOrder
+    lastWeighingDate?: SortOrderInput | SortOrder
+    mortalityRate?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: PoultryCountOrderByAggregateInput
+    _avg?: PoultryAvgOrderByAggregateInput
+    _max?: PoultryMaxOrderByAggregateInput
+    _min?: PoultryMinOrderByAggregateInput
+    _sum?: PoultrySumOrderByAggregateInput
+  }
+
+  export type PoultryScalarWhereWithAggregatesInput = {
+    AND?: PoultryScalarWhereWithAggregatesInput | PoultryScalarWhereWithAggregatesInput[]
+    OR?: PoultryScalarWhereWithAggregatesInput[]
+    NOT?: PoultryScalarWhereWithAggregatesInput | PoultryScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Poultry"> | string
+    livestockId?: StringWithAggregatesFilter<"Poultry"> | string
+    flockId?: StringWithAggregatesFilter<"Poultry"> | string
+    dateOfStocking?: DateTimeWithAggregatesFilter<"Poultry"> | Date | string
+    gender?: StringWithAggregatesFilter<"Poultry"> | string
+    initialQuantity?: IntWithAggregatesFilter<"Poultry"> | number
+    currentQuantity?: IntWithAggregatesFilter<"Poultry"> | number
+    breedType?: StringWithAggregatesFilter<"Poultry"> | string
+    sourceOfBirds?: StringWithAggregatesFilter<"Poultry"> | string
+    initialAverageWeight?: FloatNullableWithAggregatesFilter<"Poultry"> | number | null
+    currentAverageWeight?: FloatNullableWithAggregatesFilter<"Poultry"> | number | null
+    lastWeighingDate?: DateTimeNullableWithAggregatesFilter<"Poultry"> | Date | string | null
+    mortalityRate?: FloatNullableWithAggregatesFilter<"Poultry"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"Poultry"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Poultry"> | Date | string
+  }
+
+  export type MortalityWhereInput = {
+    AND?: MortalityWhereInput | MortalityWhereInput[]
+    OR?: MortalityWhereInput[]
+    NOT?: MortalityWhereInput | MortalityWhereInput[]
+    id?: StringFilter<"Mortality"> | string
+    livestockId?: StringFilter<"Mortality"> | string
+    date?: DateTimeFilter<"Mortality"> | Date | string
+    cause?: StringFilter<"Mortality"> | string
+    description?: StringNullableFilter<"Mortality"> | string | null
+    reportedBy?: StringNullableFilter<"Mortality"> | string | null
+    attachments?: StringNullableListFilter<"Mortality">
+    createdAt?: DateTimeFilter<"Mortality"> | Date | string
+    updatedAt?: DateTimeFilter<"Mortality"> | Date | string
+    livestock?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
+  }
+
+  export type MortalityOrderByWithRelationInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    date?: SortOrder
+    cause?: SortOrder
+    description?: SortOrderInput | SortOrder
+    reportedBy?: SortOrderInput | SortOrder
+    attachments?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    livestock?: LivestockOrderByWithRelationInput
+  }
+
+  export type MortalityWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    livestockId?: string
+    AND?: MortalityWhereInput | MortalityWhereInput[]
+    OR?: MortalityWhereInput[]
+    NOT?: MortalityWhereInput | MortalityWhereInput[]
+    date?: DateTimeFilter<"Mortality"> | Date | string
+    cause?: StringFilter<"Mortality"> | string
+    description?: StringNullableFilter<"Mortality"> | string | null
+    reportedBy?: StringNullableFilter<"Mortality"> | string | null
+    attachments?: StringNullableListFilter<"Mortality">
+    createdAt?: DateTimeFilter<"Mortality"> | Date | string
+    updatedAt?: DateTimeFilter<"Mortality"> | Date | string
+    livestock?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
+  }, "id" | "livestockId">
+
+  export type MortalityOrderByWithAggregationInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    date?: SortOrder
+    cause?: SortOrder
+    description?: SortOrderInput | SortOrder
+    reportedBy?: SortOrderInput | SortOrder
+    attachments?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: MortalityCountOrderByAggregateInput
+    _max?: MortalityMaxOrderByAggregateInput
+    _min?: MortalityMinOrderByAggregateInput
+  }
+
+  export type MortalityScalarWhereWithAggregatesInput = {
+    AND?: MortalityScalarWhereWithAggregatesInput | MortalityScalarWhereWithAggregatesInput[]
+    OR?: MortalityScalarWhereWithAggregatesInput[]
+    NOT?: MortalityScalarWhereWithAggregatesInput | MortalityScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Mortality"> | string
+    livestockId?: StringWithAggregatesFilter<"Mortality"> | string
+    date?: DateTimeWithAggregatesFilter<"Mortality"> | Date | string
+    cause?: StringWithAggregatesFilter<"Mortality"> | string
+    description?: StringNullableWithAggregatesFilter<"Mortality"> | string | null
+    reportedBy?: StringNullableWithAggregatesFilter<"Mortality"> | string | null
+    attachments?: StringNullableListFilter<"Mortality">
+    createdAt?: DateTimeWithAggregatesFilter<"Mortality"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Mortality"> | Date | string
+  }
+
+  export type HealthEventWhereInput = {
+    AND?: HealthEventWhereInput | HealthEventWhereInput[]
+    OR?: HealthEventWhereInput[]
+    NOT?: HealthEventWhereInput | HealthEventWhereInput[]
+    id?: StringFilter<"HealthEvent"> | string
+    livestockId?: StringFilter<"HealthEvent"> | string
+    eventType?: StringFilter<"HealthEvent"> | string
+    date?: DateTimeFilter<"HealthEvent"> | Date | string
+    description?: StringFilter<"HealthEvent"> | string
+    performedBy?: StringNullableFilter<"HealthEvent"> | string | null
+    medications?: StringNullableListFilter<"HealthEvent">
+    dosage?: StringNullableFilter<"HealthEvent"> | string | null
+    cost?: FloatNullableFilter<"HealthEvent"> | number | null
+    nextScheduled?: DateTimeNullableFilter<"HealthEvent"> | Date | string | null
+    attachments?: StringNullableListFilter<"HealthEvent">
+    createdAt?: DateTimeFilter<"HealthEvent"> | Date | string
+    updatedAt?: DateTimeFilter<"HealthEvent"> | Date | string
+    livestock?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
+  }
+
+  export type HealthEventOrderByWithRelationInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    eventType?: SortOrder
+    date?: SortOrder
+    description?: SortOrder
+    performedBy?: SortOrderInput | SortOrder
+    medications?: SortOrder
+    dosage?: SortOrderInput | SortOrder
+    cost?: SortOrderInput | SortOrder
+    nextScheduled?: SortOrderInput | SortOrder
+    attachments?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    livestock?: LivestockOrderByWithRelationInput
+  }
+
+  export type HealthEventWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: HealthEventWhereInput | HealthEventWhereInput[]
+    OR?: HealthEventWhereInput[]
+    NOT?: HealthEventWhereInput | HealthEventWhereInput[]
+    livestockId?: StringFilter<"HealthEvent"> | string
+    eventType?: StringFilter<"HealthEvent"> | string
+    date?: DateTimeFilter<"HealthEvent"> | Date | string
+    description?: StringFilter<"HealthEvent"> | string
+    performedBy?: StringNullableFilter<"HealthEvent"> | string | null
+    medications?: StringNullableListFilter<"HealthEvent">
+    dosage?: StringNullableFilter<"HealthEvent"> | string | null
+    cost?: FloatNullableFilter<"HealthEvent"> | number | null
+    nextScheduled?: DateTimeNullableFilter<"HealthEvent"> | Date | string | null
+    attachments?: StringNullableListFilter<"HealthEvent">
+    createdAt?: DateTimeFilter<"HealthEvent"> | Date | string
+    updatedAt?: DateTimeFilter<"HealthEvent"> | Date | string
+    livestock?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
+  }, "id">
+
+  export type HealthEventOrderByWithAggregationInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    eventType?: SortOrder
+    date?: SortOrder
+    description?: SortOrder
+    performedBy?: SortOrderInput | SortOrder
+    medications?: SortOrder
+    dosage?: SortOrderInput | SortOrder
+    cost?: SortOrderInput | SortOrder
+    nextScheduled?: SortOrderInput | SortOrder
+    attachments?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: HealthEventCountOrderByAggregateInput
+    _avg?: HealthEventAvgOrderByAggregateInput
+    _max?: HealthEventMaxOrderByAggregateInput
+    _min?: HealthEventMinOrderByAggregateInput
+    _sum?: HealthEventSumOrderByAggregateInput
+  }
+
+  export type HealthEventScalarWhereWithAggregatesInput = {
+    AND?: HealthEventScalarWhereWithAggregatesInput | HealthEventScalarWhereWithAggregatesInput[]
+    OR?: HealthEventScalarWhereWithAggregatesInput[]
+    NOT?: HealthEventScalarWhereWithAggregatesInput | HealthEventScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"HealthEvent"> | string
+    livestockId?: StringWithAggregatesFilter<"HealthEvent"> | string
+    eventType?: StringWithAggregatesFilter<"HealthEvent"> | string
+    date?: DateTimeWithAggregatesFilter<"HealthEvent"> | Date | string
+    description?: StringWithAggregatesFilter<"HealthEvent"> | string
+    performedBy?: StringNullableWithAggregatesFilter<"HealthEvent"> | string | null
+    medications?: StringNullableListFilter<"HealthEvent">
+    dosage?: StringNullableWithAggregatesFilter<"HealthEvent"> | string | null
+    cost?: FloatNullableWithAggregatesFilter<"HealthEvent"> | number | null
+    nextScheduled?: DateTimeNullableWithAggregatesFilter<"HealthEvent"> | Date | string | null
+    attachments?: StringNullableListFilter<"HealthEvent">
+    createdAt?: DateTimeWithAggregatesFilter<"HealthEvent"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"HealthEvent"> | Date | string
+  }
+
+  export type TransferWhereInput = {
+    AND?: TransferWhereInput | TransferWhereInput[]
+    OR?: TransferWhereInput[]
+    NOT?: TransferWhereInput | TransferWhereInput[]
+    id?: StringFilter<"Transfer"> | string
+    livestockId?: StringFilter<"Transfer"> | string
+    fromFarmId?: StringFilter<"Transfer"> | string
+    toFarmId?: StringFilter<"Transfer"> | string
+    transferDate?: DateTimeFilter<"Transfer"> | Date | string
+    reason?: StringNullableFilter<"Transfer"> | string | null
+    transportMethod?: StringNullableFilter<"Transfer"> | string | null
+    handlingPrecautions?: StringNullableFilter<"Transfer"> | string | null
+    attachments?: StringNullableListFilter<"Transfer">
+    createdAt?: DateTimeFilter<"Transfer"> | Date | string
+    updatedAt?: DateTimeFilter<"Transfer"> | Date | string
+    livestock?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
+  }
+
+  export type TransferOrderByWithRelationInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    fromFarmId?: SortOrder
+    toFarmId?: SortOrder
+    transferDate?: SortOrder
+    reason?: SortOrderInput | SortOrder
+    transportMethod?: SortOrderInput | SortOrder
+    handlingPrecautions?: SortOrderInput | SortOrder
+    attachments?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    livestock?: LivestockOrderByWithRelationInput
+  }
+
+  export type TransferWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: TransferWhereInput | TransferWhereInput[]
+    OR?: TransferWhereInput[]
+    NOT?: TransferWhereInput | TransferWhereInput[]
+    livestockId?: StringFilter<"Transfer"> | string
+    fromFarmId?: StringFilter<"Transfer"> | string
+    toFarmId?: StringFilter<"Transfer"> | string
+    transferDate?: DateTimeFilter<"Transfer"> | Date | string
+    reason?: StringNullableFilter<"Transfer"> | string | null
+    transportMethod?: StringNullableFilter<"Transfer"> | string | null
+    handlingPrecautions?: StringNullableFilter<"Transfer"> | string | null
+    attachments?: StringNullableListFilter<"Transfer">
+    createdAt?: DateTimeFilter<"Transfer"> | Date | string
+    updatedAt?: DateTimeFilter<"Transfer"> | Date | string
+    livestock?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
+  }, "id">
+
+  export type TransferOrderByWithAggregationInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    fromFarmId?: SortOrder
+    toFarmId?: SortOrder
+    transferDate?: SortOrder
+    reason?: SortOrderInput | SortOrder
+    transportMethod?: SortOrderInput | SortOrder
+    handlingPrecautions?: SortOrderInput | SortOrder
+    attachments?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: TransferCountOrderByAggregateInput
+    _max?: TransferMaxOrderByAggregateInput
+    _min?: TransferMinOrderByAggregateInput
+  }
+
+  export type TransferScalarWhereWithAggregatesInput = {
+    AND?: TransferScalarWhereWithAggregatesInput | TransferScalarWhereWithAggregatesInput[]
+    OR?: TransferScalarWhereWithAggregatesInput[]
+    NOT?: TransferScalarWhereWithAggregatesInput | TransferScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Transfer"> | string
+    livestockId?: StringWithAggregatesFilter<"Transfer"> | string
+    fromFarmId?: StringWithAggregatesFilter<"Transfer"> | string
+    toFarmId?: StringWithAggregatesFilter<"Transfer"> | string
+    transferDate?: DateTimeWithAggregatesFilter<"Transfer"> | Date | string
+    reason?: StringNullableWithAggregatesFilter<"Transfer"> | string | null
+    transportMethod?: StringNullableWithAggregatesFilter<"Transfer"> | string | null
+    handlingPrecautions?: StringNullableWithAggregatesFilter<"Transfer"> | string | null
+    attachments?: StringNullableListFilter<"Transfer">
+    createdAt?: DateTimeWithAggregatesFilter<"Transfer"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Transfer"> | Date | string
+  }
+
+  export type SaleWhereInput = {
+    AND?: SaleWhereInput | SaleWhereInput[]
+    OR?: SaleWhereInput[]
+    NOT?: SaleWhereInput | SaleWhereInput[]
+    id?: StringFilter<"Sale"> | string
+    livestockId?: StringFilter<"Sale"> | string
+    saleDate?: DateTimeFilter<"Sale"> | Date | string
+    buyerName?: StringFilter<"Sale"> | string
+    buyerContact?: StringNullableFilter<"Sale"> | string | null
+    saleAmount?: FloatFilter<"Sale"> | number
+    paymentMethod?: StringFilter<"Sale"> | string
+    receiptNumber?: StringNullableFilter<"Sale"> | string | null
+    notes?: StringNullableFilter<"Sale"> | string | null
+    attachments?: StringNullableListFilter<"Sale">
+    createdAt?: DateTimeFilter<"Sale"> | Date | string
+    updatedAt?: DateTimeFilter<"Sale"> | Date | string
+    livestock?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
+  }
+
+  export type SaleOrderByWithRelationInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    saleDate?: SortOrder
+    buyerName?: SortOrder
+    buyerContact?: SortOrderInput | SortOrder
+    saleAmount?: SortOrder
+    paymentMethod?: SortOrder
+    receiptNumber?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    attachments?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    livestock?: LivestockOrderByWithRelationInput
+  }
+
+  export type SaleWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    livestockId?: string
+    AND?: SaleWhereInput | SaleWhereInput[]
+    OR?: SaleWhereInput[]
+    NOT?: SaleWhereInput | SaleWhereInput[]
+    saleDate?: DateTimeFilter<"Sale"> | Date | string
+    buyerName?: StringFilter<"Sale"> | string
+    buyerContact?: StringNullableFilter<"Sale"> | string | null
+    saleAmount?: FloatFilter<"Sale"> | number
+    paymentMethod?: StringFilter<"Sale"> | string
+    receiptNumber?: StringNullableFilter<"Sale"> | string | null
+    notes?: StringNullableFilter<"Sale"> | string | null
+    attachments?: StringNullableListFilter<"Sale">
+    createdAt?: DateTimeFilter<"Sale"> | Date | string
+    updatedAt?: DateTimeFilter<"Sale"> | Date | string
+    livestock?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
+  }, "id" | "livestockId">
+
+  export type SaleOrderByWithAggregationInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    saleDate?: SortOrder
+    buyerName?: SortOrder
+    buyerContact?: SortOrderInput | SortOrder
+    saleAmount?: SortOrder
+    paymentMethod?: SortOrder
+    receiptNumber?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    attachments?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: SaleCountOrderByAggregateInput
+    _avg?: SaleAvgOrderByAggregateInput
+    _max?: SaleMaxOrderByAggregateInput
+    _min?: SaleMinOrderByAggregateInput
+    _sum?: SaleSumOrderByAggregateInput
+  }
+
+  export type SaleScalarWhereWithAggregatesInput = {
+    AND?: SaleScalarWhereWithAggregatesInput | SaleScalarWhereWithAggregatesInput[]
+    OR?: SaleScalarWhereWithAggregatesInput[]
+    NOT?: SaleScalarWhereWithAggregatesInput | SaleScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Sale"> | string
+    livestockId?: StringWithAggregatesFilter<"Sale"> | string
+    saleDate?: DateTimeWithAggregatesFilter<"Sale"> | Date | string
+    buyerName?: StringWithAggregatesFilter<"Sale"> | string
+    buyerContact?: StringNullableWithAggregatesFilter<"Sale"> | string | null
+    saleAmount?: FloatWithAggregatesFilter<"Sale"> | number
+    paymentMethod?: StringWithAggregatesFilter<"Sale"> | string
+    receiptNumber?: StringNullableWithAggregatesFilter<"Sale"> | string | null
+    notes?: StringNullableWithAggregatesFilter<"Sale"> | string | null
+    attachments?: StringNullableListFilter<"Sale">
+    createdAt?: DateTimeWithAggregatesFilter<"Sale"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Sale"> | Date | string
+  }
+
+  export type BreedingRecordWhereInput = {
+    AND?: BreedingRecordWhereInput | BreedingRecordWhereInput[]
+    OR?: BreedingRecordWhereInput[]
+    NOT?: BreedingRecordWhereInput | BreedingRecordWhereInput[]
+    id?: StringFilter<"BreedingRecord"> | string
+    damId?: StringFilter<"BreedingRecord"> | string
+    sireId?: StringNullableFilter<"BreedingRecord"> | string | null
+    purpose?: StringFilter<"BreedingRecord"> | string
+    strategy?: StringFilter<"BreedingRecord"> | string
+    serviceType?: StringFilter<"BreedingRecord"> | string
+    serviceDate?: DateTimeFilter<"BreedingRecord"> | Date | string
+    numServices?: IntFilter<"BreedingRecord"> | number
+    firstHeatDate?: DateTimeNullableFilter<"BreedingRecord"> | Date | string | null
+    sireCode?: StringNullableFilter<"BreedingRecord"> | string | null
+    aiType?: StringNullableFilter<"BreedingRecord"> | string | null
+    aiSource?: StringNullableFilter<"BreedingRecord"> | string | null
+    aiCost?: FloatNullableFilter<"BreedingRecord"> | number | null
+    gestationDays?: IntFilter<"BreedingRecord"> | number
+    expectedBirthDate?: DateTimeFilter<"BreedingRecord"> | Date | string
+    birthRecorded?: BoolFilter<"BreedingRecord"> | boolean
+    birthDate?: DateTimeNullableFilter<"BreedingRecord"> | Date | string | null
+    deliveryMethod?: StringNullableFilter<"BreedingRecord"> | string | null
+    youngOnes?: IntNullableFilter<"BreedingRecord"> | number | null
+    birthWeight?: FloatNullableFilter<"BreedingRecord"> | number | null
+    litterWeight?: FloatNullableFilter<"BreedingRecord"> | number | null
+    offspringSex?: StringNullableFilter<"BreedingRecord"> | string | null
+    farmId?: StringFilter<"BreedingRecord"> | string
+    createdAt?: DateTimeFilter<"BreedingRecord"> | Date | string
+    updatedAt?: DateTimeFilter<"BreedingRecord"> | Date | string
+    dam?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
+    sire?: XOR<LivestockNullableScalarRelationFilter, LivestockWhereInput> | null
+    offspring?: OffspringListRelationFilter
+    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
+  }
+
+  export type BreedingRecordOrderByWithRelationInput = {
+    id?: SortOrder
+    damId?: SortOrder
+    sireId?: SortOrderInput | SortOrder
+    purpose?: SortOrder
+    strategy?: SortOrder
+    serviceType?: SortOrder
+    serviceDate?: SortOrder
+    numServices?: SortOrder
+    firstHeatDate?: SortOrderInput | SortOrder
+    sireCode?: SortOrderInput | SortOrder
+    aiType?: SortOrderInput | SortOrder
+    aiSource?: SortOrderInput | SortOrder
+    aiCost?: SortOrderInput | SortOrder
+    gestationDays?: SortOrder
+    expectedBirthDate?: SortOrder
+    birthRecorded?: SortOrder
+    birthDate?: SortOrderInput | SortOrder
+    deliveryMethod?: SortOrderInput | SortOrder
+    youngOnes?: SortOrderInput | SortOrder
+    birthWeight?: SortOrderInput | SortOrder
+    litterWeight?: SortOrderInput | SortOrder
+    offspringSex?: SortOrderInput | SortOrder
+    farmId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    dam?: LivestockOrderByWithRelationInput
+    sire?: LivestockOrderByWithRelationInput
+    offspring?: OffspringOrderByRelationAggregateInput
+    farm?: FarmOrderByWithRelationInput
+  }
+
+  export type BreedingRecordWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: BreedingRecordWhereInput | BreedingRecordWhereInput[]
+    OR?: BreedingRecordWhereInput[]
+    NOT?: BreedingRecordWhereInput | BreedingRecordWhereInput[]
+    damId?: StringFilter<"BreedingRecord"> | string
+    sireId?: StringNullableFilter<"BreedingRecord"> | string | null
+    purpose?: StringFilter<"BreedingRecord"> | string
+    strategy?: StringFilter<"BreedingRecord"> | string
+    serviceType?: StringFilter<"BreedingRecord"> | string
+    serviceDate?: DateTimeFilter<"BreedingRecord"> | Date | string
+    numServices?: IntFilter<"BreedingRecord"> | number
+    firstHeatDate?: DateTimeNullableFilter<"BreedingRecord"> | Date | string | null
+    sireCode?: StringNullableFilter<"BreedingRecord"> | string | null
+    aiType?: StringNullableFilter<"BreedingRecord"> | string | null
+    aiSource?: StringNullableFilter<"BreedingRecord"> | string | null
+    aiCost?: FloatNullableFilter<"BreedingRecord"> | number | null
+    gestationDays?: IntFilter<"BreedingRecord"> | number
+    expectedBirthDate?: DateTimeFilter<"BreedingRecord"> | Date | string
+    birthRecorded?: BoolFilter<"BreedingRecord"> | boolean
+    birthDate?: DateTimeNullableFilter<"BreedingRecord"> | Date | string | null
+    deliveryMethod?: StringNullableFilter<"BreedingRecord"> | string | null
+    youngOnes?: IntNullableFilter<"BreedingRecord"> | number | null
+    birthWeight?: FloatNullableFilter<"BreedingRecord"> | number | null
+    litterWeight?: FloatNullableFilter<"BreedingRecord"> | number | null
+    offspringSex?: StringNullableFilter<"BreedingRecord"> | string | null
+    farmId?: StringFilter<"BreedingRecord"> | string
+    createdAt?: DateTimeFilter<"BreedingRecord"> | Date | string
+    updatedAt?: DateTimeFilter<"BreedingRecord"> | Date | string
+    dam?: XOR<LivestockScalarRelationFilter, LivestockWhereInput>
+    sire?: XOR<LivestockNullableScalarRelationFilter, LivestockWhereInput> | null
+    offspring?: OffspringListRelationFilter
+    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
+  }, "id">
+
+  export type BreedingRecordOrderByWithAggregationInput = {
+    id?: SortOrder
+    damId?: SortOrder
+    sireId?: SortOrderInput | SortOrder
+    purpose?: SortOrder
+    strategy?: SortOrder
+    serviceType?: SortOrder
+    serviceDate?: SortOrder
+    numServices?: SortOrder
+    firstHeatDate?: SortOrderInput | SortOrder
+    sireCode?: SortOrderInput | SortOrder
+    aiType?: SortOrderInput | SortOrder
+    aiSource?: SortOrderInput | SortOrder
+    aiCost?: SortOrderInput | SortOrder
+    gestationDays?: SortOrder
+    expectedBirthDate?: SortOrder
+    birthRecorded?: SortOrder
+    birthDate?: SortOrderInput | SortOrder
+    deliveryMethod?: SortOrderInput | SortOrder
+    youngOnes?: SortOrderInput | SortOrder
+    birthWeight?: SortOrderInput | SortOrder
+    litterWeight?: SortOrderInput | SortOrder
+    offspringSex?: SortOrderInput | SortOrder
+    farmId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: BreedingRecordCountOrderByAggregateInput
+    _avg?: BreedingRecordAvgOrderByAggregateInput
+    _max?: BreedingRecordMaxOrderByAggregateInput
+    _min?: BreedingRecordMinOrderByAggregateInput
+    _sum?: BreedingRecordSumOrderByAggregateInput
+  }
+
+  export type BreedingRecordScalarWhereWithAggregatesInput = {
+    AND?: BreedingRecordScalarWhereWithAggregatesInput | BreedingRecordScalarWhereWithAggregatesInput[]
+    OR?: BreedingRecordScalarWhereWithAggregatesInput[]
+    NOT?: BreedingRecordScalarWhereWithAggregatesInput | BreedingRecordScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"BreedingRecord"> | string
+    damId?: StringWithAggregatesFilter<"BreedingRecord"> | string
+    sireId?: StringNullableWithAggregatesFilter<"BreedingRecord"> | string | null
+    purpose?: StringWithAggregatesFilter<"BreedingRecord"> | string
+    strategy?: StringWithAggregatesFilter<"BreedingRecord"> | string
+    serviceType?: StringWithAggregatesFilter<"BreedingRecord"> | string
+    serviceDate?: DateTimeWithAggregatesFilter<"BreedingRecord"> | Date | string
+    numServices?: IntWithAggregatesFilter<"BreedingRecord"> | number
+    firstHeatDate?: DateTimeNullableWithAggregatesFilter<"BreedingRecord"> | Date | string | null
+    sireCode?: StringNullableWithAggregatesFilter<"BreedingRecord"> | string | null
+    aiType?: StringNullableWithAggregatesFilter<"BreedingRecord"> | string | null
+    aiSource?: StringNullableWithAggregatesFilter<"BreedingRecord"> | string | null
+    aiCost?: FloatNullableWithAggregatesFilter<"BreedingRecord"> | number | null
+    gestationDays?: IntWithAggregatesFilter<"BreedingRecord"> | number
+    expectedBirthDate?: DateTimeWithAggregatesFilter<"BreedingRecord"> | Date | string
+    birthRecorded?: BoolWithAggregatesFilter<"BreedingRecord"> | boolean
+    birthDate?: DateTimeNullableWithAggregatesFilter<"BreedingRecord"> | Date | string | null
+    deliveryMethod?: StringNullableWithAggregatesFilter<"BreedingRecord"> | string | null
+    youngOnes?: IntNullableWithAggregatesFilter<"BreedingRecord"> | number | null
+    birthWeight?: FloatNullableWithAggregatesFilter<"BreedingRecord"> | number | null
+    litterWeight?: FloatNullableWithAggregatesFilter<"BreedingRecord"> | number | null
+    offspringSex?: StringNullableWithAggregatesFilter<"BreedingRecord"> | string | null
+    farmId?: StringWithAggregatesFilter<"BreedingRecord"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"BreedingRecord"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"BreedingRecord"> | Date | string
+  }
+
+  export type OffspringWhereInput = {
+    AND?: OffspringWhereInput | OffspringWhereInput[]
+    OR?: OffspringWhereInput[]
+    NOT?: OffspringWhereInput | OffspringWhereInput[]
+    id?: StringFilter<"Offspring"> | string
+    breedingRecordId?: StringFilter<"Offspring"> | string
+    livestockId?: StringNullableFilter<"Offspring"> | string | null
+    offspringId?: StringFilter<"Offspring"> | string
+    sex?: StringFilter<"Offspring"> | string
+    birthWeight?: FloatNullableFilter<"Offspring"> | number | null
+    notes?: StringNullableFilter<"Offspring"> | string | null
+    status?: StringFilter<"Offspring"> | string
+    createdAt?: DateTimeFilter<"Offspring"> | Date | string
+    updatedAt?: DateTimeFilter<"Offspring"> | Date | string
+    breedingRecord?: XOR<BreedingRecordScalarRelationFilter, BreedingRecordWhereInput>
+    livestock?: XOR<LivestockNullableScalarRelationFilter, LivestockWhereInput> | null
+  }
+
+  export type OffspringOrderByWithRelationInput = {
+    id?: SortOrder
+    breedingRecordId?: SortOrder
+    livestockId?: SortOrderInput | SortOrder
+    offspringId?: SortOrder
+    sex?: SortOrder
+    birthWeight?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    breedingRecord?: BreedingRecordOrderByWithRelationInput
+    livestock?: LivestockOrderByWithRelationInput
+  }
+
+  export type OffspringWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: OffspringWhereInput | OffspringWhereInput[]
+    OR?: OffspringWhereInput[]
+    NOT?: OffspringWhereInput | OffspringWhereInput[]
+    breedingRecordId?: StringFilter<"Offspring"> | string
+    livestockId?: StringNullableFilter<"Offspring"> | string | null
+    offspringId?: StringFilter<"Offspring"> | string
+    sex?: StringFilter<"Offspring"> | string
+    birthWeight?: FloatNullableFilter<"Offspring"> | number | null
+    notes?: StringNullableFilter<"Offspring"> | string | null
+    status?: StringFilter<"Offspring"> | string
+    createdAt?: DateTimeFilter<"Offspring"> | Date | string
+    updatedAt?: DateTimeFilter<"Offspring"> | Date | string
+    breedingRecord?: XOR<BreedingRecordScalarRelationFilter, BreedingRecordWhereInput>
+    livestock?: XOR<LivestockNullableScalarRelationFilter, LivestockWhereInput> | null
+  }, "id">
+
+  export type OffspringOrderByWithAggregationInput = {
+    id?: SortOrder
+    breedingRecordId?: SortOrder
+    livestockId?: SortOrderInput | SortOrder
+    offspringId?: SortOrder
+    sex?: SortOrder
+    birthWeight?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: OffspringCountOrderByAggregateInput
+    _avg?: OffspringAvgOrderByAggregateInput
+    _max?: OffspringMaxOrderByAggregateInput
+    _min?: OffspringMinOrderByAggregateInput
+    _sum?: OffspringSumOrderByAggregateInput
+  }
+
+  export type OffspringScalarWhereWithAggregatesInput = {
+    AND?: OffspringScalarWhereWithAggregatesInput | OffspringScalarWhereWithAggregatesInput[]
+    OR?: OffspringScalarWhereWithAggregatesInput[]
+    NOT?: OffspringScalarWhereWithAggregatesInput | OffspringScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Offspring"> | string
+    breedingRecordId?: StringWithAggregatesFilter<"Offspring"> | string
+    livestockId?: StringNullableWithAggregatesFilter<"Offspring"> | string | null
+    offspringId?: StringWithAggregatesFilter<"Offspring"> | string
+    sex?: StringWithAggregatesFilter<"Offspring"> | string
+    birthWeight?: FloatNullableWithAggregatesFilter<"Offspring"> | number | null
+    notes?: StringNullableWithAggregatesFilter<"Offspring"> | string | null
+    status?: StringWithAggregatesFilter<"Offspring"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Offspring"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Offspring"> | Date | string
   }
 
   export type UserCreateInput = {
@@ -3930,6 +21193,9 @@ export namespace Prisma {
     farmingTypes?: FarmCreatefarmingTypesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    employees?: EmployeeFarmCreateNestedManyWithoutFarmInput
+    livestock?: LivestockCreateNestedManyWithoutFarmInput
+    breedingRecords?: BreedingRecordCreateNestedManyWithoutFarmInput
     user: UserCreateNestedOneWithoutFarmsInput
   }
 
@@ -3944,6 +21210,9 @@ export namespace Prisma {
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    employees?: EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput
+    livestock?: LivestockUncheckedCreateNestedManyWithoutFarmInput
+    breedingRecords?: BreedingRecordUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUpdateInput = {
@@ -3956,6 +21225,9 @@ export namespace Prisma {
     farmingTypes?: FarmUpdatefarmingTypesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: EmployeeFarmUpdateManyWithoutFarmNestedInput
+    livestock?: LivestockUpdateManyWithoutFarmNestedInput
+    breedingRecords?: BreedingRecordUpdateManyWithoutFarmNestedInput
     user?: UserUpdateOneRequiredWithoutFarmsNestedInput
   }
 
@@ -3970,6 +21242,9 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput
+    livestock?: LivestockUncheckedUpdateManyWithoutFarmNestedInput
+    breedingRecords?: BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmCreateManyInput = {
@@ -4006,6 +21281,1327 @@ export namespace Prisma {
     ownership?: StringFieldUpdateOperationsInput | string
     farmingTypes?: FarmUpdatefarmingTypesInput | string[]
     userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeCreateInput = {
+    id?: string
+    firstName: string
+    middleName?: string | null
+    lastName: string
+    phone: string
+    emergencyContact?: string | null
+    idNumber: string
+    idPhoto?: string | null
+    employeeType: string
+    dateOfEmployment: Date | string
+    endDate?: Date | string | null
+    role: string
+    customRole?: string | null
+    paymentSchedule: string
+    salary: number
+    typeOfEngagement?: string | null
+    workSchedule?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    benefits?: EmployeeBenefitCreateNestedManyWithoutEmployeeInput
+    farms?: EmployeeFarmCreateNestedManyWithoutEmployeeInput
+  }
+
+  export type EmployeeUncheckedCreateInput = {
+    id?: string
+    firstName: string
+    middleName?: string | null
+    lastName: string
+    phone: string
+    emergencyContact?: string | null
+    idNumber: string
+    idPhoto?: string | null
+    employeeType: string
+    dateOfEmployment: Date | string
+    endDate?: Date | string | null
+    role: string
+    customRole?: string | null
+    paymentSchedule: string
+    salary: number
+    typeOfEngagement?: string | null
+    workSchedule?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    benefits?: EmployeeBenefitUncheckedCreateNestedManyWithoutEmployeeInput
+    farms?: EmployeeFarmUncheckedCreateNestedManyWithoutEmployeeInput
+  }
+
+  export type EmployeeUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    emergencyContact?: NullableStringFieldUpdateOperationsInput | string | null
+    idNumber?: StringFieldUpdateOperationsInput | string
+    idPhoto?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeType?: StringFieldUpdateOperationsInput | string
+    dateOfEmployment?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    customRole?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentSchedule?: StringFieldUpdateOperationsInput | string
+    salary?: FloatFieldUpdateOperationsInput | number
+    typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
+    workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    benefits?: EmployeeBenefitUpdateManyWithoutEmployeeNestedInput
+    farms?: EmployeeFarmUpdateManyWithoutEmployeeNestedInput
+  }
+
+  export type EmployeeUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    emergencyContact?: NullableStringFieldUpdateOperationsInput | string | null
+    idNumber?: StringFieldUpdateOperationsInput | string
+    idPhoto?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeType?: StringFieldUpdateOperationsInput | string
+    dateOfEmployment?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    customRole?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentSchedule?: StringFieldUpdateOperationsInput | string
+    salary?: FloatFieldUpdateOperationsInput | number
+    typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
+    workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    benefits?: EmployeeBenefitUncheckedUpdateManyWithoutEmployeeNestedInput
+    farms?: EmployeeFarmUncheckedUpdateManyWithoutEmployeeNestedInput
+  }
+
+  export type EmployeeCreateManyInput = {
+    id?: string
+    firstName: string
+    middleName?: string | null
+    lastName: string
+    phone: string
+    emergencyContact?: string | null
+    idNumber: string
+    idPhoto?: string | null
+    employeeType: string
+    dateOfEmployment: Date | string
+    endDate?: Date | string | null
+    role: string
+    customRole?: string | null
+    paymentSchedule: string
+    salary: number
+    typeOfEngagement?: string | null
+    workSchedule?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    emergencyContact?: NullableStringFieldUpdateOperationsInput | string | null
+    idNumber?: StringFieldUpdateOperationsInput | string
+    idPhoto?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeType?: StringFieldUpdateOperationsInput | string
+    dateOfEmployment?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    customRole?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentSchedule?: StringFieldUpdateOperationsInput | string
+    salary?: FloatFieldUpdateOperationsInput | number
+    typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
+    workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    emergencyContact?: NullableStringFieldUpdateOperationsInput | string | null
+    idNumber?: StringFieldUpdateOperationsInput | string
+    idPhoto?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeType?: StringFieldUpdateOperationsInput | string
+    dateOfEmployment?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    customRole?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentSchedule?: StringFieldUpdateOperationsInput | string
+    salary?: FloatFieldUpdateOperationsInput | number
+    typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
+    workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeFarmCreateInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    employee: EmployeeCreateNestedOneWithoutFarmsInput
+    farm: FarmCreateNestedOneWithoutEmployeesInput
+  }
+
+  export type EmployeeFarmUncheckedCreateInput = {
+    id?: string
+    employeeId: string
+    farmId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeFarmUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employee?: EmployeeUpdateOneRequiredWithoutFarmsNestedInput
+    farm?: FarmUpdateOneRequiredWithoutEmployeesNestedInput
+  }
+
+  export type EmployeeFarmUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeFarmCreateManyInput = {
+    id?: string
+    employeeId: string
+    farmId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeFarmUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeFarmUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeBenefitCreateInput = {
+    id?: string
+    name: string
+    amount?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    employee: EmployeeCreateNestedOneWithoutBenefitsInput
+  }
+
+  export type EmployeeBenefitUncheckedCreateInput = {
+    id?: string
+    employeeId: string
+    name: string
+    amount?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeBenefitUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employee?: EmployeeUpdateOneRequiredWithoutBenefitsNestedInput
+  }
+
+  export type EmployeeBenefitUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeBenefitCreateManyInput = {
+    id?: string
+    employeeId: string
+    name: string
+    amount?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeBenefitUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeBenefitUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LivestockCreateInput = {
+    id?: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutLivestockInput
+    mammal?: MammalCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
+    breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+    offspring?: OffspringCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockUncheckedCreateInput = {
+    id?: string
+    farmId: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+    offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
+    mammal?: MammalUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+    offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
+    offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockCreateManyInput = {
+    id?: string
+    farmId: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LivestockUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LivestockUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MammalCreateInput = {
+    id?: string
+    idNumber: string
+    breedType: string
+    phenotype?: string | null
+    dateOfBirth: string
+    gender: string
+    sireId?: string | null
+    sireCode?: string | null
+    damId?: string | null
+    damCode?: string | null
+    birthWeight?: number | null
+    currentWeight?: number | null
+    lastWeighingDate?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    livestock: LivestockCreateNestedOneWithoutMammalInput
+  }
+
+  export type MammalUncheckedCreateInput = {
+    id?: string
+    livestockId: string
+    idNumber: string
+    breedType: string
+    phenotype?: string | null
+    dateOfBirth: string
+    gender: string
+    sireId?: string | null
+    sireCode?: string | null
+    damId?: string | null
+    damCode?: string | null
+    birthWeight?: number | null
+    currentWeight?: number | null
+    lastWeighingDate?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MammalUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    idNumber?: StringFieldUpdateOperationsInput | string
+    breedType?: StringFieldUpdateOperationsInput | string
+    phenotype?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfBirth?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    sireId?: NullableStringFieldUpdateOperationsInput | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    damId?: NullableStringFieldUpdateOperationsInput | string | null
+    damCode?: NullableStringFieldUpdateOperationsInput | string | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    livestock?: LivestockUpdateOneRequiredWithoutMammalNestedInput
+  }
+
+  export type MammalUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    livestockId?: StringFieldUpdateOperationsInput | string
+    idNumber?: StringFieldUpdateOperationsInput | string
+    breedType?: StringFieldUpdateOperationsInput | string
+    phenotype?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfBirth?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    sireId?: NullableStringFieldUpdateOperationsInput | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    damId?: NullableStringFieldUpdateOperationsInput | string | null
+    damCode?: NullableStringFieldUpdateOperationsInput | string | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MammalCreateManyInput = {
+    id?: string
+    livestockId: string
+    idNumber: string
+    breedType: string
+    phenotype?: string | null
+    dateOfBirth: string
+    gender: string
+    sireId?: string | null
+    sireCode?: string | null
+    damId?: string | null
+    damCode?: string | null
+    birthWeight?: number | null
+    currentWeight?: number | null
+    lastWeighingDate?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MammalUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    idNumber?: StringFieldUpdateOperationsInput | string
+    breedType?: StringFieldUpdateOperationsInput | string
+    phenotype?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfBirth?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    sireId?: NullableStringFieldUpdateOperationsInput | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    damId?: NullableStringFieldUpdateOperationsInput | string | null
+    damCode?: NullableStringFieldUpdateOperationsInput | string | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MammalUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    livestockId?: StringFieldUpdateOperationsInput | string
+    idNumber?: StringFieldUpdateOperationsInput | string
+    breedType?: StringFieldUpdateOperationsInput | string
+    phenotype?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfBirth?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    sireId?: NullableStringFieldUpdateOperationsInput | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    damId?: NullableStringFieldUpdateOperationsInput | string | null
+    damCode?: NullableStringFieldUpdateOperationsInput | string | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PoultryCreateInput = {
+    id?: string
+    flockId: string
+    dateOfStocking: Date | string
+    gender: string
+    initialQuantity: number
+    currentQuantity: number
+    breedType: string
+    sourceOfBirds: string
+    initialAverageWeight?: number | null
+    currentAverageWeight?: number | null
+    lastWeighingDate?: Date | string | null
+    mortalityRate?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    livestock: LivestockCreateNestedOneWithoutPoultryInput
+  }
+
+  export type PoultryUncheckedCreateInput = {
+    id?: string
+    livestockId: string
+    flockId: string
+    dateOfStocking: Date | string
+    gender: string
+    initialQuantity: number
+    currentQuantity: number
+    breedType: string
+    sourceOfBirds: string
+    initialAverageWeight?: number | null
+    currentAverageWeight?: number | null
+    lastWeighingDate?: Date | string | null
+    mortalityRate?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PoultryUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    flockId?: StringFieldUpdateOperationsInput | string
+    dateOfStocking?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
+    initialQuantity?: IntFieldUpdateOperationsInput | number
+    currentQuantity?: IntFieldUpdateOperationsInput | number
+    breedType?: StringFieldUpdateOperationsInput | string
+    sourceOfBirds?: StringFieldUpdateOperationsInput | string
+    initialAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mortalityRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    livestock?: LivestockUpdateOneRequiredWithoutPoultryNestedInput
+  }
+
+  export type PoultryUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    livestockId?: StringFieldUpdateOperationsInput | string
+    flockId?: StringFieldUpdateOperationsInput | string
+    dateOfStocking?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
+    initialQuantity?: IntFieldUpdateOperationsInput | number
+    currentQuantity?: IntFieldUpdateOperationsInput | number
+    breedType?: StringFieldUpdateOperationsInput | string
+    sourceOfBirds?: StringFieldUpdateOperationsInput | string
+    initialAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mortalityRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PoultryCreateManyInput = {
+    id?: string
+    livestockId: string
+    flockId: string
+    dateOfStocking: Date | string
+    gender: string
+    initialQuantity: number
+    currentQuantity: number
+    breedType: string
+    sourceOfBirds: string
+    initialAverageWeight?: number | null
+    currentAverageWeight?: number | null
+    lastWeighingDate?: Date | string | null
+    mortalityRate?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PoultryUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    flockId?: StringFieldUpdateOperationsInput | string
+    dateOfStocking?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
+    initialQuantity?: IntFieldUpdateOperationsInput | number
+    currentQuantity?: IntFieldUpdateOperationsInput | number
+    breedType?: StringFieldUpdateOperationsInput | string
+    sourceOfBirds?: StringFieldUpdateOperationsInput | string
+    initialAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mortalityRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PoultryUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    livestockId?: StringFieldUpdateOperationsInput | string
+    flockId?: StringFieldUpdateOperationsInput | string
+    dateOfStocking?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
+    initialQuantity?: IntFieldUpdateOperationsInput | number
+    currentQuantity?: IntFieldUpdateOperationsInput | number
+    breedType?: StringFieldUpdateOperationsInput | string
+    sourceOfBirds?: StringFieldUpdateOperationsInput | string
+    initialAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mortalityRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MortalityCreateInput = {
+    id?: string
+    date: Date | string
+    cause: string
+    description?: string | null
+    reportedBy?: string | null
+    attachments?: MortalityCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    livestock: LivestockCreateNestedOneWithoutMortalityInput
+  }
+
+  export type MortalityUncheckedCreateInput = {
+    id?: string
+    livestockId: string
+    date: Date | string
+    cause: string
+    description?: string | null
+    reportedBy?: string | null
+    attachments?: MortalityCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MortalityUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    cause?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    reportedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: MortalityUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    livestock?: LivestockUpdateOneRequiredWithoutMortalityNestedInput
+  }
+
+  export type MortalityUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    livestockId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    cause?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    reportedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: MortalityUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MortalityCreateManyInput = {
+    id?: string
+    livestockId: string
+    date: Date | string
+    cause: string
+    description?: string | null
+    reportedBy?: string | null
+    attachments?: MortalityCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MortalityUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    cause?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    reportedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: MortalityUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MortalityUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    livestockId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    cause?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    reportedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: MortalityUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HealthEventCreateInput = {
+    id?: string
+    eventType: string
+    date: Date | string
+    description: string
+    performedBy?: string | null
+    medications?: HealthEventCreatemedicationsInput | string[]
+    dosage?: string | null
+    cost?: number | null
+    nextScheduled?: Date | string | null
+    attachments?: HealthEventCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    livestock: LivestockCreateNestedOneWithoutHealthEventInput
+  }
+
+  export type HealthEventUncheckedCreateInput = {
+    id?: string
+    livestockId: string
+    eventType: string
+    date: Date | string
+    description: string
+    performedBy?: string | null
+    medications?: HealthEventCreatemedicationsInput | string[]
+    dosage?: string | null
+    cost?: number | null
+    nextScheduled?: Date | string | null
+    attachments?: HealthEventCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type HealthEventUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    eventType?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: StringFieldUpdateOperationsInput | string
+    performedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    medications?: HealthEventUpdatemedicationsInput | string[]
+    dosage?: NullableStringFieldUpdateOperationsInput | string | null
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    nextScheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    attachments?: HealthEventUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    livestock?: LivestockUpdateOneRequiredWithoutHealthEventNestedInput
+  }
+
+  export type HealthEventUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    livestockId?: StringFieldUpdateOperationsInput | string
+    eventType?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: StringFieldUpdateOperationsInput | string
+    performedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    medications?: HealthEventUpdatemedicationsInput | string[]
+    dosage?: NullableStringFieldUpdateOperationsInput | string | null
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    nextScheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    attachments?: HealthEventUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HealthEventCreateManyInput = {
+    id?: string
+    livestockId: string
+    eventType: string
+    date: Date | string
+    description: string
+    performedBy?: string | null
+    medications?: HealthEventCreatemedicationsInput | string[]
+    dosage?: string | null
+    cost?: number | null
+    nextScheduled?: Date | string | null
+    attachments?: HealthEventCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type HealthEventUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    eventType?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: StringFieldUpdateOperationsInput | string
+    performedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    medications?: HealthEventUpdatemedicationsInput | string[]
+    dosage?: NullableStringFieldUpdateOperationsInput | string | null
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    nextScheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    attachments?: HealthEventUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HealthEventUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    livestockId?: StringFieldUpdateOperationsInput | string
+    eventType?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: StringFieldUpdateOperationsInput | string
+    performedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    medications?: HealthEventUpdatemedicationsInput | string[]
+    dosage?: NullableStringFieldUpdateOperationsInput | string | null
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    nextScheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    attachments?: HealthEventUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TransferCreateInput = {
+    id?: string
+    fromFarmId: string
+    toFarmId: string
+    transferDate: Date | string
+    reason?: string | null
+    transportMethod?: string | null
+    handlingPrecautions?: string | null
+    attachments?: TransferCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    livestock: LivestockCreateNestedOneWithoutTransferInput
+  }
+
+  export type TransferUncheckedCreateInput = {
+    id?: string
+    livestockId: string
+    fromFarmId: string
+    toFarmId: string
+    transferDate: Date | string
+    reason?: string | null
+    transportMethod?: string | null
+    handlingPrecautions?: string | null
+    attachments?: TransferCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TransferUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fromFarmId?: StringFieldUpdateOperationsInput | string
+    toFarmId?: StringFieldUpdateOperationsInput | string
+    transferDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    transportMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    handlingPrecautions?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: TransferUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    livestock?: LivestockUpdateOneRequiredWithoutTransferNestedInput
+  }
+
+  export type TransferUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    livestockId?: StringFieldUpdateOperationsInput | string
+    fromFarmId?: StringFieldUpdateOperationsInput | string
+    toFarmId?: StringFieldUpdateOperationsInput | string
+    transferDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    transportMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    handlingPrecautions?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: TransferUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TransferCreateManyInput = {
+    id?: string
+    livestockId: string
+    fromFarmId: string
+    toFarmId: string
+    transferDate: Date | string
+    reason?: string | null
+    transportMethod?: string | null
+    handlingPrecautions?: string | null
+    attachments?: TransferCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TransferUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fromFarmId?: StringFieldUpdateOperationsInput | string
+    toFarmId?: StringFieldUpdateOperationsInput | string
+    transferDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    transportMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    handlingPrecautions?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: TransferUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TransferUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    livestockId?: StringFieldUpdateOperationsInput | string
+    fromFarmId?: StringFieldUpdateOperationsInput | string
+    toFarmId?: StringFieldUpdateOperationsInput | string
+    transferDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    transportMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    handlingPrecautions?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: TransferUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SaleCreateInput = {
+    id?: string
+    saleDate: Date | string
+    buyerName: string
+    buyerContact?: string | null
+    saleAmount: number
+    paymentMethod: string
+    receiptNumber?: string | null
+    notes?: string | null
+    attachments?: SaleCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    livestock: LivestockCreateNestedOneWithoutSaleInput
+  }
+
+  export type SaleUncheckedCreateInput = {
+    id?: string
+    livestockId: string
+    saleDate: Date | string
+    buyerName: string
+    buyerContact?: string | null
+    saleAmount: number
+    paymentMethod: string
+    receiptNumber?: string | null
+    notes?: string | null
+    attachments?: SaleCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SaleUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    saleDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    buyerName?: StringFieldUpdateOperationsInput | string
+    buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    saleAmount?: FloatFieldUpdateOperationsInput | number
+    paymentMethod?: StringFieldUpdateOperationsInput | string
+    receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: SaleUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    livestock?: LivestockUpdateOneRequiredWithoutSaleNestedInput
+  }
+
+  export type SaleUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    livestockId?: StringFieldUpdateOperationsInput | string
+    saleDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    buyerName?: StringFieldUpdateOperationsInput | string
+    buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    saleAmount?: FloatFieldUpdateOperationsInput | number
+    paymentMethod?: StringFieldUpdateOperationsInput | string
+    receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: SaleUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SaleCreateManyInput = {
+    id?: string
+    livestockId: string
+    saleDate: Date | string
+    buyerName: string
+    buyerContact?: string | null
+    saleAmount: number
+    paymentMethod: string
+    receiptNumber?: string | null
+    notes?: string | null
+    attachments?: SaleCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SaleUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    saleDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    buyerName?: StringFieldUpdateOperationsInput | string
+    buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    saleAmount?: FloatFieldUpdateOperationsInput | number
+    paymentMethod?: StringFieldUpdateOperationsInput | string
+    receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: SaleUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SaleUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    livestockId?: StringFieldUpdateOperationsInput | string
+    saleDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    buyerName?: StringFieldUpdateOperationsInput | string
+    buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    saleAmount?: FloatFieldUpdateOperationsInput | number
+    paymentMethod?: StringFieldUpdateOperationsInput | string
+    receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: SaleUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BreedingRecordCreateInput = {
+    id?: string
+    purpose: string
+    strategy: string
+    serviceType: string
+    serviceDate: Date | string
+    numServices?: number
+    firstHeatDate?: Date | string | null
+    sireCode?: string | null
+    aiType?: string | null
+    aiSource?: string | null
+    aiCost?: number | null
+    gestationDays: number
+    expectedBirthDate: Date | string
+    birthRecorded?: boolean
+    birthDate?: Date | string | null
+    deliveryMethod?: string | null
+    youngOnes?: number | null
+    birthWeight?: number | null
+    litterWeight?: number | null
+    offspringSex?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    dam: LivestockCreateNestedOneWithoutBreedingDamInput
+    sire?: LivestockCreateNestedOneWithoutBreedingSireInput
+    offspring?: OffspringCreateNestedManyWithoutBreedingRecordInput
+    farm: FarmCreateNestedOneWithoutBreedingRecordsInput
+  }
+
+  export type BreedingRecordUncheckedCreateInput = {
+    id?: string
+    damId: string
+    sireId?: string | null
+    purpose: string
+    strategy: string
+    serviceType: string
+    serviceDate: Date | string
+    numServices?: number
+    firstHeatDate?: Date | string | null
+    sireCode?: string | null
+    aiType?: string | null
+    aiSource?: string | null
+    aiCost?: number | null
+    gestationDays: number
+    expectedBirthDate: Date | string
+    birthRecorded?: boolean
+    birthDate?: Date | string | null
+    deliveryMethod?: string | null
+    youngOnes?: number | null
+    birthWeight?: number | null
+    litterWeight?: number | null
+    offspringSex?: string | null
+    farmId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    offspring?: OffspringUncheckedCreateNestedManyWithoutBreedingRecordInput
+  }
+
+  export type BreedingRecordUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    purpose?: StringFieldUpdateOperationsInput | string
+    strategy?: StringFieldUpdateOperationsInput | string
+    serviceType?: StringFieldUpdateOperationsInput | string
+    serviceDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    numServices?: IntFieldUpdateOperationsInput | number
+    firstHeatDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    aiType?: NullableStringFieldUpdateOperationsInput | string | null
+    aiSource?: NullableStringFieldUpdateOperationsInput | string | null
+    aiCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    gestationDays?: IntFieldUpdateOperationsInput | number
+    expectedBirthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthRecorded?: BoolFieldUpdateOperationsInput | boolean
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deliveryMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    youngOnes?: NullableIntFieldUpdateOperationsInput | number | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    litterWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    offspringSex?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dam?: LivestockUpdateOneRequiredWithoutBreedingDamNestedInput
+    sire?: LivestockUpdateOneWithoutBreedingSireNestedInput
+    offspring?: OffspringUpdateManyWithoutBreedingRecordNestedInput
+    farm?: FarmUpdateOneRequiredWithoutBreedingRecordsNestedInput
+  }
+
+  export type BreedingRecordUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    damId?: StringFieldUpdateOperationsInput | string
+    sireId?: NullableStringFieldUpdateOperationsInput | string | null
+    purpose?: StringFieldUpdateOperationsInput | string
+    strategy?: StringFieldUpdateOperationsInput | string
+    serviceType?: StringFieldUpdateOperationsInput | string
+    serviceDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    numServices?: IntFieldUpdateOperationsInput | number
+    firstHeatDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    aiType?: NullableStringFieldUpdateOperationsInput | string | null
+    aiSource?: NullableStringFieldUpdateOperationsInput | string | null
+    aiCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    gestationDays?: IntFieldUpdateOperationsInput | number
+    expectedBirthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthRecorded?: BoolFieldUpdateOperationsInput | boolean
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deliveryMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    youngOnes?: NullableIntFieldUpdateOperationsInput | number | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    litterWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    offspringSex?: NullableStringFieldUpdateOperationsInput | string | null
+    farmId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    offspring?: OffspringUncheckedUpdateManyWithoutBreedingRecordNestedInput
+  }
+
+  export type BreedingRecordCreateManyInput = {
+    id?: string
+    damId: string
+    sireId?: string | null
+    purpose: string
+    strategy: string
+    serviceType: string
+    serviceDate: Date | string
+    numServices?: number
+    firstHeatDate?: Date | string | null
+    sireCode?: string | null
+    aiType?: string | null
+    aiSource?: string | null
+    aiCost?: number | null
+    gestationDays: number
+    expectedBirthDate: Date | string
+    birthRecorded?: boolean
+    birthDate?: Date | string | null
+    deliveryMethod?: string | null
+    youngOnes?: number | null
+    birthWeight?: number | null
+    litterWeight?: number | null
+    offspringSex?: string | null
+    farmId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BreedingRecordUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    purpose?: StringFieldUpdateOperationsInput | string
+    strategy?: StringFieldUpdateOperationsInput | string
+    serviceType?: StringFieldUpdateOperationsInput | string
+    serviceDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    numServices?: IntFieldUpdateOperationsInput | number
+    firstHeatDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    aiType?: NullableStringFieldUpdateOperationsInput | string | null
+    aiSource?: NullableStringFieldUpdateOperationsInput | string | null
+    aiCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    gestationDays?: IntFieldUpdateOperationsInput | number
+    expectedBirthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthRecorded?: BoolFieldUpdateOperationsInput | boolean
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deliveryMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    youngOnes?: NullableIntFieldUpdateOperationsInput | number | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    litterWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    offspringSex?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BreedingRecordUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    damId?: StringFieldUpdateOperationsInput | string
+    sireId?: NullableStringFieldUpdateOperationsInput | string | null
+    purpose?: StringFieldUpdateOperationsInput | string
+    strategy?: StringFieldUpdateOperationsInput | string
+    serviceType?: StringFieldUpdateOperationsInput | string
+    serviceDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    numServices?: IntFieldUpdateOperationsInput | number
+    firstHeatDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    aiType?: NullableStringFieldUpdateOperationsInput | string | null
+    aiSource?: NullableStringFieldUpdateOperationsInput | string | null
+    aiCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    gestationDays?: IntFieldUpdateOperationsInput | number
+    expectedBirthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthRecorded?: BoolFieldUpdateOperationsInput | boolean
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deliveryMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    youngOnes?: NullableIntFieldUpdateOperationsInput | number | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    litterWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    offspringSex?: NullableStringFieldUpdateOperationsInput | string | null
+    farmId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OffspringCreateInput = {
+    id?: string
+    offspringId: string
+    sex: string
+    birthWeight?: number | null
+    notes?: string | null
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    breedingRecord: BreedingRecordCreateNestedOneWithoutOffspringInput
+    livestock?: LivestockCreateNestedOneWithoutOffspringInput
+  }
+
+  export type OffspringUncheckedCreateInput = {
+    id?: string
+    breedingRecordId: string
+    livestockId?: string | null
+    offspringId: string
+    sex: string
+    birthWeight?: number | null
+    notes?: string | null
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OffspringUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    offspringId?: StringFieldUpdateOperationsInput | string
+    sex?: StringFieldUpdateOperationsInput | string
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    breedingRecord?: BreedingRecordUpdateOneRequiredWithoutOffspringNestedInput
+    livestock?: LivestockUpdateOneWithoutOffspringNestedInput
+  }
+
+  export type OffspringUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    breedingRecordId?: StringFieldUpdateOperationsInput | string
+    livestockId?: NullableStringFieldUpdateOperationsInput | string | null
+    offspringId?: StringFieldUpdateOperationsInput | string
+    sex?: StringFieldUpdateOperationsInput | string
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OffspringCreateManyInput = {
+    id?: string
+    breedingRecordId: string
+    livestockId?: string | null
+    offspringId: string
+    sex: string
+    birthWeight?: number | null
+    notes?: string | null
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OffspringUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    offspringId?: StringFieldUpdateOperationsInput | string
+    sex?: StringFieldUpdateOperationsInput | string
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OffspringUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    breedingRecordId?: StringFieldUpdateOperationsInput | string
+    livestockId?: NullableStringFieldUpdateOperationsInput | string | null
+    offspringId?: StringFieldUpdateOperationsInput | string
+    sex?: StringFieldUpdateOperationsInput | string
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4271,9 +22867,39 @@ export namespace Prisma {
     isEmpty?: boolean
   }
 
+  export type EmployeeFarmListRelationFilter = {
+    every?: EmployeeFarmWhereInput
+    some?: EmployeeFarmWhereInput
+    none?: EmployeeFarmWhereInput
+  }
+
+  export type LivestockListRelationFilter = {
+    every?: LivestockWhereInput
+    some?: LivestockWhereInput
+    none?: LivestockWhereInput
+  }
+
+  export type BreedingRecordListRelationFilter = {
+    every?: BreedingRecordWhereInput
+    some?: BreedingRecordWhereInput
+    none?: BreedingRecordWhereInput
+  }
+
   export type UserScalarRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
+  }
+
+  export type EmployeeFarmOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LivestockOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BreedingRecordOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type FarmCountOrderByAggregateInput = {
@@ -4335,6 +22961,781 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type EmployeeBenefitListRelationFilter = {
+    every?: EmployeeBenefitWhereInput
+    some?: EmployeeBenefitWhereInput
+    none?: EmployeeBenefitWhereInput
+  }
+
+  export type EmployeeBenefitOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type EmployeeCountOrderByAggregateInput = {
+    id?: SortOrder
+    firstName?: SortOrder
+    middleName?: SortOrder
+    lastName?: SortOrder
+    phone?: SortOrder
+    emergencyContact?: SortOrder
+    idNumber?: SortOrder
+    idPhoto?: SortOrder
+    employeeType?: SortOrder
+    dateOfEmployment?: SortOrder
+    endDate?: SortOrder
+    role?: SortOrder
+    customRole?: SortOrder
+    paymentSchedule?: SortOrder
+    salary?: SortOrder
+    typeOfEngagement?: SortOrder
+    workSchedule?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmployeeAvgOrderByAggregateInput = {
+    salary?: SortOrder
+  }
+
+  export type EmployeeMaxOrderByAggregateInput = {
+    id?: SortOrder
+    firstName?: SortOrder
+    middleName?: SortOrder
+    lastName?: SortOrder
+    phone?: SortOrder
+    emergencyContact?: SortOrder
+    idNumber?: SortOrder
+    idPhoto?: SortOrder
+    employeeType?: SortOrder
+    dateOfEmployment?: SortOrder
+    endDate?: SortOrder
+    role?: SortOrder
+    customRole?: SortOrder
+    paymentSchedule?: SortOrder
+    salary?: SortOrder
+    typeOfEngagement?: SortOrder
+    workSchedule?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmployeeMinOrderByAggregateInput = {
+    id?: SortOrder
+    firstName?: SortOrder
+    middleName?: SortOrder
+    lastName?: SortOrder
+    phone?: SortOrder
+    emergencyContact?: SortOrder
+    idNumber?: SortOrder
+    idPhoto?: SortOrder
+    employeeType?: SortOrder
+    dateOfEmployment?: SortOrder
+    endDate?: SortOrder
+    role?: SortOrder
+    customRole?: SortOrder
+    paymentSchedule?: SortOrder
+    salary?: SortOrder
+    typeOfEngagement?: SortOrder
+    workSchedule?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmployeeSumOrderByAggregateInput = {
+    salary?: SortOrder
+  }
+
+  export type EmployeeScalarRelationFilter = {
+    is?: EmployeeWhereInput
+    isNot?: EmployeeWhereInput
+  }
+
+  export type FarmScalarRelationFilter = {
+    is?: FarmWhereInput
+    isNot?: FarmWhereInput
+  }
+
+  export type EmployeeFarmEmployeeIdFarmIdCompoundUniqueInput = {
+    employeeId: string
+    farmId: string
+  }
+
+  export type EmployeeFarmCountOrderByAggregateInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    farmId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmployeeFarmMaxOrderByAggregateInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    farmId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmployeeFarmMinOrderByAggregateInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    farmId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type EmployeeBenefitEmployeeIdNameCompoundUniqueInput = {
+    employeeId: string
+    name: string
+  }
+
+  export type EmployeeBenefitCountOrderByAggregateInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    name?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmployeeBenefitAvgOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type EmployeeBenefitMaxOrderByAggregateInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    name?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmployeeBenefitMinOrderByAggregateInput = {
+    id?: SortOrder
+    employeeId?: SortOrder
+    name?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmployeeBenefitSumOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type MammalNullableScalarRelationFilter = {
+    is?: MammalWhereInput | null
+    isNot?: MammalWhereInput | null
+  }
+
+  export type PoultryNullableScalarRelationFilter = {
+    is?: PoultryWhereInput | null
+    isNot?: PoultryWhereInput | null
+  }
+
+  export type MortalityNullableScalarRelationFilter = {
+    is?: MortalityWhereInput | null
+    isNot?: MortalityWhereInput | null
+  }
+
+  export type HealthEventListRelationFilter = {
+    every?: HealthEventWhereInput
+    some?: HealthEventWhereInput
+    none?: HealthEventWhereInput
+  }
+
+  export type TransferListRelationFilter = {
+    every?: TransferWhereInput
+    some?: TransferWhereInput
+    none?: TransferWhereInput
+  }
+
+  export type SaleNullableScalarRelationFilter = {
+    is?: SaleWhereInput | null
+    isNot?: SaleWhereInput | null
+  }
+
+  export type OffspringListRelationFilter = {
+    every?: OffspringWhereInput
+    some?: OffspringWhereInput
+    none?: OffspringWhereInput
+  }
+
+  export type HealthEventOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type TransferOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type OffspringOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LivestockCountOrderByAggregateInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    category?: SortOrder
+    type?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LivestockMaxOrderByAggregateInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    category?: SortOrder
+    type?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LivestockMinOrderByAggregateInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    category?: SortOrder
+    type?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LivestockScalarRelationFilter = {
+    is?: LivestockWhereInput
+    isNot?: LivestockWhereInput
+  }
+
+  export type MammalCountOrderByAggregateInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    idNumber?: SortOrder
+    breedType?: SortOrder
+    phenotype?: SortOrder
+    dateOfBirth?: SortOrder
+    gender?: SortOrder
+    sireId?: SortOrder
+    sireCode?: SortOrder
+    damId?: SortOrder
+    damCode?: SortOrder
+    birthWeight?: SortOrder
+    currentWeight?: SortOrder
+    lastWeighingDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MammalAvgOrderByAggregateInput = {
+    birthWeight?: SortOrder
+    currentWeight?: SortOrder
+  }
+
+  export type MammalMaxOrderByAggregateInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    idNumber?: SortOrder
+    breedType?: SortOrder
+    phenotype?: SortOrder
+    dateOfBirth?: SortOrder
+    gender?: SortOrder
+    sireId?: SortOrder
+    sireCode?: SortOrder
+    damId?: SortOrder
+    damCode?: SortOrder
+    birthWeight?: SortOrder
+    currentWeight?: SortOrder
+    lastWeighingDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MammalMinOrderByAggregateInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    idNumber?: SortOrder
+    breedType?: SortOrder
+    phenotype?: SortOrder
+    dateOfBirth?: SortOrder
+    gender?: SortOrder
+    sireId?: SortOrder
+    sireCode?: SortOrder
+    damId?: SortOrder
+    damCode?: SortOrder
+    birthWeight?: SortOrder
+    currentWeight?: SortOrder
+    lastWeighingDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MammalSumOrderByAggregateInput = {
+    birthWeight?: SortOrder
+    currentWeight?: SortOrder
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type PoultryCountOrderByAggregateInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    flockId?: SortOrder
+    dateOfStocking?: SortOrder
+    gender?: SortOrder
+    initialQuantity?: SortOrder
+    currentQuantity?: SortOrder
+    breedType?: SortOrder
+    sourceOfBirds?: SortOrder
+    initialAverageWeight?: SortOrder
+    currentAverageWeight?: SortOrder
+    lastWeighingDate?: SortOrder
+    mortalityRate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PoultryAvgOrderByAggregateInput = {
+    initialQuantity?: SortOrder
+    currentQuantity?: SortOrder
+    initialAverageWeight?: SortOrder
+    currentAverageWeight?: SortOrder
+    mortalityRate?: SortOrder
+  }
+
+  export type PoultryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    flockId?: SortOrder
+    dateOfStocking?: SortOrder
+    gender?: SortOrder
+    initialQuantity?: SortOrder
+    currentQuantity?: SortOrder
+    breedType?: SortOrder
+    sourceOfBirds?: SortOrder
+    initialAverageWeight?: SortOrder
+    currentAverageWeight?: SortOrder
+    lastWeighingDate?: SortOrder
+    mortalityRate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PoultryMinOrderByAggregateInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    flockId?: SortOrder
+    dateOfStocking?: SortOrder
+    gender?: SortOrder
+    initialQuantity?: SortOrder
+    currentQuantity?: SortOrder
+    breedType?: SortOrder
+    sourceOfBirds?: SortOrder
+    initialAverageWeight?: SortOrder
+    currentAverageWeight?: SortOrder
+    lastWeighingDate?: SortOrder
+    mortalityRate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PoultrySumOrderByAggregateInput = {
+    initialQuantity?: SortOrder
+    currentQuantity?: SortOrder
+    initialAverageWeight?: SortOrder
+    currentAverageWeight?: SortOrder
+    mortalityRate?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type MortalityCountOrderByAggregateInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    date?: SortOrder
+    cause?: SortOrder
+    description?: SortOrder
+    reportedBy?: SortOrder
+    attachments?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MortalityMaxOrderByAggregateInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    date?: SortOrder
+    cause?: SortOrder
+    description?: SortOrder
+    reportedBy?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MortalityMinOrderByAggregateInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    date?: SortOrder
+    cause?: SortOrder
+    description?: SortOrder
+    reportedBy?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type HealthEventCountOrderByAggregateInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    eventType?: SortOrder
+    date?: SortOrder
+    description?: SortOrder
+    performedBy?: SortOrder
+    medications?: SortOrder
+    dosage?: SortOrder
+    cost?: SortOrder
+    nextScheduled?: SortOrder
+    attachments?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type HealthEventAvgOrderByAggregateInput = {
+    cost?: SortOrder
+  }
+
+  export type HealthEventMaxOrderByAggregateInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    eventType?: SortOrder
+    date?: SortOrder
+    description?: SortOrder
+    performedBy?: SortOrder
+    dosage?: SortOrder
+    cost?: SortOrder
+    nextScheduled?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type HealthEventMinOrderByAggregateInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    eventType?: SortOrder
+    date?: SortOrder
+    description?: SortOrder
+    performedBy?: SortOrder
+    dosage?: SortOrder
+    cost?: SortOrder
+    nextScheduled?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type HealthEventSumOrderByAggregateInput = {
+    cost?: SortOrder
+  }
+
+  export type TransferCountOrderByAggregateInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    fromFarmId?: SortOrder
+    toFarmId?: SortOrder
+    transferDate?: SortOrder
+    reason?: SortOrder
+    transportMethod?: SortOrder
+    handlingPrecautions?: SortOrder
+    attachments?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TransferMaxOrderByAggregateInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    fromFarmId?: SortOrder
+    toFarmId?: SortOrder
+    transferDate?: SortOrder
+    reason?: SortOrder
+    transportMethod?: SortOrder
+    handlingPrecautions?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TransferMinOrderByAggregateInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    fromFarmId?: SortOrder
+    toFarmId?: SortOrder
+    transferDate?: SortOrder
+    reason?: SortOrder
+    transportMethod?: SortOrder
+    handlingPrecautions?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SaleCountOrderByAggregateInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    saleDate?: SortOrder
+    buyerName?: SortOrder
+    buyerContact?: SortOrder
+    saleAmount?: SortOrder
+    paymentMethod?: SortOrder
+    receiptNumber?: SortOrder
+    notes?: SortOrder
+    attachments?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SaleAvgOrderByAggregateInput = {
+    saleAmount?: SortOrder
+  }
+
+  export type SaleMaxOrderByAggregateInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    saleDate?: SortOrder
+    buyerName?: SortOrder
+    buyerContact?: SortOrder
+    saleAmount?: SortOrder
+    paymentMethod?: SortOrder
+    receiptNumber?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SaleMinOrderByAggregateInput = {
+    id?: SortOrder
+    livestockId?: SortOrder
+    saleDate?: SortOrder
+    buyerName?: SortOrder
+    buyerContact?: SortOrder
+    saleAmount?: SortOrder
+    paymentMethod?: SortOrder
+    receiptNumber?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SaleSumOrderByAggregateInput = {
+    saleAmount?: SortOrder
+  }
+
+  export type LivestockNullableScalarRelationFilter = {
+    is?: LivestockWhereInput | null
+    isNot?: LivestockWhereInput | null
+  }
+
+  export type BreedingRecordCountOrderByAggregateInput = {
+    id?: SortOrder
+    damId?: SortOrder
+    sireId?: SortOrder
+    purpose?: SortOrder
+    strategy?: SortOrder
+    serviceType?: SortOrder
+    serviceDate?: SortOrder
+    numServices?: SortOrder
+    firstHeatDate?: SortOrder
+    sireCode?: SortOrder
+    aiType?: SortOrder
+    aiSource?: SortOrder
+    aiCost?: SortOrder
+    gestationDays?: SortOrder
+    expectedBirthDate?: SortOrder
+    birthRecorded?: SortOrder
+    birthDate?: SortOrder
+    deliveryMethod?: SortOrder
+    youngOnes?: SortOrder
+    birthWeight?: SortOrder
+    litterWeight?: SortOrder
+    offspringSex?: SortOrder
+    farmId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BreedingRecordAvgOrderByAggregateInput = {
+    numServices?: SortOrder
+    aiCost?: SortOrder
+    gestationDays?: SortOrder
+    youngOnes?: SortOrder
+    birthWeight?: SortOrder
+    litterWeight?: SortOrder
+  }
+
+  export type BreedingRecordMaxOrderByAggregateInput = {
+    id?: SortOrder
+    damId?: SortOrder
+    sireId?: SortOrder
+    purpose?: SortOrder
+    strategy?: SortOrder
+    serviceType?: SortOrder
+    serviceDate?: SortOrder
+    numServices?: SortOrder
+    firstHeatDate?: SortOrder
+    sireCode?: SortOrder
+    aiType?: SortOrder
+    aiSource?: SortOrder
+    aiCost?: SortOrder
+    gestationDays?: SortOrder
+    expectedBirthDate?: SortOrder
+    birthRecorded?: SortOrder
+    birthDate?: SortOrder
+    deliveryMethod?: SortOrder
+    youngOnes?: SortOrder
+    birthWeight?: SortOrder
+    litterWeight?: SortOrder
+    offspringSex?: SortOrder
+    farmId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BreedingRecordMinOrderByAggregateInput = {
+    id?: SortOrder
+    damId?: SortOrder
+    sireId?: SortOrder
+    purpose?: SortOrder
+    strategy?: SortOrder
+    serviceType?: SortOrder
+    serviceDate?: SortOrder
+    numServices?: SortOrder
+    firstHeatDate?: SortOrder
+    sireCode?: SortOrder
+    aiType?: SortOrder
+    aiSource?: SortOrder
+    aiCost?: SortOrder
+    gestationDays?: SortOrder
+    expectedBirthDate?: SortOrder
+    birthRecorded?: SortOrder
+    birthDate?: SortOrder
+    deliveryMethod?: SortOrder
+    youngOnes?: SortOrder
+    birthWeight?: SortOrder
+    litterWeight?: SortOrder
+    offspringSex?: SortOrder
+    farmId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BreedingRecordSumOrderByAggregateInput = {
+    numServices?: SortOrder
+    aiCost?: SortOrder
+    gestationDays?: SortOrder
+    youngOnes?: SortOrder
+    birthWeight?: SortOrder
+    litterWeight?: SortOrder
+  }
+
+  export type BreedingRecordScalarRelationFilter = {
+    is?: BreedingRecordWhereInput
+    isNot?: BreedingRecordWhereInput
+  }
+
+  export type OffspringCountOrderByAggregateInput = {
+    id?: SortOrder
+    breedingRecordId?: SortOrder
+    livestockId?: SortOrder
+    offspringId?: SortOrder
+    sex?: SortOrder
+    birthWeight?: SortOrder
+    notes?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type OffspringAvgOrderByAggregateInput = {
+    birthWeight?: SortOrder
+  }
+
+  export type OffspringMaxOrderByAggregateInput = {
+    id?: SortOrder
+    breedingRecordId?: SortOrder
+    livestockId?: SortOrder
+    offspringId?: SortOrder
+    sex?: SortOrder
+    birthWeight?: SortOrder
+    notes?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type OffspringMinOrderByAggregateInput = {
+    id?: SortOrder
+    breedingRecordId?: SortOrder
+    livestockId?: SortOrder
+    offspringId?: SortOrder
+    sex?: SortOrder
+    birthWeight?: SortOrder
+    notes?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type OffspringSumOrderByAggregateInput = {
+    birthWeight?: SortOrder
   }
 
   export type FarmCreateNestedManyWithoutUserInput = {
@@ -4411,10 +23812,52 @@ export namespace Prisma {
     set: string[]
   }
 
+  export type EmployeeFarmCreateNestedManyWithoutFarmInput = {
+    create?: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput> | EmployeeFarmCreateWithoutFarmInput[] | EmployeeFarmUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: EmployeeFarmCreateOrConnectWithoutFarmInput | EmployeeFarmCreateOrConnectWithoutFarmInput[]
+    createMany?: EmployeeFarmCreateManyFarmInputEnvelope
+    connect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+  }
+
+  export type LivestockCreateNestedManyWithoutFarmInput = {
+    create?: XOR<LivestockCreateWithoutFarmInput, LivestockUncheckedCreateWithoutFarmInput> | LivestockCreateWithoutFarmInput[] | LivestockUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: LivestockCreateOrConnectWithoutFarmInput | LivestockCreateOrConnectWithoutFarmInput[]
+    createMany?: LivestockCreateManyFarmInputEnvelope
+    connect?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
+  }
+
+  export type BreedingRecordCreateNestedManyWithoutFarmInput = {
+    create?: XOR<BreedingRecordCreateWithoutFarmInput, BreedingRecordUncheckedCreateWithoutFarmInput> | BreedingRecordCreateWithoutFarmInput[] | BreedingRecordUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: BreedingRecordCreateOrConnectWithoutFarmInput | BreedingRecordCreateOrConnectWithoutFarmInput[]
+    createMany?: BreedingRecordCreateManyFarmInputEnvelope
+    connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+  }
+
   export type UserCreateNestedOneWithoutFarmsInput = {
     create?: XOR<UserCreateWithoutFarmsInput, UserUncheckedCreateWithoutFarmsInput>
     connectOrCreate?: UserCreateOrConnectWithoutFarmsInput
     connect?: UserWhereUniqueInput
+  }
+
+  export type EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput = {
+    create?: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput> | EmployeeFarmCreateWithoutFarmInput[] | EmployeeFarmUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: EmployeeFarmCreateOrConnectWithoutFarmInput | EmployeeFarmCreateOrConnectWithoutFarmInput[]
+    createMany?: EmployeeFarmCreateManyFarmInputEnvelope
+    connect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+  }
+
+  export type LivestockUncheckedCreateNestedManyWithoutFarmInput = {
+    create?: XOR<LivestockCreateWithoutFarmInput, LivestockUncheckedCreateWithoutFarmInput> | LivestockCreateWithoutFarmInput[] | LivestockUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: LivestockCreateOrConnectWithoutFarmInput | LivestockCreateOrConnectWithoutFarmInput[]
+    createMany?: LivestockCreateManyFarmInputEnvelope
+    connect?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
+  }
+
+  export type BreedingRecordUncheckedCreateNestedManyWithoutFarmInput = {
+    create?: XOR<BreedingRecordCreateWithoutFarmInput, BreedingRecordUncheckedCreateWithoutFarmInput> | BreedingRecordCreateWithoutFarmInput[] | BreedingRecordUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: BreedingRecordCreateOrConnectWithoutFarmInput | BreedingRecordCreateOrConnectWithoutFarmInput[]
+    createMany?: BreedingRecordCreateManyFarmInputEnvelope
+    connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
   }
 
   export type FloatFieldUpdateOperationsInput = {
@@ -4430,12 +23873,835 @@ export namespace Prisma {
     push?: string | string[]
   }
 
+  export type EmployeeFarmUpdateManyWithoutFarmNestedInput = {
+    create?: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput> | EmployeeFarmCreateWithoutFarmInput[] | EmployeeFarmUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: EmployeeFarmCreateOrConnectWithoutFarmInput | EmployeeFarmCreateOrConnectWithoutFarmInput[]
+    upsert?: EmployeeFarmUpsertWithWhereUniqueWithoutFarmInput | EmployeeFarmUpsertWithWhereUniqueWithoutFarmInput[]
+    createMany?: EmployeeFarmCreateManyFarmInputEnvelope
+    set?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    disconnect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    delete?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    connect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    update?: EmployeeFarmUpdateWithWhereUniqueWithoutFarmInput | EmployeeFarmUpdateWithWhereUniqueWithoutFarmInput[]
+    updateMany?: EmployeeFarmUpdateManyWithWhereWithoutFarmInput | EmployeeFarmUpdateManyWithWhereWithoutFarmInput[]
+    deleteMany?: EmployeeFarmScalarWhereInput | EmployeeFarmScalarWhereInput[]
+  }
+
+  export type LivestockUpdateManyWithoutFarmNestedInput = {
+    create?: XOR<LivestockCreateWithoutFarmInput, LivestockUncheckedCreateWithoutFarmInput> | LivestockCreateWithoutFarmInput[] | LivestockUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: LivestockCreateOrConnectWithoutFarmInput | LivestockCreateOrConnectWithoutFarmInput[]
+    upsert?: LivestockUpsertWithWhereUniqueWithoutFarmInput | LivestockUpsertWithWhereUniqueWithoutFarmInput[]
+    createMany?: LivestockCreateManyFarmInputEnvelope
+    set?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
+    disconnect?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
+    delete?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
+    connect?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
+    update?: LivestockUpdateWithWhereUniqueWithoutFarmInput | LivestockUpdateWithWhereUniqueWithoutFarmInput[]
+    updateMany?: LivestockUpdateManyWithWhereWithoutFarmInput | LivestockUpdateManyWithWhereWithoutFarmInput[]
+    deleteMany?: LivestockScalarWhereInput | LivestockScalarWhereInput[]
+  }
+
+  export type BreedingRecordUpdateManyWithoutFarmNestedInput = {
+    create?: XOR<BreedingRecordCreateWithoutFarmInput, BreedingRecordUncheckedCreateWithoutFarmInput> | BreedingRecordCreateWithoutFarmInput[] | BreedingRecordUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: BreedingRecordCreateOrConnectWithoutFarmInput | BreedingRecordCreateOrConnectWithoutFarmInput[]
+    upsert?: BreedingRecordUpsertWithWhereUniqueWithoutFarmInput | BreedingRecordUpsertWithWhereUniqueWithoutFarmInput[]
+    createMany?: BreedingRecordCreateManyFarmInputEnvelope
+    set?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    disconnect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    delete?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    update?: BreedingRecordUpdateWithWhereUniqueWithoutFarmInput | BreedingRecordUpdateWithWhereUniqueWithoutFarmInput[]
+    updateMany?: BreedingRecordUpdateManyWithWhereWithoutFarmInput | BreedingRecordUpdateManyWithWhereWithoutFarmInput[]
+    deleteMany?: BreedingRecordScalarWhereInput | BreedingRecordScalarWhereInput[]
+  }
+
   export type UserUpdateOneRequiredWithoutFarmsNestedInput = {
     create?: XOR<UserCreateWithoutFarmsInput, UserUncheckedCreateWithoutFarmsInput>
     connectOrCreate?: UserCreateOrConnectWithoutFarmsInput
     upsert?: UserUpsertWithoutFarmsInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFarmsInput, UserUpdateWithoutFarmsInput>, UserUncheckedUpdateWithoutFarmsInput>
+  }
+
+  export type EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput = {
+    create?: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput> | EmployeeFarmCreateWithoutFarmInput[] | EmployeeFarmUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: EmployeeFarmCreateOrConnectWithoutFarmInput | EmployeeFarmCreateOrConnectWithoutFarmInput[]
+    upsert?: EmployeeFarmUpsertWithWhereUniqueWithoutFarmInput | EmployeeFarmUpsertWithWhereUniqueWithoutFarmInput[]
+    createMany?: EmployeeFarmCreateManyFarmInputEnvelope
+    set?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    disconnect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    delete?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    connect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    update?: EmployeeFarmUpdateWithWhereUniqueWithoutFarmInput | EmployeeFarmUpdateWithWhereUniqueWithoutFarmInput[]
+    updateMany?: EmployeeFarmUpdateManyWithWhereWithoutFarmInput | EmployeeFarmUpdateManyWithWhereWithoutFarmInput[]
+    deleteMany?: EmployeeFarmScalarWhereInput | EmployeeFarmScalarWhereInput[]
+  }
+
+  export type LivestockUncheckedUpdateManyWithoutFarmNestedInput = {
+    create?: XOR<LivestockCreateWithoutFarmInput, LivestockUncheckedCreateWithoutFarmInput> | LivestockCreateWithoutFarmInput[] | LivestockUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: LivestockCreateOrConnectWithoutFarmInput | LivestockCreateOrConnectWithoutFarmInput[]
+    upsert?: LivestockUpsertWithWhereUniqueWithoutFarmInput | LivestockUpsertWithWhereUniqueWithoutFarmInput[]
+    createMany?: LivestockCreateManyFarmInputEnvelope
+    set?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
+    disconnect?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
+    delete?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
+    connect?: LivestockWhereUniqueInput | LivestockWhereUniqueInput[]
+    update?: LivestockUpdateWithWhereUniqueWithoutFarmInput | LivestockUpdateWithWhereUniqueWithoutFarmInput[]
+    updateMany?: LivestockUpdateManyWithWhereWithoutFarmInput | LivestockUpdateManyWithWhereWithoutFarmInput[]
+    deleteMany?: LivestockScalarWhereInput | LivestockScalarWhereInput[]
+  }
+
+  export type BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput = {
+    create?: XOR<BreedingRecordCreateWithoutFarmInput, BreedingRecordUncheckedCreateWithoutFarmInput> | BreedingRecordCreateWithoutFarmInput[] | BreedingRecordUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: BreedingRecordCreateOrConnectWithoutFarmInput | BreedingRecordCreateOrConnectWithoutFarmInput[]
+    upsert?: BreedingRecordUpsertWithWhereUniqueWithoutFarmInput | BreedingRecordUpsertWithWhereUniqueWithoutFarmInput[]
+    createMany?: BreedingRecordCreateManyFarmInputEnvelope
+    set?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    disconnect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    delete?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    update?: BreedingRecordUpdateWithWhereUniqueWithoutFarmInput | BreedingRecordUpdateWithWhereUniqueWithoutFarmInput[]
+    updateMany?: BreedingRecordUpdateManyWithWhereWithoutFarmInput | BreedingRecordUpdateManyWithWhereWithoutFarmInput[]
+    deleteMany?: BreedingRecordScalarWhereInput | BreedingRecordScalarWhereInput[]
+  }
+
+  export type EmployeeBenefitCreateNestedManyWithoutEmployeeInput = {
+    create?: XOR<EmployeeBenefitCreateWithoutEmployeeInput, EmployeeBenefitUncheckedCreateWithoutEmployeeInput> | EmployeeBenefitCreateWithoutEmployeeInput[] | EmployeeBenefitUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: EmployeeBenefitCreateOrConnectWithoutEmployeeInput | EmployeeBenefitCreateOrConnectWithoutEmployeeInput[]
+    createMany?: EmployeeBenefitCreateManyEmployeeInputEnvelope
+    connect?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+  }
+
+  export type EmployeeFarmCreateNestedManyWithoutEmployeeInput = {
+    create?: XOR<EmployeeFarmCreateWithoutEmployeeInput, EmployeeFarmUncheckedCreateWithoutEmployeeInput> | EmployeeFarmCreateWithoutEmployeeInput[] | EmployeeFarmUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: EmployeeFarmCreateOrConnectWithoutEmployeeInput | EmployeeFarmCreateOrConnectWithoutEmployeeInput[]
+    createMany?: EmployeeFarmCreateManyEmployeeInputEnvelope
+    connect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+  }
+
+  export type EmployeeBenefitUncheckedCreateNestedManyWithoutEmployeeInput = {
+    create?: XOR<EmployeeBenefitCreateWithoutEmployeeInput, EmployeeBenefitUncheckedCreateWithoutEmployeeInput> | EmployeeBenefitCreateWithoutEmployeeInput[] | EmployeeBenefitUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: EmployeeBenefitCreateOrConnectWithoutEmployeeInput | EmployeeBenefitCreateOrConnectWithoutEmployeeInput[]
+    createMany?: EmployeeBenefitCreateManyEmployeeInputEnvelope
+    connect?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+  }
+
+  export type EmployeeFarmUncheckedCreateNestedManyWithoutEmployeeInput = {
+    create?: XOR<EmployeeFarmCreateWithoutEmployeeInput, EmployeeFarmUncheckedCreateWithoutEmployeeInput> | EmployeeFarmCreateWithoutEmployeeInput[] | EmployeeFarmUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: EmployeeFarmCreateOrConnectWithoutEmployeeInput | EmployeeFarmCreateOrConnectWithoutEmployeeInput[]
+    createMany?: EmployeeFarmCreateManyEmployeeInputEnvelope
+    connect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+  }
+
+  export type EmployeeBenefitUpdateManyWithoutEmployeeNestedInput = {
+    create?: XOR<EmployeeBenefitCreateWithoutEmployeeInput, EmployeeBenefitUncheckedCreateWithoutEmployeeInput> | EmployeeBenefitCreateWithoutEmployeeInput[] | EmployeeBenefitUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: EmployeeBenefitCreateOrConnectWithoutEmployeeInput | EmployeeBenefitCreateOrConnectWithoutEmployeeInput[]
+    upsert?: EmployeeBenefitUpsertWithWhereUniqueWithoutEmployeeInput | EmployeeBenefitUpsertWithWhereUniqueWithoutEmployeeInput[]
+    createMany?: EmployeeBenefitCreateManyEmployeeInputEnvelope
+    set?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+    disconnect?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+    delete?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+    connect?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+    update?: EmployeeBenefitUpdateWithWhereUniqueWithoutEmployeeInput | EmployeeBenefitUpdateWithWhereUniqueWithoutEmployeeInput[]
+    updateMany?: EmployeeBenefitUpdateManyWithWhereWithoutEmployeeInput | EmployeeBenefitUpdateManyWithWhereWithoutEmployeeInput[]
+    deleteMany?: EmployeeBenefitScalarWhereInput | EmployeeBenefitScalarWhereInput[]
+  }
+
+  export type EmployeeFarmUpdateManyWithoutEmployeeNestedInput = {
+    create?: XOR<EmployeeFarmCreateWithoutEmployeeInput, EmployeeFarmUncheckedCreateWithoutEmployeeInput> | EmployeeFarmCreateWithoutEmployeeInput[] | EmployeeFarmUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: EmployeeFarmCreateOrConnectWithoutEmployeeInput | EmployeeFarmCreateOrConnectWithoutEmployeeInput[]
+    upsert?: EmployeeFarmUpsertWithWhereUniqueWithoutEmployeeInput | EmployeeFarmUpsertWithWhereUniqueWithoutEmployeeInput[]
+    createMany?: EmployeeFarmCreateManyEmployeeInputEnvelope
+    set?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    disconnect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    delete?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    connect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    update?: EmployeeFarmUpdateWithWhereUniqueWithoutEmployeeInput | EmployeeFarmUpdateWithWhereUniqueWithoutEmployeeInput[]
+    updateMany?: EmployeeFarmUpdateManyWithWhereWithoutEmployeeInput | EmployeeFarmUpdateManyWithWhereWithoutEmployeeInput[]
+    deleteMany?: EmployeeFarmScalarWhereInput | EmployeeFarmScalarWhereInput[]
+  }
+
+  export type EmployeeBenefitUncheckedUpdateManyWithoutEmployeeNestedInput = {
+    create?: XOR<EmployeeBenefitCreateWithoutEmployeeInput, EmployeeBenefitUncheckedCreateWithoutEmployeeInput> | EmployeeBenefitCreateWithoutEmployeeInput[] | EmployeeBenefitUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: EmployeeBenefitCreateOrConnectWithoutEmployeeInput | EmployeeBenefitCreateOrConnectWithoutEmployeeInput[]
+    upsert?: EmployeeBenefitUpsertWithWhereUniqueWithoutEmployeeInput | EmployeeBenefitUpsertWithWhereUniqueWithoutEmployeeInput[]
+    createMany?: EmployeeBenefitCreateManyEmployeeInputEnvelope
+    set?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+    disconnect?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+    delete?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+    connect?: EmployeeBenefitWhereUniqueInput | EmployeeBenefitWhereUniqueInput[]
+    update?: EmployeeBenefitUpdateWithWhereUniqueWithoutEmployeeInput | EmployeeBenefitUpdateWithWhereUniqueWithoutEmployeeInput[]
+    updateMany?: EmployeeBenefitUpdateManyWithWhereWithoutEmployeeInput | EmployeeBenefitUpdateManyWithWhereWithoutEmployeeInput[]
+    deleteMany?: EmployeeBenefitScalarWhereInput | EmployeeBenefitScalarWhereInput[]
+  }
+
+  export type EmployeeFarmUncheckedUpdateManyWithoutEmployeeNestedInput = {
+    create?: XOR<EmployeeFarmCreateWithoutEmployeeInput, EmployeeFarmUncheckedCreateWithoutEmployeeInput> | EmployeeFarmCreateWithoutEmployeeInput[] | EmployeeFarmUncheckedCreateWithoutEmployeeInput[]
+    connectOrCreate?: EmployeeFarmCreateOrConnectWithoutEmployeeInput | EmployeeFarmCreateOrConnectWithoutEmployeeInput[]
+    upsert?: EmployeeFarmUpsertWithWhereUniqueWithoutEmployeeInput | EmployeeFarmUpsertWithWhereUniqueWithoutEmployeeInput[]
+    createMany?: EmployeeFarmCreateManyEmployeeInputEnvelope
+    set?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    disconnect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    delete?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    connect?: EmployeeFarmWhereUniqueInput | EmployeeFarmWhereUniqueInput[]
+    update?: EmployeeFarmUpdateWithWhereUniqueWithoutEmployeeInput | EmployeeFarmUpdateWithWhereUniqueWithoutEmployeeInput[]
+    updateMany?: EmployeeFarmUpdateManyWithWhereWithoutEmployeeInput | EmployeeFarmUpdateManyWithWhereWithoutEmployeeInput[]
+    deleteMany?: EmployeeFarmScalarWhereInput | EmployeeFarmScalarWhereInput[]
+  }
+
+  export type EmployeeCreateNestedOneWithoutFarmsInput = {
+    create?: XOR<EmployeeCreateWithoutFarmsInput, EmployeeUncheckedCreateWithoutFarmsInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutFarmsInput
+    connect?: EmployeeWhereUniqueInput
+  }
+
+  export type FarmCreateNestedOneWithoutEmployeesInput = {
+    create?: XOR<FarmCreateWithoutEmployeesInput, FarmUncheckedCreateWithoutEmployeesInput>
+    connectOrCreate?: FarmCreateOrConnectWithoutEmployeesInput
+    connect?: FarmWhereUniqueInput
+  }
+
+  export type EmployeeUpdateOneRequiredWithoutFarmsNestedInput = {
+    create?: XOR<EmployeeCreateWithoutFarmsInput, EmployeeUncheckedCreateWithoutFarmsInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutFarmsInput
+    upsert?: EmployeeUpsertWithoutFarmsInput
+    connect?: EmployeeWhereUniqueInput
+    update?: XOR<XOR<EmployeeUpdateToOneWithWhereWithoutFarmsInput, EmployeeUpdateWithoutFarmsInput>, EmployeeUncheckedUpdateWithoutFarmsInput>
+  }
+
+  export type FarmUpdateOneRequiredWithoutEmployeesNestedInput = {
+    create?: XOR<FarmCreateWithoutEmployeesInput, FarmUncheckedCreateWithoutEmployeesInput>
+    connectOrCreate?: FarmCreateOrConnectWithoutEmployeesInput
+    upsert?: FarmUpsertWithoutEmployeesInput
+    connect?: FarmWhereUniqueInput
+    update?: XOR<XOR<FarmUpdateToOneWithWhereWithoutEmployeesInput, FarmUpdateWithoutEmployeesInput>, FarmUncheckedUpdateWithoutEmployeesInput>
+  }
+
+  export type EmployeeCreateNestedOneWithoutBenefitsInput = {
+    create?: XOR<EmployeeCreateWithoutBenefitsInput, EmployeeUncheckedCreateWithoutBenefitsInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutBenefitsInput
+    connect?: EmployeeWhereUniqueInput
+  }
+
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type EmployeeUpdateOneRequiredWithoutBenefitsNestedInput = {
+    create?: XOR<EmployeeCreateWithoutBenefitsInput, EmployeeUncheckedCreateWithoutBenefitsInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutBenefitsInput
+    upsert?: EmployeeUpsertWithoutBenefitsInput
+    connect?: EmployeeWhereUniqueInput
+    update?: XOR<XOR<EmployeeUpdateToOneWithWhereWithoutBenefitsInput, EmployeeUpdateWithoutBenefitsInput>, EmployeeUncheckedUpdateWithoutBenefitsInput>
+  }
+
+  export type FarmCreateNestedOneWithoutLivestockInput = {
+    create?: XOR<FarmCreateWithoutLivestockInput, FarmUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: FarmCreateOrConnectWithoutLivestockInput
+    connect?: FarmWhereUniqueInput
+  }
+
+  export type MammalCreateNestedOneWithoutLivestockInput = {
+    create?: XOR<MammalCreateWithoutLivestockInput, MammalUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: MammalCreateOrConnectWithoutLivestockInput
+    connect?: MammalWhereUniqueInput
+  }
+
+  export type PoultryCreateNestedOneWithoutLivestockInput = {
+    create?: XOR<PoultryCreateWithoutLivestockInput, PoultryUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: PoultryCreateOrConnectWithoutLivestockInput
+    connect?: PoultryWhereUniqueInput
+  }
+
+  export type MortalityCreateNestedOneWithoutLivestockInput = {
+    create?: XOR<MortalityCreateWithoutLivestockInput, MortalityUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: MortalityCreateOrConnectWithoutLivestockInput
+    connect?: MortalityWhereUniqueInput
+  }
+
+  export type HealthEventCreateNestedManyWithoutLivestockInput = {
+    create?: XOR<HealthEventCreateWithoutLivestockInput, HealthEventUncheckedCreateWithoutLivestockInput> | HealthEventCreateWithoutLivestockInput[] | HealthEventUncheckedCreateWithoutLivestockInput[]
+    connectOrCreate?: HealthEventCreateOrConnectWithoutLivestockInput | HealthEventCreateOrConnectWithoutLivestockInput[]
+    createMany?: HealthEventCreateManyLivestockInputEnvelope
+    connect?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+  }
+
+  export type TransferCreateNestedManyWithoutLivestockInput = {
+    create?: XOR<TransferCreateWithoutLivestockInput, TransferUncheckedCreateWithoutLivestockInput> | TransferCreateWithoutLivestockInput[] | TransferUncheckedCreateWithoutLivestockInput[]
+    connectOrCreate?: TransferCreateOrConnectWithoutLivestockInput | TransferCreateOrConnectWithoutLivestockInput[]
+    createMany?: TransferCreateManyLivestockInputEnvelope
+    connect?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
+  }
+
+  export type SaleCreateNestedOneWithoutLivestockInput = {
+    create?: XOR<SaleCreateWithoutLivestockInput, SaleUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: SaleCreateOrConnectWithoutLivestockInput
+    connect?: SaleWhereUniqueInput
+  }
+
+  export type BreedingRecordCreateNestedManyWithoutDamInput = {
+    create?: XOR<BreedingRecordCreateWithoutDamInput, BreedingRecordUncheckedCreateWithoutDamInput> | BreedingRecordCreateWithoutDamInput[] | BreedingRecordUncheckedCreateWithoutDamInput[]
+    connectOrCreate?: BreedingRecordCreateOrConnectWithoutDamInput | BreedingRecordCreateOrConnectWithoutDamInput[]
+    createMany?: BreedingRecordCreateManyDamInputEnvelope
+    connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+  }
+
+  export type BreedingRecordCreateNestedManyWithoutSireInput = {
+    create?: XOR<BreedingRecordCreateWithoutSireInput, BreedingRecordUncheckedCreateWithoutSireInput> | BreedingRecordCreateWithoutSireInput[] | BreedingRecordUncheckedCreateWithoutSireInput[]
+    connectOrCreate?: BreedingRecordCreateOrConnectWithoutSireInput | BreedingRecordCreateOrConnectWithoutSireInput[]
+    createMany?: BreedingRecordCreateManySireInputEnvelope
+    connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+  }
+
+  export type OffspringCreateNestedManyWithoutLivestockInput = {
+    create?: XOR<OffspringCreateWithoutLivestockInput, OffspringUncheckedCreateWithoutLivestockInput> | OffspringCreateWithoutLivestockInput[] | OffspringUncheckedCreateWithoutLivestockInput[]
+    connectOrCreate?: OffspringCreateOrConnectWithoutLivestockInput | OffspringCreateOrConnectWithoutLivestockInput[]
+    createMany?: OffspringCreateManyLivestockInputEnvelope
+    connect?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+  }
+
+  export type MammalUncheckedCreateNestedOneWithoutLivestockInput = {
+    create?: XOR<MammalCreateWithoutLivestockInput, MammalUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: MammalCreateOrConnectWithoutLivestockInput
+    connect?: MammalWhereUniqueInput
+  }
+
+  export type PoultryUncheckedCreateNestedOneWithoutLivestockInput = {
+    create?: XOR<PoultryCreateWithoutLivestockInput, PoultryUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: PoultryCreateOrConnectWithoutLivestockInput
+    connect?: PoultryWhereUniqueInput
+  }
+
+  export type MortalityUncheckedCreateNestedOneWithoutLivestockInput = {
+    create?: XOR<MortalityCreateWithoutLivestockInput, MortalityUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: MortalityCreateOrConnectWithoutLivestockInput
+    connect?: MortalityWhereUniqueInput
+  }
+
+  export type HealthEventUncheckedCreateNestedManyWithoutLivestockInput = {
+    create?: XOR<HealthEventCreateWithoutLivestockInput, HealthEventUncheckedCreateWithoutLivestockInput> | HealthEventCreateWithoutLivestockInput[] | HealthEventUncheckedCreateWithoutLivestockInput[]
+    connectOrCreate?: HealthEventCreateOrConnectWithoutLivestockInput | HealthEventCreateOrConnectWithoutLivestockInput[]
+    createMany?: HealthEventCreateManyLivestockInputEnvelope
+    connect?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+  }
+
+  export type TransferUncheckedCreateNestedManyWithoutLivestockInput = {
+    create?: XOR<TransferCreateWithoutLivestockInput, TransferUncheckedCreateWithoutLivestockInput> | TransferCreateWithoutLivestockInput[] | TransferUncheckedCreateWithoutLivestockInput[]
+    connectOrCreate?: TransferCreateOrConnectWithoutLivestockInput | TransferCreateOrConnectWithoutLivestockInput[]
+    createMany?: TransferCreateManyLivestockInputEnvelope
+    connect?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
+  }
+
+  export type SaleUncheckedCreateNestedOneWithoutLivestockInput = {
+    create?: XOR<SaleCreateWithoutLivestockInput, SaleUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: SaleCreateOrConnectWithoutLivestockInput
+    connect?: SaleWhereUniqueInput
+  }
+
+  export type BreedingRecordUncheckedCreateNestedManyWithoutDamInput = {
+    create?: XOR<BreedingRecordCreateWithoutDamInput, BreedingRecordUncheckedCreateWithoutDamInput> | BreedingRecordCreateWithoutDamInput[] | BreedingRecordUncheckedCreateWithoutDamInput[]
+    connectOrCreate?: BreedingRecordCreateOrConnectWithoutDamInput | BreedingRecordCreateOrConnectWithoutDamInput[]
+    createMany?: BreedingRecordCreateManyDamInputEnvelope
+    connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+  }
+
+  export type BreedingRecordUncheckedCreateNestedManyWithoutSireInput = {
+    create?: XOR<BreedingRecordCreateWithoutSireInput, BreedingRecordUncheckedCreateWithoutSireInput> | BreedingRecordCreateWithoutSireInput[] | BreedingRecordUncheckedCreateWithoutSireInput[]
+    connectOrCreate?: BreedingRecordCreateOrConnectWithoutSireInput | BreedingRecordCreateOrConnectWithoutSireInput[]
+    createMany?: BreedingRecordCreateManySireInputEnvelope
+    connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+  }
+
+  export type OffspringUncheckedCreateNestedManyWithoutLivestockInput = {
+    create?: XOR<OffspringCreateWithoutLivestockInput, OffspringUncheckedCreateWithoutLivestockInput> | OffspringCreateWithoutLivestockInput[] | OffspringUncheckedCreateWithoutLivestockInput[]
+    connectOrCreate?: OffspringCreateOrConnectWithoutLivestockInput | OffspringCreateOrConnectWithoutLivestockInput[]
+    createMany?: OffspringCreateManyLivestockInputEnvelope
+    connect?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+  }
+
+  export type FarmUpdateOneRequiredWithoutLivestockNestedInput = {
+    create?: XOR<FarmCreateWithoutLivestockInput, FarmUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: FarmCreateOrConnectWithoutLivestockInput
+    upsert?: FarmUpsertWithoutLivestockInput
+    connect?: FarmWhereUniqueInput
+    update?: XOR<XOR<FarmUpdateToOneWithWhereWithoutLivestockInput, FarmUpdateWithoutLivestockInput>, FarmUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type MammalUpdateOneWithoutLivestockNestedInput = {
+    create?: XOR<MammalCreateWithoutLivestockInput, MammalUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: MammalCreateOrConnectWithoutLivestockInput
+    upsert?: MammalUpsertWithoutLivestockInput
+    disconnect?: MammalWhereInput | boolean
+    delete?: MammalWhereInput | boolean
+    connect?: MammalWhereUniqueInput
+    update?: XOR<XOR<MammalUpdateToOneWithWhereWithoutLivestockInput, MammalUpdateWithoutLivestockInput>, MammalUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type PoultryUpdateOneWithoutLivestockNestedInput = {
+    create?: XOR<PoultryCreateWithoutLivestockInput, PoultryUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: PoultryCreateOrConnectWithoutLivestockInput
+    upsert?: PoultryUpsertWithoutLivestockInput
+    disconnect?: PoultryWhereInput | boolean
+    delete?: PoultryWhereInput | boolean
+    connect?: PoultryWhereUniqueInput
+    update?: XOR<XOR<PoultryUpdateToOneWithWhereWithoutLivestockInput, PoultryUpdateWithoutLivestockInput>, PoultryUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type MortalityUpdateOneWithoutLivestockNestedInput = {
+    create?: XOR<MortalityCreateWithoutLivestockInput, MortalityUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: MortalityCreateOrConnectWithoutLivestockInput
+    upsert?: MortalityUpsertWithoutLivestockInput
+    disconnect?: MortalityWhereInput | boolean
+    delete?: MortalityWhereInput | boolean
+    connect?: MortalityWhereUniqueInput
+    update?: XOR<XOR<MortalityUpdateToOneWithWhereWithoutLivestockInput, MortalityUpdateWithoutLivestockInput>, MortalityUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type HealthEventUpdateManyWithoutLivestockNestedInput = {
+    create?: XOR<HealthEventCreateWithoutLivestockInput, HealthEventUncheckedCreateWithoutLivestockInput> | HealthEventCreateWithoutLivestockInput[] | HealthEventUncheckedCreateWithoutLivestockInput[]
+    connectOrCreate?: HealthEventCreateOrConnectWithoutLivestockInput | HealthEventCreateOrConnectWithoutLivestockInput[]
+    upsert?: HealthEventUpsertWithWhereUniqueWithoutLivestockInput | HealthEventUpsertWithWhereUniqueWithoutLivestockInput[]
+    createMany?: HealthEventCreateManyLivestockInputEnvelope
+    set?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+    disconnect?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+    delete?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+    connect?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+    update?: HealthEventUpdateWithWhereUniqueWithoutLivestockInput | HealthEventUpdateWithWhereUniqueWithoutLivestockInput[]
+    updateMany?: HealthEventUpdateManyWithWhereWithoutLivestockInput | HealthEventUpdateManyWithWhereWithoutLivestockInput[]
+    deleteMany?: HealthEventScalarWhereInput | HealthEventScalarWhereInput[]
+  }
+
+  export type TransferUpdateManyWithoutLivestockNestedInput = {
+    create?: XOR<TransferCreateWithoutLivestockInput, TransferUncheckedCreateWithoutLivestockInput> | TransferCreateWithoutLivestockInput[] | TransferUncheckedCreateWithoutLivestockInput[]
+    connectOrCreate?: TransferCreateOrConnectWithoutLivestockInput | TransferCreateOrConnectWithoutLivestockInput[]
+    upsert?: TransferUpsertWithWhereUniqueWithoutLivestockInput | TransferUpsertWithWhereUniqueWithoutLivestockInput[]
+    createMany?: TransferCreateManyLivestockInputEnvelope
+    set?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
+    disconnect?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
+    delete?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
+    connect?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
+    update?: TransferUpdateWithWhereUniqueWithoutLivestockInput | TransferUpdateWithWhereUniqueWithoutLivestockInput[]
+    updateMany?: TransferUpdateManyWithWhereWithoutLivestockInput | TransferUpdateManyWithWhereWithoutLivestockInput[]
+    deleteMany?: TransferScalarWhereInput | TransferScalarWhereInput[]
+  }
+
+  export type SaleUpdateOneWithoutLivestockNestedInput = {
+    create?: XOR<SaleCreateWithoutLivestockInput, SaleUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: SaleCreateOrConnectWithoutLivestockInput
+    upsert?: SaleUpsertWithoutLivestockInput
+    disconnect?: SaleWhereInput | boolean
+    delete?: SaleWhereInput | boolean
+    connect?: SaleWhereUniqueInput
+    update?: XOR<XOR<SaleUpdateToOneWithWhereWithoutLivestockInput, SaleUpdateWithoutLivestockInput>, SaleUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type BreedingRecordUpdateManyWithoutDamNestedInput = {
+    create?: XOR<BreedingRecordCreateWithoutDamInput, BreedingRecordUncheckedCreateWithoutDamInput> | BreedingRecordCreateWithoutDamInput[] | BreedingRecordUncheckedCreateWithoutDamInput[]
+    connectOrCreate?: BreedingRecordCreateOrConnectWithoutDamInput | BreedingRecordCreateOrConnectWithoutDamInput[]
+    upsert?: BreedingRecordUpsertWithWhereUniqueWithoutDamInput | BreedingRecordUpsertWithWhereUniqueWithoutDamInput[]
+    createMany?: BreedingRecordCreateManyDamInputEnvelope
+    set?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    disconnect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    delete?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    update?: BreedingRecordUpdateWithWhereUniqueWithoutDamInput | BreedingRecordUpdateWithWhereUniqueWithoutDamInput[]
+    updateMany?: BreedingRecordUpdateManyWithWhereWithoutDamInput | BreedingRecordUpdateManyWithWhereWithoutDamInput[]
+    deleteMany?: BreedingRecordScalarWhereInput | BreedingRecordScalarWhereInput[]
+  }
+
+  export type BreedingRecordUpdateManyWithoutSireNestedInput = {
+    create?: XOR<BreedingRecordCreateWithoutSireInput, BreedingRecordUncheckedCreateWithoutSireInput> | BreedingRecordCreateWithoutSireInput[] | BreedingRecordUncheckedCreateWithoutSireInput[]
+    connectOrCreate?: BreedingRecordCreateOrConnectWithoutSireInput | BreedingRecordCreateOrConnectWithoutSireInput[]
+    upsert?: BreedingRecordUpsertWithWhereUniqueWithoutSireInput | BreedingRecordUpsertWithWhereUniqueWithoutSireInput[]
+    createMany?: BreedingRecordCreateManySireInputEnvelope
+    set?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    disconnect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    delete?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    update?: BreedingRecordUpdateWithWhereUniqueWithoutSireInput | BreedingRecordUpdateWithWhereUniqueWithoutSireInput[]
+    updateMany?: BreedingRecordUpdateManyWithWhereWithoutSireInput | BreedingRecordUpdateManyWithWhereWithoutSireInput[]
+    deleteMany?: BreedingRecordScalarWhereInput | BreedingRecordScalarWhereInput[]
+  }
+
+  export type OffspringUpdateManyWithoutLivestockNestedInput = {
+    create?: XOR<OffspringCreateWithoutLivestockInput, OffspringUncheckedCreateWithoutLivestockInput> | OffspringCreateWithoutLivestockInput[] | OffspringUncheckedCreateWithoutLivestockInput[]
+    connectOrCreate?: OffspringCreateOrConnectWithoutLivestockInput | OffspringCreateOrConnectWithoutLivestockInput[]
+    upsert?: OffspringUpsertWithWhereUniqueWithoutLivestockInput | OffspringUpsertWithWhereUniqueWithoutLivestockInput[]
+    createMany?: OffspringCreateManyLivestockInputEnvelope
+    set?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+    disconnect?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+    delete?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+    connect?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+    update?: OffspringUpdateWithWhereUniqueWithoutLivestockInput | OffspringUpdateWithWhereUniqueWithoutLivestockInput[]
+    updateMany?: OffspringUpdateManyWithWhereWithoutLivestockInput | OffspringUpdateManyWithWhereWithoutLivestockInput[]
+    deleteMany?: OffspringScalarWhereInput | OffspringScalarWhereInput[]
+  }
+
+  export type MammalUncheckedUpdateOneWithoutLivestockNestedInput = {
+    create?: XOR<MammalCreateWithoutLivestockInput, MammalUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: MammalCreateOrConnectWithoutLivestockInput
+    upsert?: MammalUpsertWithoutLivestockInput
+    disconnect?: MammalWhereInput | boolean
+    delete?: MammalWhereInput | boolean
+    connect?: MammalWhereUniqueInput
+    update?: XOR<XOR<MammalUpdateToOneWithWhereWithoutLivestockInput, MammalUpdateWithoutLivestockInput>, MammalUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type PoultryUncheckedUpdateOneWithoutLivestockNestedInput = {
+    create?: XOR<PoultryCreateWithoutLivestockInput, PoultryUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: PoultryCreateOrConnectWithoutLivestockInput
+    upsert?: PoultryUpsertWithoutLivestockInput
+    disconnect?: PoultryWhereInput | boolean
+    delete?: PoultryWhereInput | boolean
+    connect?: PoultryWhereUniqueInput
+    update?: XOR<XOR<PoultryUpdateToOneWithWhereWithoutLivestockInput, PoultryUpdateWithoutLivestockInput>, PoultryUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type MortalityUncheckedUpdateOneWithoutLivestockNestedInput = {
+    create?: XOR<MortalityCreateWithoutLivestockInput, MortalityUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: MortalityCreateOrConnectWithoutLivestockInput
+    upsert?: MortalityUpsertWithoutLivestockInput
+    disconnect?: MortalityWhereInput | boolean
+    delete?: MortalityWhereInput | boolean
+    connect?: MortalityWhereUniqueInput
+    update?: XOR<XOR<MortalityUpdateToOneWithWhereWithoutLivestockInput, MortalityUpdateWithoutLivestockInput>, MortalityUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type HealthEventUncheckedUpdateManyWithoutLivestockNestedInput = {
+    create?: XOR<HealthEventCreateWithoutLivestockInput, HealthEventUncheckedCreateWithoutLivestockInput> | HealthEventCreateWithoutLivestockInput[] | HealthEventUncheckedCreateWithoutLivestockInput[]
+    connectOrCreate?: HealthEventCreateOrConnectWithoutLivestockInput | HealthEventCreateOrConnectWithoutLivestockInput[]
+    upsert?: HealthEventUpsertWithWhereUniqueWithoutLivestockInput | HealthEventUpsertWithWhereUniqueWithoutLivestockInput[]
+    createMany?: HealthEventCreateManyLivestockInputEnvelope
+    set?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+    disconnect?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+    delete?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+    connect?: HealthEventWhereUniqueInput | HealthEventWhereUniqueInput[]
+    update?: HealthEventUpdateWithWhereUniqueWithoutLivestockInput | HealthEventUpdateWithWhereUniqueWithoutLivestockInput[]
+    updateMany?: HealthEventUpdateManyWithWhereWithoutLivestockInput | HealthEventUpdateManyWithWhereWithoutLivestockInput[]
+    deleteMany?: HealthEventScalarWhereInput | HealthEventScalarWhereInput[]
+  }
+
+  export type TransferUncheckedUpdateManyWithoutLivestockNestedInput = {
+    create?: XOR<TransferCreateWithoutLivestockInput, TransferUncheckedCreateWithoutLivestockInput> | TransferCreateWithoutLivestockInput[] | TransferUncheckedCreateWithoutLivestockInput[]
+    connectOrCreate?: TransferCreateOrConnectWithoutLivestockInput | TransferCreateOrConnectWithoutLivestockInput[]
+    upsert?: TransferUpsertWithWhereUniqueWithoutLivestockInput | TransferUpsertWithWhereUniqueWithoutLivestockInput[]
+    createMany?: TransferCreateManyLivestockInputEnvelope
+    set?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
+    disconnect?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
+    delete?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
+    connect?: TransferWhereUniqueInput | TransferWhereUniqueInput[]
+    update?: TransferUpdateWithWhereUniqueWithoutLivestockInput | TransferUpdateWithWhereUniqueWithoutLivestockInput[]
+    updateMany?: TransferUpdateManyWithWhereWithoutLivestockInput | TransferUpdateManyWithWhereWithoutLivestockInput[]
+    deleteMany?: TransferScalarWhereInput | TransferScalarWhereInput[]
+  }
+
+  export type SaleUncheckedUpdateOneWithoutLivestockNestedInput = {
+    create?: XOR<SaleCreateWithoutLivestockInput, SaleUncheckedCreateWithoutLivestockInput>
+    connectOrCreate?: SaleCreateOrConnectWithoutLivestockInput
+    upsert?: SaleUpsertWithoutLivestockInput
+    disconnect?: SaleWhereInput | boolean
+    delete?: SaleWhereInput | boolean
+    connect?: SaleWhereUniqueInput
+    update?: XOR<XOR<SaleUpdateToOneWithWhereWithoutLivestockInput, SaleUpdateWithoutLivestockInput>, SaleUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type BreedingRecordUncheckedUpdateManyWithoutDamNestedInput = {
+    create?: XOR<BreedingRecordCreateWithoutDamInput, BreedingRecordUncheckedCreateWithoutDamInput> | BreedingRecordCreateWithoutDamInput[] | BreedingRecordUncheckedCreateWithoutDamInput[]
+    connectOrCreate?: BreedingRecordCreateOrConnectWithoutDamInput | BreedingRecordCreateOrConnectWithoutDamInput[]
+    upsert?: BreedingRecordUpsertWithWhereUniqueWithoutDamInput | BreedingRecordUpsertWithWhereUniqueWithoutDamInput[]
+    createMany?: BreedingRecordCreateManyDamInputEnvelope
+    set?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    disconnect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    delete?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    update?: BreedingRecordUpdateWithWhereUniqueWithoutDamInput | BreedingRecordUpdateWithWhereUniqueWithoutDamInput[]
+    updateMany?: BreedingRecordUpdateManyWithWhereWithoutDamInput | BreedingRecordUpdateManyWithWhereWithoutDamInput[]
+    deleteMany?: BreedingRecordScalarWhereInput | BreedingRecordScalarWhereInput[]
+  }
+
+  export type BreedingRecordUncheckedUpdateManyWithoutSireNestedInput = {
+    create?: XOR<BreedingRecordCreateWithoutSireInput, BreedingRecordUncheckedCreateWithoutSireInput> | BreedingRecordCreateWithoutSireInput[] | BreedingRecordUncheckedCreateWithoutSireInput[]
+    connectOrCreate?: BreedingRecordCreateOrConnectWithoutSireInput | BreedingRecordCreateOrConnectWithoutSireInput[]
+    upsert?: BreedingRecordUpsertWithWhereUniqueWithoutSireInput | BreedingRecordUpsertWithWhereUniqueWithoutSireInput[]
+    createMany?: BreedingRecordCreateManySireInputEnvelope
+    set?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    disconnect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    delete?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+    update?: BreedingRecordUpdateWithWhereUniqueWithoutSireInput | BreedingRecordUpdateWithWhereUniqueWithoutSireInput[]
+    updateMany?: BreedingRecordUpdateManyWithWhereWithoutSireInput | BreedingRecordUpdateManyWithWhereWithoutSireInput[]
+    deleteMany?: BreedingRecordScalarWhereInput | BreedingRecordScalarWhereInput[]
+  }
+
+  export type OffspringUncheckedUpdateManyWithoutLivestockNestedInput = {
+    create?: XOR<OffspringCreateWithoutLivestockInput, OffspringUncheckedCreateWithoutLivestockInput> | OffspringCreateWithoutLivestockInput[] | OffspringUncheckedCreateWithoutLivestockInput[]
+    connectOrCreate?: OffspringCreateOrConnectWithoutLivestockInput | OffspringCreateOrConnectWithoutLivestockInput[]
+    upsert?: OffspringUpsertWithWhereUniqueWithoutLivestockInput | OffspringUpsertWithWhereUniqueWithoutLivestockInput[]
+    createMany?: OffspringCreateManyLivestockInputEnvelope
+    set?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+    disconnect?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+    delete?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+    connect?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+    update?: OffspringUpdateWithWhereUniqueWithoutLivestockInput | OffspringUpdateWithWhereUniqueWithoutLivestockInput[]
+    updateMany?: OffspringUpdateManyWithWhereWithoutLivestockInput | OffspringUpdateManyWithWhereWithoutLivestockInput[]
+    deleteMany?: OffspringScalarWhereInput | OffspringScalarWhereInput[]
+  }
+
+  export type LivestockCreateNestedOneWithoutMammalInput = {
+    create?: XOR<LivestockCreateWithoutMammalInput, LivestockUncheckedCreateWithoutMammalInput>
+    connectOrCreate?: LivestockCreateOrConnectWithoutMammalInput
+    connect?: LivestockWhereUniqueInput
+  }
+
+  export type LivestockUpdateOneRequiredWithoutMammalNestedInput = {
+    create?: XOR<LivestockCreateWithoutMammalInput, LivestockUncheckedCreateWithoutMammalInput>
+    connectOrCreate?: LivestockCreateOrConnectWithoutMammalInput
+    upsert?: LivestockUpsertWithoutMammalInput
+    connect?: LivestockWhereUniqueInput
+    update?: XOR<XOR<LivestockUpdateToOneWithWhereWithoutMammalInput, LivestockUpdateWithoutMammalInput>, LivestockUncheckedUpdateWithoutMammalInput>
+  }
+
+  export type LivestockCreateNestedOneWithoutPoultryInput = {
+    create?: XOR<LivestockCreateWithoutPoultryInput, LivestockUncheckedCreateWithoutPoultryInput>
+    connectOrCreate?: LivestockCreateOrConnectWithoutPoultryInput
+    connect?: LivestockWhereUniqueInput
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type LivestockUpdateOneRequiredWithoutPoultryNestedInput = {
+    create?: XOR<LivestockCreateWithoutPoultryInput, LivestockUncheckedCreateWithoutPoultryInput>
+    connectOrCreate?: LivestockCreateOrConnectWithoutPoultryInput
+    upsert?: LivestockUpsertWithoutPoultryInput
+    connect?: LivestockWhereUniqueInput
+    update?: XOR<XOR<LivestockUpdateToOneWithWhereWithoutPoultryInput, LivestockUpdateWithoutPoultryInput>, LivestockUncheckedUpdateWithoutPoultryInput>
+  }
+
+  export type MortalityCreateattachmentsInput = {
+    set: string[]
+  }
+
+  export type LivestockCreateNestedOneWithoutMortalityInput = {
+    create?: XOR<LivestockCreateWithoutMortalityInput, LivestockUncheckedCreateWithoutMortalityInput>
+    connectOrCreate?: LivestockCreateOrConnectWithoutMortalityInput
+    connect?: LivestockWhereUniqueInput
+  }
+
+  export type MortalityUpdateattachmentsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type LivestockUpdateOneRequiredWithoutMortalityNestedInput = {
+    create?: XOR<LivestockCreateWithoutMortalityInput, LivestockUncheckedCreateWithoutMortalityInput>
+    connectOrCreate?: LivestockCreateOrConnectWithoutMortalityInput
+    upsert?: LivestockUpsertWithoutMortalityInput
+    connect?: LivestockWhereUniqueInput
+    update?: XOR<XOR<LivestockUpdateToOneWithWhereWithoutMortalityInput, LivestockUpdateWithoutMortalityInput>, LivestockUncheckedUpdateWithoutMortalityInput>
+  }
+
+  export type HealthEventCreatemedicationsInput = {
+    set: string[]
+  }
+
+  export type HealthEventCreateattachmentsInput = {
+    set: string[]
+  }
+
+  export type LivestockCreateNestedOneWithoutHealthEventInput = {
+    create?: XOR<LivestockCreateWithoutHealthEventInput, LivestockUncheckedCreateWithoutHealthEventInput>
+    connectOrCreate?: LivestockCreateOrConnectWithoutHealthEventInput
+    connect?: LivestockWhereUniqueInput
+  }
+
+  export type HealthEventUpdatemedicationsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type HealthEventUpdateattachmentsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type LivestockUpdateOneRequiredWithoutHealthEventNestedInput = {
+    create?: XOR<LivestockCreateWithoutHealthEventInput, LivestockUncheckedCreateWithoutHealthEventInput>
+    connectOrCreate?: LivestockCreateOrConnectWithoutHealthEventInput
+    upsert?: LivestockUpsertWithoutHealthEventInput
+    connect?: LivestockWhereUniqueInput
+    update?: XOR<XOR<LivestockUpdateToOneWithWhereWithoutHealthEventInput, LivestockUpdateWithoutHealthEventInput>, LivestockUncheckedUpdateWithoutHealthEventInput>
+  }
+
+  export type TransferCreateattachmentsInput = {
+    set: string[]
+  }
+
+  export type LivestockCreateNestedOneWithoutTransferInput = {
+    create?: XOR<LivestockCreateWithoutTransferInput, LivestockUncheckedCreateWithoutTransferInput>
+    connectOrCreate?: LivestockCreateOrConnectWithoutTransferInput
+    connect?: LivestockWhereUniqueInput
+  }
+
+  export type TransferUpdateattachmentsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type LivestockUpdateOneRequiredWithoutTransferNestedInput = {
+    create?: XOR<LivestockCreateWithoutTransferInput, LivestockUncheckedCreateWithoutTransferInput>
+    connectOrCreate?: LivestockCreateOrConnectWithoutTransferInput
+    upsert?: LivestockUpsertWithoutTransferInput
+    connect?: LivestockWhereUniqueInput
+    update?: XOR<XOR<LivestockUpdateToOneWithWhereWithoutTransferInput, LivestockUpdateWithoutTransferInput>, LivestockUncheckedUpdateWithoutTransferInput>
+  }
+
+  export type SaleCreateattachmentsInput = {
+    set: string[]
+  }
+
+  export type LivestockCreateNestedOneWithoutSaleInput = {
+    create?: XOR<LivestockCreateWithoutSaleInput, LivestockUncheckedCreateWithoutSaleInput>
+    connectOrCreate?: LivestockCreateOrConnectWithoutSaleInput
+    connect?: LivestockWhereUniqueInput
+  }
+
+  export type SaleUpdateattachmentsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type LivestockUpdateOneRequiredWithoutSaleNestedInput = {
+    create?: XOR<LivestockCreateWithoutSaleInput, LivestockUncheckedCreateWithoutSaleInput>
+    connectOrCreate?: LivestockCreateOrConnectWithoutSaleInput
+    upsert?: LivestockUpsertWithoutSaleInput
+    connect?: LivestockWhereUniqueInput
+    update?: XOR<XOR<LivestockUpdateToOneWithWhereWithoutSaleInput, LivestockUpdateWithoutSaleInput>, LivestockUncheckedUpdateWithoutSaleInput>
+  }
+
+  export type LivestockCreateNestedOneWithoutBreedingDamInput = {
+    create?: XOR<LivestockCreateWithoutBreedingDamInput, LivestockUncheckedCreateWithoutBreedingDamInput>
+    connectOrCreate?: LivestockCreateOrConnectWithoutBreedingDamInput
+    connect?: LivestockWhereUniqueInput
+  }
+
+  export type LivestockCreateNestedOneWithoutBreedingSireInput = {
+    create?: XOR<LivestockCreateWithoutBreedingSireInput, LivestockUncheckedCreateWithoutBreedingSireInput>
+    connectOrCreate?: LivestockCreateOrConnectWithoutBreedingSireInput
+    connect?: LivestockWhereUniqueInput
+  }
+
+  export type OffspringCreateNestedManyWithoutBreedingRecordInput = {
+    create?: XOR<OffspringCreateWithoutBreedingRecordInput, OffspringUncheckedCreateWithoutBreedingRecordInput> | OffspringCreateWithoutBreedingRecordInput[] | OffspringUncheckedCreateWithoutBreedingRecordInput[]
+    connectOrCreate?: OffspringCreateOrConnectWithoutBreedingRecordInput | OffspringCreateOrConnectWithoutBreedingRecordInput[]
+    createMany?: OffspringCreateManyBreedingRecordInputEnvelope
+    connect?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+  }
+
+  export type FarmCreateNestedOneWithoutBreedingRecordsInput = {
+    create?: XOR<FarmCreateWithoutBreedingRecordsInput, FarmUncheckedCreateWithoutBreedingRecordsInput>
+    connectOrCreate?: FarmCreateOrConnectWithoutBreedingRecordsInput
+    connect?: FarmWhereUniqueInput
+  }
+
+  export type OffspringUncheckedCreateNestedManyWithoutBreedingRecordInput = {
+    create?: XOR<OffspringCreateWithoutBreedingRecordInput, OffspringUncheckedCreateWithoutBreedingRecordInput> | OffspringCreateWithoutBreedingRecordInput[] | OffspringUncheckedCreateWithoutBreedingRecordInput[]
+    connectOrCreate?: OffspringCreateOrConnectWithoutBreedingRecordInput | OffspringCreateOrConnectWithoutBreedingRecordInput[]
+    createMany?: OffspringCreateManyBreedingRecordInputEnvelope
+    connect?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+  }
+
+  export type LivestockUpdateOneRequiredWithoutBreedingDamNestedInput = {
+    create?: XOR<LivestockCreateWithoutBreedingDamInput, LivestockUncheckedCreateWithoutBreedingDamInput>
+    connectOrCreate?: LivestockCreateOrConnectWithoutBreedingDamInput
+    upsert?: LivestockUpsertWithoutBreedingDamInput
+    connect?: LivestockWhereUniqueInput
+    update?: XOR<XOR<LivestockUpdateToOneWithWhereWithoutBreedingDamInput, LivestockUpdateWithoutBreedingDamInput>, LivestockUncheckedUpdateWithoutBreedingDamInput>
+  }
+
+  export type LivestockUpdateOneWithoutBreedingSireNestedInput = {
+    create?: XOR<LivestockCreateWithoutBreedingSireInput, LivestockUncheckedCreateWithoutBreedingSireInput>
+    connectOrCreate?: LivestockCreateOrConnectWithoutBreedingSireInput
+    upsert?: LivestockUpsertWithoutBreedingSireInput
+    disconnect?: LivestockWhereInput | boolean
+    delete?: LivestockWhereInput | boolean
+    connect?: LivestockWhereUniqueInput
+    update?: XOR<XOR<LivestockUpdateToOneWithWhereWithoutBreedingSireInput, LivestockUpdateWithoutBreedingSireInput>, LivestockUncheckedUpdateWithoutBreedingSireInput>
+  }
+
+  export type OffspringUpdateManyWithoutBreedingRecordNestedInput = {
+    create?: XOR<OffspringCreateWithoutBreedingRecordInput, OffspringUncheckedCreateWithoutBreedingRecordInput> | OffspringCreateWithoutBreedingRecordInput[] | OffspringUncheckedCreateWithoutBreedingRecordInput[]
+    connectOrCreate?: OffspringCreateOrConnectWithoutBreedingRecordInput | OffspringCreateOrConnectWithoutBreedingRecordInput[]
+    upsert?: OffspringUpsertWithWhereUniqueWithoutBreedingRecordInput | OffspringUpsertWithWhereUniqueWithoutBreedingRecordInput[]
+    createMany?: OffspringCreateManyBreedingRecordInputEnvelope
+    set?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+    disconnect?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+    delete?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+    connect?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+    update?: OffspringUpdateWithWhereUniqueWithoutBreedingRecordInput | OffspringUpdateWithWhereUniqueWithoutBreedingRecordInput[]
+    updateMany?: OffspringUpdateManyWithWhereWithoutBreedingRecordInput | OffspringUpdateManyWithWhereWithoutBreedingRecordInput[]
+    deleteMany?: OffspringScalarWhereInput | OffspringScalarWhereInput[]
+  }
+
+  export type FarmUpdateOneRequiredWithoutBreedingRecordsNestedInput = {
+    create?: XOR<FarmCreateWithoutBreedingRecordsInput, FarmUncheckedCreateWithoutBreedingRecordsInput>
+    connectOrCreate?: FarmCreateOrConnectWithoutBreedingRecordsInput
+    upsert?: FarmUpsertWithoutBreedingRecordsInput
+    connect?: FarmWhereUniqueInput
+    update?: XOR<XOR<FarmUpdateToOneWithWhereWithoutBreedingRecordsInput, FarmUpdateWithoutBreedingRecordsInput>, FarmUncheckedUpdateWithoutBreedingRecordsInput>
+  }
+
+  export type OffspringUncheckedUpdateManyWithoutBreedingRecordNestedInput = {
+    create?: XOR<OffspringCreateWithoutBreedingRecordInput, OffspringUncheckedCreateWithoutBreedingRecordInput> | OffspringCreateWithoutBreedingRecordInput[] | OffspringUncheckedCreateWithoutBreedingRecordInput[]
+    connectOrCreate?: OffspringCreateOrConnectWithoutBreedingRecordInput | OffspringCreateOrConnectWithoutBreedingRecordInput[]
+    upsert?: OffspringUpsertWithWhereUniqueWithoutBreedingRecordInput | OffspringUpsertWithWhereUniqueWithoutBreedingRecordInput[]
+    createMany?: OffspringCreateManyBreedingRecordInputEnvelope
+    set?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+    disconnect?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+    delete?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+    connect?: OffspringWhereUniqueInput | OffspringWhereUniqueInput[]
+    update?: OffspringUpdateWithWhereUniqueWithoutBreedingRecordInput | OffspringUpdateWithWhereUniqueWithoutBreedingRecordInput[]
+    updateMany?: OffspringUpdateManyWithWhereWithoutBreedingRecordInput | OffspringUpdateManyWithWhereWithoutBreedingRecordInput[]
+    deleteMany?: OffspringScalarWhereInput | OffspringScalarWhereInput[]
+  }
+
+  export type BreedingRecordCreateNestedOneWithoutOffspringInput = {
+    create?: XOR<BreedingRecordCreateWithoutOffspringInput, BreedingRecordUncheckedCreateWithoutOffspringInput>
+    connectOrCreate?: BreedingRecordCreateOrConnectWithoutOffspringInput
+    connect?: BreedingRecordWhereUniqueInput
+  }
+
+  export type LivestockCreateNestedOneWithoutOffspringInput = {
+    create?: XOR<LivestockCreateWithoutOffspringInput, LivestockUncheckedCreateWithoutOffspringInput>
+    connectOrCreate?: LivestockCreateOrConnectWithoutOffspringInput
+    connect?: LivestockWhereUniqueInput
+  }
+
+  export type BreedingRecordUpdateOneRequiredWithoutOffspringNestedInput = {
+    create?: XOR<BreedingRecordCreateWithoutOffspringInput, BreedingRecordUncheckedCreateWithoutOffspringInput>
+    connectOrCreate?: BreedingRecordCreateOrConnectWithoutOffspringInput
+    upsert?: BreedingRecordUpsertWithoutOffspringInput
+    connect?: BreedingRecordWhereUniqueInput
+    update?: XOR<XOR<BreedingRecordUpdateToOneWithWhereWithoutOffspringInput, BreedingRecordUpdateWithoutOffspringInput>, BreedingRecordUncheckedUpdateWithoutOffspringInput>
+  }
+
+  export type LivestockUpdateOneWithoutOffspringNestedInput = {
+    create?: XOR<LivestockCreateWithoutOffspringInput, LivestockUncheckedCreateWithoutOffspringInput>
+    connectOrCreate?: LivestockCreateOrConnectWithoutOffspringInput
+    upsert?: LivestockUpsertWithoutOffspringInput
+    disconnect?: LivestockWhereInput | boolean
+    delete?: LivestockWhereInput | boolean
+    connect?: LivestockWhereUniqueInput
+    update?: XOR<XOR<LivestockUpdateToOneWithWhereWithoutOffspringInput, LivestockUpdateWithoutOffspringInput>, LivestockUncheckedUpdateWithoutOffspringInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -4639,6 +24905,38 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
   export type FarmCreateWithoutUserInput = {
     id?: string
     name: string
@@ -4649,6 +24947,9 @@ export namespace Prisma {
     farmingTypes?: FarmCreatefarmingTypesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    employees?: EmployeeFarmCreateNestedManyWithoutFarmInput
+    livestock?: LivestockCreateNestedManyWithoutFarmInput
+    breedingRecords?: BreedingRecordCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutUserInput = {
@@ -4661,6 +24962,9 @@ export namespace Prisma {
     farmingTypes?: FarmCreatefarmingTypesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    employees?: EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput
+    livestock?: LivestockUncheckedCreateNestedManyWithoutFarmInput
+    breedingRecords?: BreedingRecordUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutUserInput = {
@@ -4703,6 +25007,142 @@ export namespace Prisma {
     userId?: StringFilter<"Farm"> | string
     createdAt?: DateTimeFilter<"Farm"> | Date | string
     updatedAt?: DateTimeFilter<"Farm"> | Date | string
+  }
+
+  export type EmployeeFarmCreateWithoutFarmInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    employee: EmployeeCreateNestedOneWithoutFarmsInput
+  }
+
+  export type EmployeeFarmUncheckedCreateWithoutFarmInput = {
+    id?: string
+    employeeId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeFarmCreateOrConnectWithoutFarmInput = {
+    where: EmployeeFarmWhereUniqueInput
+    create: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput>
+  }
+
+  export type EmployeeFarmCreateManyFarmInputEnvelope = {
+    data: EmployeeFarmCreateManyFarmInput | EmployeeFarmCreateManyFarmInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LivestockCreateWithoutFarmInput = {
+    id?: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mammal?: MammalCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
+    breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+    offspring?: OffspringCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockUncheckedCreateWithoutFarmInput = {
+    id?: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+    offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockCreateOrConnectWithoutFarmInput = {
+    where: LivestockWhereUniqueInput
+    create: XOR<LivestockCreateWithoutFarmInput, LivestockUncheckedCreateWithoutFarmInput>
+  }
+
+  export type LivestockCreateManyFarmInputEnvelope = {
+    data: LivestockCreateManyFarmInput | LivestockCreateManyFarmInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BreedingRecordCreateWithoutFarmInput = {
+    id?: string
+    purpose: string
+    strategy: string
+    serviceType: string
+    serviceDate: Date | string
+    numServices?: number
+    firstHeatDate?: Date | string | null
+    sireCode?: string | null
+    aiType?: string | null
+    aiSource?: string | null
+    aiCost?: number | null
+    gestationDays: number
+    expectedBirthDate: Date | string
+    birthRecorded?: boolean
+    birthDate?: Date | string | null
+    deliveryMethod?: string | null
+    youngOnes?: number | null
+    birthWeight?: number | null
+    litterWeight?: number | null
+    offspringSex?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    dam: LivestockCreateNestedOneWithoutBreedingDamInput
+    sire?: LivestockCreateNestedOneWithoutBreedingSireInput
+    offspring?: OffspringCreateNestedManyWithoutBreedingRecordInput
+  }
+
+  export type BreedingRecordUncheckedCreateWithoutFarmInput = {
+    id?: string
+    damId: string
+    sireId?: string | null
+    purpose: string
+    strategy: string
+    serviceType: string
+    serviceDate: Date | string
+    numServices?: number
+    firstHeatDate?: Date | string | null
+    sireCode?: string | null
+    aiType?: string | null
+    aiSource?: string | null
+    aiCost?: number | null
+    gestationDays: number
+    expectedBirthDate: Date | string
+    birthRecorded?: boolean
+    birthDate?: Date | string | null
+    deliveryMethod?: string | null
+    youngOnes?: number | null
+    birthWeight?: number | null
+    litterWeight?: number | null
+    offspringSex?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    offspring?: OffspringUncheckedCreateNestedManyWithoutBreedingRecordInput
+  }
+
+  export type BreedingRecordCreateOrConnectWithoutFarmInput = {
+    where: BreedingRecordWhereUniqueInput
+    create: XOR<BreedingRecordCreateWithoutFarmInput, BreedingRecordUncheckedCreateWithoutFarmInput>
+  }
+
+  export type BreedingRecordCreateManyFarmInputEnvelope = {
+    data: BreedingRecordCreateManyFarmInput | BreedingRecordCreateManyFarmInput[]
+    skipDuplicates?: boolean
   }
 
   export type UserCreateWithoutFarmsInput = {
@@ -4750,6 +25190,109 @@ export namespace Prisma {
   export type UserCreateOrConnectWithoutFarmsInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutFarmsInput, UserUncheckedCreateWithoutFarmsInput>
+  }
+
+  export type EmployeeFarmUpsertWithWhereUniqueWithoutFarmInput = {
+    where: EmployeeFarmWhereUniqueInput
+    update: XOR<EmployeeFarmUpdateWithoutFarmInput, EmployeeFarmUncheckedUpdateWithoutFarmInput>
+    create: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput>
+  }
+
+  export type EmployeeFarmUpdateWithWhereUniqueWithoutFarmInput = {
+    where: EmployeeFarmWhereUniqueInput
+    data: XOR<EmployeeFarmUpdateWithoutFarmInput, EmployeeFarmUncheckedUpdateWithoutFarmInput>
+  }
+
+  export type EmployeeFarmUpdateManyWithWhereWithoutFarmInput = {
+    where: EmployeeFarmScalarWhereInput
+    data: XOR<EmployeeFarmUpdateManyMutationInput, EmployeeFarmUncheckedUpdateManyWithoutFarmInput>
+  }
+
+  export type EmployeeFarmScalarWhereInput = {
+    AND?: EmployeeFarmScalarWhereInput | EmployeeFarmScalarWhereInput[]
+    OR?: EmployeeFarmScalarWhereInput[]
+    NOT?: EmployeeFarmScalarWhereInput | EmployeeFarmScalarWhereInput[]
+    id?: StringFilter<"EmployeeFarm"> | string
+    employeeId?: StringFilter<"EmployeeFarm"> | string
+    farmId?: StringFilter<"EmployeeFarm"> | string
+    createdAt?: DateTimeFilter<"EmployeeFarm"> | Date | string
+    updatedAt?: DateTimeFilter<"EmployeeFarm"> | Date | string
+  }
+
+  export type LivestockUpsertWithWhereUniqueWithoutFarmInput = {
+    where: LivestockWhereUniqueInput
+    update: XOR<LivestockUpdateWithoutFarmInput, LivestockUncheckedUpdateWithoutFarmInput>
+    create: XOR<LivestockCreateWithoutFarmInput, LivestockUncheckedCreateWithoutFarmInput>
+  }
+
+  export type LivestockUpdateWithWhereUniqueWithoutFarmInput = {
+    where: LivestockWhereUniqueInput
+    data: XOR<LivestockUpdateWithoutFarmInput, LivestockUncheckedUpdateWithoutFarmInput>
+  }
+
+  export type LivestockUpdateManyWithWhereWithoutFarmInput = {
+    where: LivestockScalarWhereInput
+    data: XOR<LivestockUpdateManyMutationInput, LivestockUncheckedUpdateManyWithoutFarmInput>
+  }
+
+  export type LivestockScalarWhereInput = {
+    AND?: LivestockScalarWhereInput | LivestockScalarWhereInput[]
+    OR?: LivestockScalarWhereInput[]
+    NOT?: LivestockScalarWhereInput | LivestockScalarWhereInput[]
+    id?: StringFilter<"Livestock"> | string
+    farmId?: StringFilter<"Livestock"> | string
+    category?: StringFilter<"Livestock"> | string
+    type?: StringFilter<"Livestock"> | string
+    status?: StringFilter<"Livestock"> | string
+    createdAt?: DateTimeFilter<"Livestock"> | Date | string
+    updatedAt?: DateTimeFilter<"Livestock"> | Date | string
+  }
+
+  export type BreedingRecordUpsertWithWhereUniqueWithoutFarmInput = {
+    where: BreedingRecordWhereUniqueInput
+    update: XOR<BreedingRecordUpdateWithoutFarmInput, BreedingRecordUncheckedUpdateWithoutFarmInput>
+    create: XOR<BreedingRecordCreateWithoutFarmInput, BreedingRecordUncheckedCreateWithoutFarmInput>
+  }
+
+  export type BreedingRecordUpdateWithWhereUniqueWithoutFarmInput = {
+    where: BreedingRecordWhereUniqueInput
+    data: XOR<BreedingRecordUpdateWithoutFarmInput, BreedingRecordUncheckedUpdateWithoutFarmInput>
+  }
+
+  export type BreedingRecordUpdateManyWithWhereWithoutFarmInput = {
+    where: BreedingRecordScalarWhereInput
+    data: XOR<BreedingRecordUpdateManyMutationInput, BreedingRecordUncheckedUpdateManyWithoutFarmInput>
+  }
+
+  export type BreedingRecordScalarWhereInput = {
+    AND?: BreedingRecordScalarWhereInput | BreedingRecordScalarWhereInput[]
+    OR?: BreedingRecordScalarWhereInput[]
+    NOT?: BreedingRecordScalarWhereInput | BreedingRecordScalarWhereInput[]
+    id?: StringFilter<"BreedingRecord"> | string
+    damId?: StringFilter<"BreedingRecord"> | string
+    sireId?: StringNullableFilter<"BreedingRecord"> | string | null
+    purpose?: StringFilter<"BreedingRecord"> | string
+    strategy?: StringFilter<"BreedingRecord"> | string
+    serviceType?: StringFilter<"BreedingRecord"> | string
+    serviceDate?: DateTimeFilter<"BreedingRecord"> | Date | string
+    numServices?: IntFilter<"BreedingRecord"> | number
+    firstHeatDate?: DateTimeNullableFilter<"BreedingRecord"> | Date | string | null
+    sireCode?: StringNullableFilter<"BreedingRecord"> | string | null
+    aiType?: StringNullableFilter<"BreedingRecord"> | string | null
+    aiSource?: StringNullableFilter<"BreedingRecord"> | string | null
+    aiCost?: FloatNullableFilter<"BreedingRecord"> | number | null
+    gestationDays?: IntFilter<"BreedingRecord"> | number
+    expectedBirthDate?: DateTimeFilter<"BreedingRecord"> | Date | string
+    birthRecorded?: BoolFilter<"BreedingRecord"> | boolean
+    birthDate?: DateTimeNullableFilter<"BreedingRecord"> | Date | string | null
+    deliveryMethod?: StringNullableFilter<"BreedingRecord"> | string | null
+    youngOnes?: IntNullableFilter<"BreedingRecord"> | number | null
+    birthWeight?: FloatNullableFilter<"BreedingRecord"> | number | null
+    litterWeight?: FloatNullableFilter<"BreedingRecord"> | number | null
+    offspringSex?: StringNullableFilter<"BreedingRecord"> | string | null
+    farmId?: StringFilter<"BreedingRecord"> | string
+    createdAt?: DateTimeFilter<"BreedingRecord"> | Date | string
+    updatedAt?: DateTimeFilter<"BreedingRecord"> | Date | string
   }
 
   export type UserUpsertWithoutFarmsInput = {
@@ -4805,6 +25348,2192 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type EmployeeBenefitCreateWithoutEmployeeInput = {
+    id?: string
+    name: string
+    amount?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeBenefitUncheckedCreateWithoutEmployeeInput = {
+    id?: string
+    name: string
+    amount?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeBenefitCreateOrConnectWithoutEmployeeInput = {
+    where: EmployeeBenefitWhereUniqueInput
+    create: XOR<EmployeeBenefitCreateWithoutEmployeeInput, EmployeeBenefitUncheckedCreateWithoutEmployeeInput>
+  }
+
+  export type EmployeeBenefitCreateManyEmployeeInputEnvelope = {
+    data: EmployeeBenefitCreateManyEmployeeInput | EmployeeBenefitCreateManyEmployeeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type EmployeeFarmCreateWithoutEmployeeInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutEmployeesInput
+  }
+
+  export type EmployeeFarmUncheckedCreateWithoutEmployeeInput = {
+    id?: string
+    farmId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeFarmCreateOrConnectWithoutEmployeeInput = {
+    where: EmployeeFarmWhereUniqueInput
+    create: XOR<EmployeeFarmCreateWithoutEmployeeInput, EmployeeFarmUncheckedCreateWithoutEmployeeInput>
+  }
+
+  export type EmployeeFarmCreateManyEmployeeInputEnvelope = {
+    data: EmployeeFarmCreateManyEmployeeInput | EmployeeFarmCreateManyEmployeeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type EmployeeBenefitUpsertWithWhereUniqueWithoutEmployeeInput = {
+    where: EmployeeBenefitWhereUniqueInput
+    update: XOR<EmployeeBenefitUpdateWithoutEmployeeInput, EmployeeBenefitUncheckedUpdateWithoutEmployeeInput>
+    create: XOR<EmployeeBenefitCreateWithoutEmployeeInput, EmployeeBenefitUncheckedCreateWithoutEmployeeInput>
+  }
+
+  export type EmployeeBenefitUpdateWithWhereUniqueWithoutEmployeeInput = {
+    where: EmployeeBenefitWhereUniqueInput
+    data: XOR<EmployeeBenefitUpdateWithoutEmployeeInput, EmployeeBenefitUncheckedUpdateWithoutEmployeeInput>
+  }
+
+  export type EmployeeBenefitUpdateManyWithWhereWithoutEmployeeInput = {
+    where: EmployeeBenefitScalarWhereInput
+    data: XOR<EmployeeBenefitUpdateManyMutationInput, EmployeeBenefitUncheckedUpdateManyWithoutEmployeeInput>
+  }
+
+  export type EmployeeBenefitScalarWhereInput = {
+    AND?: EmployeeBenefitScalarWhereInput | EmployeeBenefitScalarWhereInput[]
+    OR?: EmployeeBenefitScalarWhereInput[]
+    NOT?: EmployeeBenefitScalarWhereInput | EmployeeBenefitScalarWhereInput[]
+    id?: StringFilter<"EmployeeBenefit"> | string
+    employeeId?: StringFilter<"EmployeeBenefit"> | string
+    name?: StringFilter<"EmployeeBenefit"> | string
+    amount?: FloatNullableFilter<"EmployeeBenefit"> | number | null
+    createdAt?: DateTimeFilter<"EmployeeBenefit"> | Date | string
+    updatedAt?: DateTimeFilter<"EmployeeBenefit"> | Date | string
+  }
+
+  export type EmployeeFarmUpsertWithWhereUniqueWithoutEmployeeInput = {
+    where: EmployeeFarmWhereUniqueInput
+    update: XOR<EmployeeFarmUpdateWithoutEmployeeInput, EmployeeFarmUncheckedUpdateWithoutEmployeeInput>
+    create: XOR<EmployeeFarmCreateWithoutEmployeeInput, EmployeeFarmUncheckedCreateWithoutEmployeeInput>
+  }
+
+  export type EmployeeFarmUpdateWithWhereUniqueWithoutEmployeeInput = {
+    where: EmployeeFarmWhereUniqueInput
+    data: XOR<EmployeeFarmUpdateWithoutEmployeeInput, EmployeeFarmUncheckedUpdateWithoutEmployeeInput>
+  }
+
+  export type EmployeeFarmUpdateManyWithWhereWithoutEmployeeInput = {
+    where: EmployeeFarmScalarWhereInput
+    data: XOR<EmployeeFarmUpdateManyMutationInput, EmployeeFarmUncheckedUpdateManyWithoutEmployeeInput>
+  }
+
+  export type EmployeeCreateWithoutFarmsInput = {
+    id?: string
+    firstName: string
+    middleName?: string | null
+    lastName: string
+    phone: string
+    emergencyContact?: string | null
+    idNumber: string
+    idPhoto?: string | null
+    employeeType: string
+    dateOfEmployment: Date | string
+    endDate?: Date | string | null
+    role: string
+    customRole?: string | null
+    paymentSchedule: string
+    salary: number
+    typeOfEngagement?: string | null
+    workSchedule?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    benefits?: EmployeeBenefitCreateNestedManyWithoutEmployeeInput
+  }
+
+  export type EmployeeUncheckedCreateWithoutFarmsInput = {
+    id?: string
+    firstName: string
+    middleName?: string | null
+    lastName: string
+    phone: string
+    emergencyContact?: string | null
+    idNumber: string
+    idPhoto?: string | null
+    employeeType: string
+    dateOfEmployment: Date | string
+    endDate?: Date | string | null
+    role: string
+    customRole?: string | null
+    paymentSchedule: string
+    salary: number
+    typeOfEngagement?: string | null
+    workSchedule?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    benefits?: EmployeeBenefitUncheckedCreateNestedManyWithoutEmployeeInput
+  }
+
+  export type EmployeeCreateOrConnectWithoutFarmsInput = {
+    where: EmployeeWhereUniqueInput
+    create: XOR<EmployeeCreateWithoutFarmsInput, EmployeeUncheckedCreateWithoutFarmsInput>
+  }
+
+  export type FarmCreateWithoutEmployeesInput = {
+    id?: string
+    name: string
+    county: string
+    administrativeLocation: string
+    size: number
+    ownership: string
+    farmingTypes?: FarmCreatefarmingTypesInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    livestock?: LivestockCreateNestedManyWithoutFarmInput
+    breedingRecords?: BreedingRecordCreateNestedManyWithoutFarmInput
+    user: UserCreateNestedOneWithoutFarmsInput
+  }
+
+  export type FarmUncheckedCreateWithoutEmployeesInput = {
+    id?: string
+    name: string
+    county: string
+    administrativeLocation: string
+    size: number
+    ownership: string
+    farmingTypes?: FarmCreatefarmingTypesInput | string[]
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    livestock?: LivestockUncheckedCreateNestedManyWithoutFarmInput
+    breedingRecords?: BreedingRecordUncheckedCreateNestedManyWithoutFarmInput
+  }
+
+  export type FarmCreateOrConnectWithoutEmployeesInput = {
+    where: FarmWhereUniqueInput
+    create: XOR<FarmCreateWithoutEmployeesInput, FarmUncheckedCreateWithoutEmployeesInput>
+  }
+
+  export type EmployeeUpsertWithoutFarmsInput = {
+    update: XOR<EmployeeUpdateWithoutFarmsInput, EmployeeUncheckedUpdateWithoutFarmsInput>
+    create: XOR<EmployeeCreateWithoutFarmsInput, EmployeeUncheckedCreateWithoutFarmsInput>
+    where?: EmployeeWhereInput
+  }
+
+  export type EmployeeUpdateToOneWithWhereWithoutFarmsInput = {
+    where?: EmployeeWhereInput
+    data: XOR<EmployeeUpdateWithoutFarmsInput, EmployeeUncheckedUpdateWithoutFarmsInput>
+  }
+
+  export type EmployeeUpdateWithoutFarmsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    emergencyContact?: NullableStringFieldUpdateOperationsInput | string | null
+    idNumber?: StringFieldUpdateOperationsInput | string
+    idPhoto?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeType?: StringFieldUpdateOperationsInput | string
+    dateOfEmployment?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    customRole?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentSchedule?: StringFieldUpdateOperationsInput | string
+    salary?: FloatFieldUpdateOperationsInput | number
+    typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
+    workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    benefits?: EmployeeBenefitUpdateManyWithoutEmployeeNestedInput
+  }
+
+  export type EmployeeUncheckedUpdateWithoutFarmsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    emergencyContact?: NullableStringFieldUpdateOperationsInput | string | null
+    idNumber?: StringFieldUpdateOperationsInput | string
+    idPhoto?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeType?: StringFieldUpdateOperationsInput | string
+    dateOfEmployment?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    customRole?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentSchedule?: StringFieldUpdateOperationsInput | string
+    salary?: FloatFieldUpdateOperationsInput | number
+    typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
+    workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    benefits?: EmployeeBenefitUncheckedUpdateManyWithoutEmployeeNestedInput
+  }
+
+  export type FarmUpsertWithoutEmployeesInput = {
+    update: XOR<FarmUpdateWithoutEmployeesInput, FarmUncheckedUpdateWithoutEmployeesInput>
+    create: XOR<FarmCreateWithoutEmployeesInput, FarmUncheckedCreateWithoutEmployeesInput>
+    where?: FarmWhereInput
+  }
+
+  export type FarmUpdateToOneWithWhereWithoutEmployeesInput = {
+    where?: FarmWhereInput
+    data: XOR<FarmUpdateWithoutEmployeesInput, FarmUncheckedUpdateWithoutEmployeesInput>
+  }
+
+  export type FarmUpdateWithoutEmployeesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    county?: StringFieldUpdateOperationsInput | string
+    administrativeLocation?: StringFieldUpdateOperationsInput | string
+    size?: FloatFieldUpdateOperationsInput | number
+    ownership?: StringFieldUpdateOperationsInput | string
+    farmingTypes?: FarmUpdatefarmingTypesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    livestock?: LivestockUpdateManyWithoutFarmNestedInput
+    breedingRecords?: BreedingRecordUpdateManyWithoutFarmNestedInput
+    user?: UserUpdateOneRequiredWithoutFarmsNestedInput
+  }
+
+  export type FarmUncheckedUpdateWithoutEmployeesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    county?: StringFieldUpdateOperationsInput | string
+    administrativeLocation?: StringFieldUpdateOperationsInput | string
+    size?: FloatFieldUpdateOperationsInput | number
+    ownership?: StringFieldUpdateOperationsInput | string
+    farmingTypes?: FarmUpdatefarmingTypesInput | string[]
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    livestock?: LivestockUncheckedUpdateManyWithoutFarmNestedInput
+    breedingRecords?: BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput
+  }
+
+  export type EmployeeCreateWithoutBenefitsInput = {
+    id?: string
+    firstName: string
+    middleName?: string | null
+    lastName: string
+    phone: string
+    emergencyContact?: string | null
+    idNumber: string
+    idPhoto?: string | null
+    employeeType: string
+    dateOfEmployment: Date | string
+    endDate?: Date | string | null
+    role: string
+    customRole?: string | null
+    paymentSchedule: string
+    salary: number
+    typeOfEngagement?: string | null
+    workSchedule?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farms?: EmployeeFarmCreateNestedManyWithoutEmployeeInput
+  }
+
+  export type EmployeeUncheckedCreateWithoutBenefitsInput = {
+    id?: string
+    firstName: string
+    middleName?: string | null
+    lastName: string
+    phone: string
+    emergencyContact?: string | null
+    idNumber: string
+    idPhoto?: string | null
+    employeeType: string
+    dateOfEmployment: Date | string
+    endDate?: Date | string | null
+    role: string
+    customRole?: string | null
+    paymentSchedule: string
+    salary: number
+    typeOfEngagement?: string | null
+    workSchedule?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farms?: EmployeeFarmUncheckedCreateNestedManyWithoutEmployeeInput
+  }
+
+  export type EmployeeCreateOrConnectWithoutBenefitsInput = {
+    where: EmployeeWhereUniqueInput
+    create: XOR<EmployeeCreateWithoutBenefitsInput, EmployeeUncheckedCreateWithoutBenefitsInput>
+  }
+
+  export type EmployeeUpsertWithoutBenefitsInput = {
+    update: XOR<EmployeeUpdateWithoutBenefitsInput, EmployeeUncheckedUpdateWithoutBenefitsInput>
+    create: XOR<EmployeeCreateWithoutBenefitsInput, EmployeeUncheckedCreateWithoutBenefitsInput>
+    where?: EmployeeWhereInput
+  }
+
+  export type EmployeeUpdateToOneWithWhereWithoutBenefitsInput = {
+    where?: EmployeeWhereInput
+    data: XOR<EmployeeUpdateWithoutBenefitsInput, EmployeeUncheckedUpdateWithoutBenefitsInput>
+  }
+
+  export type EmployeeUpdateWithoutBenefitsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    emergencyContact?: NullableStringFieldUpdateOperationsInput | string | null
+    idNumber?: StringFieldUpdateOperationsInput | string
+    idPhoto?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeType?: StringFieldUpdateOperationsInput | string
+    dateOfEmployment?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    customRole?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentSchedule?: StringFieldUpdateOperationsInput | string
+    salary?: FloatFieldUpdateOperationsInput | number
+    typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
+    workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farms?: EmployeeFarmUpdateManyWithoutEmployeeNestedInput
+  }
+
+  export type EmployeeUncheckedUpdateWithoutBenefitsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    emergencyContact?: NullableStringFieldUpdateOperationsInput | string | null
+    idNumber?: StringFieldUpdateOperationsInput | string
+    idPhoto?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeType?: StringFieldUpdateOperationsInput | string
+    dateOfEmployment?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    customRole?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentSchedule?: StringFieldUpdateOperationsInput | string
+    salary?: FloatFieldUpdateOperationsInput | number
+    typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
+    workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farms?: EmployeeFarmUncheckedUpdateManyWithoutEmployeeNestedInput
+  }
+
+  export type FarmCreateWithoutLivestockInput = {
+    id?: string
+    name: string
+    county: string
+    administrativeLocation: string
+    size: number
+    ownership: string
+    farmingTypes?: FarmCreatefarmingTypesInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    employees?: EmployeeFarmCreateNestedManyWithoutFarmInput
+    breedingRecords?: BreedingRecordCreateNestedManyWithoutFarmInput
+    user: UserCreateNestedOneWithoutFarmsInput
+  }
+
+  export type FarmUncheckedCreateWithoutLivestockInput = {
+    id?: string
+    name: string
+    county: string
+    administrativeLocation: string
+    size: number
+    ownership: string
+    farmingTypes?: FarmCreatefarmingTypesInput | string[]
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    employees?: EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput
+    breedingRecords?: BreedingRecordUncheckedCreateNestedManyWithoutFarmInput
+  }
+
+  export type FarmCreateOrConnectWithoutLivestockInput = {
+    where: FarmWhereUniqueInput
+    create: XOR<FarmCreateWithoutLivestockInput, FarmUncheckedCreateWithoutLivestockInput>
+  }
+
+  export type MammalCreateWithoutLivestockInput = {
+    id?: string
+    idNumber: string
+    breedType: string
+    phenotype?: string | null
+    dateOfBirth: string
+    gender: string
+    sireId?: string | null
+    sireCode?: string | null
+    damId?: string | null
+    damCode?: string | null
+    birthWeight?: number | null
+    currentWeight?: number | null
+    lastWeighingDate?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MammalUncheckedCreateWithoutLivestockInput = {
+    id?: string
+    idNumber: string
+    breedType: string
+    phenotype?: string | null
+    dateOfBirth: string
+    gender: string
+    sireId?: string | null
+    sireCode?: string | null
+    damId?: string | null
+    damCode?: string | null
+    birthWeight?: number | null
+    currentWeight?: number | null
+    lastWeighingDate?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MammalCreateOrConnectWithoutLivestockInput = {
+    where: MammalWhereUniqueInput
+    create: XOR<MammalCreateWithoutLivestockInput, MammalUncheckedCreateWithoutLivestockInput>
+  }
+
+  export type PoultryCreateWithoutLivestockInput = {
+    id?: string
+    flockId: string
+    dateOfStocking: Date | string
+    gender: string
+    initialQuantity: number
+    currentQuantity: number
+    breedType: string
+    sourceOfBirds: string
+    initialAverageWeight?: number | null
+    currentAverageWeight?: number | null
+    lastWeighingDate?: Date | string | null
+    mortalityRate?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PoultryUncheckedCreateWithoutLivestockInput = {
+    id?: string
+    flockId: string
+    dateOfStocking: Date | string
+    gender: string
+    initialQuantity: number
+    currentQuantity: number
+    breedType: string
+    sourceOfBirds: string
+    initialAverageWeight?: number | null
+    currentAverageWeight?: number | null
+    lastWeighingDate?: Date | string | null
+    mortalityRate?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PoultryCreateOrConnectWithoutLivestockInput = {
+    where: PoultryWhereUniqueInput
+    create: XOR<PoultryCreateWithoutLivestockInput, PoultryUncheckedCreateWithoutLivestockInput>
+  }
+
+  export type MortalityCreateWithoutLivestockInput = {
+    id?: string
+    date: Date | string
+    cause: string
+    description?: string | null
+    reportedBy?: string | null
+    attachments?: MortalityCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MortalityUncheckedCreateWithoutLivestockInput = {
+    id?: string
+    date: Date | string
+    cause: string
+    description?: string | null
+    reportedBy?: string | null
+    attachments?: MortalityCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MortalityCreateOrConnectWithoutLivestockInput = {
+    where: MortalityWhereUniqueInput
+    create: XOR<MortalityCreateWithoutLivestockInput, MortalityUncheckedCreateWithoutLivestockInput>
+  }
+
+  export type HealthEventCreateWithoutLivestockInput = {
+    id?: string
+    eventType: string
+    date: Date | string
+    description: string
+    performedBy?: string | null
+    medications?: HealthEventCreatemedicationsInput | string[]
+    dosage?: string | null
+    cost?: number | null
+    nextScheduled?: Date | string | null
+    attachments?: HealthEventCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type HealthEventUncheckedCreateWithoutLivestockInput = {
+    id?: string
+    eventType: string
+    date: Date | string
+    description: string
+    performedBy?: string | null
+    medications?: HealthEventCreatemedicationsInput | string[]
+    dosage?: string | null
+    cost?: number | null
+    nextScheduled?: Date | string | null
+    attachments?: HealthEventCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type HealthEventCreateOrConnectWithoutLivestockInput = {
+    where: HealthEventWhereUniqueInput
+    create: XOR<HealthEventCreateWithoutLivestockInput, HealthEventUncheckedCreateWithoutLivestockInput>
+  }
+
+  export type HealthEventCreateManyLivestockInputEnvelope = {
+    data: HealthEventCreateManyLivestockInput | HealthEventCreateManyLivestockInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TransferCreateWithoutLivestockInput = {
+    id?: string
+    fromFarmId: string
+    toFarmId: string
+    transferDate: Date | string
+    reason?: string | null
+    transportMethod?: string | null
+    handlingPrecautions?: string | null
+    attachments?: TransferCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TransferUncheckedCreateWithoutLivestockInput = {
+    id?: string
+    fromFarmId: string
+    toFarmId: string
+    transferDate: Date | string
+    reason?: string | null
+    transportMethod?: string | null
+    handlingPrecautions?: string | null
+    attachments?: TransferCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TransferCreateOrConnectWithoutLivestockInput = {
+    where: TransferWhereUniqueInput
+    create: XOR<TransferCreateWithoutLivestockInput, TransferUncheckedCreateWithoutLivestockInput>
+  }
+
+  export type TransferCreateManyLivestockInputEnvelope = {
+    data: TransferCreateManyLivestockInput | TransferCreateManyLivestockInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SaleCreateWithoutLivestockInput = {
+    id?: string
+    saleDate: Date | string
+    buyerName: string
+    buyerContact?: string | null
+    saleAmount: number
+    paymentMethod: string
+    receiptNumber?: string | null
+    notes?: string | null
+    attachments?: SaleCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SaleUncheckedCreateWithoutLivestockInput = {
+    id?: string
+    saleDate: Date | string
+    buyerName: string
+    buyerContact?: string | null
+    saleAmount: number
+    paymentMethod: string
+    receiptNumber?: string | null
+    notes?: string | null
+    attachments?: SaleCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SaleCreateOrConnectWithoutLivestockInput = {
+    where: SaleWhereUniqueInput
+    create: XOR<SaleCreateWithoutLivestockInput, SaleUncheckedCreateWithoutLivestockInput>
+  }
+
+  export type BreedingRecordCreateWithoutDamInput = {
+    id?: string
+    purpose: string
+    strategy: string
+    serviceType: string
+    serviceDate: Date | string
+    numServices?: number
+    firstHeatDate?: Date | string | null
+    sireCode?: string | null
+    aiType?: string | null
+    aiSource?: string | null
+    aiCost?: number | null
+    gestationDays: number
+    expectedBirthDate: Date | string
+    birthRecorded?: boolean
+    birthDate?: Date | string | null
+    deliveryMethod?: string | null
+    youngOnes?: number | null
+    birthWeight?: number | null
+    litterWeight?: number | null
+    offspringSex?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sire?: LivestockCreateNestedOneWithoutBreedingSireInput
+    offspring?: OffspringCreateNestedManyWithoutBreedingRecordInput
+    farm: FarmCreateNestedOneWithoutBreedingRecordsInput
+  }
+
+  export type BreedingRecordUncheckedCreateWithoutDamInput = {
+    id?: string
+    sireId?: string | null
+    purpose: string
+    strategy: string
+    serviceType: string
+    serviceDate: Date | string
+    numServices?: number
+    firstHeatDate?: Date | string | null
+    sireCode?: string | null
+    aiType?: string | null
+    aiSource?: string | null
+    aiCost?: number | null
+    gestationDays: number
+    expectedBirthDate: Date | string
+    birthRecorded?: boolean
+    birthDate?: Date | string | null
+    deliveryMethod?: string | null
+    youngOnes?: number | null
+    birthWeight?: number | null
+    litterWeight?: number | null
+    offspringSex?: string | null
+    farmId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    offspring?: OffspringUncheckedCreateNestedManyWithoutBreedingRecordInput
+  }
+
+  export type BreedingRecordCreateOrConnectWithoutDamInput = {
+    where: BreedingRecordWhereUniqueInput
+    create: XOR<BreedingRecordCreateWithoutDamInput, BreedingRecordUncheckedCreateWithoutDamInput>
+  }
+
+  export type BreedingRecordCreateManyDamInputEnvelope = {
+    data: BreedingRecordCreateManyDamInput | BreedingRecordCreateManyDamInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BreedingRecordCreateWithoutSireInput = {
+    id?: string
+    purpose: string
+    strategy: string
+    serviceType: string
+    serviceDate: Date | string
+    numServices?: number
+    firstHeatDate?: Date | string | null
+    sireCode?: string | null
+    aiType?: string | null
+    aiSource?: string | null
+    aiCost?: number | null
+    gestationDays: number
+    expectedBirthDate: Date | string
+    birthRecorded?: boolean
+    birthDate?: Date | string | null
+    deliveryMethod?: string | null
+    youngOnes?: number | null
+    birthWeight?: number | null
+    litterWeight?: number | null
+    offspringSex?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    dam: LivestockCreateNestedOneWithoutBreedingDamInput
+    offspring?: OffspringCreateNestedManyWithoutBreedingRecordInput
+    farm: FarmCreateNestedOneWithoutBreedingRecordsInput
+  }
+
+  export type BreedingRecordUncheckedCreateWithoutSireInput = {
+    id?: string
+    damId: string
+    purpose: string
+    strategy: string
+    serviceType: string
+    serviceDate: Date | string
+    numServices?: number
+    firstHeatDate?: Date | string | null
+    sireCode?: string | null
+    aiType?: string | null
+    aiSource?: string | null
+    aiCost?: number | null
+    gestationDays: number
+    expectedBirthDate: Date | string
+    birthRecorded?: boolean
+    birthDate?: Date | string | null
+    deliveryMethod?: string | null
+    youngOnes?: number | null
+    birthWeight?: number | null
+    litterWeight?: number | null
+    offspringSex?: string | null
+    farmId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    offspring?: OffspringUncheckedCreateNestedManyWithoutBreedingRecordInput
+  }
+
+  export type BreedingRecordCreateOrConnectWithoutSireInput = {
+    where: BreedingRecordWhereUniqueInput
+    create: XOR<BreedingRecordCreateWithoutSireInput, BreedingRecordUncheckedCreateWithoutSireInput>
+  }
+
+  export type BreedingRecordCreateManySireInputEnvelope = {
+    data: BreedingRecordCreateManySireInput | BreedingRecordCreateManySireInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type OffspringCreateWithoutLivestockInput = {
+    id?: string
+    offspringId: string
+    sex: string
+    birthWeight?: number | null
+    notes?: string | null
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    breedingRecord: BreedingRecordCreateNestedOneWithoutOffspringInput
+  }
+
+  export type OffspringUncheckedCreateWithoutLivestockInput = {
+    id?: string
+    breedingRecordId: string
+    offspringId: string
+    sex: string
+    birthWeight?: number | null
+    notes?: string | null
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OffspringCreateOrConnectWithoutLivestockInput = {
+    where: OffspringWhereUniqueInput
+    create: XOR<OffspringCreateWithoutLivestockInput, OffspringUncheckedCreateWithoutLivestockInput>
+  }
+
+  export type OffspringCreateManyLivestockInputEnvelope = {
+    data: OffspringCreateManyLivestockInput | OffspringCreateManyLivestockInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FarmUpsertWithoutLivestockInput = {
+    update: XOR<FarmUpdateWithoutLivestockInput, FarmUncheckedUpdateWithoutLivestockInput>
+    create: XOR<FarmCreateWithoutLivestockInput, FarmUncheckedCreateWithoutLivestockInput>
+    where?: FarmWhereInput
+  }
+
+  export type FarmUpdateToOneWithWhereWithoutLivestockInput = {
+    where?: FarmWhereInput
+    data: XOR<FarmUpdateWithoutLivestockInput, FarmUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type FarmUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    county?: StringFieldUpdateOperationsInput | string
+    administrativeLocation?: StringFieldUpdateOperationsInput | string
+    size?: FloatFieldUpdateOperationsInput | number
+    ownership?: StringFieldUpdateOperationsInput | string
+    farmingTypes?: FarmUpdatefarmingTypesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: EmployeeFarmUpdateManyWithoutFarmNestedInput
+    breedingRecords?: BreedingRecordUpdateManyWithoutFarmNestedInput
+    user?: UserUpdateOneRequiredWithoutFarmsNestedInput
+  }
+
+  export type FarmUncheckedUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    county?: StringFieldUpdateOperationsInput | string
+    administrativeLocation?: StringFieldUpdateOperationsInput | string
+    size?: FloatFieldUpdateOperationsInput | number
+    ownership?: StringFieldUpdateOperationsInput | string
+    farmingTypes?: FarmUpdatefarmingTypesInput | string[]
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput
+    breedingRecords?: BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput
+  }
+
+  export type MammalUpsertWithoutLivestockInput = {
+    update: XOR<MammalUpdateWithoutLivestockInput, MammalUncheckedUpdateWithoutLivestockInput>
+    create: XOR<MammalCreateWithoutLivestockInput, MammalUncheckedCreateWithoutLivestockInput>
+    where?: MammalWhereInput
+  }
+
+  export type MammalUpdateToOneWithWhereWithoutLivestockInput = {
+    where?: MammalWhereInput
+    data: XOR<MammalUpdateWithoutLivestockInput, MammalUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type MammalUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    idNumber?: StringFieldUpdateOperationsInput | string
+    breedType?: StringFieldUpdateOperationsInput | string
+    phenotype?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfBirth?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    sireId?: NullableStringFieldUpdateOperationsInput | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    damId?: NullableStringFieldUpdateOperationsInput | string | null
+    damCode?: NullableStringFieldUpdateOperationsInput | string | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MammalUncheckedUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    idNumber?: StringFieldUpdateOperationsInput | string
+    breedType?: StringFieldUpdateOperationsInput | string
+    phenotype?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfBirth?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    sireId?: NullableStringFieldUpdateOperationsInput | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    damId?: NullableStringFieldUpdateOperationsInput | string | null
+    damCode?: NullableStringFieldUpdateOperationsInput | string | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PoultryUpsertWithoutLivestockInput = {
+    update: XOR<PoultryUpdateWithoutLivestockInput, PoultryUncheckedUpdateWithoutLivestockInput>
+    create: XOR<PoultryCreateWithoutLivestockInput, PoultryUncheckedCreateWithoutLivestockInput>
+    where?: PoultryWhereInput
+  }
+
+  export type PoultryUpdateToOneWithWhereWithoutLivestockInput = {
+    where?: PoultryWhereInput
+    data: XOR<PoultryUpdateWithoutLivestockInput, PoultryUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type PoultryUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    flockId?: StringFieldUpdateOperationsInput | string
+    dateOfStocking?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
+    initialQuantity?: IntFieldUpdateOperationsInput | number
+    currentQuantity?: IntFieldUpdateOperationsInput | number
+    breedType?: StringFieldUpdateOperationsInput | string
+    sourceOfBirds?: StringFieldUpdateOperationsInput | string
+    initialAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mortalityRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PoultryUncheckedUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    flockId?: StringFieldUpdateOperationsInput | string
+    dateOfStocking?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
+    initialQuantity?: IntFieldUpdateOperationsInput | number
+    currentQuantity?: IntFieldUpdateOperationsInput | number
+    breedType?: StringFieldUpdateOperationsInput | string
+    sourceOfBirds?: StringFieldUpdateOperationsInput | string
+    initialAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentAverageWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    lastWeighingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mortalityRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MortalityUpsertWithoutLivestockInput = {
+    update: XOR<MortalityUpdateWithoutLivestockInput, MortalityUncheckedUpdateWithoutLivestockInput>
+    create: XOR<MortalityCreateWithoutLivestockInput, MortalityUncheckedCreateWithoutLivestockInput>
+    where?: MortalityWhereInput
+  }
+
+  export type MortalityUpdateToOneWithWhereWithoutLivestockInput = {
+    where?: MortalityWhereInput
+    data: XOR<MortalityUpdateWithoutLivestockInput, MortalityUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type MortalityUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    cause?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    reportedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: MortalityUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MortalityUncheckedUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    cause?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    reportedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: MortalityUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HealthEventUpsertWithWhereUniqueWithoutLivestockInput = {
+    where: HealthEventWhereUniqueInput
+    update: XOR<HealthEventUpdateWithoutLivestockInput, HealthEventUncheckedUpdateWithoutLivestockInput>
+    create: XOR<HealthEventCreateWithoutLivestockInput, HealthEventUncheckedCreateWithoutLivestockInput>
+  }
+
+  export type HealthEventUpdateWithWhereUniqueWithoutLivestockInput = {
+    where: HealthEventWhereUniqueInput
+    data: XOR<HealthEventUpdateWithoutLivestockInput, HealthEventUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type HealthEventUpdateManyWithWhereWithoutLivestockInput = {
+    where: HealthEventScalarWhereInput
+    data: XOR<HealthEventUpdateManyMutationInput, HealthEventUncheckedUpdateManyWithoutLivestockInput>
+  }
+
+  export type HealthEventScalarWhereInput = {
+    AND?: HealthEventScalarWhereInput | HealthEventScalarWhereInput[]
+    OR?: HealthEventScalarWhereInput[]
+    NOT?: HealthEventScalarWhereInput | HealthEventScalarWhereInput[]
+    id?: StringFilter<"HealthEvent"> | string
+    livestockId?: StringFilter<"HealthEvent"> | string
+    eventType?: StringFilter<"HealthEvent"> | string
+    date?: DateTimeFilter<"HealthEvent"> | Date | string
+    description?: StringFilter<"HealthEvent"> | string
+    performedBy?: StringNullableFilter<"HealthEvent"> | string | null
+    medications?: StringNullableListFilter<"HealthEvent">
+    dosage?: StringNullableFilter<"HealthEvent"> | string | null
+    cost?: FloatNullableFilter<"HealthEvent"> | number | null
+    nextScheduled?: DateTimeNullableFilter<"HealthEvent"> | Date | string | null
+    attachments?: StringNullableListFilter<"HealthEvent">
+    createdAt?: DateTimeFilter<"HealthEvent"> | Date | string
+    updatedAt?: DateTimeFilter<"HealthEvent"> | Date | string
+  }
+
+  export type TransferUpsertWithWhereUniqueWithoutLivestockInput = {
+    where: TransferWhereUniqueInput
+    update: XOR<TransferUpdateWithoutLivestockInput, TransferUncheckedUpdateWithoutLivestockInput>
+    create: XOR<TransferCreateWithoutLivestockInput, TransferUncheckedCreateWithoutLivestockInput>
+  }
+
+  export type TransferUpdateWithWhereUniqueWithoutLivestockInput = {
+    where: TransferWhereUniqueInput
+    data: XOR<TransferUpdateWithoutLivestockInput, TransferUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type TransferUpdateManyWithWhereWithoutLivestockInput = {
+    where: TransferScalarWhereInput
+    data: XOR<TransferUpdateManyMutationInput, TransferUncheckedUpdateManyWithoutLivestockInput>
+  }
+
+  export type TransferScalarWhereInput = {
+    AND?: TransferScalarWhereInput | TransferScalarWhereInput[]
+    OR?: TransferScalarWhereInput[]
+    NOT?: TransferScalarWhereInput | TransferScalarWhereInput[]
+    id?: StringFilter<"Transfer"> | string
+    livestockId?: StringFilter<"Transfer"> | string
+    fromFarmId?: StringFilter<"Transfer"> | string
+    toFarmId?: StringFilter<"Transfer"> | string
+    transferDate?: DateTimeFilter<"Transfer"> | Date | string
+    reason?: StringNullableFilter<"Transfer"> | string | null
+    transportMethod?: StringNullableFilter<"Transfer"> | string | null
+    handlingPrecautions?: StringNullableFilter<"Transfer"> | string | null
+    attachments?: StringNullableListFilter<"Transfer">
+    createdAt?: DateTimeFilter<"Transfer"> | Date | string
+    updatedAt?: DateTimeFilter<"Transfer"> | Date | string
+  }
+
+  export type SaleUpsertWithoutLivestockInput = {
+    update: XOR<SaleUpdateWithoutLivestockInput, SaleUncheckedUpdateWithoutLivestockInput>
+    create: XOR<SaleCreateWithoutLivestockInput, SaleUncheckedCreateWithoutLivestockInput>
+    where?: SaleWhereInput
+  }
+
+  export type SaleUpdateToOneWithWhereWithoutLivestockInput = {
+    where?: SaleWhereInput
+    data: XOR<SaleUpdateWithoutLivestockInput, SaleUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type SaleUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    saleDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    buyerName?: StringFieldUpdateOperationsInput | string
+    buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    saleAmount?: FloatFieldUpdateOperationsInput | number
+    paymentMethod?: StringFieldUpdateOperationsInput | string
+    receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: SaleUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SaleUncheckedUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    saleDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    buyerName?: StringFieldUpdateOperationsInput | string
+    buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    saleAmount?: FloatFieldUpdateOperationsInput | number
+    paymentMethod?: StringFieldUpdateOperationsInput | string
+    receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: SaleUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BreedingRecordUpsertWithWhereUniqueWithoutDamInput = {
+    where: BreedingRecordWhereUniqueInput
+    update: XOR<BreedingRecordUpdateWithoutDamInput, BreedingRecordUncheckedUpdateWithoutDamInput>
+    create: XOR<BreedingRecordCreateWithoutDamInput, BreedingRecordUncheckedCreateWithoutDamInput>
+  }
+
+  export type BreedingRecordUpdateWithWhereUniqueWithoutDamInput = {
+    where: BreedingRecordWhereUniqueInput
+    data: XOR<BreedingRecordUpdateWithoutDamInput, BreedingRecordUncheckedUpdateWithoutDamInput>
+  }
+
+  export type BreedingRecordUpdateManyWithWhereWithoutDamInput = {
+    where: BreedingRecordScalarWhereInput
+    data: XOR<BreedingRecordUpdateManyMutationInput, BreedingRecordUncheckedUpdateManyWithoutDamInput>
+  }
+
+  export type BreedingRecordUpsertWithWhereUniqueWithoutSireInput = {
+    where: BreedingRecordWhereUniqueInput
+    update: XOR<BreedingRecordUpdateWithoutSireInput, BreedingRecordUncheckedUpdateWithoutSireInput>
+    create: XOR<BreedingRecordCreateWithoutSireInput, BreedingRecordUncheckedCreateWithoutSireInput>
+  }
+
+  export type BreedingRecordUpdateWithWhereUniqueWithoutSireInput = {
+    where: BreedingRecordWhereUniqueInput
+    data: XOR<BreedingRecordUpdateWithoutSireInput, BreedingRecordUncheckedUpdateWithoutSireInput>
+  }
+
+  export type BreedingRecordUpdateManyWithWhereWithoutSireInput = {
+    where: BreedingRecordScalarWhereInput
+    data: XOR<BreedingRecordUpdateManyMutationInput, BreedingRecordUncheckedUpdateManyWithoutSireInput>
+  }
+
+  export type OffspringUpsertWithWhereUniqueWithoutLivestockInput = {
+    where: OffspringWhereUniqueInput
+    update: XOR<OffspringUpdateWithoutLivestockInput, OffspringUncheckedUpdateWithoutLivestockInput>
+    create: XOR<OffspringCreateWithoutLivestockInput, OffspringUncheckedCreateWithoutLivestockInput>
+  }
+
+  export type OffspringUpdateWithWhereUniqueWithoutLivestockInput = {
+    where: OffspringWhereUniqueInput
+    data: XOR<OffspringUpdateWithoutLivestockInput, OffspringUncheckedUpdateWithoutLivestockInput>
+  }
+
+  export type OffspringUpdateManyWithWhereWithoutLivestockInput = {
+    where: OffspringScalarWhereInput
+    data: XOR<OffspringUpdateManyMutationInput, OffspringUncheckedUpdateManyWithoutLivestockInput>
+  }
+
+  export type OffspringScalarWhereInput = {
+    AND?: OffspringScalarWhereInput | OffspringScalarWhereInput[]
+    OR?: OffspringScalarWhereInput[]
+    NOT?: OffspringScalarWhereInput | OffspringScalarWhereInput[]
+    id?: StringFilter<"Offspring"> | string
+    breedingRecordId?: StringFilter<"Offspring"> | string
+    livestockId?: StringNullableFilter<"Offspring"> | string | null
+    offspringId?: StringFilter<"Offspring"> | string
+    sex?: StringFilter<"Offspring"> | string
+    birthWeight?: FloatNullableFilter<"Offspring"> | number | null
+    notes?: StringNullableFilter<"Offspring"> | string | null
+    status?: StringFilter<"Offspring"> | string
+    createdAt?: DateTimeFilter<"Offspring"> | Date | string
+    updatedAt?: DateTimeFilter<"Offspring"> | Date | string
+  }
+
+  export type LivestockCreateWithoutMammalInput = {
+    id?: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
+    breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+    offspring?: OffspringCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockUncheckedCreateWithoutMammalInput = {
+    id?: string
+    farmId: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+    offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockCreateOrConnectWithoutMammalInput = {
+    where: LivestockWhereUniqueInput
+    create: XOR<LivestockCreateWithoutMammalInput, LivestockUncheckedCreateWithoutMammalInput>
+  }
+
+  export type LivestockUpsertWithoutMammalInput = {
+    update: XOR<LivestockUpdateWithoutMammalInput, LivestockUncheckedUpdateWithoutMammalInput>
+    create: XOR<LivestockCreateWithoutMammalInput, LivestockUncheckedCreateWithoutMammalInput>
+    where?: LivestockWhereInput
+  }
+
+  export type LivestockUpdateToOneWithWhereWithoutMammalInput = {
+    where?: LivestockWhereInput
+    data: XOR<LivestockUpdateWithoutMammalInput, LivestockUncheckedUpdateWithoutMammalInput>
+  }
+
+  export type LivestockUpdateWithoutMammalInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+    offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockUncheckedUpdateWithoutMammalInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
+    offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockCreateWithoutPoultryInput = {
+    id?: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutLivestockInput
+    mammal?: MammalCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
+    breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+    offspring?: OffspringCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockUncheckedCreateWithoutPoultryInput = {
+    id?: string
+    farmId: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+    offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockCreateOrConnectWithoutPoultryInput = {
+    where: LivestockWhereUniqueInput
+    create: XOR<LivestockCreateWithoutPoultryInput, LivestockUncheckedCreateWithoutPoultryInput>
+  }
+
+  export type LivestockUpsertWithoutPoultryInput = {
+    update: XOR<LivestockUpdateWithoutPoultryInput, LivestockUncheckedUpdateWithoutPoultryInput>
+    create: XOR<LivestockCreateWithoutPoultryInput, LivestockUncheckedCreateWithoutPoultryInput>
+    where?: LivestockWhereInput
+  }
+
+  export type LivestockUpdateToOneWithWhereWithoutPoultryInput = {
+    where?: LivestockWhereInput
+    data: XOR<LivestockUpdateWithoutPoultryInput, LivestockUncheckedUpdateWithoutPoultryInput>
+  }
+
+  export type LivestockUpdateWithoutPoultryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
+    mammal?: MammalUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+    offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockUncheckedUpdateWithoutPoultryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
+    offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockCreateWithoutMortalityInput = {
+    id?: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutLivestockInput
+    mammal?: MammalCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
+    breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+    offspring?: OffspringCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockUncheckedCreateWithoutMortalityInput = {
+    id?: string
+    farmId: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+    offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockCreateOrConnectWithoutMortalityInput = {
+    where: LivestockWhereUniqueInput
+    create: XOR<LivestockCreateWithoutMortalityInput, LivestockUncheckedCreateWithoutMortalityInput>
+  }
+
+  export type LivestockUpsertWithoutMortalityInput = {
+    update: XOR<LivestockUpdateWithoutMortalityInput, LivestockUncheckedUpdateWithoutMortalityInput>
+    create: XOR<LivestockCreateWithoutMortalityInput, LivestockUncheckedCreateWithoutMortalityInput>
+    where?: LivestockWhereInput
+  }
+
+  export type LivestockUpdateToOneWithWhereWithoutMortalityInput = {
+    where?: LivestockWhereInput
+    data: XOR<LivestockUpdateWithoutMortalityInput, LivestockUncheckedUpdateWithoutMortalityInput>
+  }
+
+  export type LivestockUpdateWithoutMortalityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
+    mammal?: MammalUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+    offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockUncheckedUpdateWithoutMortalityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
+    offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockCreateWithoutHealthEventInput = {
+    id?: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutLivestockInput
+    mammal?: MammalCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityCreateNestedOneWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
+    breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+    offspring?: OffspringCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockUncheckedCreateWithoutHealthEventInput = {
+    id?: string
+    farmId: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+    offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockCreateOrConnectWithoutHealthEventInput = {
+    where: LivestockWhereUniqueInput
+    create: XOR<LivestockCreateWithoutHealthEventInput, LivestockUncheckedCreateWithoutHealthEventInput>
+  }
+
+  export type LivestockUpsertWithoutHealthEventInput = {
+    update: XOR<LivestockUpdateWithoutHealthEventInput, LivestockUncheckedUpdateWithoutHealthEventInput>
+    create: XOR<LivestockCreateWithoutHealthEventInput, LivestockUncheckedCreateWithoutHealthEventInput>
+    where?: LivestockWhereInput
+  }
+
+  export type LivestockUpdateToOneWithWhereWithoutHealthEventInput = {
+    where?: LivestockWhereInput
+    data: XOR<LivestockUpdateWithoutHealthEventInput, LivestockUncheckedUpdateWithoutHealthEventInput>
+  }
+
+  export type LivestockUpdateWithoutHealthEventInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
+    mammal?: MammalUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+    offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockUncheckedUpdateWithoutHealthEventInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
+    offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockCreateWithoutTransferInput = {
+    id?: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutLivestockInput
+    mammal?: MammalCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
+    breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+    offspring?: OffspringCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockUncheckedCreateWithoutTransferInput = {
+    id?: string
+    farmId: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+    offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockCreateOrConnectWithoutTransferInput = {
+    where: LivestockWhereUniqueInput
+    create: XOR<LivestockCreateWithoutTransferInput, LivestockUncheckedCreateWithoutTransferInput>
+  }
+
+  export type LivestockUpsertWithoutTransferInput = {
+    update: XOR<LivestockUpdateWithoutTransferInput, LivestockUncheckedUpdateWithoutTransferInput>
+    create: XOR<LivestockCreateWithoutTransferInput, LivestockUncheckedCreateWithoutTransferInput>
+    where?: LivestockWhereInput
+  }
+
+  export type LivestockUpdateToOneWithWhereWithoutTransferInput = {
+    where?: LivestockWhereInput
+    data: XOR<LivestockUpdateWithoutTransferInput, LivestockUncheckedUpdateWithoutTransferInput>
+  }
+
+  export type LivestockUpdateWithoutTransferInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
+    mammal?: MammalUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+    offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockUncheckedUpdateWithoutTransferInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
+    offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockCreateWithoutSaleInput = {
+    id?: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutLivestockInput
+    mammal?: MammalCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
+    breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+    offspring?: OffspringCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockUncheckedCreateWithoutSaleInput = {
+    id?: string
+    farmId: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
+    breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+    offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockCreateOrConnectWithoutSaleInput = {
+    where: LivestockWhereUniqueInput
+    create: XOR<LivestockCreateWithoutSaleInput, LivestockUncheckedCreateWithoutSaleInput>
+  }
+
+  export type LivestockUpsertWithoutSaleInput = {
+    update: XOR<LivestockUpdateWithoutSaleInput, LivestockUncheckedUpdateWithoutSaleInput>
+    create: XOR<LivestockCreateWithoutSaleInput, LivestockUncheckedCreateWithoutSaleInput>
+    where?: LivestockWhereInput
+  }
+
+  export type LivestockUpdateToOneWithWhereWithoutSaleInput = {
+    where?: LivestockWhereInput
+    data: XOR<LivestockUpdateWithoutSaleInput, LivestockUncheckedUpdateWithoutSaleInput>
+  }
+
+  export type LivestockUpdateWithoutSaleInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
+    mammal?: MammalUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+    offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockUncheckedUpdateWithoutSaleInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
+    offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockCreateWithoutBreedingDamInput = {
+    id?: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutLivestockInput
+    mammal?: MammalCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
+    breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+    offspring?: OffspringCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockUncheckedCreateWithoutBreedingDamInput = {
+    id?: string
+    farmId: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+    offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockCreateOrConnectWithoutBreedingDamInput = {
+    where: LivestockWhereUniqueInput
+    create: XOR<LivestockCreateWithoutBreedingDamInput, LivestockUncheckedCreateWithoutBreedingDamInput>
+  }
+
+  export type LivestockCreateWithoutBreedingSireInput = {
+    id?: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutLivestockInput
+    mammal?: MammalCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
+    breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
+    offspring?: OffspringCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockUncheckedCreateWithoutBreedingSireInput = {
+    id?: string
+    farmId: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
+    offspring?: OffspringUncheckedCreateNestedManyWithoutLivestockInput
+  }
+
+  export type LivestockCreateOrConnectWithoutBreedingSireInput = {
+    where: LivestockWhereUniqueInput
+    create: XOR<LivestockCreateWithoutBreedingSireInput, LivestockUncheckedCreateWithoutBreedingSireInput>
+  }
+
+  export type OffspringCreateWithoutBreedingRecordInput = {
+    id?: string
+    offspringId: string
+    sex: string
+    birthWeight?: number | null
+    notes?: string | null
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    livestock?: LivestockCreateNestedOneWithoutOffspringInput
+  }
+
+  export type OffspringUncheckedCreateWithoutBreedingRecordInput = {
+    id?: string
+    livestockId?: string | null
+    offspringId: string
+    sex: string
+    birthWeight?: number | null
+    notes?: string | null
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OffspringCreateOrConnectWithoutBreedingRecordInput = {
+    where: OffspringWhereUniqueInput
+    create: XOR<OffspringCreateWithoutBreedingRecordInput, OffspringUncheckedCreateWithoutBreedingRecordInput>
+  }
+
+  export type OffspringCreateManyBreedingRecordInputEnvelope = {
+    data: OffspringCreateManyBreedingRecordInput | OffspringCreateManyBreedingRecordInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FarmCreateWithoutBreedingRecordsInput = {
+    id?: string
+    name: string
+    county: string
+    administrativeLocation: string
+    size: number
+    ownership: string
+    farmingTypes?: FarmCreatefarmingTypesInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    employees?: EmployeeFarmCreateNestedManyWithoutFarmInput
+    livestock?: LivestockCreateNestedManyWithoutFarmInput
+    user: UserCreateNestedOneWithoutFarmsInput
+  }
+
+  export type FarmUncheckedCreateWithoutBreedingRecordsInput = {
+    id?: string
+    name: string
+    county: string
+    administrativeLocation: string
+    size: number
+    ownership: string
+    farmingTypes?: FarmCreatefarmingTypesInput | string[]
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    employees?: EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput
+    livestock?: LivestockUncheckedCreateNestedManyWithoutFarmInput
+  }
+
+  export type FarmCreateOrConnectWithoutBreedingRecordsInput = {
+    where: FarmWhereUniqueInput
+    create: XOR<FarmCreateWithoutBreedingRecordsInput, FarmUncheckedCreateWithoutBreedingRecordsInput>
+  }
+
+  export type LivestockUpsertWithoutBreedingDamInput = {
+    update: XOR<LivestockUpdateWithoutBreedingDamInput, LivestockUncheckedUpdateWithoutBreedingDamInput>
+    create: XOR<LivestockCreateWithoutBreedingDamInput, LivestockUncheckedCreateWithoutBreedingDamInput>
+    where?: LivestockWhereInput
+  }
+
+  export type LivestockUpdateToOneWithWhereWithoutBreedingDamInput = {
+    where?: LivestockWhereInput
+    data: XOR<LivestockUpdateWithoutBreedingDamInput, LivestockUncheckedUpdateWithoutBreedingDamInput>
+  }
+
+  export type LivestockUpdateWithoutBreedingDamInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
+    mammal?: MammalUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+    offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockUncheckedUpdateWithoutBreedingDamInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
+    offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockUpsertWithoutBreedingSireInput = {
+    update: XOR<LivestockUpdateWithoutBreedingSireInput, LivestockUncheckedUpdateWithoutBreedingSireInput>
+    create: XOR<LivestockCreateWithoutBreedingSireInput, LivestockUncheckedCreateWithoutBreedingSireInput>
+    where?: LivestockWhereInput
+  }
+
+  export type LivestockUpdateToOneWithWhereWithoutBreedingSireInput = {
+    where?: LivestockWhereInput
+    data: XOR<LivestockUpdateWithoutBreedingSireInput, LivestockUncheckedUpdateWithoutBreedingSireInput>
+  }
+
+  export type LivestockUpdateWithoutBreedingSireInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
+    mammal?: MammalUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
+    offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockUncheckedUpdateWithoutBreedingSireInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
+    offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type OffspringUpsertWithWhereUniqueWithoutBreedingRecordInput = {
+    where: OffspringWhereUniqueInput
+    update: XOR<OffspringUpdateWithoutBreedingRecordInput, OffspringUncheckedUpdateWithoutBreedingRecordInput>
+    create: XOR<OffspringCreateWithoutBreedingRecordInput, OffspringUncheckedCreateWithoutBreedingRecordInput>
+  }
+
+  export type OffspringUpdateWithWhereUniqueWithoutBreedingRecordInput = {
+    where: OffspringWhereUniqueInput
+    data: XOR<OffspringUpdateWithoutBreedingRecordInput, OffspringUncheckedUpdateWithoutBreedingRecordInput>
+  }
+
+  export type OffspringUpdateManyWithWhereWithoutBreedingRecordInput = {
+    where: OffspringScalarWhereInput
+    data: XOR<OffspringUpdateManyMutationInput, OffspringUncheckedUpdateManyWithoutBreedingRecordInput>
+  }
+
+  export type FarmUpsertWithoutBreedingRecordsInput = {
+    update: XOR<FarmUpdateWithoutBreedingRecordsInput, FarmUncheckedUpdateWithoutBreedingRecordsInput>
+    create: XOR<FarmCreateWithoutBreedingRecordsInput, FarmUncheckedCreateWithoutBreedingRecordsInput>
+    where?: FarmWhereInput
+  }
+
+  export type FarmUpdateToOneWithWhereWithoutBreedingRecordsInput = {
+    where?: FarmWhereInput
+    data: XOR<FarmUpdateWithoutBreedingRecordsInput, FarmUncheckedUpdateWithoutBreedingRecordsInput>
+  }
+
+  export type FarmUpdateWithoutBreedingRecordsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    county?: StringFieldUpdateOperationsInput | string
+    administrativeLocation?: StringFieldUpdateOperationsInput | string
+    size?: FloatFieldUpdateOperationsInput | number
+    ownership?: StringFieldUpdateOperationsInput | string
+    farmingTypes?: FarmUpdatefarmingTypesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: EmployeeFarmUpdateManyWithoutFarmNestedInput
+    livestock?: LivestockUpdateManyWithoutFarmNestedInput
+    user?: UserUpdateOneRequiredWithoutFarmsNestedInput
+  }
+
+  export type FarmUncheckedUpdateWithoutBreedingRecordsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    county?: StringFieldUpdateOperationsInput | string
+    administrativeLocation?: StringFieldUpdateOperationsInput | string
+    size?: FloatFieldUpdateOperationsInput | number
+    ownership?: StringFieldUpdateOperationsInput | string
+    farmingTypes?: FarmUpdatefarmingTypesInput | string[]
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput
+    livestock?: LivestockUncheckedUpdateManyWithoutFarmNestedInput
+  }
+
+  export type BreedingRecordCreateWithoutOffspringInput = {
+    id?: string
+    purpose: string
+    strategy: string
+    serviceType: string
+    serviceDate: Date | string
+    numServices?: number
+    firstHeatDate?: Date | string | null
+    sireCode?: string | null
+    aiType?: string | null
+    aiSource?: string | null
+    aiCost?: number | null
+    gestationDays: number
+    expectedBirthDate: Date | string
+    birthRecorded?: boolean
+    birthDate?: Date | string | null
+    deliveryMethod?: string | null
+    youngOnes?: number | null
+    birthWeight?: number | null
+    litterWeight?: number | null
+    offspringSex?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    dam: LivestockCreateNestedOneWithoutBreedingDamInput
+    sire?: LivestockCreateNestedOneWithoutBreedingSireInput
+    farm: FarmCreateNestedOneWithoutBreedingRecordsInput
+  }
+
+  export type BreedingRecordUncheckedCreateWithoutOffspringInput = {
+    id?: string
+    damId: string
+    sireId?: string | null
+    purpose: string
+    strategy: string
+    serviceType: string
+    serviceDate: Date | string
+    numServices?: number
+    firstHeatDate?: Date | string | null
+    sireCode?: string | null
+    aiType?: string | null
+    aiSource?: string | null
+    aiCost?: number | null
+    gestationDays: number
+    expectedBirthDate: Date | string
+    birthRecorded?: boolean
+    birthDate?: Date | string | null
+    deliveryMethod?: string | null
+    youngOnes?: number | null
+    birthWeight?: number | null
+    litterWeight?: number | null
+    offspringSex?: string | null
+    farmId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BreedingRecordCreateOrConnectWithoutOffspringInput = {
+    where: BreedingRecordWhereUniqueInput
+    create: XOR<BreedingRecordCreateWithoutOffspringInput, BreedingRecordUncheckedCreateWithoutOffspringInput>
+  }
+
+  export type LivestockCreateWithoutOffspringInput = {
+    id?: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutLivestockInput
+    mammal?: MammalCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventCreateNestedManyWithoutLivestockInput
+    transfer?: TransferCreateNestedManyWithoutLivestockInput
+    sale?: SaleCreateNestedOneWithoutLivestockInput
+    breedingDam?: BreedingRecordCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordCreateNestedManyWithoutSireInput
+  }
+
+  export type LivestockUncheckedCreateWithoutOffspringInput = {
+    id?: string
+    farmId: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mammal?: MammalUncheckedCreateNestedOneWithoutLivestockInput
+    poultry?: PoultryUncheckedCreateNestedOneWithoutLivestockInput
+    mortality?: MortalityUncheckedCreateNestedOneWithoutLivestockInput
+    healthEvent?: HealthEventUncheckedCreateNestedManyWithoutLivestockInput
+    transfer?: TransferUncheckedCreateNestedManyWithoutLivestockInput
+    sale?: SaleUncheckedCreateNestedOneWithoutLivestockInput
+    breedingDam?: BreedingRecordUncheckedCreateNestedManyWithoutDamInput
+    breedingSire?: BreedingRecordUncheckedCreateNestedManyWithoutSireInput
+  }
+
+  export type LivestockCreateOrConnectWithoutOffspringInput = {
+    where: LivestockWhereUniqueInput
+    create: XOR<LivestockCreateWithoutOffspringInput, LivestockUncheckedCreateWithoutOffspringInput>
+  }
+
+  export type BreedingRecordUpsertWithoutOffspringInput = {
+    update: XOR<BreedingRecordUpdateWithoutOffspringInput, BreedingRecordUncheckedUpdateWithoutOffspringInput>
+    create: XOR<BreedingRecordCreateWithoutOffspringInput, BreedingRecordUncheckedCreateWithoutOffspringInput>
+    where?: BreedingRecordWhereInput
+  }
+
+  export type BreedingRecordUpdateToOneWithWhereWithoutOffspringInput = {
+    where?: BreedingRecordWhereInput
+    data: XOR<BreedingRecordUpdateWithoutOffspringInput, BreedingRecordUncheckedUpdateWithoutOffspringInput>
+  }
+
+  export type BreedingRecordUpdateWithoutOffspringInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    purpose?: StringFieldUpdateOperationsInput | string
+    strategy?: StringFieldUpdateOperationsInput | string
+    serviceType?: StringFieldUpdateOperationsInput | string
+    serviceDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    numServices?: IntFieldUpdateOperationsInput | number
+    firstHeatDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    aiType?: NullableStringFieldUpdateOperationsInput | string | null
+    aiSource?: NullableStringFieldUpdateOperationsInput | string | null
+    aiCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    gestationDays?: IntFieldUpdateOperationsInput | number
+    expectedBirthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthRecorded?: BoolFieldUpdateOperationsInput | boolean
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deliveryMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    youngOnes?: NullableIntFieldUpdateOperationsInput | number | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    litterWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    offspringSex?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dam?: LivestockUpdateOneRequiredWithoutBreedingDamNestedInput
+    sire?: LivestockUpdateOneWithoutBreedingSireNestedInput
+    farm?: FarmUpdateOneRequiredWithoutBreedingRecordsNestedInput
+  }
+
+  export type BreedingRecordUncheckedUpdateWithoutOffspringInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    damId?: StringFieldUpdateOperationsInput | string
+    sireId?: NullableStringFieldUpdateOperationsInput | string | null
+    purpose?: StringFieldUpdateOperationsInput | string
+    strategy?: StringFieldUpdateOperationsInput | string
+    serviceType?: StringFieldUpdateOperationsInput | string
+    serviceDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    numServices?: IntFieldUpdateOperationsInput | number
+    firstHeatDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    aiType?: NullableStringFieldUpdateOperationsInput | string | null
+    aiSource?: NullableStringFieldUpdateOperationsInput | string | null
+    aiCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    gestationDays?: IntFieldUpdateOperationsInput | number
+    expectedBirthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthRecorded?: BoolFieldUpdateOperationsInput | boolean
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deliveryMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    youngOnes?: NullableIntFieldUpdateOperationsInput | number | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    litterWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    offspringSex?: NullableStringFieldUpdateOperationsInput | string | null
+    farmId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LivestockUpsertWithoutOffspringInput = {
+    update: XOR<LivestockUpdateWithoutOffspringInput, LivestockUncheckedUpdateWithoutOffspringInput>
+    create: XOR<LivestockCreateWithoutOffspringInput, LivestockUncheckedCreateWithoutOffspringInput>
+    where?: LivestockWhereInput
+  }
+
+  export type LivestockUpdateToOneWithWhereWithoutOffspringInput = {
+    where?: LivestockWhereInput
+    data: XOR<LivestockUpdateWithoutOffspringInput, LivestockUncheckedUpdateWithoutOffspringInput>
+  }
+
+  export type LivestockUpdateWithoutOffspringInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutLivestockNestedInput
+    mammal?: MammalUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+  }
+
+  export type LivestockUncheckedUpdateWithoutOffspringInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
+  }
+
   export type FarmCreateManyUserInput = {
     id?: string
     name: string
@@ -4827,6 +27556,9 @@ export namespace Prisma {
     farmingTypes?: FarmUpdatefarmingTypesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: EmployeeFarmUpdateManyWithoutFarmNestedInput
+    livestock?: LivestockUpdateManyWithoutFarmNestedInput
+    breedingRecords?: BreedingRecordUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutUserInput = {
@@ -4839,6 +27571,9 @@ export namespace Prisma {
     farmingTypes?: FarmUpdatefarmingTypesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput
+    livestock?: LivestockUncheckedUpdateManyWithoutFarmNestedInput
+    breedingRecords?: BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateManyWithoutUserInput = {
@@ -4849,6 +27584,686 @@ export namespace Prisma {
     size?: FloatFieldUpdateOperationsInput | number
     ownership?: StringFieldUpdateOperationsInput | string
     farmingTypes?: FarmUpdatefarmingTypesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeFarmCreateManyFarmInput = {
+    id?: string
+    employeeId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LivestockCreateManyFarmInput = {
+    id?: string
+    category: string
+    type: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BreedingRecordCreateManyFarmInput = {
+    id?: string
+    damId: string
+    sireId?: string | null
+    purpose: string
+    strategy: string
+    serviceType: string
+    serviceDate: Date | string
+    numServices?: number
+    firstHeatDate?: Date | string | null
+    sireCode?: string | null
+    aiType?: string | null
+    aiSource?: string | null
+    aiCost?: number | null
+    gestationDays: number
+    expectedBirthDate: Date | string
+    birthRecorded?: boolean
+    birthDate?: Date | string | null
+    deliveryMethod?: string | null
+    youngOnes?: number | null
+    birthWeight?: number | null
+    litterWeight?: number | null
+    offspringSex?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeFarmUpdateWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employee?: EmployeeUpdateOneRequiredWithoutFarmsNestedInput
+  }
+
+  export type EmployeeFarmUncheckedUpdateWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeFarmUncheckedUpdateManyWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LivestockUpdateWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mammal?: MammalUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUpdateManyWithoutLivestockNestedInput
+    transfer?: TransferUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUpdateOneWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUpdateManyWithoutSireNestedInput
+    offspring?: OffspringUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockUncheckedUpdateWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mammal?: MammalUncheckedUpdateOneWithoutLivestockNestedInput
+    poultry?: PoultryUncheckedUpdateOneWithoutLivestockNestedInput
+    mortality?: MortalityUncheckedUpdateOneWithoutLivestockNestedInput
+    healthEvent?: HealthEventUncheckedUpdateManyWithoutLivestockNestedInput
+    transfer?: TransferUncheckedUpdateManyWithoutLivestockNestedInput
+    sale?: SaleUncheckedUpdateOneWithoutLivestockNestedInput
+    breedingDam?: BreedingRecordUncheckedUpdateManyWithoutDamNestedInput
+    breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
+    offspring?: OffspringUncheckedUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type LivestockUncheckedUpdateManyWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BreedingRecordUpdateWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    purpose?: StringFieldUpdateOperationsInput | string
+    strategy?: StringFieldUpdateOperationsInput | string
+    serviceType?: StringFieldUpdateOperationsInput | string
+    serviceDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    numServices?: IntFieldUpdateOperationsInput | number
+    firstHeatDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    aiType?: NullableStringFieldUpdateOperationsInput | string | null
+    aiSource?: NullableStringFieldUpdateOperationsInput | string | null
+    aiCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    gestationDays?: IntFieldUpdateOperationsInput | number
+    expectedBirthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthRecorded?: BoolFieldUpdateOperationsInput | boolean
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deliveryMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    youngOnes?: NullableIntFieldUpdateOperationsInput | number | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    litterWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    offspringSex?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dam?: LivestockUpdateOneRequiredWithoutBreedingDamNestedInput
+    sire?: LivestockUpdateOneWithoutBreedingSireNestedInput
+    offspring?: OffspringUpdateManyWithoutBreedingRecordNestedInput
+  }
+
+  export type BreedingRecordUncheckedUpdateWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    damId?: StringFieldUpdateOperationsInput | string
+    sireId?: NullableStringFieldUpdateOperationsInput | string | null
+    purpose?: StringFieldUpdateOperationsInput | string
+    strategy?: StringFieldUpdateOperationsInput | string
+    serviceType?: StringFieldUpdateOperationsInput | string
+    serviceDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    numServices?: IntFieldUpdateOperationsInput | number
+    firstHeatDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    aiType?: NullableStringFieldUpdateOperationsInput | string | null
+    aiSource?: NullableStringFieldUpdateOperationsInput | string | null
+    aiCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    gestationDays?: IntFieldUpdateOperationsInput | number
+    expectedBirthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthRecorded?: BoolFieldUpdateOperationsInput | boolean
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deliveryMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    youngOnes?: NullableIntFieldUpdateOperationsInput | number | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    litterWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    offspringSex?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    offspring?: OffspringUncheckedUpdateManyWithoutBreedingRecordNestedInput
+  }
+
+  export type BreedingRecordUncheckedUpdateManyWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    damId?: StringFieldUpdateOperationsInput | string
+    sireId?: NullableStringFieldUpdateOperationsInput | string | null
+    purpose?: StringFieldUpdateOperationsInput | string
+    strategy?: StringFieldUpdateOperationsInput | string
+    serviceType?: StringFieldUpdateOperationsInput | string
+    serviceDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    numServices?: IntFieldUpdateOperationsInput | number
+    firstHeatDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    aiType?: NullableStringFieldUpdateOperationsInput | string | null
+    aiSource?: NullableStringFieldUpdateOperationsInput | string | null
+    aiCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    gestationDays?: IntFieldUpdateOperationsInput | number
+    expectedBirthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthRecorded?: BoolFieldUpdateOperationsInput | boolean
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deliveryMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    youngOnes?: NullableIntFieldUpdateOperationsInput | number | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    litterWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    offspringSex?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeBenefitCreateManyEmployeeInput = {
+    id?: string
+    name: string
+    amount?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeFarmCreateManyEmployeeInput = {
+    id?: string
+    farmId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeBenefitUpdateWithoutEmployeeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeBenefitUncheckedUpdateWithoutEmployeeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeBenefitUncheckedUpdateManyWithoutEmployeeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeFarmUpdateWithoutEmployeeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutEmployeesNestedInput
+  }
+
+  export type EmployeeFarmUncheckedUpdateWithoutEmployeeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeFarmUncheckedUpdateManyWithoutEmployeeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HealthEventCreateManyLivestockInput = {
+    id?: string
+    eventType: string
+    date: Date | string
+    description: string
+    performedBy?: string | null
+    medications?: HealthEventCreatemedicationsInput | string[]
+    dosage?: string | null
+    cost?: number | null
+    nextScheduled?: Date | string | null
+    attachments?: HealthEventCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TransferCreateManyLivestockInput = {
+    id?: string
+    fromFarmId: string
+    toFarmId: string
+    transferDate: Date | string
+    reason?: string | null
+    transportMethod?: string | null
+    handlingPrecautions?: string | null
+    attachments?: TransferCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BreedingRecordCreateManyDamInput = {
+    id?: string
+    sireId?: string | null
+    purpose: string
+    strategy: string
+    serviceType: string
+    serviceDate: Date | string
+    numServices?: number
+    firstHeatDate?: Date | string | null
+    sireCode?: string | null
+    aiType?: string | null
+    aiSource?: string | null
+    aiCost?: number | null
+    gestationDays: number
+    expectedBirthDate: Date | string
+    birthRecorded?: boolean
+    birthDate?: Date | string | null
+    deliveryMethod?: string | null
+    youngOnes?: number | null
+    birthWeight?: number | null
+    litterWeight?: number | null
+    offspringSex?: string | null
+    farmId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BreedingRecordCreateManySireInput = {
+    id?: string
+    damId: string
+    purpose: string
+    strategy: string
+    serviceType: string
+    serviceDate: Date | string
+    numServices?: number
+    firstHeatDate?: Date | string | null
+    sireCode?: string | null
+    aiType?: string | null
+    aiSource?: string | null
+    aiCost?: number | null
+    gestationDays: number
+    expectedBirthDate: Date | string
+    birthRecorded?: boolean
+    birthDate?: Date | string | null
+    deliveryMethod?: string | null
+    youngOnes?: number | null
+    birthWeight?: number | null
+    litterWeight?: number | null
+    offspringSex?: string | null
+    farmId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OffspringCreateManyLivestockInput = {
+    id?: string
+    breedingRecordId: string
+    offspringId: string
+    sex: string
+    birthWeight?: number | null
+    notes?: string | null
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type HealthEventUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    eventType?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: StringFieldUpdateOperationsInput | string
+    performedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    medications?: HealthEventUpdatemedicationsInput | string[]
+    dosage?: NullableStringFieldUpdateOperationsInput | string | null
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    nextScheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    attachments?: HealthEventUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HealthEventUncheckedUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    eventType?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: StringFieldUpdateOperationsInput | string
+    performedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    medications?: HealthEventUpdatemedicationsInput | string[]
+    dosage?: NullableStringFieldUpdateOperationsInput | string | null
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    nextScheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    attachments?: HealthEventUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HealthEventUncheckedUpdateManyWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    eventType?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: StringFieldUpdateOperationsInput | string
+    performedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    medications?: HealthEventUpdatemedicationsInput | string[]
+    dosage?: NullableStringFieldUpdateOperationsInput | string | null
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    nextScheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    attachments?: HealthEventUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TransferUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fromFarmId?: StringFieldUpdateOperationsInput | string
+    toFarmId?: StringFieldUpdateOperationsInput | string
+    transferDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    transportMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    handlingPrecautions?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: TransferUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TransferUncheckedUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fromFarmId?: StringFieldUpdateOperationsInput | string
+    toFarmId?: StringFieldUpdateOperationsInput | string
+    transferDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    transportMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    handlingPrecautions?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: TransferUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TransferUncheckedUpdateManyWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fromFarmId?: StringFieldUpdateOperationsInput | string
+    toFarmId?: StringFieldUpdateOperationsInput | string
+    transferDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    transportMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    handlingPrecautions?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: TransferUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BreedingRecordUpdateWithoutDamInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    purpose?: StringFieldUpdateOperationsInput | string
+    strategy?: StringFieldUpdateOperationsInput | string
+    serviceType?: StringFieldUpdateOperationsInput | string
+    serviceDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    numServices?: IntFieldUpdateOperationsInput | number
+    firstHeatDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    aiType?: NullableStringFieldUpdateOperationsInput | string | null
+    aiSource?: NullableStringFieldUpdateOperationsInput | string | null
+    aiCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    gestationDays?: IntFieldUpdateOperationsInput | number
+    expectedBirthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthRecorded?: BoolFieldUpdateOperationsInput | boolean
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deliveryMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    youngOnes?: NullableIntFieldUpdateOperationsInput | number | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    litterWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    offspringSex?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sire?: LivestockUpdateOneWithoutBreedingSireNestedInput
+    offspring?: OffspringUpdateManyWithoutBreedingRecordNestedInput
+    farm?: FarmUpdateOneRequiredWithoutBreedingRecordsNestedInput
+  }
+
+  export type BreedingRecordUncheckedUpdateWithoutDamInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sireId?: NullableStringFieldUpdateOperationsInput | string | null
+    purpose?: StringFieldUpdateOperationsInput | string
+    strategy?: StringFieldUpdateOperationsInput | string
+    serviceType?: StringFieldUpdateOperationsInput | string
+    serviceDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    numServices?: IntFieldUpdateOperationsInput | number
+    firstHeatDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    aiType?: NullableStringFieldUpdateOperationsInput | string | null
+    aiSource?: NullableStringFieldUpdateOperationsInput | string | null
+    aiCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    gestationDays?: IntFieldUpdateOperationsInput | number
+    expectedBirthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthRecorded?: BoolFieldUpdateOperationsInput | boolean
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deliveryMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    youngOnes?: NullableIntFieldUpdateOperationsInput | number | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    litterWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    offspringSex?: NullableStringFieldUpdateOperationsInput | string | null
+    farmId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    offspring?: OffspringUncheckedUpdateManyWithoutBreedingRecordNestedInput
+  }
+
+  export type BreedingRecordUncheckedUpdateManyWithoutDamInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sireId?: NullableStringFieldUpdateOperationsInput | string | null
+    purpose?: StringFieldUpdateOperationsInput | string
+    strategy?: StringFieldUpdateOperationsInput | string
+    serviceType?: StringFieldUpdateOperationsInput | string
+    serviceDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    numServices?: IntFieldUpdateOperationsInput | number
+    firstHeatDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    aiType?: NullableStringFieldUpdateOperationsInput | string | null
+    aiSource?: NullableStringFieldUpdateOperationsInput | string | null
+    aiCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    gestationDays?: IntFieldUpdateOperationsInput | number
+    expectedBirthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthRecorded?: BoolFieldUpdateOperationsInput | boolean
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deliveryMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    youngOnes?: NullableIntFieldUpdateOperationsInput | number | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    litterWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    offspringSex?: NullableStringFieldUpdateOperationsInput | string | null
+    farmId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BreedingRecordUpdateWithoutSireInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    purpose?: StringFieldUpdateOperationsInput | string
+    strategy?: StringFieldUpdateOperationsInput | string
+    serviceType?: StringFieldUpdateOperationsInput | string
+    serviceDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    numServices?: IntFieldUpdateOperationsInput | number
+    firstHeatDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    aiType?: NullableStringFieldUpdateOperationsInput | string | null
+    aiSource?: NullableStringFieldUpdateOperationsInput | string | null
+    aiCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    gestationDays?: IntFieldUpdateOperationsInput | number
+    expectedBirthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthRecorded?: BoolFieldUpdateOperationsInput | boolean
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deliveryMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    youngOnes?: NullableIntFieldUpdateOperationsInput | number | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    litterWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    offspringSex?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dam?: LivestockUpdateOneRequiredWithoutBreedingDamNestedInput
+    offspring?: OffspringUpdateManyWithoutBreedingRecordNestedInput
+    farm?: FarmUpdateOneRequiredWithoutBreedingRecordsNestedInput
+  }
+
+  export type BreedingRecordUncheckedUpdateWithoutSireInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    damId?: StringFieldUpdateOperationsInput | string
+    purpose?: StringFieldUpdateOperationsInput | string
+    strategy?: StringFieldUpdateOperationsInput | string
+    serviceType?: StringFieldUpdateOperationsInput | string
+    serviceDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    numServices?: IntFieldUpdateOperationsInput | number
+    firstHeatDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    aiType?: NullableStringFieldUpdateOperationsInput | string | null
+    aiSource?: NullableStringFieldUpdateOperationsInput | string | null
+    aiCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    gestationDays?: IntFieldUpdateOperationsInput | number
+    expectedBirthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthRecorded?: BoolFieldUpdateOperationsInput | boolean
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deliveryMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    youngOnes?: NullableIntFieldUpdateOperationsInput | number | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    litterWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    offspringSex?: NullableStringFieldUpdateOperationsInput | string | null
+    farmId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    offspring?: OffspringUncheckedUpdateManyWithoutBreedingRecordNestedInput
+  }
+
+  export type BreedingRecordUncheckedUpdateManyWithoutSireInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    damId?: StringFieldUpdateOperationsInput | string
+    purpose?: StringFieldUpdateOperationsInput | string
+    strategy?: StringFieldUpdateOperationsInput | string
+    serviceType?: StringFieldUpdateOperationsInput | string
+    serviceDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    numServices?: IntFieldUpdateOperationsInput | number
+    firstHeatDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sireCode?: NullableStringFieldUpdateOperationsInput | string | null
+    aiType?: NullableStringFieldUpdateOperationsInput | string | null
+    aiSource?: NullableStringFieldUpdateOperationsInput | string | null
+    aiCost?: NullableFloatFieldUpdateOperationsInput | number | null
+    gestationDays?: IntFieldUpdateOperationsInput | number
+    expectedBirthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthRecorded?: BoolFieldUpdateOperationsInput | boolean
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deliveryMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    youngOnes?: NullableIntFieldUpdateOperationsInput | number | null
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    litterWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    offspringSex?: NullableStringFieldUpdateOperationsInput | string | null
+    farmId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OffspringUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    offspringId?: StringFieldUpdateOperationsInput | string
+    sex?: StringFieldUpdateOperationsInput | string
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    breedingRecord?: BreedingRecordUpdateOneRequiredWithoutOffspringNestedInput
+  }
+
+  export type OffspringUncheckedUpdateWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    breedingRecordId?: StringFieldUpdateOperationsInput | string
+    offspringId?: StringFieldUpdateOperationsInput | string
+    sex?: StringFieldUpdateOperationsInput | string
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OffspringUncheckedUpdateManyWithoutLivestockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    breedingRecordId?: StringFieldUpdateOperationsInput | string
+    offspringId?: StringFieldUpdateOperationsInput | string
+    sex?: StringFieldUpdateOperationsInput | string
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OffspringCreateManyBreedingRecordInput = {
+    id?: string
+    livestockId?: string | null
+    offspringId: string
+    sex: string
+    birthWeight?: number | null
+    notes?: string | null
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OffspringUpdateWithoutBreedingRecordInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    offspringId?: StringFieldUpdateOperationsInput | string
+    sex?: StringFieldUpdateOperationsInput | string
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    livestock?: LivestockUpdateOneWithoutOffspringNestedInput
+  }
+
+  export type OffspringUncheckedUpdateWithoutBreedingRecordInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    livestockId?: NullableStringFieldUpdateOperationsInput | string | null
+    offspringId?: StringFieldUpdateOperationsInput | string
+    sex?: StringFieldUpdateOperationsInput | string
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OffspringUncheckedUpdateManyWithoutBreedingRecordInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    livestockId?: NullableStringFieldUpdateOperationsInput | string | null
+    offspringId?: StringFieldUpdateOperationsInput | string
+    sex?: StringFieldUpdateOperationsInput | string
+    birthWeight?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
