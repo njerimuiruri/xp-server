@@ -341,6 +341,40 @@ exports.Prisma.OffspringScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.FeedingProgramScalarFieldEnum = {
+  id: 'id',
+  farmId: 'farmId',
+  userId: 'userId',
+  programType: 'programType',
+  animalId: 'animalId',
+  animalType: 'animalType',
+  lifecycleStages: 'lifecycleStages',
+  groupId: 'groupId',
+  groupType: 'groupType',
+  groupLifecycleStages: 'groupLifecycleStages',
+  feedType: 'feedType',
+  timeOfDay: 'timeOfDay',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  basalId: 'basalId',
+  concentrateId: 'concentrateId',
+  supplementId: 'supplementId'
+};
+
+exports.Prisma.FeedDetailsScalarFieldEnum = {
+  id: 'id',
+  feedType: 'feedType',
+  source: 'source',
+  schedule: 'schedule',
+  quantity: 'quantity',
+  date: 'date',
+  cost: 'cost',
+  supplier: 'supplier',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -371,7 +405,9 @@ exports.Prisma.ModelName = {
   Transfer: 'Transfer',
   Sale: 'Sale',
   BreedingRecord: 'BreedingRecord',
-  Offspring: 'Offspring'
+  Offspring: 'Offspring',
+  FeedingProgram: 'FeedingProgram',
+  FeedDetails: 'FeedDetails'
 };
 
 /**

@@ -83,6 +83,16 @@ export type BreedingRecord = $Result.DefaultSelection<Prisma.$BreedingRecordPayl
  * 
  */
 export type Offspring = $Result.DefaultSelection<Prisma.$OffspringPayload>
+/**
+ * Model FeedingProgram
+ * 
+ */
+export type FeedingProgram = $Result.DefaultSelection<Prisma.$FeedingProgramPayload>
+/**
+ * Model FeedDetails
+ * 
+ */
+export type FeedDetails = $Result.DefaultSelection<Prisma.$FeedDetailsPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -348,6 +358,26 @@ export class PrismaClient<
     * ```
     */
   get offspring(): Prisma.OffspringDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.feedingProgram`: Exposes CRUD operations for the **FeedingProgram** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more FeedingPrograms
+    * const feedingPrograms = await prisma.feedingProgram.findMany()
+    * ```
+    */
+  get feedingProgram(): Prisma.FeedingProgramDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.feedDetails`: Exposes CRUD operations for the **FeedDetails** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more FeedDetails
+    * const feedDetails = await prisma.feedDetails.findMany()
+    * ```
+    */
+  get feedDetails(): Prisma.FeedDetailsDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -801,7 +831,9 @@ export namespace Prisma {
     Transfer: 'Transfer',
     Sale: 'Sale',
     BreedingRecord: 'BreedingRecord',
-    Offspring: 'Offspring'
+    Offspring: 'Offspring',
+    FeedingProgram: 'FeedingProgram',
+    FeedDetails: 'FeedDetails'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -820,7 +852,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "farm" | "employee" | "employeeFarm" | "employeeBenefit" | "livestock" | "mammal" | "poultry" | "mortality" | "healthEvent" | "transfer" | "sale" | "breedingRecord" | "offspring"
+      modelProps: "user" | "farm" | "employee" | "employeeFarm" | "employeeBenefit" | "livestock" | "mammal" | "poultry" | "mortality" | "healthEvent" | "transfer" | "sale" | "breedingRecord" | "offspring" | "feedingProgram" | "feedDetails"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1860,6 +1892,154 @@ export namespace Prisma {
           }
         }
       }
+      FeedingProgram: {
+        payload: Prisma.$FeedingProgramPayload<ExtArgs>
+        fields: Prisma.FeedingProgramFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FeedingProgramFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedingProgramPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FeedingProgramFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedingProgramPayload>
+          }
+          findFirst: {
+            args: Prisma.FeedingProgramFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedingProgramPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FeedingProgramFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedingProgramPayload>
+          }
+          findMany: {
+            args: Prisma.FeedingProgramFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedingProgramPayload>[]
+          }
+          create: {
+            args: Prisma.FeedingProgramCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedingProgramPayload>
+          }
+          createMany: {
+            args: Prisma.FeedingProgramCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FeedingProgramCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedingProgramPayload>[]
+          }
+          delete: {
+            args: Prisma.FeedingProgramDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedingProgramPayload>
+          }
+          update: {
+            args: Prisma.FeedingProgramUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedingProgramPayload>
+          }
+          deleteMany: {
+            args: Prisma.FeedingProgramDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FeedingProgramUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.FeedingProgramUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedingProgramPayload>[]
+          }
+          upsert: {
+            args: Prisma.FeedingProgramUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedingProgramPayload>
+          }
+          aggregate: {
+            args: Prisma.FeedingProgramAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFeedingProgram>
+          }
+          groupBy: {
+            args: Prisma.FeedingProgramGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FeedingProgramGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FeedingProgramCountArgs<ExtArgs>
+            result: $Utils.Optional<FeedingProgramCountAggregateOutputType> | number
+          }
+        }
+      }
+      FeedDetails: {
+        payload: Prisma.$FeedDetailsPayload<ExtArgs>
+        fields: Prisma.FeedDetailsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FeedDetailsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedDetailsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FeedDetailsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedDetailsPayload>
+          }
+          findFirst: {
+            args: Prisma.FeedDetailsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedDetailsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FeedDetailsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedDetailsPayload>
+          }
+          findMany: {
+            args: Prisma.FeedDetailsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedDetailsPayload>[]
+          }
+          create: {
+            args: Prisma.FeedDetailsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedDetailsPayload>
+          }
+          createMany: {
+            args: Prisma.FeedDetailsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FeedDetailsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedDetailsPayload>[]
+          }
+          delete: {
+            args: Prisma.FeedDetailsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedDetailsPayload>
+          }
+          update: {
+            args: Prisma.FeedDetailsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedDetailsPayload>
+          }
+          deleteMany: {
+            args: Prisma.FeedDetailsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FeedDetailsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.FeedDetailsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedDetailsPayload>[]
+          }
+          upsert: {
+            args: Prisma.FeedDetailsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeedDetailsPayload>
+          }
+          aggregate: {
+            args: Prisma.FeedDetailsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFeedDetails>
+          }
+          groupBy: {
+            args: Prisma.FeedDetailsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FeedDetailsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FeedDetailsCountArgs<ExtArgs>
+            result: $Utils.Optional<FeedDetailsCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1958,6 +2138,8 @@ export namespace Prisma {
     sale?: SaleOmit
     breedingRecord?: BreedingRecordOmit
     offspring?: OffspringOmit
+    feedingProgram?: FeedingProgramOmit
+    feedDetails?: FeedDetailsOmit
   }
 
   /* Types for Logging */
@@ -2053,10 +2235,12 @@ export namespace Prisma {
 
   export type UserCountOutputType = {
     farms: number
+    feedingPrograms: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     farms?: boolean | UserCountOutputTypeCountFarmsArgs
+    feedingPrograms?: boolean | UserCountOutputTypeCountFeedingProgramsArgs
   }
 
   // Custom InputTypes
@@ -2077,6 +2261,13 @@ export namespace Prisma {
     where?: FarmWhereInput
   }
 
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountFeedingProgramsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FeedingProgramWhereInput
+  }
+
 
   /**
    * Count Type FarmCountOutputType
@@ -2086,12 +2277,14 @@ export namespace Prisma {
     employees: number
     livestock: number
     breedingRecords: number
+    feedingPrograms: number
   }
 
   export type FarmCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     employees?: boolean | FarmCountOutputTypeCountEmployeesArgs
     livestock?: boolean | FarmCountOutputTypeCountLivestockArgs
     breedingRecords?: boolean | FarmCountOutputTypeCountBreedingRecordsArgs
+    feedingPrograms?: boolean | FarmCountOutputTypeCountFeedingProgramsArgs
   }
 
   // Custom InputTypes
@@ -2124,6 +2317,13 @@ export namespace Prisma {
    */
   export type FarmCountOutputTypeCountBreedingRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: BreedingRecordWhereInput
+  }
+
+  /**
+   * FarmCountOutputType without action
+   */
+  export type FarmCountOutputTypeCountFeedingProgramsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FeedingProgramWhereInput
   }
 
 
@@ -2596,6 +2796,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     farms?: boolean | User$farmsArgs<ExtArgs>
+    feedingPrograms?: boolean | User$feedingProgramsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -2674,6 +2875,7 @@ export namespace Prisma {
   export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "middleName" | "lastName" | "gender" | "dob" | "residenceCounty" | "residenceLocation" | "constituency" | "residenceConstituency" | "email" | "phoneNumber" | "nationalId" | "businessNumber" | "pin" | "yearsOfExperience" | "otp" | "otpExpiry" | "isVerified" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     farms?: boolean | User$farmsArgs<ExtArgs>
+    feedingPrograms?: boolean | User$feedingProgramsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2683,6 +2885,7 @@ export namespace Prisma {
     name: "User"
     objects: {
       farms: Prisma.$FarmPayload<ExtArgs>[]
+      feedingPrograms: Prisma.$FeedingProgramPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3101,6 +3304,7 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     farms<T extends User$farmsArgs<ExtArgs> = {}>(args?: Subset<T, User$farmsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FarmPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    feedingPrograms<T extends User$feedingProgramsArgs<ExtArgs> = {}>(args?: Subset<T, User$feedingProgramsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeedingProgramPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3563,6 +3767,30 @@ export namespace Prisma {
   }
 
   /**
+   * User.feedingPrograms
+   */
+  export type User$feedingProgramsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedingProgram
+     */
+    select?: FeedingProgramSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedingProgram
+     */
+    omit?: FeedingProgramOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedingProgramInclude<ExtArgs> | null
+    where?: FeedingProgramWhereInput
+    orderBy?: FeedingProgramOrderByWithRelationInput | FeedingProgramOrderByWithRelationInput[]
+    cursor?: FeedingProgramWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FeedingProgramScalarFieldEnum | FeedingProgramScalarFieldEnum[]
+  }
+
+  /**
    * User without action
    */
   export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3819,6 +4047,7 @@ export namespace Prisma {
     livestock?: boolean | Farm$livestockArgs<ExtArgs>
     breedingRecords?: boolean | Farm$breedingRecordsArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
+    feedingPrograms?: boolean | Farm$feedingProgramsArgs<ExtArgs>
     _count?: boolean | FarmCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["farm"]>
 
@@ -3869,6 +4098,7 @@ export namespace Prisma {
     livestock?: boolean | Farm$livestockArgs<ExtArgs>
     breedingRecords?: boolean | Farm$breedingRecordsArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
+    feedingPrograms?: boolean | Farm$feedingProgramsArgs<ExtArgs>
     _count?: boolean | FarmCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type FarmIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3885,6 +4115,7 @@ export namespace Prisma {
       livestock: Prisma.$LivestockPayload<ExtArgs>[]
       breedingRecords: Prisma.$BreedingRecordPayload<ExtArgs>[]
       user: Prisma.$UserPayload<ExtArgs>
+      feedingPrograms: Prisma.$FeedingProgramPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -4295,6 +4526,7 @@ export namespace Prisma {
     livestock<T extends Farm$livestockArgs<ExtArgs> = {}>(args?: Subset<T, Farm$livestockArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LivestockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     breedingRecords<T extends Farm$breedingRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Farm$breedingRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreedingRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    feedingPrograms<T extends Farm$feedingProgramsArgs<ExtArgs> = {}>(args?: Subset<T, Farm$feedingProgramsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeedingProgramPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4799,6 +5031,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: BreedingRecordScalarFieldEnum | BreedingRecordScalarFieldEnum[]
+  }
+
+  /**
+   * Farm.feedingPrograms
+   */
+  export type Farm$feedingProgramsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedingProgram
+     */
+    select?: FeedingProgramSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedingProgram
+     */
+    omit?: FeedingProgramOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedingProgramInclude<ExtArgs> | null
+    where?: FeedingProgramWhereInput
+    orderBy?: FeedingProgramOrderByWithRelationInput | FeedingProgramOrderByWithRelationInput[]
+    cursor?: FeedingProgramWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FeedingProgramScalarFieldEnum | FeedingProgramScalarFieldEnum[]
   }
 
   /**
@@ -19327,6 +19583,2503 @@ export namespace Prisma {
 
 
   /**
+   * Model FeedingProgram
+   */
+
+  export type AggregateFeedingProgram = {
+    _count: FeedingProgramCountAggregateOutputType | null
+    _min: FeedingProgramMinAggregateOutputType | null
+    _max: FeedingProgramMaxAggregateOutputType | null
+  }
+
+  export type FeedingProgramMinAggregateOutputType = {
+    id: string | null
+    farmId: string | null
+    userId: string | null
+    programType: string | null
+    animalId: string | null
+    animalType: string | null
+    groupId: string | null
+    groupType: string | null
+    feedType: string | null
+    notes: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    basalId: string | null
+    concentrateId: string | null
+    supplementId: string | null
+  }
+
+  export type FeedingProgramMaxAggregateOutputType = {
+    id: string | null
+    farmId: string | null
+    userId: string | null
+    programType: string | null
+    animalId: string | null
+    animalType: string | null
+    groupId: string | null
+    groupType: string | null
+    feedType: string | null
+    notes: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    basalId: string | null
+    concentrateId: string | null
+    supplementId: string | null
+  }
+
+  export type FeedingProgramCountAggregateOutputType = {
+    id: number
+    farmId: number
+    userId: number
+    programType: number
+    animalId: number
+    animalType: number
+    lifecycleStages: number
+    groupId: number
+    groupType: number
+    groupLifecycleStages: number
+    feedType: number
+    timeOfDay: number
+    notes: number
+    createdAt: number
+    updatedAt: number
+    basalId: number
+    concentrateId: number
+    supplementId: number
+    _all: number
+  }
+
+
+  export type FeedingProgramMinAggregateInputType = {
+    id?: true
+    farmId?: true
+    userId?: true
+    programType?: true
+    animalId?: true
+    animalType?: true
+    groupId?: true
+    groupType?: true
+    feedType?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+    basalId?: true
+    concentrateId?: true
+    supplementId?: true
+  }
+
+  export type FeedingProgramMaxAggregateInputType = {
+    id?: true
+    farmId?: true
+    userId?: true
+    programType?: true
+    animalId?: true
+    animalType?: true
+    groupId?: true
+    groupType?: true
+    feedType?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+    basalId?: true
+    concentrateId?: true
+    supplementId?: true
+  }
+
+  export type FeedingProgramCountAggregateInputType = {
+    id?: true
+    farmId?: true
+    userId?: true
+    programType?: true
+    animalId?: true
+    animalType?: true
+    lifecycleStages?: true
+    groupId?: true
+    groupType?: true
+    groupLifecycleStages?: true
+    feedType?: true
+    timeOfDay?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+    basalId?: true
+    concentrateId?: true
+    supplementId?: true
+    _all?: true
+  }
+
+  export type FeedingProgramAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FeedingProgram to aggregate.
+     */
+    where?: FeedingProgramWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FeedingPrograms to fetch.
+     */
+    orderBy?: FeedingProgramOrderByWithRelationInput | FeedingProgramOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FeedingProgramWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FeedingPrograms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FeedingPrograms.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned FeedingPrograms
+    **/
+    _count?: true | FeedingProgramCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FeedingProgramMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FeedingProgramMaxAggregateInputType
+  }
+
+  export type GetFeedingProgramAggregateType<T extends FeedingProgramAggregateArgs> = {
+        [P in keyof T & keyof AggregateFeedingProgram]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFeedingProgram[P]>
+      : GetScalarType<T[P], AggregateFeedingProgram[P]>
+  }
+
+
+
+
+  export type FeedingProgramGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FeedingProgramWhereInput
+    orderBy?: FeedingProgramOrderByWithAggregationInput | FeedingProgramOrderByWithAggregationInput[]
+    by: FeedingProgramScalarFieldEnum[] | FeedingProgramScalarFieldEnum
+    having?: FeedingProgramScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FeedingProgramCountAggregateInputType | true
+    _min?: FeedingProgramMinAggregateInputType
+    _max?: FeedingProgramMaxAggregateInputType
+  }
+
+  export type FeedingProgramGroupByOutputType = {
+    id: string
+    farmId: string
+    userId: string
+    programType: string
+    animalId: string | null
+    animalType: string | null
+    lifecycleStages: string[]
+    groupId: string | null
+    groupType: string | null
+    groupLifecycleStages: string[]
+    feedType: string
+    timeOfDay: string[]
+    notes: string | null
+    createdAt: Date
+    updatedAt: Date
+    basalId: string
+    concentrateId: string | null
+    supplementId: string | null
+    _count: FeedingProgramCountAggregateOutputType | null
+    _min: FeedingProgramMinAggregateOutputType | null
+    _max: FeedingProgramMaxAggregateOutputType | null
+  }
+
+  type GetFeedingProgramGroupByPayload<T extends FeedingProgramGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FeedingProgramGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FeedingProgramGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FeedingProgramGroupByOutputType[P]>
+            : GetScalarType<T[P], FeedingProgramGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FeedingProgramSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    farmId?: boolean
+    userId?: boolean
+    programType?: boolean
+    animalId?: boolean
+    animalType?: boolean
+    lifecycleStages?: boolean
+    groupId?: boolean
+    groupType?: boolean
+    groupLifecycleStages?: boolean
+    feedType?: boolean
+    timeOfDay?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    basalId?: boolean
+    concentrateId?: boolean
+    supplementId?: boolean
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    basal?: boolean | FeedDetailsDefaultArgs<ExtArgs>
+    concentrate?: boolean | FeedingProgram$concentrateArgs<ExtArgs>
+    supplement?: boolean | FeedingProgram$supplementArgs<ExtArgs>
+  }, ExtArgs["result"]["feedingProgram"]>
+
+  export type FeedingProgramSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    farmId?: boolean
+    userId?: boolean
+    programType?: boolean
+    animalId?: boolean
+    animalType?: boolean
+    lifecycleStages?: boolean
+    groupId?: boolean
+    groupType?: boolean
+    groupLifecycleStages?: boolean
+    feedType?: boolean
+    timeOfDay?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    basalId?: boolean
+    concentrateId?: boolean
+    supplementId?: boolean
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    basal?: boolean | FeedDetailsDefaultArgs<ExtArgs>
+    concentrate?: boolean | FeedingProgram$concentrateArgs<ExtArgs>
+    supplement?: boolean | FeedingProgram$supplementArgs<ExtArgs>
+  }, ExtArgs["result"]["feedingProgram"]>
+
+  export type FeedingProgramSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    farmId?: boolean
+    userId?: boolean
+    programType?: boolean
+    animalId?: boolean
+    animalType?: boolean
+    lifecycleStages?: boolean
+    groupId?: boolean
+    groupType?: boolean
+    groupLifecycleStages?: boolean
+    feedType?: boolean
+    timeOfDay?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    basalId?: boolean
+    concentrateId?: boolean
+    supplementId?: boolean
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    basal?: boolean | FeedDetailsDefaultArgs<ExtArgs>
+    concentrate?: boolean | FeedingProgram$concentrateArgs<ExtArgs>
+    supplement?: boolean | FeedingProgram$supplementArgs<ExtArgs>
+  }, ExtArgs["result"]["feedingProgram"]>
+
+  export type FeedingProgramSelectScalar = {
+    id?: boolean
+    farmId?: boolean
+    userId?: boolean
+    programType?: boolean
+    animalId?: boolean
+    animalType?: boolean
+    lifecycleStages?: boolean
+    groupId?: boolean
+    groupType?: boolean
+    groupLifecycleStages?: boolean
+    feedType?: boolean
+    timeOfDay?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    basalId?: boolean
+    concentrateId?: boolean
+    supplementId?: boolean
+  }
+
+  export type FeedingProgramOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "farmId" | "userId" | "programType" | "animalId" | "animalType" | "lifecycleStages" | "groupId" | "groupType" | "groupLifecycleStages" | "feedType" | "timeOfDay" | "notes" | "createdAt" | "updatedAt" | "basalId" | "concentrateId" | "supplementId", ExtArgs["result"]["feedingProgram"]>
+  export type FeedingProgramInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    basal?: boolean | FeedDetailsDefaultArgs<ExtArgs>
+    concentrate?: boolean | FeedingProgram$concentrateArgs<ExtArgs>
+    supplement?: boolean | FeedingProgram$supplementArgs<ExtArgs>
+  }
+  export type FeedingProgramIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    basal?: boolean | FeedDetailsDefaultArgs<ExtArgs>
+    concentrate?: boolean | FeedingProgram$concentrateArgs<ExtArgs>
+    supplement?: boolean | FeedingProgram$supplementArgs<ExtArgs>
+  }
+  export type FeedingProgramIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    basal?: boolean | FeedDetailsDefaultArgs<ExtArgs>
+    concentrate?: boolean | FeedingProgram$concentrateArgs<ExtArgs>
+    supplement?: boolean | FeedingProgram$supplementArgs<ExtArgs>
+  }
+
+  export type $FeedingProgramPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FeedingProgram"
+    objects: {
+      farm: Prisma.$FarmPayload<ExtArgs>
+      user: Prisma.$UserPayload<ExtArgs>
+      basal: Prisma.$FeedDetailsPayload<ExtArgs>
+      concentrate: Prisma.$FeedDetailsPayload<ExtArgs> | null
+      supplement: Prisma.$FeedDetailsPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      farmId: string
+      userId: string
+      programType: string
+      animalId: string | null
+      animalType: string | null
+      lifecycleStages: string[]
+      groupId: string | null
+      groupType: string | null
+      groupLifecycleStages: string[]
+      feedType: string
+      timeOfDay: string[]
+      notes: string | null
+      createdAt: Date
+      updatedAt: Date
+      basalId: string
+      concentrateId: string | null
+      supplementId: string | null
+    }, ExtArgs["result"]["feedingProgram"]>
+    composites: {}
+  }
+
+  type FeedingProgramGetPayload<S extends boolean | null | undefined | FeedingProgramDefaultArgs> = $Result.GetResult<Prisma.$FeedingProgramPayload, S>
+
+  type FeedingProgramCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FeedingProgramFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FeedingProgramCountAggregateInputType | true
+    }
+
+  export interface FeedingProgramDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FeedingProgram'], meta: { name: 'FeedingProgram' } }
+    /**
+     * Find zero or one FeedingProgram that matches the filter.
+     * @param {FeedingProgramFindUniqueArgs} args - Arguments to find a FeedingProgram
+     * @example
+     * // Get one FeedingProgram
+     * const feedingProgram = await prisma.feedingProgram.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FeedingProgramFindUniqueArgs>(args: SelectSubset<T, FeedingProgramFindUniqueArgs<ExtArgs>>): Prisma__FeedingProgramClient<$Result.GetResult<Prisma.$FeedingProgramPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one FeedingProgram that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {FeedingProgramFindUniqueOrThrowArgs} args - Arguments to find a FeedingProgram
+     * @example
+     * // Get one FeedingProgram
+     * const feedingProgram = await prisma.feedingProgram.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FeedingProgramFindUniqueOrThrowArgs>(args: SelectSubset<T, FeedingProgramFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FeedingProgramClient<$Result.GetResult<Prisma.$FeedingProgramPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FeedingProgram that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FeedingProgramFindFirstArgs} args - Arguments to find a FeedingProgram
+     * @example
+     * // Get one FeedingProgram
+     * const feedingProgram = await prisma.feedingProgram.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FeedingProgramFindFirstArgs>(args?: SelectSubset<T, FeedingProgramFindFirstArgs<ExtArgs>>): Prisma__FeedingProgramClient<$Result.GetResult<Prisma.$FeedingProgramPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FeedingProgram that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FeedingProgramFindFirstOrThrowArgs} args - Arguments to find a FeedingProgram
+     * @example
+     * // Get one FeedingProgram
+     * const feedingProgram = await prisma.feedingProgram.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FeedingProgramFindFirstOrThrowArgs>(args?: SelectSubset<T, FeedingProgramFindFirstOrThrowArgs<ExtArgs>>): Prisma__FeedingProgramClient<$Result.GetResult<Prisma.$FeedingProgramPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more FeedingPrograms that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FeedingProgramFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FeedingPrograms
+     * const feedingPrograms = await prisma.feedingProgram.findMany()
+     * 
+     * // Get first 10 FeedingPrograms
+     * const feedingPrograms = await prisma.feedingProgram.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const feedingProgramWithIdOnly = await prisma.feedingProgram.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FeedingProgramFindManyArgs>(args?: SelectSubset<T, FeedingProgramFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeedingProgramPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a FeedingProgram.
+     * @param {FeedingProgramCreateArgs} args - Arguments to create a FeedingProgram.
+     * @example
+     * // Create one FeedingProgram
+     * const FeedingProgram = await prisma.feedingProgram.create({
+     *   data: {
+     *     // ... data to create a FeedingProgram
+     *   }
+     * })
+     * 
+     */
+    create<T extends FeedingProgramCreateArgs>(args: SelectSubset<T, FeedingProgramCreateArgs<ExtArgs>>): Prisma__FeedingProgramClient<$Result.GetResult<Prisma.$FeedingProgramPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many FeedingPrograms.
+     * @param {FeedingProgramCreateManyArgs} args - Arguments to create many FeedingPrograms.
+     * @example
+     * // Create many FeedingPrograms
+     * const feedingProgram = await prisma.feedingProgram.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FeedingProgramCreateManyArgs>(args?: SelectSubset<T, FeedingProgramCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many FeedingPrograms and returns the data saved in the database.
+     * @param {FeedingProgramCreateManyAndReturnArgs} args - Arguments to create many FeedingPrograms.
+     * @example
+     * // Create many FeedingPrograms
+     * const feedingProgram = await prisma.feedingProgram.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many FeedingPrograms and only return the `id`
+     * const feedingProgramWithIdOnly = await prisma.feedingProgram.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FeedingProgramCreateManyAndReturnArgs>(args?: SelectSubset<T, FeedingProgramCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeedingProgramPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a FeedingProgram.
+     * @param {FeedingProgramDeleteArgs} args - Arguments to delete one FeedingProgram.
+     * @example
+     * // Delete one FeedingProgram
+     * const FeedingProgram = await prisma.feedingProgram.delete({
+     *   where: {
+     *     // ... filter to delete one FeedingProgram
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FeedingProgramDeleteArgs>(args: SelectSubset<T, FeedingProgramDeleteArgs<ExtArgs>>): Prisma__FeedingProgramClient<$Result.GetResult<Prisma.$FeedingProgramPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one FeedingProgram.
+     * @param {FeedingProgramUpdateArgs} args - Arguments to update one FeedingProgram.
+     * @example
+     * // Update one FeedingProgram
+     * const feedingProgram = await prisma.feedingProgram.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FeedingProgramUpdateArgs>(args: SelectSubset<T, FeedingProgramUpdateArgs<ExtArgs>>): Prisma__FeedingProgramClient<$Result.GetResult<Prisma.$FeedingProgramPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more FeedingPrograms.
+     * @param {FeedingProgramDeleteManyArgs} args - Arguments to filter FeedingPrograms to delete.
+     * @example
+     * // Delete a few FeedingPrograms
+     * const { count } = await prisma.feedingProgram.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FeedingProgramDeleteManyArgs>(args?: SelectSubset<T, FeedingProgramDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FeedingPrograms.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FeedingProgramUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FeedingPrograms
+     * const feedingProgram = await prisma.feedingProgram.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FeedingProgramUpdateManyArgs>(args: SelectSubset<T, FeedingProgramUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FeedingPrograms and returns the data updated in the database.
+     * @param {FeedingProgramUpdateManyAndReturnArgs} args - Arguments to update many FeedingPrograms.
+     * @example
+     * // Update many FeedingPrograms
+     * const feedingProgram = await prisma.feedingProgram.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more FeedingPrograms and only return the `id`
+     * const feedingProgramWithIdOnly = await prisma.feedingProgram.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends FeedingProgramUpdateManyAndReturnArgs>(args: SelectSubset<T, FeedingProgramUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeedingProgramPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one FeedingProgram.
+     * @param {FeedingProgramUpsertArgs} args - Arguments to update or create a FeedingProgram.
+     * @example
+     * // Update or create a FeedingProgram
+     * const feedingProgram = await prisma.feedingProgram.upsert({
+     *   create: {
+     *     // ... data to create a FeedingProgram
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FeedingProgram we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FeedingProgramUpsertArgs>(args: SelectSubset<T, FeedingProgramUpsertArgs<ExtArgs>>): Prisma__FeedingProgramClient<$Result.GetResult<Prisma.$FeedingProgramPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of FeedingPrograms.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FeedingProgramCountArgs} args - Arguments to filter FeedingPrograms to count.
+     * @example
+     * // Count the number of FeedingPrograms
+     * const count = await prisma.feedingProgram.count({
+     *   where: {
+     *     // ... the filter for the FeedingPrograms we want to count
+     *   }
+     * })
+    **/
+    count<T extends FeedingProgramCountArgs>(
+      args?: Subset<T, FeedingProgramCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FeedingProgramCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a FeedingProgram.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FeedingProgramAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FeedingProgramAggregateArgs>(args: Subset<T, FeedingProgramAggregateArgs>): Prisma.PrismaPromise<GetFeedingProgramAggregateType<T>>
+
+    /**
+     * Group by FeedingProgram.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FeedingProgramGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FeedingProgramGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FeedingProgramGroupByArgs['orderBy'] }
+        : { orderBy?: FeedingProgramGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FeedingProgramGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFeedingProgramGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the FeedingProgram model
+   */
+  readonly fields: FeedingProgramFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for FeedingProgram.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FeedingProgramClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    farm<T extends FarmDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FarmDefaultArgs<ExtArgs>>): Prisma__FarmClient<$Result.GetResult<Prisma.$FarmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    basal<T extends FeedDetailsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FeedDetailsDefaultArgs<ExtArgs>>): Prisma__FeedDetailsClient<$Result.GetResult<Prisma.$FeedDetailsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    concentrate<T extends FeedingProgram$concentrateArgs<ExtArgs> = {}>(args?: Subset<T, FeedingProgram$concentrateArgs<ExtArgs>>): Prisma__FeedDetailsClient<$Result.GetResult<Prisma.$FeedDetailsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    supplement<T extends FeedingProgram$supplementArgs<ExtArgs> = {}>(args?: Subset<T, FeedingProgram$supplementArgs<ExtArgs>>): Prisma__FeedDetailsClient<$Result.GetResult<Prisma.$FeedDetailsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the FeedingProgram model
+   */
+  interface FeedingProgramFieldRefs {
+    readonly id: FieldRef<"FeedingProgram", 'String'>
+    readonly farmId: FieldRef<"FeedingProgram", 'String'>
+    readonly userId: FieldRef<"FeedingProgram", 'String'>
+    readonly programType: FieldRef<"FeedingProgram", 'String'>
+    readonly animalId: FieldRef<"FeedingProgram", 'String'>
+    readonly animalType: FieldRef<"FeedingProgram", 'String'>
+    readonly lifecycleStages: FieldRef<"FeedingProgram", 'String[]'>
+    readonly groupId: FieldRef<"FeedingProgram", 'String'>
+    readonly groupType: FieldRef<"FeedingProgram", 'String'>
+    readonly groupLifecycleStages: FieldRef<"FeedingProgram", 'String[]'>
+    readonly feedType: FieldRef<"FeedingProgram", 'String'>
+    readonly timeOfDay: FieldRef<"FeedingProgram", 'String[]'>
+    readonly notes: FieldRef<"FeedingProgram", 'String'>
+    readonly createdAt: FieldRef<"FeedingProgram", 'DateTime'>
+    readonly updatedAt: FieldRef<"FeedingProgram", 'DateTime'>
+    readonly basalId: FieldRef<"FeedingProgram", 'String'>
+    readonly concentrateId: FieldRef<"FeedingProgram", 'String'>
+    readonly supplementId: FieldRef<"FeedingProgram", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * FeedingProgram findUnique
+   */
+  export type FeedingProgramFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedingProgram
+     */
+    select?: FeedingProgramSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedingProgram
+     */
+    omit?: FeedingProgramOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedingProgramInclude<ExtArgs> | null
+    /**
+     * Filter, which FeedingProgram to fetch.
+     */
+    where: FeedingProgramWhereUniqueInput
+  }
+
+  /**
+   * FeedingProgram findUniqueOrThrow
+   */
+  export type FeedingProgramFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedingProgram
+     */
+    select?: FeedingProgramSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedingProgram
+     */
+    omit?: FeedingProgramOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedingProgramInclude<ExtArgs> | null
+    /**
+     * Filter, which FeedingProgram to fetch.
+     */
+    where: FeedingProgramWhereUniqueInput
+  }
+
+  /**
+   * FeedingProgram findFirst
+   */
+  export type FeedingProgramFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedingProgram
+     */
+    select?: FeedingProgramSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedingProgram
+     */
+    omit?: FeedingProgramOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedingProgramInclude<ExtArgs> | null
+    /**
+     * Filter, which FeedingProgram to fetch.
+     */
+    where?: FeedingProgramWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FeedingPrograms to fetch.
+     */
+    orderBy?: FeedingProgramOrderByWithRelationInput | FeedingProgramOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FeedingPrograms.
+     */
+    cursor?: FeedingProgramWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FeedingPrograms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FeedingPrograms.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FeedingPrograms.
+     */
+    distinct?: FeedingProgramScalarFieldEnum | FeedingProgramScalarFieldEnum[]
+  }
+
+  /**
+   * FeedingProgram findFirstOrThrow
+   */
+  export type FeedingProgramFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedingProgram
+     */
+    select?: FeedingProgramSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedingProgram
+     */
+    omit?: FeedingProgramOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedingProgramInclude<ExtArgs> | null
+    /**
+     * Filter, which FeedingProgram to fetch.
+     */
+    where?: FeedingProgramWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FeedingPrograms to fetch.
+     */
+    orderBy?: FeedingProgramOrderByWithRelationInput | FeedingProgramOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FeedingPrograms.
+     */
+    cursor?: FeedingProgramWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FeedingPrograms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FeedingPrograms.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FeedingPrograms.
+     */
+    distinct?: FeedingProgramScalarFieldEnum | FeedingProgramScalarFieldEnum[]
+  }
+
+  /**
+   * FeedingProgram findMany
+   */
+  export type FeedingProgramFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedingProgram
+     */
+    select?: FeedingProgramSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedingProgram
+     */
+    omit?: FeedingProgramOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedingProgramInclude<ExtArgs> | null
+    /**
+     * Filter, which FeedingPrograms to fetch.
+     */
+    where?: FeedingProgramWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FeedingPrograms to fetch.
+     */
+    orderBy?: FeedingProgramOrderByWithRelationInput | FeedingProgramOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing FeedingPrograms.
+     */
+    cursor?: FeedingProgramWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FeedingPrograms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FeedingPrograms.
+     */
+    skip?: number
+    distinct?: FeedingProgramScalarFieldEnum | FeedingProgramScalarFieldEnum[]
+  }
+
+  /**
+   * FeedingProgram create
+   */
+  export type FeedingProgramCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedingProgram
+     */
+    select?: FeedingProgramSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedingProgram
+     */
+    omit?: FeedingProgramOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedingProgramInclude<ExtArgs> | null
+    /**
+     * The data needed to create a FeedingProgram.
+     */
+    data: XOR<FeedingProgramCreateInput, FeedingProgramUncheckedCreateInput>
+  }
+
+  /**
+   * FeedingProgram createMany
+   */
+  export type FeedingProgramCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many FeedingPrograms.
+     */
+    data: FeedingProgramCreateManyInput | FeedingProgramCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * FeedingProgram createManyAndReturn
+   */
+  export type FeedingProgramCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedingProgram
+     */
+    select?: FeedingProgramSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedingProgram
+     */
+    omit?: FeedingProgramOmit<ExtArgs> | null
+    /**
+     * The data used to create many FeedingPrograms.
+     */
+    data: FeedingProgramCreateManyInput | FeedingProgramCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedingProgramIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FeedingProgram update
+   */
+  export type FeedingProgramUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedingProgram
+     */
+    select?: FeedingProgramSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedingProgram
+     */
+    omit?: FeedingProgramOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedingProgramInclude<ExtArgs> | null
+    /**
+     * The data needed to update a FeedingProgram.
+     */
+    data: XOR<FeedingProgramUpdateInput, FeedingProgramUncheckedUpdateInput>
+    /**
+     * Choose, which FeedingProgram to update.
+     */
+    where: FeedingProgramWhereUniqueInput
+  }
+
+  /**
+   * FeedingProgram updateMany
+   */
+  export type FeedingProgramUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update FeedingPrograms.
+     */
+    data: XOR<FeedingProgramUpdateManyMutationInput, FeedingProgramUncheckedUpdateManyInput>
+    /**
+     * Filter which FeedingPrograms to update
+     */
+    where?: FeedingProgramWhereInput
+    /**
+     * Limit how many FeedingPrograms to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * FeedingProgram updateManyAndReturn
+   */
+  export type FeedingProgramUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedingProgram
+     */
+    select?: FeedingProgramSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedingProgram
+     */
+    omit?: FeedingProgramOmit<ExtArgs> | null
+    /**
+     * The data used to update FeedingPrograms.
+     */
+    data: XOR<FeedingProgramUpdateManyMutationInput, FeedingProgramUncheckedUpdateManyInput>
+    /**
+     * Filter which FeedingPrograms to update
+     */
+    where?: FeedingProgramWhereInput
+    /**
+     * Limit how many FeedingPrograms to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedingProgramIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FeedingProgram upsert
+   */
+  export type FeedingProgramUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedingProgram
+     */
+    select?: FeedingProgramSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedingProgram
+     */
+    omit?: FeedingProgramOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedingProgramInclude<ExtArgs> | null
+    /**
+     * The filter to search for the FeedingProgram to update in case it exists.
+     */
+    where: FeedingProgramWhereUniqueInput
+    /**
+     * In case the FeedingProgram found by the `where` argument doesn't exist, create a new FeedingProgram with this data.
+     */
+    create: XOR<FeedingProgramCreateInput, FeedingProgramUncheckedCreateInput>
+    /**
+     * In case the FeedingProgram was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FeedingProgramUpdateInput, FeedingProgramUncheckedUpdateInput>
+  }
+
+  /**
+   * FeedingProgram delete
+   */
+  export type FeedingProgramDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedingProgram
+     */
+    select?: FeedingProgramSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedingProgram
+     */
+    omit?: FeedingProgramOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedingProgramInclude<ExtArgs> | null
+    /**
+     * Filter which FeedingProgram to delete.
+     */
+    where: FeedingProgramWhereUniqueInput
+  }
+
+  /**
+   * FeedingProgram deleteMany
+   */
+  export type FeedingProgramDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FeedingPrograms to delete
+     */
+    where?: FeedingProgramWhereInput
+    /**
+     * Limit how many FeedingPrograms to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * FeedingProgram.concentrate
+   */
+  export type FeedingProgram$concentrateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedDetails
+     */
+    select?: FeedDetailsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedDetails
+     */
+    omit?: FeedDetailsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedDetailsInclude<ExtArgs> | null
+    where?: FeedDetailsWhereInput
+  }
+
+  /**
+   * FeedingProgram.supplement
+   */
+  export type FeedingProgram$supplementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedDetails
+     */
+    select?: FeedDetailsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedDetails
+     */
+    omit?: FeedDetailsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedDetailsInclude<ExtArgs> | null
+    where?: FeedDetailsWhereInput
+  }
+
+  /**
+   * FeedingProgram without action
+   */
+  export type FeedingProgramDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedingProgram
+     */
+    select?: FeedingProgramSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedingProgram
+     */
+    omit?: FeedingProgramOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedingProgramInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model FeedDetails
+   */
+
+  export type AggregateFeedDetails = {
+    _count: FeedDetailsCountAggregateOutputType | null
+    _avg: FeedDetailsAvgAggregateOutputType | null
+    _sum: FeedDetailsSumAggregateOutputType | null
+    _min: FeedDetailsMinAggregateOutputType | null
+    _max: FeedDetailsMaxAggregateOutputType | null
+  }
+
+  export type FeedDetailsAvgAggregateOutputType = {
+    quantity: number | null
+    cost: number | null
+  }
+
+  export type FeedDetailsSumAggregateOutputType = {
+    quantity: number | null
+    cost: number | null
+  }
+
+  export type FeedDetailsMinAggregateOutputType = {
+    id: string | null
+    feedType: string | null
+    source: string | null
+    schedule: string | null
+    quantity: number | null
+    date: Date | null
+    cost: number | null
+    supplier: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FeedDetailsMaxAggregateOutputType = {
+    id: string | null
+    feedType: string | null
+    source: string | null
+    schedule: string | null
+    quantity: number | null
+    date: Date | null
+    cost: number | null
+    supplier: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FeedDetailsCountAggregateOutputType = {
+    id: number
+    feedType: number
+    source: number
+    schedule: number
+    quantity: number
+    date: number
+    cost: number
+    supplier: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type FeedDetailsAvgAggregateInputType = {
+    quantity?: true
+    cost?: true
+  }
+
+  export type FeedDetailsSumAggregateInputType = {
+    quantity?: true
+    cost?: true
+  }
+
+  export type FeedDetailsMinAggregateInputType = {
+    id?: true
+    feedType?: true
+    source?: true
+    schedule?: true
+    quantity?: true
+    date?: true
+    cost?: true
+    supplier?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FeedDetailsMaxAggregateInputType = {
+    id?: true
+    feedType?: true
+    source?: true
+    schedule?: true
+    quantity?: true
+    date?: true
+    cost?: true
+    supplier?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FeedDetailsCountAggregateInputType = {
+    id?: true
+    feedType?: true
+    source?: true
+    schedule?: true
+    quantity?: true
+    date?: true
+    cost?: true
+    supplier?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type FeedDetailsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FeedDetails to aggregate.
+     */
+    where?: FeedDetailsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FeedDetails to fetch.
+     */
+    orderBy?: FeedDetailsOrderByWithRelationInput | FeedDetailsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FeedDetailsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FeedDetails from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FeedDetails.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned FeedDetails
+    **/
+    _count?: true | FeedDetailsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: FeedDetailsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FeedDetailsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FeedDetailsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FeedDetailsMaxAggregateInputType
+  }
+
+  export type GetFeedDetailsAggregateType<T extends FeedDetailsAggregateArgs> = {
+        [P in keyof T & keyof AggregateFeedDetails]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFeedDetails[P]>
+      : GetScalarType<T[P], AggregateFeedDetails[P]>
+  }
+
+
+
+
+  export type FeedDetailsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FeedDetailsWhereInput
+    orderBy?: FeedDetailsOrderByWithAggregationInput | FeedDetailsOrderByWithAggregationInput[]
+    by: FeedDetailsScalarFieldEnum[] | FeedDetailsScalarFieldEnum
+    having?: FeedDetailsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FeedDetailsCountAggregateInputType | true
+    _avg?: FeedDetailsAvgAggregateInputType
+    _sum?: FeedDetailsSumAggregateInputType
+    _min?: FeedDetailsMinAggregateInputType
+    _max?: FeedDetailsMaxAggregateInputType
+  }
+
+  export type FeedDetailsGroupByOutputType = {
+    id: string
+    feedType: string
+    source: string
+    schedule: string
+    quantity: number
+    date: Date
+    cost: number | null
+    supplier: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: FeedDetailsCountAggregateOutputType | null
+    _avg: FeedDetailsAvgAggregateOutputType | null
+    _sum: FeedDetailsSumAggregateOutputType | null
+    _min: FeedDetailsMinAggregateOutputType | null
+    _max: FeedDetailsMaxAggregateOutputType | null
+  }
+
+  type GetFeedDetailsGroupByPayload<T extends FeedDetailsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FeedDetailsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FeedDetailsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FeedDetailsGroupByOutputType[P]>
+            : GetScalarType<T[P], FeedDetailsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FeedDetailsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    feedType?: boolean
+    source?: boolean
+    schedule?: boolean
+    quantity?: boolean
+    date?: boolean
+    cost?: boolean
+    supplier?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    basalProgram?: boolean | FeedDetails$basalProgramArgs<ExtArgs>
+    concentrateProgram?: boolean | FeedDetails$concentrateProgramArgs<ExtArgs>
+    supplementProgram?: boolean | FeedDetails$supplementProgramArgs<ExtArgs>
+  }, ExtArgs["result"]["feedDetails"]>
+
+  export type FeedDetailsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    feedType?: boolean
+    source?: boolean
+    schedule?: boolean
+    quantity?: boolean
+    date?: boolean
+    cost?: boolean
+    supplier?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["feedDetails"]>
+
+  export type FeedDetailsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    feedType?: boolean
+    source?: boolean
+    schedule?: boolean
+    quantity?: boolean
+    date?: boolean
+    cost?: boolean
+    supplier?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["feedDetails"]>
+
+  export type FeedDetailsSelectScalar = {
+    id?: boolean
+    feedType?: boolean
+    source?: boolean
+    schedule?: boolean
+    quantity?: boolean
+    date?: boolean
+    cost?: boolean
+    supplier?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type FeedDetailsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "feedType" | "source" | "schedule" | "quantity" | "date" | "cost" | "supplier" | "createdAt" | "updatedAt", ExtArgs["result"]["feedDetails"]>
+  export type FeedDetailsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    basalProgram?: boolean | FeedDetails$basalProgramArgs<ExtArgs>
+    concentrateProgram?: boolean | FeedDetails$concentrateProgramArgs<ExtArgs>
+    supplementProgram?: boolean | FeedDetails$supplementProgramArgs<ExtArgs>
+  }
+  export type FeedDetailsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type FeedDetailsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $FeedDetailsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FeedDetails"
+    objects: {
+      basalProgram: Prisma.$FeedingProgramPayload<ExtArgs> | null
+      concentrateProgram: Prisma.$FeedingProgramPayload<ExtArgs> | null
+      supplementProgram: Prisma.$FeedingProgramPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      feedType: string
+      source: string
+      schedule: string
+      quantity: number
+      date: Date
+      cost: number | null
+      supplier: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["feedDetails"]>
+    composites: {}
+  }
+
+  type FeedDetailsGetPayload<S extends boolean | null | undefined | FeedDetailsDefaultArgs> = $Result.GetResult<Prisma.$FeedDetailsPayload, S>
+
+  type FeedDetailsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FeedDetailsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FeedDetailsCountAggregateInputType | true
+    }
+
+  export interface FeedDetailsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FeedDetails'], meta: { name: 'FeedDetails' } }
+    /**
+     * Find zero or one FeedDetails that matches the filter.
+     * @param {FeedDetailsFindUniqueArgs} args - Arguments to find a FeedDetails
+     * @example
+     * // Get one FeedDetails
+     * const feedDetails = await prisma.feedDetails.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FeedDetailsFindUniqueArgs>(args: SelectSubset<T, FeedDetailsFindUniqueArgs<ExtArgs>>): Prisma__FeedDetailsClient<$Result.GetResult<Prisma.$FeedDetailsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one FeedDetails that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {FeedDetailsFindUniqueOrThrowArgs} args - Arguments to find a FeedDetails
+     * @example
+     * // Get one FeedDetails
+     * const feedDetails = await prisma.feedDetails.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FeedDetailsFindUniqueOrThrowArgs>(args: SelectSubset<T, FeedDetailsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FeedDetailsClient<$Result.GetResult<Prisma.$FeedDetailsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FeedDetails that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FeedDetailsFindFirstArgs} args - Arguments to find a FeedDetails
+     * @example
+     * // Get one FeedDetails
+     * const feedDetails = await prisma.feedDetails.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FeedDetailsFindFirstArgs>(args?: SelectSubset<T, FeedDetailsFindFirstArgs<ExtArgs>>): Prisma__FeedDetailsClient<$Result.GetResult<Prisma.$FeedDetailsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FeedDetails that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FeedDetailsFindFirstOrThrowArgs} args - Arguments to find a FeedDetails
+     * @example
+     * // Get one FeedDetails
+     * const feedDetails = await prisma.feedDetails.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FeedDetailsFindFirstOrThrowArgs>(args?: SelectSubset<T, FeedDetailsFindFirstOrThrowArgs<ExtArgs>>): Prisma__FeedDetailsClient<$Result.GetResult<Prisma.$FeedDetailsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more FeedDetails that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FeedDetailsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FeedDetails
+     * const feedDetails = await prisma.feedDetails.findMany()
+     * 
+     * // Get first 10 FeedDetails
+     * const feedDetails = await prisma.feedDetails.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const feedDetailsWithIdOnly = await prisma.feedDetails.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FeedDetailsFindManyArgs>(args?: SelectSubset<T, FeedDetailsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeedDetailsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a FeedDetails.
+     * @param {FeedDetailsCreateArgs} args - Arguments to create a FeedDetails.
+     * @example
+     * // Create one FeedDetails
+     * const FeedDetails = await prisma.feedDetails.create({
+     *   data: {
+     *     // ... data to create a FeedDetails
+     *   }
+     * })
+     * 
+     */
+    create<T extends FeedDetailsCreateArgs>(args: SelectSubset<T, FeedDetailsCreateArgs<ExtArgs>>): Prisma__FeedDetailsClient<$Result.GetResult<Prisma.$FeedDetailsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many FeedDetails.
+     * @param {FeedDetailsCreateManyArgs} args - Arguments to create many FeedDetails.
+     * @example
+     * // Create many FeedDetails
+     * const feedDetails = await prisma.feedDetails.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FeedDetailsCreateManyArgs>(args?: SelectSubset<T, FeedDetailsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many FeedDetails and returns the data saved in the database.
+     * @param {FeedDetailsCreateManyAndReturnArgs} args - Arguments to create many FeedDetails.
+     * @example
+     * // Create many FeedDetails
+     * const feedDetails = await prisma.feedDetails.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many FeedDetails and only return the `id`
+     * const feedDetailsWithIdOnly = await prisma.feedDetails.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FeedDetailsCreateManyAndReturnArgs>(args?: SelectSubset<T, FeedDetailsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeedDetailsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a FeedDetails.
+     * @param {FeedDetailsDeleteArgs} args - Arguments to delete one FeedDetails.
+     * @example
+     * // Delete one FeedDetails
+     * const FeedDetails = await prisma.feedDetails.delete({
+     *   where: {
+     *     // ... filter to delete one FeedDetails
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FeedDetailsDeleteArgs>(args: SelectSubset<T, FeedDetailsDeleteArgs<ExtArgs>>): Prisma__FeedDetailsClient<$Result.GetResult<Prisma.$FeedDetailsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one FeedDetails.
+     * @param {FeedDetailsUpdateArgs} args - Arguments to update one FeedDetails.
+     * @example
+     * // Update one FeedDetails
+     * const feedDetails = await prisma.feedDetails.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FeedDetailsUpdateArgs>(args: SelectSubset<T, FeedDetailsUpdateArgs<ExtArgs>>): Prisma__FeedDetailsClient<$Result.GetResult<Prisma.$FeedDetailsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more FeedDetails.
+     * @param {FeedDetailsDeleteManyArgs} args - Arguments to filter FeedDetails to delete.
+     * @example
+     * // Delete a few FeedDetails
+     * const { count } = await prisma.feedDetails.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FeedDetailsDeleteManyArgs>(args?: SelectSubset<T, FeedDetailsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FeedDetails.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FeedDetailsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FeedDetails
+     * const feedDetails = await prisma.feedDetails.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FeedDetailsUpdateManyArgs>(args: SelectSubset<T, FeedDetailsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FeedDetails and returns the data updated in the database.
+     * @param {FeedDetailsUpdateManyAndReturnArgs} args - Arguments to update many FeedDetails.
+     * @example
+     * // Update many FeedDetails
+     * const feedDetails = await prisma.feedDetails.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more FeedDetails and only return the `id`
+     * const feedDetailsWithIdOnly = await prisma.feedDetails.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends FeedDetailsUpdateManyAndReturnArgs>(args: SelectSubset<T, FeedDetailsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeedDetailsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one FeedDetails.
+     * @param {FeedDetailsUpsertArgs} args - Arguments to update or create a FeedDetails.
+     * @example
+     * // Update or create a FeedDetails
+     * const feedDetails = await prisma.feedDetails.upsert({
+     *   create: {
+     *     // ... data to create a FeedDetails
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FeedDetails we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FeedDetailsUpsertArgs>(args: SelectSubset<T, FeedDetailsUpsertArgs<ExtArgs>>): Prisma__FeedDetailsClient<$Result.GetResult<Prisma.$FeedDetailsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of FeedDetails.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FeedDetailsCountArgs} args - Arguments to filter FeedDetails to count.
+     * @example
+     * // Count the number of FeedDetails
+     * const count = await prisma.feedDetails.count({
+     *   where: {
+     *     // ... the filter for the FeedDetails we want to count
+     *   }
+     * })
+    **/
+    count<T extends FeedDetailsCountArgs>(
+      args?: Subset<T, FeedDetailsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FeedDetailsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a FeedDetails.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FeedDetailsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FeedDetailsAggregateArgs>(args: Subset<T, FeedDetailsAggregateArgs>): Prisma.PrismaPromise<GetFeedDetailsAggregateType<T>>
+
+    /**
+     * Group by FeedDetails.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FeedDetailsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FeedDetailsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FeedDetailsGroupByArgs['orderBy'] }
+        : { orderBy?: FeedDetailsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FeedDetailsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFeedDetailsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the FeedDetails model
+   */
+  readonly fields: FeedDetailsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for FeedDetails.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FeedDetailsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    basalProgram<T extends FeedDetails$basalProgramArgs<ExtArgs> = {}>(args?: Subset<T, FeedDetails$basalProgramArgs<ExtArgs>>): Prisma__FeedingProgramClient<$Result.GetResult<Prisma.$FeedingProgramPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    concentrateProgram<T extends FeedDetails$concentrateProgramArgs<ExtArgs> = {}>(args?: Subset<T, FeedDetails$concentrateProgramArgs<ExtArgs>>): Prisma__FeedingProgramClient<$Result.GetResult<Prisma.$FeedingProgramPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    supplementProgram<T extends FeedDetails$supplementProgramArgs<ExtArgs> = {}>(args?: Subset<T, FeedDetails$supplementProgramArgs<ExtArgs>>): Prisma__FeedingProgramClient<$Result.GetResult<Prisma.$FeedingProgramPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the FeedDetails model
+   */
+  interface FeedDetailsFieldRefs {
+    readonly id: FieldRef<"FeedDetails", 'String'>
+    readonly feedType: FieldRef<"FeedDetails", 'String'>
+    readonly source: FieldRef<"FeedDetails", 'String'>
+    readonly schedule: FieldRef<"FeedDetails", 'String'>
+    readonly quantity: FieldRef<"FeedDetails", 'Float'>
+    readonly date: FieldRef<"FeedDetails", 'DateTime'>
+    readonly cost: FieldRef<"FeedDetails", 'Float'>
+    readonly supplier: FieldRef<"FeedDetails", 'String'>
+    readonly createdAt: FieldRef<"FeedDetails", 'DateTime'>
+    readonly updatedAt: FieldRef<"FeedDetails", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * FeedDetails findUnique
+   */
+  export type FeedDetailsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedDetails
+     */
+    select?: FeedDetailsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedDetails
+     */
+    omit?: FeedDetailsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedDetailsInclude<ExtArgs> | null
+    /**
+     * Filter, which FeedDetails to fetch.
+     */
+    where: FeedDetailsWhereUniqueInput
+  }
+
+  /**
+   * FeedDetails findUniqueOrThrow
+   */
+  export type FeedDetailsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedDetails
+     */
+    select?: FeedDetailsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedDetails
+     */
+    omit?: FeedDetailsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedDetailsInclude<ExtArgs> | null
+    /**
+     * Filter, which FeedDetails to fetch.
+     */
+    where: FeedDetailsWhereUniqueInput
+  }
+
+  /**
+   * FeedDetails findFirst
+   */
+  export type FeedDetailsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedDetails
+     */
+    select?: FeedDetailsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedDetails
+     */
+    omit?: FeedDetailsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedDetailsInclude<ExtArgs> | null
+    /**
+     * Filter, which FeedDetails to fetch.
+     */
+    where?: FeedDetailsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FeedDetails to fetch.
+     */
+    orderBy?: FeedDetailsOrderByWithRelationInput | FeedDetailsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FeedDetails.
+     */
+    cursor?: FeedDetailsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FeedDetails from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FeedDetails.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FeedDetails.
+     */
+    distinct?: FeedDetailsScalarFieldEnum | FeedDetailsScalarFieldEnum[]
+  }
+
+  /**
+   * FeedDetails findFirstOrThrow
+   */
+  export type FeedDetailsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedDetails
+     */
+    select?: FeedDetailsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedDetails
+     */
+    omit?: FeedDetailsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedDetailsInclude<ExtArgs> | null
+    /**
+     * Filter, which FeedDetails to fetch.
+     */
+    where?: FeedDetailsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FeedDetails to fetch.
+     */
+    orderBy?: FeedDetailsOrderByWithRelationInput | FeedDetailsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FeedDetails.
+     */
+    cursor?: FeedDetailsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FeedDetails from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FeedDetails.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FeedDetails.
+     */
+    distinct?: FeedDetailsScalarFieldEnum | FeedDetailsScalarFieldEnum[]
+  }
+
+  /**
+   * FeedDetails findMany
+   */
+  export type FeedDetailsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedDetails
+     */
+    select?: FeedDetailsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedDetails
+     */
+    omit?: FeedDetailsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedDetailsInclude<ExtArgs> | null
+    /**
+     * Filter, which FeedDetails to fetch.
+     */
+    where?: FeedDetailsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FeedDetails to fetch.
+     */
+    orderBy?: FeedDetailsOrderByWithRelationInput | FeedDetailsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing FeedDetails.
+     */
+    cursor?: FeedDetailsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FeedDetails from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FeedDetails.
+     */
+    skip?: number
+    distinct?: FeedDetailsScalarFieldEnum | FeedDetailsScalarFieldEnum[]
+  }
+
+  /**
+   * FeedDetails create
+   */
+  export type FeedDetailsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedDetails
+     */
+    select?: FeedDetailsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedDetails
+     */
+    omit?: FeedDetailsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedDetailsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a FeedDetails.
+     */
+    data: XOR<FeedDetailsCreateInput, FeedDetailsUncheckedCreateInput>
+  }
+
+  /**
+   * FeedDetails createMany
+   */
+  export type FeedDetailsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many FeedDetails.
+     */
+    data: FeedDetailsCreateManyInput | FeedDetailsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * FeedDetails createManyAndReturn
+   */
+  export type FeedDetailsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedDetails
+     */
+    select?: FeedDetailsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedDetails
+     */
+    omit?: FeedDetailsOmit<ExtArgs> | null
+    /**
+     * The data used to create many FeedDetails.
+     */
+    data: FeedDetailsCreateManyInput | FeedDetailsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * FeedDetails update
+   */
+  export type FeedDetailsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedDetails
+     */
+    select?: FeedDetailsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedDetails
+     */
+    omit?: FeedDetailsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedDetailsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a FeedDetails.
+     */
+    data: XOR<FeedDetailsUpdateInput, FeedDetailsUncheckedUpdateInput>
+    /**
+     * Choose, which FeedDetails to update.
+     */
+    where: FeedDetailsWhereUniqueInput
+  }
+
+  /**
+   * FeedDetails updateMany
+   */
+  export type FeedDetailsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update FeedDetails.
+     */
+    data: XOR<FeedDetailsUpdateManyMutationInput, FeedDetailsUncheckedUpdateManyInput>
+    /**
+     * Filter which FeedDetails to update
+     */
+    where?: FeedDetailsWhereInput
+    /**
+     * Limit how many FeedDetails to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * FeedDetails updateManyAndReturn
+   */
+  export type FeedDetailsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedDetails
+     */
+    select?: FeedDetailsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedDetails
+     */
+    omit?: FeedDetailsOmit<ExtArgs> | null
+    /**
+     * The data used to update FeedDetails.
+     */
+    data: XOR<FeedDetailsUpdateManyMutationInput, FeedDetailsUncheckedUpdateManyInput>
+    /**
+     * Filter which FeedDetails to update
+     */
+    where?: FeedDetailsWhereInput
+    /**
+     * Limit how many FeedDetails to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * FeedDetails upsert
+   */
+  export type FeedDetailsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedDetails
+     */
+    select?: FeedDetailsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedDetails
+     */
+    omit?: FeedDetailsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedDetailsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the FeedDetails to update in case it exists.
+     */
+    where: FeedDetailsWhereUniqueInput
+    /**
+     * In case the FeedDetails found by the `where` argument doesn't exist, create a new FeedDetails with this data.
+     */
+    create: XOR<FeedDetailsCreateInput, FeedDetailsUncheckedCreateInput>
+    /**
+     * In case the FeedDetails was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FeedDetailsUpdateInput, FeedDetailsUncheckedUpdateInput>
+  }
+
+  /**
+   * FeedDetails delete
+   */
+  export type FeedDetailsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedDetails
+     */
+    select?: FeedDetailsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedDetails
+     */
+    omit?: FeedDetailsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedDetailsInclude<ExtArgs> | null
+    /**
+     * Filter which FeedDetails to delete.
+     */
+    where: FeedDetailsWhereUniqueInput
+  }
+
+  /**
+   * FeedDetails deleteMany
+   */
+  export type FeedDetailsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FeedDetails to delete
+     */
+    where?: FeedDetailsWhereInput
+    /**
+     * Limit how many FeedDetails to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * FeedDetails.basalProgram
+   */
+  export type FeedDetails$basalProgramArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedingProgram
+     */
+    select?: FeedingProgramSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedingProgram
+     */
+    omit?: FeedingProgramOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedingProgramInclude<ExtArgs> | null
+    where?: FeedingProgramWhereInput
+  }
+
+  /**
+   * FeedDetails.concentrateProgram
+   */
+  export type FeedDetails$concentrateProgramArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedingProgram
+     */
+    select?: FeedingProgramSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedingProgram
+     */
+    omit?: FeedingProgramOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedingProgramInclude<ExtArgs> | null
+    where?: FeedingProgramWhereInput
+  }
+
+  /**
+   * FeedDetails.supplementProgram
+   */
+  export type FeedDetails$supplementProgramArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedingProgram
+     */
+    select?: FeedingProgramSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedingProgram
+     */
+    omit?: FeedingProgramOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedingProgramInclude<ExtArgs> | null
+    where?: FeedingProgramWhereInput
+  }
+
+  /**
+   * FeedDetails without action
+   */
+  export type FeedDetailsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FeedDetails
+     */
+    select?: FeedDetailsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FeedDetails
+     */
+    omit?: FeedDetailsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeedDetailsInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -19603,6 +22356,46 @@ export namespace Prisma {
   export type OffspringScalarFieldEnum = (typeof OffspringScalarFieldEnum)[keyof typeof OffspringScalarFieldEnum]
 
 
+  export const FeedingProgramScalarFieldEnum: {
+    id: 'id',
+    farmId: 'farmId',
+    userId: 'userId',
+    programType: 'programType',
+    animalId: 'animalId',
+    animalType: 'animalType',
+    lifecycleStages: 'lifecycleStages',
+    groupId: 'groupId',
+    groupType: 'groupType',
+    groupLifecycleStages: 'groupLifecycleStages',
+    feedType: 'feedType',
+    timeOfDay: 'timeOfDay',
+    notes: 'notes',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    basalId: 'basalId',
+    concentrateId: 'concentrateId',
+    supplementId: 'supplementId'
+  };
+
+  export type FeedingProgramScalarFieldEnum = (typeof FeedingProgramScalarFieldEnum)[keyof typeof FeedingProgramScalarFieldEnum]
+
+
+  export const FeedDetailsScalarFieldEnum: {
+    id: 'id',
+    feedType: 'feedType',
+    source: 'source',
+    schedule: 'schedule',
+    quantity: 'quantity',
+    date: 'date',
+    cost: 'cost',
+    supplier: 'supplier',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type FeedDetailsScalarFieldEnum = (typeof FeedDetailsScalarFieldEnum)[keyof typeof FeedDetailsScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -19724,6 +22517,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     farms?: FarmListRelationFilter
+    feedingPrograms?: FeedingProgramListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -19749,6 +22543,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     farms?: FarmOrderByRelationAggregateInput
+    feedingPrograms?: FeedingProgramOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -19777,6 +22572,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     farms?: FarmListRelationFilter
+    feedingPrograms?: FeedingProgramListRelationFilter
   }, "id" | "email" | "phoneNumber" | "nationalId">
 
   export type UserOrderByWithAggregationInput = {
@@ -19853,6 +22649,7 @@ export namespace Prisma {
     livestock?: LivestockListRelationFilter
     breedingRecords?: BreedingRecordListRelationFilter
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    feedingPrograms?: FeedingProgramListRelationFilter
   }
 
   export type FarmOrderByWithRelationInput = {
@@ -19870,6 +22667,7 @@ export namespace Prisma {
     livestock?: LivestockOrderByRelationAggregateInput
     breedingRecords?: BreedingRecordOrderByRelationAggregateInput
     user?: UserOrderByWithRelationInput
+    feedingPrograms?: FeedingProgramOrderByRelationAggregateInput
   }
 
   export type FarmWhereUniqueInput = Prisma.AtLeast<{
@@ -19890,6 +22688,7 @@ export namespace Prisma {
     livestock?: LivestockListRelationFilter
     breedingRecords?: BreedingRecordListRelationFilter
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    feedingPrograms?: FeedingProgramListRelationFilter
   }, "id">
 
   export type FarmOrderByWithAggregationInput = {
@@ -21089,6 +23888,226 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Offspring"> | Date | string
   }
 
+  export type FeedingProgramWhereInput = {
+    AND?: FeedingProgramWhereInput | FeedingProgramWhereInput[]
+    OR?: FeedingProgramWhereInput[]
+    NOT?: FeedingProgramWhereInput | FeedingProgramWhereInput[]
+    id?: StringFilter<"FeedingProgram"> | string
+    farmId?: StringFilter<"FeedingProgram"> | string
+    userId?: StringFilter<"FeedingProgram"> | string
+    programType?: StringFilter<"FeedingProgram"> | string
+    animalId?: StringNullableFilter<"FeedingProgram"> | string | null
+    animalType?: StringNullableFilter<"FeedingProgram"> | string | null
+    lifecycleStages?: StringNullableListFilter<"FeedingProgram">
+    groupId?: StringNullableFilter<"FeedingProgram"> | string | null
+    groupType?: StringNullableFilter<"FeedingProgram"> | string | null
+    groupLifecycleStages?: StringNullableListFilter<"FeedingProgram">
+    feedType?: StringFilter<"FeedingProgram"> | string
+    timeOfDay?: StringNullableListFilter<"FeedingProgram">
+    notes?: StringNullableFilter<"FeedingProgram"> | string | null
+    createdAt?: DateTimeFilter<"FeedingProgram"> | Date | string
+    updatedAt?: DateTimeFilter<"FeedingProgram"> | Date | string
+    basalId?: StringFilter<"FeedingProgram"> | string
+    concentrateId?: StringNullableFilter<"FeedingProgram"> | string | null
+    supplementId?: StringNullableFilter<"FeedingProgram"> | string | null
+    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    basal?: XOR<FeedDetailsScalarRelationFilter, FeedDetailsWhereInput>
+    concentrate?: XOR<FeedDetailsNullableScalarRelationFilter, FeedDetailsWhereInput> | null
+    supplement?: XOR<FeedDetailsNullableScalarRelationFilter, FeedDetailsWhereInput> | null
+  }
+
+  export type FeedingProgramOrderByWithRelationInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    userId?: SortOrder
+    programType?: SortOrder
+    animalId?: SortOrderInput | SortOrder
+    animalType?: SortOrderInput | SortOrder
+    lifecycleStages?: SortOrder
+    groupId?: SortOrderInput | SortOrder
+    groupType?: SortOrderInput | SortOrder
+    groupLifecycleStages?: SortOrder
+    feedType?: SortOrder
+    timeOfDay?: SortOrder
+    notes?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    basalId?: SortOrder
+    concentrateId?: SortOrderInput | SortOrder
+    supplementId?: SortOrderInput | SortOrder
+    farm?: FarmOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
+    basal?: FeedDetailsOrderByWithRelationInput
+    concentrate?: FeedDetailsOrderByWithRelationInput
+    supplement?: FeedDetailsOrderByWithRelationInput
+  }
+
+  export type FeedingProgramWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    basalId?: string
+    concentrateId?: string
+    supplementId?: string
+    AND?: FeedingProgramWhereInput | FeedingProgramWhereInput[]
+    OR?: FeedingProgramWhereInput[]
+    NOT?: FeedingProgramWhereInput | FeedingProgramWhereInput[]
+    farmId?: StringFilter<"FeedingProgram"> | string
+    userId?: StringFilter<"FeedingProgram"> | string
+    programType?: StringFilter<"FeedingProgram"> | string
+    animalId?: StringNullableFilter<"FeedingProgram"> | string | null
+    animalType?: StringNullableFilter<"FeedingProgram"> | string | null
+    lifecycleStages?: StringNullableListFilter<"FeedingProgram">
+    groupId?: StringNullableFilter<"FeedingProgram"> | string | null
+    groupType?: StringNullableFilter<"FeedingProgram"> | string | null
+    groupLifecycleStages?: StringNullableListFilter<"FeedingProgram">
+    feedType?: StringFilter<"FeedingProgram"> | string
+    timeOfDay?: StringNullableListFilter<"FeedingProgram">
+    notes?: StringNullableFilter<"FeedingProgram"> | string | null
+    createdAt?: DateTimeFilter<"FeedingProgram"> | Date | string
+    updatedAt?: DateTimeFilter<"FeedingProgram"> | Date | string
+    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    basal?: XOR<FeedDetailsScalarRelationFilter, FeedDetailsWhereInput>
+    concentrate?: XOR<FeedDetailsNullableScalarRelationFilter, FeedDetailsWhereInput> | null
+    supplement?: XOR<FeedDetailsNullableScalarRelationFilter, FeedDetailsWhereInput> | null
+  }, "id" | "basalId" | "concentrateId" | "supplementId">
+
+  export type FeedingProgramOrderByWithAggregationInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    userId?: SortOrder
+    programType?: SortOrder
+    animalId?: SortOrderInput | SortOrder
+    animalType?: SortOrderInput | SortOrder
+    lifecycleStages?: SortOrder
+    groupId?: SortOrderInput | SortOrder
+    groupType?: SortOrderInput | SortOrder
+    groupLifecycleStages?: SortOrder
+    feedType?: SortOrder
+    timeOfDay?: SortOrder
+    notes?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    basalId?: SortOrder
+    concentrateId?: SortOrderInput | SortOrder
+    supplementId?: SortOrderInput | SortOrder
+    _count?: FeedingProgramCountOrderByAggregateInput
+    _max?: FeedingProgramMaxOrderByAggregateInput
+    _min?: FeedingProgramMinOrderByAggregateInput
+  }
+
+  export type FeedingProgramScalarWhereWithAggregatesInput = {
+    AND?: FeedingProgramScalarWhereWithAggregatesInput | FeedingProgramScalarWhereWithAggregatesInput[]
+    OR?: FeedingProgramScalarWhereWithAggregatesInput[]
+    NOT?: FeedingProgramScalarWhereWithAggregatesInput | FeedingProgramScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"FeedingProgram"> | string
+    farmId?: StringWithAggregatesFilter<"FeedingProgram"> | string
+    userId?: StringWithAggregatesFilter<"FeedingProgram"> | string
+    programType?: StringWithAggregatesFilter<"FeedingProgram"> | string
+    animalId?: StringNullableWithAggregatesFilter<"FeedingProgram"> | string | null
+    animalType?: StringNullableWithAggregatesFilter<"FeedingProgram"> | string | null
+    lifecycleStages?: StringNullableListFilter<"FeedingProgram">
+    groupId?: StringNullableWithAggregatesFilter<"FeedingProgram"> | string | null
+    groupType?: StringNullableWithAggregatesFilter<"FeedingProgram"> | string | null
+    groupLifecycleStages?: StringNullableListFilter<"FeedingProgram">
+    feedType?: StringWithAggregatesFilter<"FeedingProgram"> | string
+    timeOfDay?: StringNullableListFilter<"FeedingProgram">
+    notes?: StringNullableWithAggregatesFilter<"FeedingProgram"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"FeedingProgram"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"FeedingProgram"> | Date | string
+    basalId?: StringWithAggregatesFilter<"FeedingProgram"> | string
+    concentrateId?: StringNullableWithAggregatesFilter<"FeedingProgram"> | string | null
+    supplementId?: StringNullableWithAggregatesFilter<"FeedingProgram"> | string | null
+  }
+
+  export type FeedDetailsWhereInput = {
+    AND?: FeedDetailsWhereInput | FeedDetailsWhereInput[]
+    OR?: FeedDetailsWhereInput[]
+    NOT?: FeedDetailsWhereInput | FeedDetailsWhereInput[]
+    id?: StringFilter<"FeedDetails"> | string
+    feedType?: StringFilter<"FeedDetails"> | string
+    source?: StringFilter<"FeedDetails"> | string
+    schedule?: StringFilter<"FeedDetails"> | string
+    quantity?: FloatFilter<"FeedDetails"> | number
+    date?: DateTimeFilter<"FeedDetails"> | Date | string
+    cost?: FloatNullableFilter<"FeedDetails"> | number | null
+    supplier?: StringNullableFilter<"FeedDetails"> | string | null
+    createdAt?: DateTimeFilter<"FeedDetails"> | Date | string
+    updatedAt?: DateTimeFilter<"FeedDetails"> | Date | string
+    basalProgram?: XOR<FeedingProgramNullableScalarRelationFilter, FeedingProgramWhereInput> | null
+    concentrateProgram?: XOR<FeedingProgramNullableScalarRelationFilter, FeedingProgramWhereInput> | null
+    supplementProgram?: XOR<FeedingProgramNullableScalarRelationFilter, FeedingProgramWhereInput> | null
+  }
+
+  export type FeedDetailsOrderByWithRelationInput = {
+    id?: SortOrder
+    feedType?: SortOrder
+    source?: SortOrder
+    schedule?: SortOrder
+    quantity?: SortOrder
+    date?: SortOrder
+    cost?: SortOrderInput | SortOrder
+    supplier?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    basalProgram?: FeedingProgramOrderByWithRelationInput
+    concentrateProgram?: FeedingProgramOrderByWithRelationInput
+    supplementProgram?: FeedingProgramOrderByWithRelationInput
+  }
+
+  export type FeedDetailsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: FeedDetailsWhereInput | FeedDetailsWhereInput[]
+    OR?: FeedDetailsWhereInput[]
+    NOT?: FeedDetailsWhereInput | FeedDetailsWhereInput[]
+    feedType?: StringFilter<"FeedDetails"> | string
+    source?: StringFilter<"FeedDetails"> | string
+    schedule?: StringFilter<"FeedDetails"> | string
+    quantity?: FloatFilter<"FeedDetails"> | number
+    date?: DateTimeFilter<"FeedDetails"> | Date | string
+    cost?: FloatNullableFilter<"FeedDetails"> | number | null
+    supplier?: StringNullableFilter<"FeedDetails"> | string | null
+    createdAt?: DateTimeFilter<"FeedDetails"> | Date | string
+    updatedAt?: DateTimeFilter<"FeedDetails"> | Date | string
+    basalProgram?: XOR<FeedingProgramNullableScalarRelationFilter, FeedingProgramWhereInput> | null
+    concentrateProgram?: XOR<FeedingProgramNullableScalarRelationFilter, FeedingProgramWhereInput> | null
+    supplementProgram?: XOR<FeedingProgramNullableScalarRelationFilter, FeedingProgramWhereInput> | null
+  }, "id">
+
+  export type FeedDetailsOrderByWithAggregationInput = {
+    id?: SortOrder
+    feedType?: SortOrder
+    source?: SortOrder
+    schedule?: SortOrder
+    quantity?: SortOrder
+    date?: SortOrder
+    cost?: SortOrderInput | SortOrder
+    supplier?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: FeedDetailsCountOrderByAggregateInput
+    _avg?: FeedDetailsAvgOrderByAggregateInput
+    _max?: FeedDetailsMaxOrderByAggregateInput
+    _min?: FeedDetailsMinOrderByAggregateInput
+    _sum?: FeedDetailsSumOrderByAggregateInput
+  }
+
+  export type FeedDetailsScalarWhereWithAggregatesInput = {
+    AND?: FeedDetailsScalarWhereWithAggregatesInput | FeedDetailsScalarWhereWithAggregatesInput[]
+    OR?: FeedDetailsScalarWhereWithAggregatesInput[]
+    NOT?: FeedDetailsScalarWhereWithAggregatesInput | FeedDetailsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"FeedDetails"> | string
+    feedType?: StringWithAggregatesFilter<"FeedDetails"> | string
+    source?: StringWithAggregatesFilter<"FeedDetails"> | string
+    schedule?: StringWithAggregatesFilter<"FeedDetails"> | string
+    quantity?: FloatWithAggregatesFilter<"FeedDetails"> | number
+    date?: DateTimeWithAggregatesFilter<"FeedDetails"> | Date | string
+    cost?: FloatNullableWithAggregatesFilter<"FeedDetails"> | number | null
+    supplier?: StringNullableWithAggregatesFilter<"FeedDetails"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"FeedDetails"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"FeedDetails"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     firstName: string
@@ -21112,6 +24131,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     farms?: FarmCreateNestedManyWithoutUserInput
+    feedingPrograms?: FeedingProgramCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -21137,6 +24157,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     farms?: FarmUncheckedCreateNestedManyWithoutUserInput
+    feedingPrograms?: FeedingProgramUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -21162,6 +24183,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     farms?: FarmUpdateManyWithoutUserNestedInput
+    feedingPrograms?: FeedingProgramUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -21187,6 +24209,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     farms?: FarmUncheckedUpdateManyWithoutUserNestedInput
+    feedingPrograms?: FeedingProgramUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -21275,6 +24298,7 @@ export namespace Prisma {
     livestock?: LivestockCreateNestedManyWithoutFarmInput
     breedingRecords?: BreedingRecordCreateNestedManyWithoutFarmInput
     user: UserCreateNestedOneWithoutFarmsInput
+    feedingPrograms?: FeedingProgramCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateInput = {
@@ -21291,6 +24315,7 @@ export namespace Prisma {
     employees?: EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput
     livestock?: LivestockUncheckedCreateNestedManyWithoutFarmInput
     breedingRecords?: BreedingRecordUncheckedCreateNestedManyWithoutFarmInput
+    feedingPrograms?: FeedingProgramUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUpdateInput = {
@@ -21307,6 +24332,7 @@ export namespace Prisma {
     livestock?: LivestockUpdateManyWithoutFarmNestedInput
     breedingRecords?: BreedingRecordUpdateManyWithoutFarmNestedInput
     user?: UserUpdateOneRequiredWithoutFarmsNestedInput
+    feedingPrograms?: FeedingProgramUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateInput = {
@@ -21323,6 +24349,7 @@ export namespace Prisma {
     employees?: EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput
     livestock?: LivestockUncheckedUpdateManyWithoutFarmNestedInput
     breedingRecords?: BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput
+    feedingPrograms?: FeedingProgramUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmCreateManyInput = {
@@ -22684,6 +25711,251 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type FeedingProgramCreateInput = {
+    id?: string
+    programType: string
+    animalId?: string | null
+    animalType?: string | null
+    lifecycleStages?: FeedingProgramCreatelifecycleStagesInput | string[]
+    groupId?: string | null
+    groupType?: string | null
+    groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    feedType: string
+    timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutFeedingProgramsInput
+    user: UserCreateNestedOneWithoutFeedingProgramsInput
+    basal: FeedDetailsCreateNestedOneWithoutBasalProgramInput
+    concentrate?: FeedDetailsCreateNestedOneWithoutConcentrateProgramInput
+    supplement?: FeedDetailsCreateNestedOneWithoutSupplementProgramInput
+  }
+
+  export type FeedingProgramUncheckedCreateInput = {
+    id?: string
+    farmId: string
+    userId: string
+    programType: string
+    animalId?: string | null
+    animalType?: string | null
+    lifecycleStages?: FeedingProgramCreatelifecycleStagesInput | string[]
+    groupId?: string | null
+    groupType?: string | null
+    groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    feedType: string
+    timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    basalId: string
+    concentrateId?: string | null
+    supplementId?: string | null
+  }
+
+  export type FeedingProgramUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    programType?: StringFieldUpdateOperationsInput | string
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    animalType?: NullableStringFieldUpdateOperationsInput | string | null
+    lifecycleStages?: FeedingProgramUpdatelifecycleStagesInput | string[]
+    groupId?: NullableStringFieldUpdateOperationsInput | string | null
+    groupType?: NullableStringFieldUpdateOperationsInput | string | null
+    groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    feedType?: StringFieldUpdateOperationsInput | string
+    timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutFeedingProgramsNestedInput
+    user?: UserUpdateOneRequiredWithoutFeedingProgramsNestedInput
+    basal?: FeedDetailsUpdateOneRequiredWithoutBasalProgramNestedInput
+    concentrate?: FeedDetailsUpdateOneWithoutConcentrateProgramNestedInput
+    supplement?: FeedDetailsUpdateOneWithoutSupplementProgramNestedInput
+  }
+
+  export type FeedingProgramUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    programType?: StringFieldUpdateOperationsInput | string
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    animalType?: NullableStringFieldUpdateOperationsInput | string | null
+    lifecycleStages?: FeedingProgramUpdatelifecycleStagesInput | string[]
+    groupId?: NullableStringFieldUpdateOperationsInput | string | null
+    groupType?: NullableStringFieldUpdateOperationsInput | string | null
+    groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    feedType?: StringFieldUpdateOperationsInput | string
+    timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    basalId?: StringFieldUpdateOperationsInput | string
+    concentrateId?: NullableStringFieldUpdateOperationsInput | string | null
+    supplementId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FeedingProgramCreateManyInput = {
+    id?: string
+    farmId: string
+    userId: string
+    programType: string
+    animalId?: string | null
+    animalType?: string | null
+    lifecycleStages?: FeedingProgramCreatelifecycleStagesInput | string[]
+    groupId?: string | null
+    groupType?: string | null
+    groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    feedType: string
+    timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    basalId: string
+    concentrateId?: string | null
+    supplementId?: string | null
+  }
+
+  export type FeedingProgramUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    programType?: StringFieldUpdateOperationsInput | string
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    animalType?: NullableStringFieldUpdateOperationsInput | string | null
+    lifecycleStages?: FeedingProgramUpdatelifecycleStagesInput | string[]
+    groupId?: NullableStringFieldUpdateOperationsInput | string | null
+    groupType?: NullableStringFieldUpdateOperationsInput | string | null
+    groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    feedType?: StringFieldUpdateOperationsInput | string
+    timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FeedingProgramUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    programType?: StringFieldUpdateOperationsInput | string
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    animalType?: NullableStringFieldUpdateOperationsInput | string | null
+    lifecycleStages?: FeedingProgramUpdatelifecycleStagesInput | string[]
+    groupId?: NullableStringFieldUpdateOperationsInput | string | null
+    groupType?: NullableStringFieldUpdateOperationsInput | string | null
+    groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    feedType?: StringFieldUpdateOperationsInput | string
+    timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    basalId?: StringFieldUpdateOperationsInput | string
+    concentrateId?: NullableStringFieldUpdateOperationsInput | string | null
+    supplementId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FeedDetailsCreateInput = {
+    id?: string
+    feedType: string
+    source: string
+    schedule: string
+    quantity: number
+    date: Date | string
+    cost?: number | null
+    supplier?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    basalProgram?: FeedingProgramCreateNestedOneWithoutBasalInput
+    concentrateProgram?: FeedingProgramCreateNestedOneWithoutConcentrateInput
+    supplementProgram?: FeedingProgramCreateNestedOneWithoutSupplementInput
+  }
+
+  export type FeedDetailsUncheckedCreateInput = {
+    id?: string
+    feedType: string
+    source: string
+    schedule: string
+    quantity: number
+    date: Date | string
+    cost?: number | null
+    supplier?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    basalProgram?: FeedingProgramUncheckedCreateNestedOneWithoutBasalInput
+    concentrateProgram?: FeedingProgramUncheckedCreateNestedOneWithoutConcentrateInput
+    supplementProgram?: FeedingProgramUncheckedCreateNestedOneWithoutSupplementInput
+  }
+
+  export type FeedDetailsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    feedType?: StringFieldUpdateOperationsInput | string
+    source?: StringFieldUpdateOperationsInput | string
+    schedule?: StringFieldUpdateOperationsInput | string
+    quantity?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    supplier?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    basalProgram?: FeedingProgramUpdateOneWithoutBasalNestedInput
+    concentrateProgram?: FeedingProgramUpdateOneWithoutConcentrateNestedInput
+    supplementProgram?: FeedingProgramUpdateOneWithoutSupplementNestedInput
+  }
+
+  export type FeedDetailsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    feedType?: StringFieldUpdateOperationsInput | string
+    source?: StringFieldUpdateOperationsInput | string
+    schedule?: StringFieldUpdateOperationsInput | string
+    quantity?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    supplier?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    basalProgram?: FeedingProgramUncheckedUpdateOneWithoutBasalNestedInput
+    concentrateProgram?: FeedingProgramUncheckedUpdateOneWithoutConcentrateNestedInput
+    supplementProgram?: FeedingProgramUncheckedUpdateOneWithoutSupplementNestedInput
+  }
+
+  export type FeedDetailsCreateManyInput = {
+    id?: string
+    feedType: string
+    source: string
+    schedule: string
+    quantity: number
+    date: Date | string
+    cost?: number | null
+    supplier?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FeedDetailsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    feedType?: StringFieldUpdateOperationsInput | string
+    source?: StringFieldUpdateOperationsInput | string
+    schedule?: StringFieldUpdateOperationsInput | string
+    quantity?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    supplier?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FeedDetailsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    feedType?: StringFieldUpdateOperationsInput | string
+    source?: StringFieldUpdateOperationsInput | string
+    schedule?: StringFieldUpdateOperationsInput | string
+    quantity?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    supplier?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -22758,12 +26030,22 @@ export namespace Prisma {
     none?: FarmWhereInput
   }
 
+  export type FeedingProgramListRelationFilter = {
+    every?: FeedingProgramWhereInput
+    some?: FeedingProgramWhereInput
+    none?: FeedingProgramWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
   }
 
   export type FarmOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type FeedingProgramOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -23825,6 +27107,127 @@ export namespace Prisma {
     birthWeight?: SortOrder
   }
 
+  export type FeedDetailsScalarRelationFilter = {
+    is?: FeedDetailsWhereInput
+    isNot?: FeedDetailsWhereInput
+  }
+
+  export type FeedDetailsNullableScalarRelationFilter = {
+    is?: FeedDetailsWhereInput | null
+    isNot?: FeedDetailsWhereInput | null
+  }
+
+  export type FeedingProgramCountOrderByAggregateInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    userId?: SortOrder
+    programType?: SortOrder
+    animalId?: SortOrder
+    animalType?: SortOrder
+    lifecycleStages?: SortOrder
+    groupId?: SortOrder
+    groupType?: SortOrder
+    groupLifecycleStages?: SortOrder
+    feedType?: SortOrder
+    timeOfDay?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    basalId?: SortOrder
+    concentrateId?: SortOrder
+    supplementId?: SortOrder
+  }
+
+  export type FeedingProgramMaxOrderByAggregateInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    userId?: SortOrder
+    programType?: SortOrder
+    animalId?: SortOrder
+    animalType?: SortOrder
+    groupId?: SortOrder
+    groupType?: SortOrder
+    feedType?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    basalId?: SortOrder
+    concentrateId?: SortOrder
+    supplementId?: SortOrder
+  }
+
+  export type FeedingProgramMinOrderByAggregateInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    userId?: SortOrder
+    programType?: SortOrder
+    animalId?: SortOrder
+    animalType?: SortOrder
+    groupId?: SortOrder
+    groupType?: SortOrder
+    feedType?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    basalId?: SortOrder
+    concentrateId?: SortOrder
+    supplementId?: SortOrder
+  }
+
+  export type FeedingProgramNullableScalarRelationFilter = {
+    is?: FeedingProgramWhereInput | null
+    isNot?: FeedingProgramWhereInput | null
+  }
+
+  export type FeedDetailsCountOrderByAggregateInput = {
+    id?: SortOrder
+    feedType?: SortOrder
+    source?: SortOrder
+    schedule?: SortOrder
+    quantity?: SortOrder
+    date?: SortOrder
+    cost?: SortOrder
+    supplier?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FeedDetailsAvgOrderByAggregateInput = {
+    quantity?: SortOrder
+    cost?: SortOrder
+  }
+
+  export type FeedDetailsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    feedType?: SortOrder
+    source?: SortOrder
+    schedule?: SortOrder
+    quantity?: SortOrder
+    date?: SortOrder
+    cost?: SortOrder
+    supplier?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FeedDetailsMinOrderByAggregateInput = {
+    id?: SortOrder
+    feedType?: SortOrder
+    source?: SortOrder
+    schedule?: SortOrder
+    quantity?: SortOrder
+    date?: SortOrder
+    cost?: SortOrder
+    supplier?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FeedDetailsSumOrderByAggregateInput = {
+    quantity?: SortOrder
+    cost?: SortOrder
+  }
+
   export type FarmCreateNestedManyWithoutUserInput = {
     create?: XOR<FarmCreateWithoutUserInput, FarmUncheckedCreateWithoutUserInput> | FarmCreateWithoutUserInput[] | FarmUncheckedCreateWithoutUserInput[]
     connectOrCreate?: FarmCreateOrConnectWithoutUserInput | FarmCreateOrConnectWithoutUserInput[]
@@ -23832,11 +27235,25 @@ export namespace Prisma {
     connect?: FarmWhereUniqueInput | FarmWhereUniqueInput[]
   }
 
+  export type FeedingProgramCreateNestedManyWithoutUserInput = {
+    create?: XOR<FeedingProgramCreateWithoutUserInput, FeedingProgramUncheckedCreateWithoutUserInput> | FeedingProgramCreateWithoutUserInput[] | FeedingProgramUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutUserInput | FeedingProgramCreateOrConnectWithoutUserInput[]
+    createMany?: FeedingProgramCreateManyUserInputEnvelope
+    connect?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
+  }
+
   export type FarmUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<FarmCreateWithoutUserInput, FarmUncheckedCreateWithoutUserInput> | FarmCreateWithoutUserInput[] | FarmUncheckedCreateWithoutUserInput[]
     connectOrCreate?: FarmCreateOrConnectWithoutUserInput | FarmCreateOrConnectWithoutUserInput[]
     createMany?: FarmCreateManyUserInputEnvelope
     connect?: FarmWhereUniqueInput | FarmWhereUniqueInput[]
+  }
+
+  export type FeedingProgramUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<FeedingProgramCreateWithoutUserInput, FeedingProgramUncheckedCreateWithoutUserInput> | FeedingProgramCreateWithoutUserInput[] | FeedingProgramUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutUserInput | FeedingProgramCreateOrConnectWithoutUserInput[]
+    createMany?: FeedingProgramCreateManyUserInputEnvelope
+    connect?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -23881,6 +27298,20 @@ export namespace Prisma {
     deleteMany?: FarmScalarWhereInput | FarmScalarWhereInput[]
   }
 
+  export type FeedingProgramUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FeedingProgramCreateWithoutUserInput, FeedingProgramUncheckedCreateWithoutUserInput> | FeedingProgramCreateWithoutUserInput[] | FeedingProgramUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutUserInput | FeedingProgramCreateOrConnectWithoutUserInput[]
+    upsert?: FeedingProgramUpsertWithWhereUniqueWithoutUserInput | FeedingProgramUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FeedingProgramCreateManyUserInputEnvelope
+    set?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
+    disconnect?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
+    delete?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
+    connect?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
+    update?: FeedingProgramUpdateWithWhereUniqueWithoutUserInput | FeedingProgramUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FeedingProgramUpdateManyWithWhereWithoutUserInput | FeedingProgramUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FeedingProgramScalarWhereInput | FeedingProgramScalarWhereInput[]
+  }
+
   export type FarmUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<FarmCreateWithoutUserInput, FarmUncheckedCreateWithoutUserInput> | FarmCreateWithoutUserInput[] | FarmUncheckedCreateWithoutUserInput[]
     connectOrCreate?: FarmCreateOrConnectWithoutUserInput | FarmCreateOrConnectWithoutUserInput[]
@@ -23893,6 +27324,20 @@ export namespace Prisma {
     update?: FarmUpdateWithWhereUniqueWithoutUserInput | FarmUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: FarmUpdateManyWithWhereWithoutUserInput | FarmUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: FarmScalarWhereInput | FarmScalarWhereInput[]
+  }
+
+  export type FeedingProgramUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FeedingProgramCreateWithoutUserInput, FeedingProgramUncheckedCreateWithoutUserInput> | FeedingProgramCreateWithoutUserInput[] | FeedingProgramUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutUserInput | FeedingProgramCreateOrConnectWithoutUserInput[]
+    upsert?: FeedingProgramUpsertWithWhereUniqueWithoutUserInput | FeedingProgramUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FeedingProgramCreateManyUserInputEnvelope
+    set?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
+    disconnect?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
+    delete?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
+    connect?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
+    update?: FeedingProgramUpdateWithWhereUniqueWithoutUserInput | FeedingProgramUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FeedingProgramUpdateManyWithWhereWithoutUserInput | FeedingProgramUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FeedingProgramScalarWhereInput | FeedingProgramScalarWhereInput[]
   }
 
   export type FarmCreatefarmingTypesInput = {
@@ -23926,6 +27371,13 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
+  export type FeedingProgramCreateNestedManyWithoutFarmInput = {
+    create?: XOR<FeedingProgramCreateWithoutFarmInput, FeedingProgramUncheckedCreateWithoutFarmInput> | FeedingProgramCreateWithoutFarmInput[] | FeedingProgramUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutFarmInput | FeedingProgramCreateOrConnectWithoutFarmInput[]
+    createMany?: FeedingProgramCreateManyFarmInputEnvelope
+    connect?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
+  }
+
   export type EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput = {
     create?: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput> | EmployeeFarmCreateWithoutFarmInput[] | EmployeeFarmUncheckedCreateWithoutFarmInput[]
     connectOrCreate?: EmployeeFarmCreateOrConnectWithoutFarmInput | EmployeeFarmCreateOrConnectWithoutFarmInput[]
@@ -23945,6 +27397,13 @@ export namespace Prisma {
     connectOrCreate?: BreedingRecordCreateOrConnectWithoutFarmInput | BreedingRecordCreateOrConnectWithoutFarmInput[]
     createMany?: BreedingRecordCreateManyFarmInputEnvelope
     connect?: BreedingRecordWhereUniqueInput | BreedingRecordWhereUniqueInput[]
+  }
+
+  export type FeedingProgramUncheckedCreateNestedManyWithoutFarmInput = {
+    create?: XOR<FeedingProgramCreateWithoutFarmInput, FeedingProgramUncheckedCreateWithoutFarmInput> | FeedingProgramCreateWithoutFarmInput[] | FeedingProgramUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutFarmInput | FeedingProgramCreateOrConnectWithoutFarmInput[]
+    createMany?: FeedingProgramCreateManyFarmInputEnvelope
+    connect?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
   }
 
   export type FloatFieldUpdateOperationsInput = {
@@ -24010,6 +27469,20 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFarmsInput, UserUpdateWithoutFarmsInput>, UserUncheckedUpdateWithoutFarmsInput>
   }
 
+  export type FeedingProgramUpdateManyWithoutFarmNestedInput = {
+    create?: XOR<FeedingProgramCreateWithoutFarmInput, FeedingProgramUncheckedCreateWithoutFarmInput> | FeedingProgramCreateWithoutFarmInput[] | FeedingProgramUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutFarmInput | FeedingProgramCreateOrConnectWithoutFarmInput[]
+    upsert?: FeedingProgramUpsertWithWhereUniqueWithoutFarmInput | FeedingProgramUpsertWithWhereUniqueWithoutFarmInput[]
+    createMany?: FeedingProgramCreateManyFarmInputEnvelope
+    set?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
+    disconnect?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
+    delete?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
+    connect?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
+    update?: FeedingProgramUpdateWithWhereUniqueWithoutFarmInput | FeedingProgramUpdateWithWhereUniqueWithoutFarmInput[]
+    updateMany?: FeedingProgramUpdateManyWithWhereWithoutFarmInput | FeedingProgramUpdateManyWithWhereWithoutFarmInput[]
+    deleteMany?: FeedingProgramScalarWhereInput | FeedingProgramScalarWhereInput[]
+  }
+
   export type EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput = {
     create?: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput> | EmployeeFarmCreateWithoutFarmInput[] | EmployeeFarmUncheckedCreateWithoutFarmInput[]
     connectOrCreate?: EmployeeFarmCreateOrConnectWithoutFarmInput | EmployeeFarmCreateOrConnectWithoutFarmInput[]
@@ -24050,6 +27523,20 @@ export namespace Prisma {
     update?: BreedingRecordUpdateWithWhereUniqueWithoutFarmInput | BreedingRecordUpdateWithWhereUniqueWithoutFarmInput[]
     updateMany?: BreedingRecordUpdateManyWithWhereWithoutFarmInput | BreedingRecordUpdateManyWithWhereWithoutFarmInput[]
     deleteMany?: BreedingRecordScalarWhereInput | BreedingRecordScalarWhereInput[]
+  }
+
+  export type FeedingProgramUncheckedUpdateManyWithoutFarmNestedInput = {
+    create?: XOR<FeedingProgramCreateWithoutFarmInput, FeedingProgramUncheckedCreateWithoutFarmInput> | FeedingProgramCreateWithoutFarmInput[] | FeedingProgramUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutFarmInput | FeedingProgramCreateOrConnectWithoutFarmInput[]
+    upsert?: FeedingProgramUpsertWithWhereUniqueWithoutFarmInput | FeedingProgramUpsertWithWhereUniqueWithoutFarmInput[]
+    createMany?: FeedingProgramCreateManyFarmInputEnvelope
+    set?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
+    disconnect?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
+    delete?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
+    connect?: FeedingProgramWhereUniqueInput | FeedingProgramWhereUniqueInput[]
+    update?: FeedingProgramUpdateWithWhereUniqueWithoutFarmInput | FeedingProgramUpdateWithWhereUniqueWithoutFarmInput[]
+    updateMany?: FeedingProgramUpdateManyWithWhereWithoutFarmInput | FeedingProgramUpdateManyWithWhereWithoutFarmInput[]
+    deleteMany?: FeedingProgramScalarWhereInput | FeedingProgramScalarWhereInput[]
   }
 
   export type EmployeeBenefitCreateNestedManyWithoutEmployeeInput = {
@@ -24791,6 +28278,203 @@ export namespace Prisma {
     update?: XOR<XOR<LivestockUpdateToOneWithWhereWithoutOffspringInput, LivestockUpdateWithoutOffspringInput>, LivestockUncheckedUpdateWithoutOffspringInput>
   }
 
+  export type FeedingProgramCreatelifecycleStagesInput = {
+    set: string[]
+  }
+
+  export type FeedingProgramCreategroupLifecycleStagesInput = {
+    set: string[]
+  }
+
+  export type FeedingProgramCreatetimeOfDayInput = {
+    set: string[]
+  }
+
+  export type FarmCreateNestedOneWithoutFeedingProgramsInput = {
+    create?: XOR<FarmCreateWithoutFeedingProgramsInput, FarmUncheckedCreateWithoutFeedingProgramsInput>
+    connectOrCreate?: FarmCreateOrConnectWithoutFeedingProgramsInput
+    connect?: FarmWhereUniqueInput
+  }
+
+  export type UserCreateNestedOneWithoutFeedingProgramsInput = {
+    create?: XOR<UserCreateWithoutFeedingProgramsInput, UserUncheckedCreateWithoutFeedingProgramsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFeedingProgramsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type FeedDetailsCreateNestedOneWithoutBasalProgramInput = {
+    create?: XOR<FeedDetailsCreateWithoutBasalProgramInput, FeedDetailsUncheckedCreateWithoutBasalProgramInput>
+    connectOrCreate?: FeedDetailsCreateOrConnectWithoutBasalProgramInput
+    connect?: FeedDetailsWhereUniqueInput
+  }
+
+  export type FeedDetailsCreateNestedOneWithoutConcentrateProgramInput = {
+    create?: XOR<FeedDetailsCreateWithoutConcentrateProgramInput, FeedDetailsUncheckedCreateWithoutConcentrateProgramInput>
+    connectOrCreate?: FeedDetailsCreateOrConnectWithoutConcentrateProgramInput
+    connect?: FeedDetailsWhereUniqueInput
+  }
+
+  export type FeedDetailsCreateNestedOneWithoutSupplementProgramInput = {
+    create?: XOR<FeedDetailsCreateWithoutSupplementProgramInput, FeedDetailsUncheckedCreateWithoutSupplementProgramInput>
+    connectOrCreate?: FeedDetailsCreateOrConnectWithoutSupplementProgramInput
+    connect?: FeedDetailsWhereUniqueInput
+  }
+
+  export type FeedingProgramUpdatelifecycleStagesInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type FeedingProgramUpdategroupLifecycleStagesInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type FeedingProgramUpdatetimeOfDayInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type FarmUpdateOneRequiredWithoutFeedingProgramsNestedInput = {
+    create?: XOR<FarmCreateWithoutFeedingProgramsInput, FarmUncheckedCreateWithoutFeedingProgramsInput>
+    connectOrCreate?: FarmCreateOrConnectWithoutFeedingProgramsInput
+    upsert?: FarmUpsertWithoutFeedingProgramsInput
+    connect?: FarmWhereUniqueInput
+    update?: XOR<XOR<FarmUpdateToOneWithWhereWithoutFeedingProgramsInput, FarmUpdateWithoutFeedingProgramsInput>, FarmUncheckedUpdateWithoutFeedingProgramsInput>
+  }
+
+  export type UserUpdateOneRequiredWithoutFeedingProgramsNestedInput = {
+    create?: XOR<UserCreateWithoutFeedingProgramsInput, UserUncheckedCreateWithoutFeedingProgramsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFeedingProgramsInput
+    upsert?: UserUpsertWithoutFeedingProgramsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFeedingProgramsInput, UserUpdateWithoutFeedingProgramsInput>, UserUncheckedUpdateWithoutFeedingProgramsInput>
+  }
+
+  export type FeedDetailsUpdateOneRequiredWithoutBasalProgramNestedInput = {
+    create?: XOR<FeedDetailsCreateWithoutBasalProgramInput, FeedDetailsUncheckedCreateWithoutBasalProgramInput>
+    connectOrCreate?: FeedDetailsCreateOrConnectWithoutBasalProgramInput
+    upsert?: FeedDetailsUpsertWithoutBasalProgramInput
+    connect?: FeedDetailsWhereUniqueInput
+    update?: XOR<XOR<FeedDetailsUpdateToOneWithWhereWithoutBasalProgramInput, FeedDetailsUpdateWithoutBasalProgramInput>, FeedDetailsUncheckedUpdateWithoutBasalProgramInput>
+  }
+
+  export type FeedDetailsUpdateOneWithoutConcentrateProgramNestedInput = {
+    create?: XOR<FeedDetailsCreateWithoutConcentrateProgramInput, FeedDetailsUncheckedCreateWithoutConcentrateProgramInput>
+    connectOrCreate?: FeedDetailsCreateOrConnectWithoutConcentrateProgramInput
+    upsert?: FeedDetailsUpsertWithoutConcentrateProgramInput
+    disconnect?: FeedDetailsWhereInput | boolean
+    delete?: FeedDetailsWhereInput | boolean
+    connect?: FeedDetailsWhereUniqueInput
+    update?: XOR<XOR<FeedDetailsUpdateToOneWithWhereWithoutConcentrateProgramInput, FeedDetailsUpdateWithoutConcentrateProgramInput>, FeedDetailsUncheckedUpdateWithoutConcentrateProgramInput>
+  }
+
+  export type FeedDetailsUpdateOneWithoutSupplementProgramNestedInput = {
+    create?: XOR<FeedDetailsCreateWithoutSupplementProgramInput, FeedDetailsUncheckedCreateWithoutSupplementProgramInput>
+    connectOrCreate?: FeedDetailsCreateOrConnectWithoutSupplementProgramInput
+    upsert?: FeedDetailsUpsertWithoutSupplementProgramInput
+    disconnect?: FeedDetailsWhereInput | boolean
+    delete?: FeedDetailsWhereInput | boolean
+    connect?: FeedDetailsWhereUniqueInput
+    update?: XOR<XOR<FeedDetailsUpdateToOneWithWhereWithoutSupplementProgramInput, FeedDetailsUpdateWithoutSupplementProgramInput>, FeedDetailsUncheckedUpdateWithoutSupplementProgramInput>
+  }
+
+  export type FeedingProgramCreateNestedOneWithoutBasalInput = {
+    create?: XOR<FeedingProgramCreateWithoutBasalInput, FeedingProgramUncheckedCreateWithoutBasalInput>
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutBasalInput
+    connect?: FeedingProgramWhereUniqueInput
+  }
+
+  export type FeedingProgramCreateNestedOneWithoutConcentrateInput = {
+    create?: XOR<FeedingProgramCreateWithoutConcentrateInput, FeedingProgramUncheckedCreateWithoutConcentrateInput>
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutConcentrateInput
+    connect?: FeedingProgramWhereUniqueInput
+  }
+
+  export type FeedingProgramCreateNestedOneWithoutSupplementInput = {
+    create?: XOR<FeedingProgramCreateWithoutSupplementInput, FeedingProgramUncheckedCreateWithoutSupplementInput>
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutSupplementInput
+    connect?: FeedingProgramWhereUniqueInput
+  }
+
+  export type FeedingProgramUncheckedCreateNestedOneWithoutBasalInput = {
+    create?: XOR<FeedingProgramCreateWithoutBasalInput, FeedingProgramUncheckedCreateWithoutBasalInput>
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutBasalInput
+    connect?: FeedingProgramWhereUniqueInput
+  }
+
+  export type FeedingProgramUncheckedCreateNestedOneWithoutConcentrateInput = {
+    create?: XOR<FeedingProgramCreateWithoutConcentrateInput, FeedingProgramUncheckedCreateWithoutConcentrateInput>
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutConcentrateInput
+    connect?: FeedingProgramWhereUniqueInput
+  }
+
+  export type FeedingProgramUncheckedCreateNestedOneWithoutSupplementInput = {
+    create?: XOR<FeedingProgramCreateWithoutSupplementInput, FeedingProgramUncheckedCreateWithoutSupplementInput>
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutSupplementInput
+    connect?: FeedingProgramWhereUniqueInput
+  }
+
+  export type FeedingProgramUpdateOneWithoutBasalNestedInput = {
+    create?: XOR<FeedingProgramCreateWithoutBasalInput, FeedingProgramUncheckedCreateWithoutBasalInput>
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutBasalInput
+    upsert?: FeedingProgramUpsertWithoutBasalInput
+    disconnect?: FeedingProgramWhereInput | boolean
+    delete?: FeedingProgramWhereInput | boolean
+    connect?: FeedingProgramWhereUniqueInput
+    update?: XOR<XOR<FeedingProgramUpdateToOneWithWhereWithoutBasalInput, FeedingProgramUpdateWithoutBasalInput>, FeedingProgramUncheckedUpdateWithoutBasalInput>
+  }
+
+  export type FeedingProgramUpdateOneWithoutConcentrateNestedInput = {
+    create?: XOR<FeedingProgramCreateWithoutConcentrateInput, FeedingProgramUncheckedCreateWithoutConcentrateInput>
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutConcentrateInput
+    upsert?: FeedingProgramUpsertWithoutConcentrateInput
+    disconnect?: FeedingProgramWhereInput | boolean
+    delete?: FeedingProgramWhereInput | boolean
+    connect?: FeedingProgramWhereUniqueInput
+    update?: XOR<XOR<FeedingProgramUpdateToOneWithWhereWithoutConcentrateInput, FeedingProgramUpdateWithoutConcentrateInput>, FeedingProgramUncheckedUpdateWithoutConcentrateInput>
+  }
+
+  export type FeedingProgramUpdateOneWithoutSupplementNestedInput = {
+    create?: XOR<FeedingProgramCreateWithoutSupplementInput, FeedingProgramUncheckedCreateWithoutSupplementInput>
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutSupplementInput
+    upsert?: FeedingProgramUpsertWithoutSupplementInput
+    disconnect?: FeedingProgramWhereInput | boolean
+    delete?: FeedingProgramWhereInput | boolean
+    connect?: FeedingProgramWhereUniqueInput
+    update?: XOR<XOR<FeedingProgramUpdateToOneWithWhereWithoutSupplementInput, FeedingProgramUpdateWithoutSupplementInput>, FeedingProgramUncheckedUpdateWithoutSupplementInput>
+  }
+
+  export type FeedingProgramUncheckedUpdateOneWithoutBasalNestedInput = {
+    create?: XOR<FeedingProgramCreateWithoutBasalInput, FeedingProgramUncheckedCreateWithoutBasalInput>
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutBasalInput
+    upsert?: FeedingProgramUpsertWithoutBasalInput
+    disconnect?: FeedingProgramWhereInput | boolean
+    delete?: FeedingProgramWhereInput | boolean
+    connect?: FeedingProgramWhereUniqueInput
+    update?: XOR<XOR<FeedingProgramUpdateToOneWithWhereWithoutBasalInput, FeedingProgramUpdateWithoutBasalInput>, FeedingProgramUncheckedUpdateWithoutBasalInput>
+  }
+
+  export type FeedingProgramUncheckedUpdateOneWithoutConcentrateNestedInput = {
+    create?: XOR<FeedingProgramCreateWithoutConcentrateInput, FeedingProgramUncheckedCreateWithoutConcentrateInput>
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutConcentrateInput
+    upsert?: FeedingProgramUpsertWithoutConcentrateInput
+    disconnect?: FeedingProgramWhereInput | boolean
+    delete?: FeedingProgramWhereInput | boolean
+    connect?: FeedingProgramWhereUniqueInput
+    update?: XOR<XOR<FeedingProgramUpdateToOneWithWhereWithoutConcentrateInput, FeedingProgramUpdateWithoutConcentrateInput>, FeedingProgramUncheckedUpdateWithoutConcentrateInput>
+  }
+
+  export type FeedingProgramUncheckedUpdateOneWithoutSupplementNestedInput = {
+    create?: XOR<FeedingProgramCreateWithoutSupplementInput, FeedingProgramUncheckedCreateWithoutSupplementInput>
+    connectOrCreate?: FeedingProgramCreateOrConnectWithoutSupplementInput
+    upsert?: FeedingProgramUpsertWithoutSupplementInput
+    disconnect?: FeedingProgramWhereInput | boolean
+    delete?: FeedingProgramWhereInput | boolean
+    connect?: FeedingProgramWhereUniqueInput
+    update?: XOR<XOR<FeedingProgramUpdateToOneWithWhereWithoutSupplementInput, FeedingProgramUpdateWithoutSupplementInput>, FeedingProgramUncheckedUpdateWithoutSupplementInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -25037,6 +28721,7 @@ export namespace Prisma {
     employees?: EmployeeFarmCreateNestedManyWithoutFarmInput
     livestock?: LivestockCreateNestedManyWithoutFarmInput
     breedingRecords?: BreedingRecordCreateNestedManyWithoutFarmInput
+    feedingPrograms?: FeedingProgramCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutUserInput = {
@@ -25052,6 +28737,7 @@ export namespace Prisma {
     employees?: EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput
     livestock?: LivestockUncheckedCreateNestedManyWithoutFarmInput
     breedingRecords?: BreedingRecordUncheckedCreateNestedManyWithoutFarmInput
+    feedingPrograms?: FeedingProgramUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutUserInput = {
@@ -25061,6 +28747,56 @@ export namespace Prisma {
 
   export type FarmCreateManyUserInputEnvelope = {
     data: FarmCreateManyUserInput | FarmCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FeedingProgramCreateWithoutUserInput = {
+    id?: string
+    programType: string
+    animalId?: string | null
+    animalType?: string | null
+    lifecycleStages?: FeedingProgramCreatelifecycleStagesInput | string[]
+    groupId?: string | null
+    groupType?: string | null
+    groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    feedType: string
+    timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutFeedingProgramsInput
+    basal: FeedDetailsCreateNestedOneWithoutBasalProgramInput
+    concentrate?: FeedDetailsCreateNestedOneWithoutConcentrateProgramInput
+    supplement?: FeedDetailsCreateNestedOneWithoutSupplementProgramInput
+  }
+
+  export type FeedingProgramUncheckedCreateWithoutUserInput = {
+    id?: string
+    farmId: string
+    programType: string
+    animalId?: string | null
+    animalType?: string | null
+    lifecycleStages?: FeedingProgramCreatelifecycleStagesInput | string[]
+    groupId?: string | null
+    groupType?: string | null
+    groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    feedType: string
+    timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    basalId: string
+    concentrateId?: string | null
+    supplementId?: string | null
+  }
+
+  export type FeedingProgramCreateOrConnectWithoutUserInput = {
+    where: FeedingProgramWhereUniqueInput
+    create: XOR<FeedingProgramCreateWithoutUserInput, FeedingProgramUncheckedCreateWithoutUserInput>
+  }
+
+  export type FeedingProgramCreateManyUserInputEnvelope = {
+    data: FeedingProgramCreateManyUserInput | FeedingProgramCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -25094,6 +28830,46 @@ export namespace Prisma {
     userId?: StringFilter<"Farm"> | string
     createdAt?: DateTimeFilter<"Farm"> | Date | string
     updatedAt?: DateTimeFilter<"Farm"> | Date | string
+  }
+
+  export type FeedingProgramUpsertWithWhereUniqueWithoutUserInput = {
+    where: FeedingProgramWhereUniqueInput
+    update: XOR<FeedingProgramUpdateWithoutUserInput, FeedingProgramUncheckedUpdateWithoutUserInput>
+    create: XOR<FeedingProgramCreateWithoutUserInput, FeedingProgramUncheckedCreateWithoutUserInput>
+  }
+
+  export type FeedingProgramUpdateWithWhereUniqueWithoutUserInput = {
+    where: FeedingProgramWhereUniqueInput
+    data: XOR<FeedingProgramUpdateWithoutUserInput, FeedingProgramUncheckedUpdateWithoutUserInput>
+  }
+
+  export type FeedingProgramUpdateManyWithWhereWithoutUserInput = {
+    where: FeedingProgramScalarWhereInput
+    data: XOR<FeedingProgramUpdateManyMutationInput, FeedingProgramUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type FeedingProgramScalarWhereInput = {
+    AND?: FeedingProgramScalarWhereInput | FeedingProgramScalarWhereInput[]
+    OR?: FeedingProgramScalarWhereInput[]
+    NOT?: FeedingProgramScalarWhereInput | FeedingProgramScalarWhereInput[]
+    id?: StringFilter<"FeedingProgram"> | string
+    farmId?: StringFilter<"FeedingProgram"> | string
+    userId?: StringFilter<"FeedingProgram"> | string
+    programType?: StringFilter<"FeedingProgram"> | string
+    animalId?: StringNullableFilter<"FeedingProgram"> | string | null
+    animalType?: StringNullableFilter<"FeedingProgram"> | string | null
+    lifecycleStages?: StringNullableListFilter<"FeedingProgram">
+    groupId?: StringNullableFilter<"FeedingProgram"> | string | null
+    groupType?: StringNullableFilter<"FeedingProgram"> | string | null
+    groupLifecycleStages?: StringNullableListFilter<"FeedingProgram">
+    feedType?: StringFilter<"FeedingProgram"> | string
+    timeOfDay?: StringNullableListFilter<"FeedingProgram">
+    notes?: StringNullableFilter<"FeedingProgram"> | string | null
+    createdAt?: DateTimeFilter<"FeedingProgram"> | Date | string
+    updatedAt?: DateTimeFilter<"FeedingProgram"> | Date | string
+    basalId?: StringFilter<"FeedingProgram"> | string
+    concentrateId?: StringNullableFilter<"FeedingProgram"> | string | null
+    supplementId?: StringNullableFilter<"FeedingProgram"> | string | null
   }
 
   export type EmployeeFarmCreateWithoutFarmInput = {
@@ -25254,6 +29030,7 @@ export namespace Prisma {
     isVerified?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    feedingPrograms?: FeedingProgramCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutFarmsInput = {
@@ -25278,11 +29055,62 @@ export namespace Prisma {
     isVerified?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    feedingPrograms?: FeedingProgramUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutFarmsInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutFarmsInput, UserUncheckedCreateWithoutFarmsInput>
+  }
+
+  export type FeedingProgramCreateWithoutFarmInput = {
+    id?: string
+    programType: string
+    animalId?: string | null
+    animalType?: string | null
+    lifecycleStages?: FeedingProgramCreatelifecycleStagesInput | string[]
+    groupId?: string | null
+    groupType?: string | null
+    groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    feedType: string
+    timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutFeedingProgramsInput
+    basal: FeedDetailsCreateNestedOneWithoutBasalProgramInput
+    concentrate?: FeedDetailsCreateNestedOneWithoutConcentrateProgramInput
+    supplement?: FeedDetailsCreateNestedOneWithoutSupplementProgramInput
+  }
+
+  export type FeedingProgramUncheckedCreateWithoutFarmInput = {
+    id?: string
+    userId: string
+    programType: string
+    animalId?: string | null
+    animalType?: string | null
+    lifecycleStages?: FeedingProgramCreatelifecycleStagesInput | string[]
+    groupId?: string | null
+    groupType?: string | null
+    groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    feedType: string
+    timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    basalId: string
+    concentrateId?: string | null
+    supplementId?: string | null
+  }
+
+  export type FeedingProgramCreateOrConnectWithoutFarmInput = {
+    where: FeedingProgramWhereUniqueInput
+    create: XOR<FeedingProgramCreateWithoutFarmInput, FeedingProgramUncheckedCreateWithoutFarmInput>
+  }
+
+  export type FeedingProgramCreateManyFarmInputEnvelope = {
+    data: FeedingProgramCreateManyFarmInput | FeedingProgramCreateManyFarmInput[]
+    skipDuplicates?: boolean
   }
 
   export type EmployeeFarmUpsertWithWhereUniqueWithoutFarmInput = {
@@ -25421,6 +29249,7 @@ export namespace Prisma {
     isVerified?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    feedingPrograms?: FeedingProgramUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutFarmsInput = {
@@ -25445,6 +29274,23 @@ export namespace Prisma {
     isVerified?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    feedingPrograms?: FeedingProgramUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type FeedingProgramUpsertWithWhereUniqueWithoutFarmInput = {
+    where: FeedingProgramWhereUniqueInput
+    update: XOR<FeedingProgramUpdateWithoutFarmInput, FeedingProgramUncheckedUpdateWithoutFarmInput>
+    create: XOR<FeedingProgramCreateWithoutFarmInput, FeedingProgramUncheckedCreateWithoutFarmInput>
+  }
+
+  export type FeedingProgramUpdateWithWhereUniqueWithoutFarmInput = {
+    where: FeedingProgramWhereUniqueInput
+    data: XOR<FeedingProgramUpdateWithoutFarmInput, FeedingProgramUncheckedUpdateWithoutFarmInput>
+  }
+
+  export type FeedingProgramUpdateManyWithWhereWithoutFarmInput = {
+    where: FeedingProgramScalarWhereInput
+    data: XOR<FeedingProgramUpdateManyMutationInput, FeedingProgramUncheckedUpdateManyWithoutFarmInput>
   }
 
   export type EmployeeBenefitCreateWithoutEmployeeInput = {
@@ -25605,6 +29451,7 @@ export namespace Prisma {
     livestock?: LivestockCreateNestedManyWithoutFarmInput
     breedingRecords?: BreedingRecordCreateNestedManyWithoutFarmInput
     user: UserCreateNestedOneWithoutFarmsInput
+    feedingPrograms?: FeedingProgramCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutEmployeesInput = {
@@ -25620,6 +29467,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     livestock?: LivestockUncheckedCreateNestedManyWithoutFarmInput
     breedingRecords?: BreedingRecordUncheckedCreateNestedManyWithoutFarmInput
+    feedingPrograms?: FeedingProgramUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutEmployeesInput = {
@@ -25708,6 +29556,7 @@ export namespace Prisma {
     livestock?: LivestockUpdateManyWithoutFarmNestedInput
     breedingRecords?: BreedingRecordUpdateManyWithoutFarmNestedInput
     user?: UserUpdateOneRequiredWithoutFarmsNestedInput
+    feedingPrograms?: FeedingProgramUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutEmployeesInput = {
@@ -25723,6 +29572,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     livestock?: LivestockUncheckedUpdateManyWithoutFarmNestedInput
     breedingRecords?: BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput
+    feedingPrograms?: FeedingProgramUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type EmployeeCreateWithoutBenefitsInput = {
@@ -25846,6 +29696,7 @@ export namespace Prisma {
     employees?: EmployeeFarmCreateNestedManyWithoutFarmInput
     breedingRecords?: BreedingRecordCreateNestedManyWithoutFarmInput
     user: UserCreateNestedOneWithoutFarmsInput
+    feedingPrograms?: FeedingProgramCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutLivestockInput = {
@@ -25861,6 +29712,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     employees?: EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput
     breedingRecords?: BreedingRecordUncheckedCreateNestedManyWithoutFarmInput
+    feedingPrograms?: FeedingProgramUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutLivestockInput = {
@@ -26274,6 +30126,7 @@ export namespace Prisma {
     employees?: EmployeeFarmUpdateManyWithoutFarmNestedInput
     breedingRecords?: BreedingRecordUpdateManyWithoutFarmNestedInput
     user?: UserUpdateOneRequiredWithoutFarmsNestedInput
+    feedingPrograms?: FeedingProgramUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutLivestockInput = {
@@ -26289,6 +30142,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     employees?: EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput
     breedingRecords?: BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput
+    feedingPrograms?: FeedingProgramUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type MammalUpsertWithoutLivestockInput = {
@@ -27244,6 +31098,7 @@ export namespace Prisma {
     employees?: EmployeeFarmCreateNestedManyWithoutFarmInput
     livestock?: LivestockCreateNestedManyWithoutFarmInput
     user: UserCreateNestedOneWithoutFarmsInput
+    feedingPrograms?: FeedingProgramCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutBreedingRecordsInput = {
@@ -27259,6 +31114,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     employees?: EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput
     livestock?: LivestockUncheckedCreateNestedManyWithoutFarmInput
+    feedingPrograms?: FeedingProgramUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutBreedingRecordsInput = {
@@ -27400,6 +31256,7 @@ export namespace Prisma {
     employees?: EmployeeFarmUpdateManyWithoutFarmNestedInput
     livestock?: LivestockUpdateManyWithoutFarmNestedInput
     user?: UserUpdateOneRequiredWithoutFarmsNestedInput
+    feedingPrograms?: FeedingProgramUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutBreedingRecordsInput = {
@@ -27415,6 +31272,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     employees?: EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput
     livestock?: LivestockUncheckedUpdateManyWithoutFarmNestedInput
+    feedingPrograms?: FeedingProgramUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type BreedingRecordCreateWithoutOffspringInput = {
@@ -27633,6 +31491,718 @@ export namespace Prisma {
     breedingSire?: BreedingRecordUncheckedUpdateManyWithoutSireNestedInput
   }
 
+  export type FarmCreateWithoutFeedingProgramsInput = {
+    id?: string
+    name: string
+    county: string
+    administrativeLocation: string
+    size: number
+    ownership: string
+    farmingTypes?: FarmCreatefarmingTypesInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    employees?: EmployeeFarmCreateNestedManyWithoutFarmInput
+    livestock?: LivestockCreateNestedManyWithoutFarmInput
+    breedingRecords?: BreedingRecordCreateNestedManyWithoutFarmInput
+    user: UserCreateNestedOneWithoutFarmsInput
+  }
+
+  export type FarmUncheckedCreateWithoutFeedingProgramsInput = {
+    id?: string
+    name: string
+    county: string
+    administrativeLocation: string
+    size: number
+    ownership: string
+    farmingTypes?: FarmCreatefarmingTypesInput | string[]
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    employees?: EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput
+    livestock?: LivestockUncheckedCreateNestedManyWithoutFarmInput
+    breedingRecords?: BreedingRecordUncheckedCreateNestedManyWithoutFarmInput
+  }
+
+  export type FarmCreateOrConnectWithoutFeedingProgramsInput = {
+    where: FarmWhereUniqueInput
+    create: XOR<FarmCreateWithoutFeedingProgramsInput, FarmUncheckedCreateWithoutFeedingProgramsInput>
+  }
+
+  export type UserCreateWithoutFeedingProgramsInput = {
+    id?: string
+    firstName: string
+    middleName?: string | null
+    lastName: string
+    gender: string
+    dob: string
+    residenceCounty: string
+    residenceLocation?: string | null
+    constituency?: string | null
+    residenceConstituency?: string | null
+    email?: string | null
+    phoneNumber: string
+    nationalId?: string | null
+    businessNumber?: string | null
+    pin: string
+    yearsOfExperience?: number | null
+    otp?: string | null
+    otpExpiry?: Date | string | null
+    isVerified?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farms?: FarmCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutFeedingProgramsInput = {
+    id?: string
+    firstName: string
+    middleName?: string | null
+    lastName: string
+    gender: string
+    dob: string
+    residenceCounty: string
+    residenceLocation?: string | null
+    constituency?: string | null
+    residenceConstituency?: string | null
+    email?: string | null
+    phoneNumber: string
+    nationalId?: string | null
+    businessNumber?: string | null
+    pin: string
+    yearsOfExperience?: number | null
+    otp?: string | null
+    otpExpiry?: Date | string | null
+    isVerified?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farms?: FarmUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutFeedingProgramsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutFeedingProgramsInput, UserUncheckedCreateWithoutFeedingProgramsInput>
+  }
+
+  export type FeedDetailsCreateWithoutBasalProgramInput = {
+    id?: string
+    feedType: string
+    source: string
+    schedule: string
+    quantity: number
+    date: Date | string
+    cost?: number | null
+    supplier?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    concentrateProgram?: FeedingProgramCreateNestedOneWithoutConcentrateInput
+    supplementProgram?: FeedingProgramCreateNestedOneWithoutSupplementInput
+  }
+
+  export type FeedDetailsUncheckedCreateWithoutBasalProgramInput = {
+    id?: string
+    feedType: string
+    source: string
+    schedule: string
+    quantity: number
+    date: Date | string
+    cost?: number | null
+    supplier?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    concentrateProgram?: FeedingProgramUncheckedCreateNestedOneWithoutConcentrateInput
+    supplementProgram?: FeedingProgramUncheckedCreateNestedOneWithoutSupplementInput
+  }
+
+  export type FeedDetailsCreateOrConnectWithoutBasalProgramInput = {
+    where: FeedDetailsWhereUniqueInput
+    create: XOR<FeedDetailsCreateWithoutBasalProgramInput, FeedDetailsUncheckedCreateWithoutBasalProgramInput>
+  }
+
+  export type FeedDetailsCreateWithoutConcentrateProgramInput = {
+    id?: string
+    feedType: string
+    source: string
+    schedule: string
+    quantity: number
+    date: Date | string
+    cost?: number | null
+    supplier?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    basalProgram?: FeedingProgramCreateNestedOneWithoutBasalInput
+    supplementProgram?: FeedingProgramCreateNestedOneWithoutSupplementInput
+  }
+
+  export type FeedDetailsUncheckedCreateWithoutConcentrateProgramInput = {
+    id?: string
+    feedType: string
+    source: string
+    schedule: string
+    quantity: number
+    date: Date | string
+    cost?: number | null
+    supplier?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    basalProgram?: FeedingProgramUncheckedCreateNestedOneWithoutBasalInput
+    supplementProgram?: FeedingProgramUncheckedCreateNestedOneWithoutSupplementInput
+  }
+
+  export type FeedDetailsCreateOrConnectWithoutConcentrateProgramInput = {
+    where: FeedDetailsWhereUniqueInput
+    create: XOR<FeedDetailsCreateWithoutConcentrateProgramInput, FeedDetailsUncheckedCreateWithoutConcentrateProgramInput>
+  }
+
+  export type FeedDetailsCreateWithoutSupplementProgramInput = {
+    id?: string
+    feedType: string
+    source: string
+    schedule: string
+    quantity: number
+    date: Date | string
+    cost?: number | null
+    supplier?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    basalProgram?: FeedingProgramCreateNestedOneWithoutBasalInput
+    concentrateProgram?: FeedingProgramCreateNestedOneWithoutConcentrateInput
+  }
+
+  export type FeedDetailsUncheckedCreateWithoutSupplementProgramInput = {
+    id?: string
+    feedType: string
+    source: string
+    schedule: string
+    quantity: number
+    date: Date | string
+    cost?: number | null
+    supplier?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    basalProgram?: FeedingProgramUncheckedCreateNestedOneWithoutBasalInput
+    concentrateProgram?: FeedingProgramUncheckedCreateNestedOneWithoutConcentrateInput
+  }
+
+  export type FeedDetailsCreateOrConnectWithoutSupplementProgramInput = {
+    where: FeedDetailsWhereUniqueInput
+    create: XOR<FeedDetailsCreateWithoutSupplementProgramInput, FeedDetailsUncheckedCreateWithoutSupplementProgramInput>
+  }
+
+  export type FarmUpsertWithoutFeedingProgramsInput = {
+    update: XOR<FarmUpdateWithoutFeedingProgramsInput, FarmUncheckedUpdateWithoutFeedingProgramsInput>
+    create: XOR<FarmCreateWithoutFeedingProgramsInput, FarmUncheckedCreateWithoutFeedingProgramsInput>
+    where?: FarmWhereInput
+  }
+
+  export type FarmUpdateToOneWithWhereWithoutFeedingProgramsInput = {
+    where?: FarmWhereInput
+    data: XOR<FarmUpdateWithoutFeedingProgramsInput, FarmUncheckedUpdateWithoutFeedingProgramsInput>
+  }
+
+  export type FarmUpdateWithoutFeedingProgramsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    county?: StringFieldUpdateOperationsInput | string
+    administrativeLocation?: StringFieldUpdateOperationsInput | string
+    size?: FloatFieldUpdateOperationsInput | number
+    ownership?: StringFieldUpdateOperationsInput | string
+    farmingTypes?: FarmUpdatefarmingTypesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: EmployeeFarmUpdateManyWithoutFarmNestedInput
+    livestock?: LivestockUpdateManyWithoutFarmNestedInput
+    breedingRecords?: BreedingRecordUpdateManyWithoutFarmNestedInput
+    user?: UserUpdateOneRequiredWithoutFarmsNestedInput
+  }
+
+  export type FarmUncheckedUpdateWithoutFeedingProgramsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    county?: StringFieldUpdateOperationsInput | string
+    administrativeLocation?: StringFieldUpdateOperationsInput | string
+    size?: FloatFieldUpdateOperationsInput | number
+    ownership?: StringFieldUpdateOperationsInput | string
+    farmingTypes?: FarmUpdatefarmingTypesInput | string[]
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput
+    livestock?: LivestockUncheckedUpdateManyWithoutFarmNestedInput
+    breedingRecords?: BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput
+  }
+
+  export type UserUpsertWithoutFeedingProgramsInput = {
+    update: XOR<UserUpdateWithoutFeedingProgramsInput, UserUncheckedUpdateWithoutFeedingProgramsInput>
+    create: XOR<UserCreateWithoutFeedingProgramsInput, UserUncheckedCreateWithoutFeedingProgramsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutFeedingProgramsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutFeedingProgramsInput, UserUncheckedUpdateWithoutFeedingProgramsInput>
+  }
+
+  export type UserUpdateWithoutFeedingProgramsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    dob?: StringFieldUpdateOperationsInput | string
+    residenceCounty?: StringFieldUpdateOperationsInput | string
+    residenceLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    constituency?: NullableStringFieldUpdateOperationsInput | string | null
+    residenceConstituency?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    nationalId?: NullableStringFieldUpdateOperationsInput | string | null
+    businessNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    pin?: StringFieldUpdateOperationsInput | string
+    yearsOfExperience?: NullableIntFieldUpdateOperationsInput | number | null
+    otp?: NullableStringFieldUpdateOperationsInput | string | null
+    otpExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farms?: FarmUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutFeedingProgramsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    middleName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    dob?: StringFieldUpdateOperationsInput | string
+    residenceCounty?: StringFieldUpdateOperationsInput | string
+    residenceLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    constituency?: NullableStringFieldUpdateOperationsInput | string | null
+    residenceConstituency?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    nationalId?: NullableStringFieldUpdateOperationsInput | string | null
+    businessNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    pin?: StringFieldUpdateOperationsInput | string
+    yearsOfExperience?: NullableIntFieldUpdateOperationsInput | number | null
+    otp?: NullableStringFieldUpdateOperationsInput | string | null
+    otpExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farms?: FarmUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type FeedDetailsUpsertWithoutBasalProgramInput = {
+    update: XOR<FeedDetailsUpdateWithoutBasalProgramInput, FeedDetailsUncheckedUpdateWithoutBasalProgramInput>
+    create: XOR<FeedDetailsCreateWithoutBasalProgramInput, FeedDetailsUncheckedCreateWithoutBasalProgramInput>
+    where?: FeedDetailsWhereInput
+  }
+
+  export type FeedDetailsUpdateToOneWithWhereWithoutBasalProgramInput = {
+    where?: FeedDetailsWhereInput
+    data: XOR<FeedDetailsUpdateWithoutBasalProgramInput, FeedDetailsUncheckedUpdateWithoutBasalProgramInput>
+  }
+
+  export type FeedDetailsUpdateWithoutBasalProgramInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    feedType?: StringFieldUpdateOperationsInput | string
+    source?: StringFieldUpdateOperationsInput | string
+    schedule?: StringFieldUpdateOperationsInput | string
+    quantity?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    supplier?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    concentrateProgram?: FeedingProgramUpdateOneWithoutConcentrateNestedInput
+    supplementProgram?: FeedingProgramUpdateOneWithoutSupplementNestedInput
+  }
+
+  export type FeedDetailsUncheckedUpdateWithoutBasalProgramInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    feedType?: StringFieldUpdateOperationsInput | string
+    source?: StringFieldUpdateOperationsInput | string
+    schedule?: StringFieldUpdateOperationsInput | string
+    quantity?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    supplier?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    concentrateProgram?: FeedingProgramUncheckedUpdateOneWithoutConcentrateNestedInput
+    supplementProgram?: FeedingProgramUncheckedUpdateOneWithoutSupplementNestedInput
+  }
+
+  export type FeedDetailsUpsertWithoutConcentrateProgramInput = {
+    update: XOR<FeedDetailsUpdateWithoutConcentrateProgramInput, FeedDetailsUncheckedUpdateWithoutConcentrateProgramInput>
+    create: XOR<FeedDetailsCreateWithoutConcentrateProgramInput, FeedDetailsUncheckedCreateWithoutConcentrateProgramInput>
+    where?: FeedDetailsWhereInput
+  }
+
+  export type FeedDetailsUpdateToOneWithWhereWithoutConcentrateProgramInput = {
+    where?: FeedDetailsWhereInput
+    data: XOR<FeedDetailsUpdateWithoutConcentrateProgramInput, FeedDetailsUncheckedUpdateWithoutConcentrateProgramInput>
+  }
+
+  export type FeedDetailsUpdateWithoutConcentrateProgramInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    feedType?: StringFieldUpdateOperationsInput | string
+    source?: StringFieldUpdateOperationsInput | string
+    schedule?: StringFieldUpdateOperationsInput | string
+    quantity?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    supplier?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    basalProgram?: FeedingProgramUpdateOneWithoutBasalNestedInput
+    supplementProgram?: FeedingProgramUpdateOneWithoutSupplementNestedInput
+  }
+
+  export type FeedDetailsUncheckedUpdateWithoutConcentrateProgramInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    feedType?: StringFieldUpdateOperationsInput | string
+    source?: StringFieldUpdateOperationsInput | string
+    schedule?: StringFieldUpdateOperationsInput | string
+    quantity?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    supplier?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    basalProgram?: FeedingProgramUncheckedUpdateOneWithoutBasalNestedInput
+    supplementProgram?: FeedingProgramUncheckedUpdateOneWithoutSupplementNestedInput
+  }
+
+  export type FeedDetailsUpsertWithoutSupplementProgramInput = {
+    update: XOR<FeedDetailsUpdateWithoutSupplementProgramInput, FeedDetailsUncheckedUpdateWithoutSupplementProgramInput>
+    create: XOR<FeedDetailsCreateWithoutSupplementProgramInput, FeedDetailsUncheckedCreateWithoutSupplementProgramInput>
+    where?: FeedDetailsWhereInput
+  }
+
+  export type FeedDetailsUpdateToOneWithWhereWithoutSupplementProgramInput = {
+    where?: FeedDetailsWhereInput
+    data: XOR<FeedDetailsUpdateWithoutSupplementProgramInput, FeedDetailsUncheckedUpdateWithoutSupplementProgramInput>
+  }
+
+  export type FeedDetailsUpdateWithoutSupplementProgramInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    feedType?: StringFieldUpdateOperationsInput | string
+    source?: StringFieldUpdateOperationsInput | string
+    schedule?: StringFieldUpdateOperationsInput | string
+    quantity?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    supplier?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    basalProgram?: FeedingProgramUpdateOneWithoutBasalNestedInput
+    concentrateProgram?: FeedingProgramUpdateOneWithoutConcentrateNestedInput
+  }
+
+  export type FeedDetailsUncheckedUpdateWithoutSupplementProgramInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    feedType?: StringFieldUpdateOperationsInput | string
+    source?: StringFieldUpdateOperationsInput | string
+    schedule?: StringFieldUpdateOperationsInput | string
+    quantity?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    supplier?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    basalProgram?: FeedingProgramUncheckedUpdateOneWithoutBasalNestedInput
+    concentrateProgram?: FeedingProgramUncheckedUpdateOneWithoutConcentrateNestedInput
+  }
+
+  export type FeedingProgramCreateWithoutBasalInput = {
+    id?: string
+    programType: string
+    animalId?: string | null
+    animalType?: string | null
+    lifecycleStages?: FeedingProgramCreatelifecycleStagesInput | string[]
+    groupId?: string | null
+    groupType?: string | null
+    groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    feedType: string
+    timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutFeedingProgramsInput
+    user: UserCreateNestedOneWithoutFeedingProgramsInput
+    concentrate?: FeedDetailsCreateNestedOneWithoutConcentrateProgramInput
+    supplement?: FeedDetailsCreateNestedOneWithoutSupplementProgramInput
+  }
+
+  export type FeedingProgramUncheckedCreateWithoutBasalInput = {
+    id?: string
+    farmId: string
+    userId: string
+    programType: string
+    animalId?: string | null
+    animalType?: string | null
+    lifecycleStages?: FeedingProgramCreatelifecycleStagesInput | string[]
+    groupId?: string | null
+    groupType?: string | null
+    groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    feedType: string
+    timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    concentrateId?: string | null
+    supplementId?: string | null
+  }
+
+  export type FeedingProgramCreateOrConnectWithoutBasalInput = {
+    where: FeedingProgramWhereUniqueInput
+    create: XOR<FeedingProgramCreateWithoutBasalInput, FeedingProgramUncheckedCreateWithoutBasalInput>
+  }
+
+  export type FeedingProgramCreateWithoutConcentrateInput = {
+    id?: string
+    programType: string
+    animalId?: string | null
+    animalType?: string | null
+    lifecycleStages?: FeedingProgramCreatelifecycleStagesInput | string[]
+    groupId?: string | null
+    groupType?: string | null
+    groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    feedType: string
+    timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutFeedingProgramsInput
+    user: UserCreateNestedOneWithoutFeedingProgramsInput
+    basal: FeedDetailsCreateNestedOneWithoutBasalProgramInput
+    supplement?: FeedDetailsCreateNestedOneWithoutSupplementProgramInput
+  }
+
+  export type FeedingProgramUncheckedCreateWithoutConcentrateInput = {
+    id?: string
+    farmId: string
+    userId: string
+    programType: string
+    animalId?: string | null
+    animalType?: string | null
+    lifecycleStages?: FeedingProgramCreatelifecycleStagesInput | string[]
+    groupId?: string | null
+    groupType?: string | null
+    groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    feedType: string
+    timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    basalId: string
+    supplementId?: string | null
+  }
+
+  export type FeedingProgramCreateOrConnectWithoutConcentrateInput = {
+    where: FeedingProgramWhereUniqueInput
+    create: XOR<FeedingProgramCreateWithoutConcentrateInput, FeedingProgramUncheckedCreateWithoutConcentrateInput>
+  }
+
+  export type FeedingProgramCreateWithoutSupplementInput = {
+    id?: string
+    programType: string
+    animalId?: string | null
+    animalType?: string | null
+    lifecycleStages?: FeedingProgramCreatelifecycleStagesInput | string[]
+    groupId?: string | null
+    groupType?: string | null
+    groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    feedType: string
+    timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutFeedingProgramsInput
+    user: UserCreateNestedOneWithoutFeedingProgramsInput
+    basal: FeedDetailsCreateNestedOneWithoutBasalProgramInput
+    concentrate?: FeedDetailsCreateNestedOneWithoutConcentrateProgramInput
+  }
+
+  export type FeedingProgramUncheckedCreateWithoutSupplementInput = {
+    id?: string
+    farmId: string
+    userId: string
+    programType: string
+    animalId?: string | null
+    animalType?: string | null
+    lifecycleStages?: FeedingProgramCreatelifecycleStagesInput | string[]
+    groupId?: string | null
+    groupType?: string | null
+    groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    feedType: string
+    timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    basalId: string
+    concentrateId?: string | null
+  }
+
+  export type FeedingProgramCreateOrConnectWithoutSupplementInput = {
+    where: FeedingProgramWhereUniqueInput
+    create: XOR<FeedingProgramCreateWithoutSupplementInput, FeedingProgramUncheckedCreateWithoutSupplementInput>
+  }
+
+  export type FeedingProgramUpsertWithoutBasalInput = {
+    update: XOR<FeedingProgramUpdateWithoutBasalInput, FeedingProgramUncheckedUpdateWithoutBasalInput>
+    create: XOR<FeedingProgramCreateWithoutBasalInput, FeedingProgramUncheckedCreateWithoutBasalInput>
+    where?: FeedingProgramWhereInput
+  }
+
+  export type FeedingProgramUpdateToOneWithWhereWithoutBasalInput = {
+    where?: FeedingProgramWhereInput
+    data: XOR<FeedingProgramUpdateWithoutBasalInput, FeedingProgramUncheckedUpdateWithoutBasalInput>
+  }
+
+  export type FeedingProgramUpdateWithoutBasalInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    programType?: StringFieldUpdateOperationsInput | string
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    animalType?: NullableStringFieldUpdateOperationsInput | string | null
+    lifecycleStages?: FeedingProgramUpdatelifecycleStagesInput | string[]
+    groupId?: NullableStringFieldUpdateOperationsInput | string | null
+    groupType?: NullableStringFieldUpdateOperationsInput | string | null
+    groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    feedType?: StringFieldUpdateOperationsInput | string
+    timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutFeedingProgramsNestedInput
+    user?: UserUpdateOneRequiredWithoutFeedingProgramsNestedInput
+    concentrate?: FeedDetailsUpdateOneWithoutConcentrateProgramNestedInput
+    supplement?: FeedDetailsUpdateOneWithoutSupplementProgramNestedInput
+  }
+
+  export type FeedingProgramUncheckedUpdateWithoutBasalInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    programType?: StringFieldUpdateOperationsInput | string
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    animalType?: NullableStringFieldUpdateOperationsInput | string | null
+    lifecycleStages?: FeedingProgramUpdatelifecycleStagesInput | string[]
+    groupId?: NullableStringFieldUpdateOperationsInput | string | null
+    groupType?: NullableStringFieldUpdateOperationsInput | string | null
+    groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    feedType?: StringFieldUpdateOperationsInput | string
+    timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    concentrateId?: NullableStringFieldUpdateOperationsInput | string | null
+    supplementId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FeedingProgramUpsertWithoutConcentrateInput = {
+    update: XOR<FeedingProgramUpdateWithoutConcentrateInput, FeedingProgramUncheckedUpdateWithoutConcentrateInput>
+    create: XOR<FeedingProgramCreateWithoutConcentrateInput, FeedingProgramUncheckedCreateWithoutConcentrateInput>
+    where?: FeedingProgramWhereInput
+  }
+
+  export type FeedingProgramUpdateToOneWithWhereWithoutConcentrateInput = {
+    where?: FeedingProgramWhereInput
+    data: XOR<FeedingProgramUpdateWithoutConcentrateInput, FeedingProgramUncheckedUpdateWithoutConcentrateInput>
+  }
+
+  export type FeedingProgramUpdateWithoutConcentrateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    programType?: StringFieldUpdateOperationsInput | string
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    animalType?: NullableStringFieldUpdateOperationsInput | string | null
+    lifecycleStages?: FeedingProgramUpdatelifecycleStagesInput | string[]
+    groupId?: NullableStringFieldUpdateOperationsInput | string | null
+    groupType?: NullableStringFieldUpdateOperationsInput | string | null
+    groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    feedType?: StringFieldUpdateOperationsInput | string
+    timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutFeedingProgramsNestedInput
+    user?: UserUpdateOneRequiredWithoutFeedingProgramsNestedInput
+    basal?: FeedDetailsUpdateOneRequiredWithoutBasalProgramNestedInput
+    supplement?: FeedDetailsUpdateOneWithoutSupplementProgramNestedInput
+  }
+
+  export type FeedingProgramUncheckedUpdateWithoutConcentrateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    programType?: StringFieldUpdateOperationsInput | string
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    animalType?: NullableStringFieldUpdateOperationsInput | string | null
+    lifecycleStages?: FeedingProgramUpdatelifecycleStagesInput | string[]
+    groupId?: NullableStringFieldUpdateOperationsInput | string | null
+    groupType?: NullableStringFieldUpdateOperationsInput | string | null
+    groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    feedType?: StringFieldUpdateOperationsInput | string
+    timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    basalId?: StringFieldUpdateOperationsInput | string
+    supplementId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FeedingProgramUpsertWithoutSupplementInput = {
+    update: XOR<FeedingProgramUpdateWithoutSupplementInput, FeedingProgramUncheckedUpdateWithoutSupplementInput>
+    create: XOR<FeedingProgramCreateWithoutSupplementInput, FeedingProgramUncheckedCreateWithoutSupplementInput>
+    where?: FeedingProgramWhereInput
+  }
+
+  export type FeedingProgramUpdateToOneWithWhereWithoutSupplementInput = {
+    where?: FeedingProgramWhereInput
+    data: XOR<FeedingProgramUpdateWithoutSupplementInput, FeedingProgramUncheckedUpdateWithoutSupplementInput>
+  }
+
+  export type FeedingProgramUpdateWithoutSupplementInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    programType?: StringFieldUpdateOperationsInput | string
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    animalType?: NullableStringFieldUpdateOperationsInput | string | null
+    lifecycleStages?: FeedingProgramUpdatelifecycleStagesInput | string[]
+    groupId?: NullableStringFieldUpdateOperationsInput | string | null
+    groupType?: NullableStringFieldUpdateOperationsInput | string | null
+    groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    feedType?: StringFieldUpdateOperationsInput | string
+    timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutFeedingProgramsNestedInput
+    user?: UserUpdateOneRequiredWithoutFeedingProgramsNestedInput
+    basal?: FeedDetailsUpdateOneRequiredWithoutBasalProgramNestedInput
+    concentrate?: FeedDetailsUpdateOneWithoutConcentrateProgramNestedInput
+  }
+
+  export type FeedingProgramUncheckedUpdateWithoutSupplementInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    programType?: StringFieldUpdateOperationsInput | string
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    animalType?: NullableStringFieldUpdateOperationsInput | string | null
+    lifecycleStages?: FeedingProgramUpdatelifecycleStagesInput | string[]
+    groupId?: NullableStringFieldUpdateOperationsInput | string | null
+    groupType?: NullableStringFieldUpdateOperationsInput | string | null
+    groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    feedType?: StringFieldUpdateOperationsInput | string
+    timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    basalId?: StringFieldUpdateOperationsInput | string
+    concentrateId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type FarmCreateManyUserInput = {
     id?: string
     name: string
@@ -27643,6 +32213,26 @@ export namespace Prisma {
     farmingTypes?: FarmCreatefarmingTypesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+  }
+
+  export type FeedingProgramCreateManyUserInput = {
+    id?: string
+    farmId: string
+    programType: string
+    animalId?: string | null
+    animalType?: string | null
+    lifecycleStages?: FeedingProgramCreatelifecycleStagesInput | string[]
+    groupId?: string | null
+    groupType?: string | null
+    groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    feedType: string
+    timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    basalId: string
+    concentrateId?: string | null
+    supplementId?: string | null
   }
 
   export type FarmUpdateWithoutUserInput = {
@@ -27658,6 +32248,7 @@ export namespace Prisma {
     employees?: EmployeeFarmUpdateManyWithoutFarmNestedInput
     livestock?: LivestockUpdateManyWithoutFarmNestedInput
     breedingRecords?: BreedingRecordUpdateManyWithoutFarmNestedInput
+    feedingPrograms?: FeedingProgramUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutUserInput = {
@@ -27673,6 +32264,7 @@ export namespace Prisma {
     employees?: EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput
     livestock?: LivestockUncheckedUpdateManyWithoutFarmNestedInput
     breedingRecords?: BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput
+    feedingPrograms?: FeedingProgramUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateManyWithoutUserInput = {
@@ -27685,6 +32277,66 @@ export namespace Prisma {
     farmingTypes?: FarmUpdatefarmingTypesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FeedingProgramUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    programType?: StringFieldUpdateOperationsInput | string
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    animalType?: NullableStringFieldUpdateOperationsInput | string | null
+    lifecycleStages?: FeedingProgramUpdatelifecycleStagesInput | string[]
+    groupId?: NullableStringFieldUpdateOperationsInput | string | null
+    groupType?: NullableStringFieldUpdateOperationsInput | string | null
+    groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    feedType?: StringFieldUpdateOperationsInput | string
+    timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutFeedingProgramsNestedInput
+    basal?: FeedDetailsUpdateOneRequiredWithoutBasalProgramNestedInput
+    concentrate?: FeedDetailsUpdateOneWithoutConcentrateProgramNestedInput
+    supplement?: FeedDetailsUpdateOneWithoutSupplementProgramNestedInput
+  }
+
+  export type FeedingProgramUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    programType?: StringFieldUpdateOperationsInput | string
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    animalType?: NullableStringFieldUpdateOperationsInput | string | null
+    lifecycleStages?: FeedingProgramUpdatelifecycleStagesInput | string[]
+    groupId?: NullableStringFieldUpdateOperationsInput | string | null
+    groupType?: NullableStringFieldUpdateOperationsInput | string | null
+    groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    feedType?: StringFieldUpdateOperationsInput | string
+    timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    basalId?: StringFieldUpdateOperationsInput | string
+    concentrateId?: NullableStringFieldUpdateOperationsInput | string | null
+    supplementId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FeedingProgramUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    programType?: StringFieldUpdateOperationsInput | string
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    animalType?: NullableStringFieldUpdateOperationsInput | string | null
+    lifecycleStages?: FeedingProgramUpdatelifecycleStagesInput | string[]
+    groupId?: NullableStringFieldUpdateOperationsInput | string | null
+    groupType?: NullableStringFieldUpdateOperationsInput | string | null
+    groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    feedType?: StringFieldUpdateOperationsInput | string
+    timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    basalId?: StringFieldUpdateOperationsInput | string
+    concentrateId?: NullableStringFieldUpdateOperationsInput | string | null
+    supplementId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmployeeFarmCreateManyFarmInput = {
@@ -27728,6 +32380,26 @@ export namespace Prisma {
     offspringSex?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+  }
+
+  export type FeedingProgramCreateManyFarmInput = {
+    id?: string
+    userId: string
+    programType: string
+    animalId?: string | null
+    animalType?: string | null
+    lifecycleStages?: FeedingProgramCreatelifecycleStagesInput | string[]
+    groupId?: string | null
+    groupType?: string | null
+    groupLifecycleStages?: FeedingProgramCreategroupLifecycleStagesInput | string[]
+    feedType: string
+    timeOfDay?: FeedingProgramCreatetimeOfDayInput | string[]
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    basalId: string
+    concentrateId?: string | null
+    supplementId?: string | null
   }
 
   export type EmployeeFarmUpdateWithoutFarmInput = {
@@ -27877,6 +32549,66 @@ export namespace Prisma {
     offspringSex?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FeedingProgramUpdateWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    programType?: StringFieldUpdateOperationsInput | string
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    animalType?: NullableStringFieldUpdateOperationsInput | string | null
+    lifecycleStages?: FeedingProgramUpdatelifecycleStagesInput | string[]
+    groupId?: NullableStringFieldUpdateOperationsInput | string | null
+    groupType?: NullableStringFieldUpdateOperationsInput | string | null
+    groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    feedType?: StringFieldUpdateOperationsInput | string
+    timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutFeedingProgramsNestedInput
+    basal?: FeedDetailsUpdateOneRequiredWithoutBasalProgramNestedInput
+    concentrate?: FeedDetailsUpdateOneWithoutConcentrateProgramNestedInput
+    supplement?: FeedDetailsUpdateOneWithoutSupplementProgramNestedInput
+  }
+
+  export type FeedingProgramUncheckedUpdateWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    programType?: StringFieldUpdateOperationsInput | string
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    animalType?: NullableStringFieldUpdateOperationsInput | string | null
+    lifecycleStages?: FeedingProgramUpdatelifecycleStagesInput | string[]
+    groupId?: NullableStringFieldUpdateOperationsInput | string | null
+    groupType?: NullableStringFieldUpdateOperationsInput | string | null
+    groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    feedType?: StringFieldUpdateOperationsInput | string
+    timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    basalId?: StringFieldUpdateOperationsInput | string
+    concentrateId?: NullableStringFieldUpdateOperationsInput | string | null
+    supplementId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FeedingProgramUncheckedUpdateManyWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    programType?: StringFieldUpdateOperationsInput | string
+    animalId?: NullableStringFieldUpdateOperationsInput | string | null
+    animalType?: NullableStringFieldUpdateOperationsInput | string | null
+    lifecycleStages?: FeedingProgramUpdatelifecycleStagesInput | string[]
+    groupId?: NullableStringFieldUpdateOperationsInput | string | null
+    groupType?: NullableStringFieldUpdateOperationsInput | string | null
+    groupLifecycleStages?: FeedingProgramUpdategroupLifecycleStagesInput | string[]
+    feedType?: StringFieldUpdateOperationsInput | string
+    timeOfDay?: FeedingProgramUpdatetimeOfDayInput | string[]
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    basalId?: StringFieldUpdateOperationsInput | string
+    concentrateId?: NullableStringFieldUpdateOperationsInput | string | null
+    supplementId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmployeeBenefitCreateManyEmployeeInput = {
