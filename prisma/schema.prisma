@@ -31,6 +31,7 @@ model User {
   createdAt         DateTime  @default(now())
   updatedAt         DateTime  @updatedAt
   farms             Farm[]
+  feedingPrograms   FeedingProgram[]
 }
 
 model Farm {
@@ -48,6 +49,7 @@ model Farm {
   livestock              Livestock[]
   breedingRecords        BreedingRecord[]
   user                   User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  feedingPrograms        FeedingProgram[]
 }
 
 model Employee {
@@ -222,13 +224,13 @@ model Sale {
 
 model BreedingRecord {
   id            String    @id @default(cuid())
-  damId         String    // Female animal
+  damId         String    
   dam           Livestock @relation("dam", fields: [damId], references: [id], onDelete: Cascade)
-  sireId        String?   // Male animal (optional for AI)
+  sireId        String?   
   sire          Livestock? @relation("sire", fields: [sireId], references: [id], onDelete: SetNull)
-  purpose       String    // Improve Milk Production, Stocking Number, Immunity
-  strategy      String    // Cross Breeding, Breeding Within Breeds, Breeding Between Breeds
-  serviceType   String    // Natural Mating, Artificial Insemination
+  purpose       String    
+  strategy      String    
+  serviceType   String    
   serviceDate   DateTime
   numServices   Int       @default(1)
   firstHeatDate DateTime?
@@ -274,4 +276,51 @@ model Offspring {
   status          String    @default("alive") // alive, deceased, sold, transferred
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
+}
+
+model FeedingProgram {
+  id                   String       @id @default(cuid())
+  farmId               String
+  userId               String
+  programType          String // Single Animal or Group
+  animalId             String?
+  animalType           String?
+  lifecycleStages      String[]
+  groupId              String?
+  groupType            String?
+  groupLifecycleStages String[]
+  feedType             String // Basal Feeds or Basal Feed + Concentrates + Supplements
+  timeOfDay            String[]
+  notes                String?
+  createdAt            DateTime     @default(now())
+  updatedAt            DateTime     @updatedAt
+
+  farm                 Farm         @relation(fields: [farmId], references: [id], onDelete: Cascade)
+  user                 User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  basal                FeedDetails  @relation("BasalFeed", fields: [basalId], references: [id])
+  basalId              String       @unique
+
+  concentrate          FeedDetails? @relation("ConcentrateFeed", fields: [concentrateId], references: [id])
+  concentrateId        String?      @unique
+
+  supplement           FeedDetails? @relation("SupplementFeed", fields: [supplementId], references: [id])
+  supplementId         String?      @unique
+}
+
+model FeedDetails {
+  id                 String            @id @default(cuid())
+  feedType           String
+  source             String
+  schedule           String
+  quantity           Float
+  date               DateTime
+  cost               Float?
+  supplier           String?
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+
+  basalProgram       FeedingProgram?   @relation("BasalFeed")
+  concentrateProgram FeedingProgram?   @relation("ConcentrateFeed")
+  supplementProgram  FeedingProgram?   @relation("SupplementFeed")
 }
