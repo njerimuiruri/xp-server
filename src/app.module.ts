@@ -8,6 +8,8 @@ import { EmployeesModule } from './employees/employees.module';
 import { LivestockModule } from './livestock/livestock.module';
 import { BreedingModule } from './breeding/breeding.module';
 import { FeedingModule } from './feeding/feeding.module';
+import { InventoryModule } from './inventory/inventory.module';
+import { HealthModule } from './health/health.module';
 
 @Module({
   imports: [
@@ -22,6 +24,8 @@ import { FeedingModule } from './feeding/feeding.module';
     LivestockModule,
     BreedingModule,
     FeedingModule,
+    InventoryModule,
+    HealthModule,
   ],
   controllers: [],
   providers: [],
