@@ -82,22 +82,33 @@ export class CreateFeedingDto {
   @IsNotEmpty()
   feedType: string;
 
-  @ApiProperty({ type: FeedDetailsDto })
-  @ValidateNested()
+  @ApiProperty({
+    type: [FeedDetailsDto],
+    example: [
+      {
+        feedType: 'Basal',
+        source: 'Hay',
+        schedule: 'Daily',
+        quantity: 50,
+        date: '2025-07-15T00:00:00.000Z',
+        cost: 2500,
+        supplier: 'FarmCo',
+      },
+      {
+        feedType: 'Concentrate',
+        source: 'Grain Mix',
+        schedule: 'Daily',
+        quantity: 10,
+        date: '2025-07-15T00:00:00.000Z',
+        cost: 1000,
+        supplier: 'FarmCo',
+      },
+    ],
+  })
+  @IsArray()
+  @ValidateNested({ each: true })
   @Type(() => FeedDetailsDto)
-  basal: FeedDetailsDto;
-
-  @ApiPropertyOptional({ type: FeedDetailsDto })
-  @ValidateNested()
-  @Type(() => FeedDetailsDto)
-  @IsOptional()
-  concentrate?: FeedDetailsDto;
-
-  @ApiPropertyOptional({ type: FeedDetailsDto })
-  @ValidateNested()
-  @Type(() => FeedDetailsDto)
-  @IsOptional()
-  supplement?: FeedDetailsDto;
+  feedDetails: FeedDetailsDto[];
 
   @ApiProperty({ type: [String], example: ['Morning', 'Evening'] })
   @IsArray()

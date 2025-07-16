@@ -8,23 +8,14 @@ export class FeedingService {
   constructor(private prisma: PrismaService) {}
 
   async create(createFeedingDto: CreateFeedingDto) {
-    const {
-      farmId,
-      userId,
-      basal,
-      concentrate,
-      supplement,
-      ...feedingProgramData
-    } = createFeedingDto;
-    // console.log(userId);
-    // Verify farm and user exist
-    const farm = await this.prisma.farm.findFirst({
-      where: { userId: userId },
-    });
-    // console.log(farm);
+    const { farmId, userId, feedDetails, ...feedingProgramData } =
+      createFeedingDto;
+
+    const farm = await this.prisma.farm.findUnique({ where: { id: farmId } });
     if (!farm) {
       throw new NotFoundException(`Farm with ID ${farmId} not found`);
     }
+
     const user = await this.prisma.user.findUnique({ where: { id: userId } });
     if (!user) {
       throw new NotFoundException(`User with ID ${userId} not found`);
@@ -35,16 +26,12 @@ export class FeedingService {
         ...feedingProgramData,
         farm: { connect: { id: farmId } },
         user: { connect: { id: userId } },
-        basal: { create: basal },
-        concentrate: concentrate ? { create: concentrate } : undefined,
-        supplement: supplement ? { create: supplement } : undefined,
+        feedDetails: {
+          create: feedDetails,
+        },
       },
       include: {
-        farm: true,
-        user: true,
-        basal: true,
-        concentrate: true,
-        supplement: true,
+        feedDetails: true,
       },
     });
   }
@@ -59,9 +46,7 @@ export class FeedingService {
         skip,
         take,
         include: {
-          basal: true,
-          concentrate: true,
-          supplement: true,
+          feedDetails: true,
         },
         orderBy: { createdAt: 'desc' },
       }),
@@ -85,11 +70,7 @@ export class FeedingService {
     const feedingProgram = await this.prisma.feedingProgram.findUnique({
       where: { id },
       include: {
-        farm: true,
-        user: true,
-        basal: true,
-        concentrate: true,
-        supplement: true,
+        feedDetails: true,
       },
     });
 
@@ -101,69 +82,58 @@ export class FeedingService {
   }
 
   async update(id: string, updateFeedingDto: UpdateFeedingDto) {
-    const { basal, concentrate, supplement, ...programData } = updateFeedingDto;
+    const { feedDetails, ...programData } = updateFeedingDto;
 
-    const existingProgram = await this.prisma.feedingProgram.findUnique({
-      where: { id },
-    });
-    if (!existingProgram) {
-      throw new NotFoundException(`Feeding program with ID ${id} not found`);
-    }
+    return this.prisma.$transaction(async (prisma) => {
+      const existingProgram = await prisma.feedingProgram.findUnique({
+        where: { id },
+      });
 
-    return this.prisma.feedingProgram.update({
-      where: { id },
-      data: {
-        ...programData,
-        basal: basal ? { update: basal } : undefined,
-        concentrate: concentrate ? { update: concentrate } : undefined,
-        supplement: supplement ? { update: supplement } : undefined,
-      },
-      include: {
-        basal: true,
-        concentrate: true,
-        supplement: true,
-      },
+      if (!existingProgram) {
+        throw new NotFoundException(`Feeding program with ID ${id} not found`);
+      }
+
+      // Update the feeding program itself
+      const updatedProgram = await prisma.feedingProgram.update({
+        where: { id },
+        data: {
+          ...programData,
+        },
+      });
+
+      if (feedDetails) {
+        // Delete existing feed details
+        await prisma.feedDetails.deleteMany({
+          where: { feedingProgramId: id },
+        });
+
+        // Create new feed details
+        await prisma.feedDetails.createMany({
+          data: feedDetails.map((detail) => ({
+            ...detail,
+            feedingProgramId: id,
+          })),
+        });
+      }
+
+      return prisma.feedingProgram.findUnique({
+        where: { id },
+        include: { feedDetails: true },
+      });
     });
   }
 
   async remove(id: string) {
     const feedingProgram = await this.prisma.feedingProgram.findUnique({
       where: { id },
-      include: { basal: true, concentrate: true, supplement: true },
     });
 
     if (!feedingProgram) {
       throw new NotFoundException(`Feeding program with ID ${id} not found`);
     }
 
-    // Manually delete related FeedDetails records
-    const deleteDetailsPromises = [];
-    if (feedingProgram.basalId) {
-      deleteDetailsPromises.push(
-        this.prisma.feedDetails.delete({
-          where: { id: feedingProgram.basalId },
-        }),
-      );
-    }
-    if (feedingProgram.concentrateId) {
-      deleteDetailsPromises.push(
-        this.prisma.feedDetails.delete({
-          where: { id: feedingProgram.concentrateId },
-        }),
-      );
-    }
-    if (feedingProgram.supplementId) {
-      deleteDetailsPromises.push(
-        this.prisma.feedDetails.delete({
-          where: { id: feedingProgram.supplementId },
-        }),
-      );
-    }
-
-    await this.prisma.$transaction([
-      ...deleteDetailsPromises,
-      this.prisma.feedingProgram.delete({ where: { id } }),
-    ]);
+    // With `onDelete: Cascade` in the schema, Prisma will automatically delete related FeedDetails.
+    await this.prisma.feedingProgram.delete({ where: { id } });
 
     return {
       message: `Feeding program with ID ${id} and its details have been removed.`,

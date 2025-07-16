@@ -356,10 +356,7 @@ exports.Prisma.FeedingProgramScalarFieldEnum = {
   timeOfDay: 'timeOfDay',
   notes: 'notes',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  basalId: 'basalId',
-  concentrateId: 'concentrateId',
-  supplementId: 'supplementId'
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.FeedDetailsScalarFieldEnum = {
@@ -372,7 +369,175 @@ exports.Prisma.FeedDetailsScalarFieldEnum = {
   cost: 'cost',
   supplier: 'supplier',
   createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  feedingProgramId: 'feedingProgramId'
+};
+
+exports.Prisma.InventoryScalarFieldEnum = {
+  id: 'id',
+  farmId: 'farmId',
+  createdAt: 'createdAt',
   updatedAt: 'updatedAt'
+};
+
+exports.Prisma.GoodsInStockScalarFieldEnum = {
+  id: 'id',
+  inventoryId: 'inventoryId',
+  itemName: 'itemName',
+  sku: 'sku',
+  quantity: 'quantity',
+  currentLocation: 'currentLocation',
+  condition: 'condition',
+  expirationDate: 'expirationDate',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.MachineryScalarFieldEnum = {
+  id: 'id',
+  inventoryId: 'inventoryId',
+  equipmentName: 'equipmentName',
+  equipmentId: 'equipmentId',
+  purchaseDate: 'purchaseDate',
+  currentLocation: 'currentLocation',
+  condition: 'condition',
+  lastServiceDate: 'lastServiceDate',
+  nextServiceDate: 'nextServiceDate',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.UtilityScalarFieldEnum = {
+  id: 'id',
+  inventoryId: 'inventoryId',
+  utilityType: 'utilityType',
+  waterLevel: 'waterLevel',
+  waterSource: 'waterSource',
+  waterStorage: 'waterStorage',
+  entryDate: 'entryDate',
+  powerSource: 'powerSource',
+  powerCapacity: 'powerCapacity',
+  installationCost: 'installationCost',
+  consumptionRate: 'consumptionRate',
+  consumptionCost: 'consumptionCost',
+  structureType: 'structureType',
+  structureCapacity: 'structureCapacity',
+  constructionCost: 'constructionCost',
+  facilityCondition: 'facilityCondition',
+  lastMaintenanceDate: 'lastMaintenanceDate',
+  maintenanceCost: 'maintenanceCost',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.AllergyRecordScalarFieldEnum = {
+  id: 'id',
+  animalIdOrFlockId: 'animalIdOrFlockId',
+  dateRecorded: 'dateRecorded',
+  cause: 'cause',
+  remedy: 'remedy',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  farmId: 'farmId',
+  userId: 'userId',
+  livestockId: 'livestockId'
+};
+
+exports.Prisma.BoosterRecordScalarFieldEnum = {
+  id: 'id',
+  animalIdOrFlockId: 'animalIdOrFlockId',
+  boostersOrAdditives: 'boostersOrAdditives',
+  purpose: 'purpose',
+  quantityGiven: 'quantityGiven',
+  quantityUnit: 'quantityUnit',
+  dateAdministered: 'dateAdministered',
+  costOfBooster: 'costOfBooster',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  farmId: 'farmId',
+  userId: 'userId',
+  livestockId: 'livestockId'
+};
+
+exports.Prisma.VaccinationRecordScalarFieldEnum = {
+  id: 'id',
+  animalIdOrFlockId: 'animalIdOrFlockId',
+  vaccinationAgainst: 'vaccinationAgainst',
+  drugAdministered: 'drugAdministered',
+  dateAdministered: 'dateAdministered',
+  dosage: 'dosage',
+  costOfVaccine: 'costOfVaccine',
+  administeredBy: 'administeredBy',
+  practiceId: 'practiceId',
+  costOfService: 'costOfService',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  farmId: 'farmId',
+  userId: 'userId',
+  livestockId: 'livestockId'
+};
+
+exports.Prisma.DewormingRecordScalarFieldEnum = {
+  id: 'id',
+  animalIdOrFlockId: 'animalIdOrFlockId',
+  dewormingAgainst: 'dewormingAgainst',
+  drugAdministered: 'drugAdministered',
+  dosage: 'dosage',
+  dateAdministered: 'dateAdministered',
+  costOfVaccine: 'costOfVaccine',
+  costOfService: 'costOfService',
+  administeredByType: 'administeredByType',
+  administeredByName: 'administeredByName',
+  practiceId: 'practiceId',
+  technicianId: 'technicianId',
+  farmerWitness: 'farmerWitness',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  farmId: 'farmId',
+  userId: 'userId',
+  livestockId: 'livestockId'
+};
+
+exports.Prisma.GeneticDisorderRecordScalarFieldEnum = {
+  id: 'id',
+  animalIdOrFlockId: 'animalIdOrFlockId',
+  dateRecorded: 'dateRecorded',
+  nameOfCondition: 'nameOfCondition',
+  remedy: 'remedy',
+  administeredByType: 'administeredByType',
+  administeredByName: 'administeredByName',
+  practiceId: 'practiceId',
+  technicianId: 'technicianId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  farmId: 'farmId',
+  userId: 'userId',
+  livestockId: 'livestockId'
+};
+
+exports.Prisma.TreatmentRecordScalarFieldEnum = {
+  id: 'id',
+  animalIdOrFlockId: 'animalIdOrFlockId',
+  healthEventDate: 'healthEventDate',
+  healthEventSymptoms: 'healthEventSymptoms',
+  diagnosis: 'diagnosis',
+  treatmentType: 'treatmentType',
+  treatmentDescription: 'treatmentDescription',
+  drugAdministered: 'drugAdministered',
+  dateAdministered: 'dateAdministered',
+  dosageAdministered: 'dosageAdministered',
+  costOfDrugs: 'costOfDrugs',
+  medicalOfficerName: 'medicalOfficerName',
+  licenseId: 'licenseId',
+  costOfService: 'costOfService',
+  farmerWitnessName: 'farmerWitnessName',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  farmId: 'farmId',
+  userId: 'userId',
+  livestockId: 'livestockId'
 };
 
 exports.Prisma.SortOrder = {
@@ -407,7 +572,17 @@ exports.Prisma.ModelName = {
   BreedingRecord: 'BreedingRecord',
   Offspring: 'Offspring',
   FeedingProgram: 'FeedingProgram',
-  FeedDetails: 'FeedDetails'
+  FeedDetails: 'FeedDetails',
+  Inventory: 'Inventory',
+  GoodsInStock: 'GoodsInStock',
+  Machinery: 'Machinery',
+  Utility: 'Utility',
+  AllergyRecord: 'AllergyRecord',
+  BoosterRecord: 'BoosterRecord',
+  VaccinationRecord: 'VaccinationRecord',
+  DewormingRecord: 'DewormingRecord',
+  GeneticDisorderRecord: 'GeneticDisorderRecord',
+  TreatmentRecord: 'TreatmentRecord'
 };
 
 /**
