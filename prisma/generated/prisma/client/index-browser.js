@@ -175,6 +175,10 @@ exports.Prisma.EmployeeScalarFieldEnum = {
   salary: 'salary',
   typeOfEngagement: 'typeOfEngagement',
   workSchedule: 'workSchedule',
+  pin: 'pin',
+  otp: 'otp',
+  otpExpiry: 'otpExpiry',
+  isVerified: 'isVerified',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -540,6 +544,41 @@ exports.Prisma.TreatmentRecordScalarFieldEnum = {
   livestockId: 'livestockId'
 };
 
+exports.Prisma.SaleListingScalarFieldEnum = {
+  id: 'id',
+  farmId: 'farmId',
+  name: 'name',
+  category: 'category',
+  breed: 'breed',
+  age: 'age',
+  weight: 'weight',
+  price: 'price',
+  status: 'status',
+  health: 'health',
+  lastCheckup: 'lastCheckup',
+  purpose: 'purpose',
+  feedingProgram: 'feedingProgram',
+  milkProduction: 'milkProduction',
+  pregnancyStatus: 'pregnancyStatus',
+  quantity: 'quantity',
+  pricePerBird: 'pricePerBird',
+  eggProductionRate: 'eggProductionRate',
+  woolYield: 'woolYield',
+  milkProductionRate: 'milkProductionRate',
+  notes: 'notes',
+  images: 'images',
+  saleDate: 'saleDate',
+  buyerName: 'buyerName',
+  buyerContact: 'buyerContact',
+  saleAmount: 'saleAmount',
+  paymentMethod: 'paymentMethod',
+  receiptNumber: 'receiptNumber',
+  saleNotes: 'saleNotes',
+  attachments: 'attachments',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -582,7 +621,8 @@ exports.Prisma.ModelName = {
   VaccinationRecord: 'VaccinationRecord',
   DewormingRecord: 'DewormingRecord',
   GeneticDisorderRecord: 'GeneticDisorderRecord',
-  TreatmentRecord: 'TreatmentRecord'
+  TreatmentRecord: 'TreatmentRecord',
+  SaleListing: 'SaleListing'
 };
 
 /**

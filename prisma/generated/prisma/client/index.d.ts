@@ -143,6 +143,11 @@ export type GeneticDisorderRecord = $Result.DefaultSelection<Prisma.$GeneticDiso
  * 
  */
 export type TreatmentRecord = $Result.DefaultSelection<Prisma.$TreatmentRecordPayload>
+/**
+ * Model SaleListing
+ * 
+ */
+export type SaleListing = $Result.DefaultSelection<Prisma.$SaleListingPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -528,6 +533,16 @@ export class PrismaClient<
     * ```
     */
   get treatmentRecord(): Prisma.TreatmentRecordDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.saleListing`: Exposes CRUD operations for the **SaleListing** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SaleListings
+    * const saleListings = await prisma.saleListing.findMany()
+    * ```
+    */
+  get saleListing(): Prisma.SaleListingDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -993,7 +1008,8 @@ export namespace Prisma {
     VaccinationRecord: 'VaccinationRecord',
     DewormingRecord: 'DewormingRecord',
     GeneticDisorderRecord: 'GeneticDisorderRecord',
-    TreatmentRecord: 'TreatmentRecord'
+    TreatmentRecord: 'TreatmentRecord',
+    SaleListing: 'SaleListing'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1012,7 +1028,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "farm" | "employee" | "employeeFarm" | "employeeBenefit" | "livestock" | "mammal" | "poultry" | "mortality" | "healthEvent" | "transfer" | "sale" | "breedingRecord" | "offspring" | "feedingProgram" | "feedDetails" | "inventory" | "goodsInStock" | "machinery" | "utility" | "allergyRecord" | "boosterRecord" | "vaccinationRecord" | "dewormingRecord" | "geneticDisorderRecord" | "treatmentRecord"
+      modelProps: "user" | "farm" | "employee" | "employeeFarm" | "employeeBenefit" | "livestock" | "mammal" | "poultry" | "mortality" | "healthEvent" | "transfer" | "sale" | "breedingRecord" | "offspring" | "feedingProgram" | "feedDetails" | "inventory" | "goodsInStock" | "machinery" | "utility" | "allergyRecord" | "boosterRecord" | "vaccinationRecord" | "dewormingRecord" | "geneticDisorderRecord" | "treatmentRecord" | "saleListing"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2940,6 +2956,80 @@ export namespace Prisma {
           }
         }
       }
+      SaleListing: {
+        payload: Prisma.$SaleListingPayload<ExtArgs>
+        fields: Prisma.SaleListingFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SaleListingFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleListingPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SaleListingFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleListingPayload>
+          }
+          findFirst: {
+            args: Prisma.SaleListingFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleListingPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SaleListingFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleListingPayload>
+          }
+          findMany: {
+            args: Prisma.SaleListingFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleListingPayload>[]
+          }
+          create: {
+            args: Prisma.SaleListingCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleListingPayload>
+          }
+          createMany: {
+            args: Prisma.SaleListingCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SaleListingCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleListingPayload>[]
+          }
+          delete: {
+            args: Prisma.SaleListingDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleListingPayload>
+          }
+          update: {
+            args: Prisma.SaleListingUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleListingPayload>
+          }
+          deleteMany: {
+            args: Prisma.SaleListingDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SaleListingUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SaleListingUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleListingPayload>[]
+          }
+          upsert: {
+            args: Prisma.SaleListingUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleListingPayload>
+          }
+          aggregate: {
+            args: Prisma.SaleListingAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSaleListing>
+          }
+          groupBy: {
+            args: Prisma.SaleListingGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SaleListingGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SaleListingCountArgs<ExtArgs>
+            result: $Utils.Optional<SaleListingCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -3050,6 +3140,7 @@ export namespace Prisma {
     dewormingRecord?: DewormingRecordOmit
     geneticDisorderRecord?: GeneticDisorderRecordOmit
     treatmentRecord?: TreatmentRecordOmit
+    saleListing?: SaleListingOmit
   }
 
   /* Types for Logging */
@@ -3249,6 +3340,7 @@ export namespace Prisma {
     dewormingRecords: number
     geneticDisorderRecords: number
     treatmentRecords: number
+    saleListings: number
   }
 
   export type FarmCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3263,6 +3355,7 @@ export namespace Prisma {
     dewormingRecords?: boolean | FarmCountOutputTypeCountDewormingRecordsArgs
     geneticDisorderRecords?: boolean | FarmCountOutputTypeCountGeneticDisorderRecordsArgs
     treatmentRecords?: boolean | FarmCountOutputTypeCountTreatmentRecordsArgs
+    saleListings?: boolean | FarmCountOutputTypeCountSaleListingsArgs
   }
 
   // Custom InputTypes
@@ -3351,6 +3444,13 @@ export namespace Prisma {
    */
   export type FarmCountOutputTypeCountTreatmentRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: TreatmentRecordWhereInput
+  }
+
+  /**
+   * FarmCountOutputType without action
+   */
+  export type FarmCountOutputTypeCountSaleListingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SaleListingWhereInput
   }
 
 
@@ -5384,6 +5484,7 @@ export namespace Prisma {
     dewormingRecords?: boolean | Farm$dewormingRecordsArgs<ExtArgs>
     geneticDisorderRecords?: boolean | Farm$geneticDisorderRecordsArgs<ExtArgs>
     treatmentRecords?: boolean | Farm$treatmentRecordsArgs<ExtArgs>
+    saleListings?: boolean | Farm$saleListingsArgs<ExtArgs>
     _count?: boolean | FarmCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["farm"]>
 
@@ -5442,6 +5543,7 @@ export namespace Prisma {
     dewormingRecords?: boolean | Farm$dewormingRecordsArgs<ExtArgs>
     geneticDisorderRecords?: boolean | Farm$geneticDisorderRecordsArgs<ExtArgs>
     treatmentRecords?: boolean | Farm$treatmentRecordsArgs<ExtArgs>
+    saleListings?: boolean | Farm$saleListingsArgs<ExtArgs>
     _count?: boolean | FarmCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type FarmIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5466,6 +5568,7 @@ export namespace Prisma {
       dewormingRecords: Prisma.$DewormingRecordPayload<ExtArgs>[]
       geneticDisorderRecords: Prisma.$GeneticDisorderRecordPayload<ExtArgs>[]
       treatmentRecords: Prisma.$TreatmentRecordPayload<ExtArgs>[]
+      saleListings: Prisma.$SaleListingPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -5884,6 +5987,7 @@ export namespace Prisma {
     dewormingRecords<T extends Farm$dewormingRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Farm$dewormingRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DewormingRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     geneticDisorderRecords<T extends Farm$geneticDisorderRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Farm$geneticDisorderRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GeneticDisorderRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     treatmentRecords<T extends Farm$treatmentRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Farm$treatmentRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TreatmentRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    saleListings<T extends Farm$saleListingsArgs<ExtArgs> = {}>(args?: Subset<T, Farm$saleListingsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SaleListingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6583,6 +6687,30 @@ export namespace Prisma {
   }
 
   /**
+   * Farm.saleListings
+   */
+  export type Farm$saleListingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleListing
+     */
+    select?: SaleListingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleListing
+     */
+    omit?: SaleListingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleListingInclude<ExtArgs> | null
+    where?: SaleListingWhereInput
+    orderBy?: SaleListingOrderByWithRelationInput | SaleListingOrderByWithRelationInput[]
+    cursor?: SaleListingWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SaleListingScalarFieldEnum | SaleListingScalarFieldEnum[]
+  }
+
+  /**
    * Farm without action
    */
   export type FarmDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6639,6 +6767,10 @@ export namespace Prisma {
     salary: number | null
     typeOfEngagement: string | null
     workSchedule: string | null
+    pin: string | null
+    otp: string | null
+    otpExpiry: Date | null
+    isVerified: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -6661,6 +6793,10 @@ export namespace Prisma {
     salary: number | null
     typeOfEngagement: string | null
     workSchedule: string | null
+    pin: string | null
+    otp: string | null
+    otpExpiry: Date | null
+    isVerified: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -6683,6 +6819,10 @@ export namespace Prisma {
     salary: number
     typeOfEngagement: number
     workSchedule: number
+    pin: number
+    otp: number
+    otpExpiry: number
+    isVerified: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -6715,6 +6855,10 @@ export namespace Prisma {
     salary?: true
     typeOfEngagement?: true
     workSchedule?: true
+    pin?: true
+    otp?: true
+    otpExpiry?: true
+    isVerified?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -6737,6 +6881,10 @@ export namespace Prisma {
     salary?: true
     typeOfEngagement?: true
     workSchedule?: true
+    pin?: true
+    otp?: true
+    otpExpiry?: true
+    isVerified?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -6759,6 +6907,10 @@ export namespace Prisma {
     salary?: true
     typeOfEngagement?: true
     workSchedule?: true
+    pin?: true
+    otp?: true
+    otpExpiry?: true
+    isVerified?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -6868,6 +7020,10 @@ export namespace Prisma {
     salary: number
     typeOfEngagement: string | null
     workSchedule: string | null
+    pin: string | null
+    otp: string | null
+    otpExpiry: Date | null
+    isVerified: boolean
     createdAt: Date
     updatedAt: Date
     _count: EmployeeCountAggregateOutputType | null
@@ -6909,6 +7065,10 @@ export namespace Prisma {
     salary?: boolean
     typeOfEngagement?: boolean
     workSchedule?: boolean
+    pin?: boolean
+    otp?: boolean
+    otpExpiry?: boolean
+    isVerified?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     benefits?: boolean | Employee$benefitsArgs<ExtArgs>
@@ -6934,6 +7094,10 @@ export namespace Prisma {
     salary?: boolean
     typeOfEngagement?: boolean
     workSchedule?: boolean
+    pin?: boolean
+    otp?: boolean
+    otpExpiry?: boolean
+    isVerified?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["employee"]>
@@ -6956,6 +7120,10 @@ export namespace Prisma {
     salary?: boolean
     typeOfEngagement?: boolean
     workSchedule?: boolean
+    pin?: boolean
+    otp?: boolean
+    otpExpiry?: boolean
+    isVerified?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["employee"]>
@@ -6978,11 +7146,15 @@ export namespace Prisma {
     salary?: boolean
     typeOfEngagement?: boolean
     workSchedule?: boolean
+    pin?: boolean
+    otp?: boolean
+    otpExpiry?: boolean
+    isVerified?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type EmployeeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "middleName" | "lastName" | "phone" | "emergencyContact" | "idNumber" | "idPhoto" | "employeeType" | "dateOfEmployment" | "endDate" | "role" | "customRole" | "paymentSchedule" | "salary" | "typeOfEngagement" | "workSchedule" | "createdAt" | "updatedAt", ExtArgs["result"]["employee"]>
+  export type EmployeeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "middleName" | "lastName" | "phone" | "emergencyContact" | "idNumber" | "idPhoto" | "employeeType" | "dateOfEmployment" | "endDate" | "role" | "customRole" | "paymentSchedule" | "salary" | "typeOfEngagement" | "workSchedule" | "pin" | "otp" | "otpExpiry" | "isVerified" | "createdAt" | "updatedAt", ExtArgs["result"]["employee"]>
   export type EmployeeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     benefits?: boolean | Employee$benefitsArgs<ExtArgs>
     farms?: boolean | Employee$farmsArgs<ExtArgs>
@@ -7015,6 +7187,10 @@ export namespace Prisma {
       salary: number
       typeOfEngagement: string | null
       workSchedule: string | null
+      pin: string | null
+      otp: string | null
+      otpExpiry: Date | null
+      isVerified: boolean
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["employee"]>
@@ -7459,6 +7635,10 @@ export namespace Prisma {
     readonly salary: FieldRef<"Employee", 'Float'>
     readonly typeOfEngagement: FieldRef<"Employee", 'String'>
     readonly workSchedule: FieldRef<"Employee", 'String'>
+    readonly pin: FieldRef<"Employee", 'String'>
+    readonly otp: FieldRef<"Employee", 'String'>
+    readonly otpExpiry: FieldRef<"Employee", 'DateTime'>
+    readonly isVerified: FieldRef<"Employee", 'Boolean'>
     readonly createdAt: FieldRef<"Employee", 'DateTime'>
     readonly updatedAt: FieldRef<"Employee", 'DateTime'>
   }
@@ -35813,6 +35993,1457 @@ export namespace Prisma {
 
 
   /**
+   * Model SaleListing
+   */
+
+  export type AggregateSaleListing = {
+    _count: SaleListingCountAggregateOutputType | null
+    _avg: SaleListingAvgAggregateOutputType | null
+    _sum: SaleListingSumAggregateOutputType | null
+    _min: SaleListingMinAggregateOutputType | null
+    _max: SaleListingMaxAggregateOutputType | null
+  }
+
+  export type SaleListingAvgAggregateOutputType = {
+    weight: number | null
+    price: number | null
+    quantity: number | null
+    pricePerBird: number | null
+    saleAmount: number | null
+  }
+
+  export type SaleListingSumAggregateOutputType = {
+    weight: number | null
+    price: number | null
+    quantity: number | null
+    pricePerBird: number | null
+    saleAmount: number | null
+  }
+
+  export type SaleListingMinAggregateOutputType = {
+    id: string | null
+    farmId: string | null
+    name: string | null
+    category: string | null
+    breed: string | null
+    age: string | null
+    weight: number | null
+    price: number | null
+    status: string | null
+    health: string | null
+    lastCheckup: string | null
+    purpose: string | null
+    feedingProgram: string | null
+    milkProduction: string | null
+    pregnancyStatus: string | null
+    quantity: number | null
+    pricePerBird: number | null
+    eggProductionRate: string | null
+    woolYield: string | null
+    milkProductionRate: string | null
+    notes: string | null
+    saleDate: Date | null
+    buyerName: string | null
+    buyerContact: string | null
+    saleAmount: number | null
+    paymentMethod: string | null
+    receiptNumber: string | null
+    saleNotes: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SaleListingMaxAggregateOutputType = {
+    id: string | null
+    farmId: string | null
+    name: string | null
+    category: string | null
+    breed: string | null
+    age: string | null
+    weight: number | null
+    price: number | null
+    status: string | null
+    health: string | null
+    lastCheckup: string | null
+    purpose: string | null
+    feedingProgram: string | null
+    milkProduction: string | null
+    pregnancyStatus: string | null
+    quantity: number | null
+    pricePerBird: number | null
+    eggProductionRate: string | null
+    woolYield: string | null
+    milkProductionRate: string | null
+    notes: string | null
+    saleDate: Date | null
+    buyerName: string | null
+    buyerContact: string | null
+    saleAmount: number | null
+    paymentMethod: string | null
+    receiptNumber: string | null
+    saleNotes: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SaleListingCountAggregateOutputType = {
+    id: number
+    farmId: number
+    name: number
+    category: number
+    breed: number
+    age: number
+    weight: number
+    price: number
+    status: number
+    health: number
+    lastCheckup: number
+    purpose: number
+    feedingProgram: number
+    milkProduction: number
+    pregnancyStatus: number
+    quantity: number
+    pricePerBird: number
+    eggProductionRate: number
+    woolYield: number
+    milkProductionRate: number
+    notes: number
+    images: number
+    saleDate: number
+    buyerName: number
+    buyerContact: number
+    saleAmount: number
+    paymentMethod: number
+    receiptNumber: number
+    saleNotes: number
+    attachments: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type SaleListingAvgAggregateInputType = {
+    weight?: true
+    price?: true
+    quantity?: true
+    pricePerBird?: true
+    saleAmount?: true
+  }
+
+  export type SaleListingSumAggregateInputType = {
+    weight?: true
+    price?: true
+    quantity?: true
+    pricePerBird?: true
+    saleAmount?: true
+  }
+
+  export type SaleListingMinAggregateInputType = {
+    id?: true
+    farmId?: true
+    name?: true
+    category?: true
+    breed?: true
+    age?: true
+    weight?: true
+    price?: true
+    status?: true
+    health?: true
+    lastCheckup?: true
+    purpose?: true
+    feedingProgram?: true
+    milkProduction?: true
+    pregnancyStatus?: true
+    quantity?: true
+    pricePerBird?: true
+    eggProductionRate?: true
+    woolYield?: true
+    milkProductionRate?: true
+    notes?: true
+    saleDate?: true
+    buyerName?: true
+    buyerContact?: true
+    saleAmount?: true
+    paymentMethod?: true
+    receiptNumber?: true
+    saleNotes?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SaleListingMaxAggregateInputType = {
+    id?: true
+    farmId?: true
+    name?: true
+    category?: true
+    breed?: true
+    age?: true
+    weight?: true
+    price?: true
+    status?: true
+    health?: true
+    lastCheckup?: true
+    purpose?: true
+    feedingProgram?: true
+    milkProduction?: true
+    pregnancyStatus?: true
+    quantity?: true
+    pricePerBird?: true
+    eggProductionRate?: true
+    woolYield?: true
+    milkProductionRate?: true
+    notes?: true
+    saleDate?: true
+    buyerName?: true
+    buyerContact?: true
+    saleAmount?: true
+    paymentMethod?: true
+    receiptNumber?: true
+    saleNotes?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SaleListingCountAggregateInputType = {
+    id?: true
+    farmId?: true
+    name?: true
+    category?: true
+    breed?: true
+    age?: true
+    weight?: true
+    price?: true
+    status?: true
+    health?: true
+    lastCheckup?: true
+    purpose?: true
+    feedingProgram?: true
+    milkProduction?: true
+    pregnancyStatus?: true
+    quantity?: true
+    pricePerBird?: true
+    eggProductionRate?: true
+    woolYield?: true
+    milkProductionRate?: true
+    notes?: true
+    images?: true
+    saleDate?: true
+    buyerName?: true
+    buyerContact?: true
+    saleAmount?: true
+    paymentMethod?: true
+    receiptNumber?: true
+    saleNotes?: true
+    attachments?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type SaleListingAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SaleListing to aggregate.
+     */
+    where?: SaleListingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SaleListings to fetch.
+     */
+    orderBy?: SaleListingOrderByWithRelationInput | SaleListingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SaleListingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SaleListings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SaleListings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SaleListings
+    **/
+    _count?: true | SaleListingCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SaleListingAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SaleListingSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SaleListingMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SaleListingMaxAggregateInputType
+  }
+
+  export type GetSaleListingAggregateType<T extends SaleListingAggregateArgs> = {
+        [P in keyof T & keyof AggregateSaleListing]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSaleListing[P]>
+      : GetScalarType<T[P], AggregateSaleListing[P]>
+  }
+
+
+
+
+  export type SaleListingGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SaleListingWhereInput
+    orderBy?: SaleListingOrderByWithAggregationInput | SaleListingOrderByWithAggregationInput[]
+    by: SaleListingScalarFieldEnum[] | SaleListingScalarFieldEnum
+    having?: SaleListingScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SaleListingCountAggregateInputType | true
+    _avg?: SaleListingAvgAggregateInputType
+    _sum?: SaleListingSumAggregateInputType
+    _min?: SaleListingMinAggregateInputType
+    _max?: SaleListingMaxAggregateInputType
+  }
+
+  export type SaleListingGroupByOutputType = {
+    id: string
+    farmId: string
+    name: string
+    category: string
+    breed: string
+    age: string
+    weight: number
+    price: number
+    status: string
+    health: string
+    lastCheckup: string | null
+    purpose: string | null
+    feedingProgram: string | null
+    milkProduction: string | null
+    pregnancyStatus: string | null
+    quantity: number | null
+    pricePerBird: number | null
+    eggProductionRate: string | null
+    woolYield: string | null
+    milkProductionRate: string | null
+    notes: string | null
+    images: string[]
+    saleDate: Date | null
+    buyerName: string | null
+    buyerContact: string | null
+    saleAmount: number | null
+    paymentMethod: string | null
+    receiptNumber: string | null
+    saleNotes: string | null
+    attachments: string[]
+    createdAt: Date
+    updatedAt: Date
+    _count: SaleListingCountAggregateOutputType | null
+    _avg: SaleListingAvgAggregateOutputType | null
+    _sum: SaleListingSumAggregateOutputType | null
+    _min: SaleListingMinAggregateOutputType | null
+    _max: SaleListingMaxAggregateOutputType | null
+  }
+
+  type GetSaleListingGroupByPayload<T extends SaleListingGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SaleListingGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SaleListingGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SaleListingGroupByOutputType[P]>
+            : GetScalarType<T[P], SaleListingGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SaleListingSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    farmId?: boolean
+    name?: boolean
+    category?: boolean
+    breed?: boolean
+    age?: boolean
+    weight?: boolean
+    price?: boolean
+    status?: boolean
+    health?: boolean
+    lastCheckup?: boolean
+    purpose?: boolean
+    feedingProgram?: boolean
+    milkProduction?: boolean
+    pregnancyStatus?: boolean
+    quantity?: boolean
+    pricePerBird?: boolean
+    eggProductionRate?: boolean
+    woolYield?: boolean
+    milkProductionRate?: boolean
+    notes?: boolean
+    images?: boolean
+    saleDate?: boolean
+    buyerName?: boolean
+    buyerContact?: boolean
+    saleAmount?: boolean
+    paymentMethod?: boolean
+    receiptNumber?: boolean
+    saleNotes?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["saleListing"]>
+
+  export type SaleListingSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    farmId?: boolean
+    name?: boolean
+    category?: boolean
+    breed?: boolean
+    age?: boolean
+    weight?: boolean
+    price?: boolean
+    status?: boolean
+    health?: boolean
+    lastCheckup?: boolean
+    purpose?: boolean
+    feedingProgram?: boolean
+    milkProduction?: boolean
+    pregnancyStatus?: boolean
+    quantity?: boolean
+    pricePerBird?: boolean
+    eggProductionRate?: boolean
+    woolYield?: boolean
+    milkProductionRate?: boolean
+    notes?: boolean
+    images?: boolean
+    saleDate?: boolean
+    buyerName?: boolean
+    buyerContact?: boolean
+    saleAmount?: boolean
+    paymentMethod?: boolean
+    receiptNumber?: boolean
+    saleNotes?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["saleListing"]>
+
+  export type SaleListingSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    farmId?: boolean
+    name?: boolean
+    category?: boolean
+    breed?: boolean
+    age?: boolean
+    weight?: boolean
+    price?: boolean
+    status?: boolean
+    health?: boolean
+    lastCheckup?: boolean
+    purpose?: boolean
+    feedingProgram?: boolean
+    milkProduction?: boolean
+    pregnancyStatus?: boolean
+    quantity?: boolean
+    pricePerBird?: boolean
+    eggProductionRate?: boolean
+    woolYield?: boolean
+    milkProductionRate?: boolean
+    notes?: boolean
+    images?: boolean
+    saleDate?: boolean
+    buyerName?: boolean
+    buyerContact?: boolean
+    saleAmount?: boolean
+    paymentMethod?: boolean
+    receiptNumber?: boolean
+    saleNotes?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["saleListing"]>
+
+  export type SaleListingSelectScalar = {
+    id?: boolean
+    farmId?: boolean
+    name?: boolean
+    category?: boolean
+    breed?: boolean
+    age?: boolean
+    weight?: boolean
+    price?: boolean
+    status?: boolean
+    health?: boolean
+    lastCheckup?: boolean
+    purpose?: boolean
+    feedingProgram?: boolean
+    milkProduction?: boolean
+    pregnancyStatus?: boolean
+    quantity?: boolean
+    pricePerBird?: boolean
+    eggProductionRate?: boolean
+    woolYield?: boolean
+    milkProductionRate?: boolean
+    notes?: boolean
+    images?: boolean
+    saleDate?: boolean
+    buyerName?: boolean
+    buyerContact?: boolean
+    saleAmount?: boolean
+    paymentMethod?: boolean
+    receiptNumber?: boolean
+    saleNotes?: boolean
+    attachments?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type SaleListingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "farmId" | "name" | "category" | "breed" | "age" | "weight" | "price" | "status" | "health" | "lastCheckup" | "purpose" | "feedingProgram" | "milkProduction" | "pregnancyStatus" | "quantity" | "pricePerBird" | "eggProductionRate" | "woolYield" | "milkProductionRate" | "notes" | "images" | "saleDate" | "buyerName" | "buyerContact" | "saleAmount" | "paymentMethod" | "receiptNumber" | "saleNotes" | "attachments" | "createdAt" | "updatedAt", ExtArgs["result"]["saleListing"]>
+  export type SaleListingInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }
+  export type SaleListingIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }
+  export type SaleListingIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    farm?: boolean | FarmDefaultArgs<ExtArgs>
+  }
+
+  export type $SaleListingPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SaleListing"
+    objects: {
+      farm: Prisma.$FarmPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      farmId: string
+      name: string
+      category: string
+      breed: string
+      age: string
+      weight: number
+      price: number
+      status: string
+      health: string
+      lastCheckup: string | null
+      purpose: string | null
+      feedingProgram: string | null
+      milkProduction: string | null
+      pregnancyStatus: string | null
+      quantity: number | null
+      pricePerBird: number | null
+      eggProductionRate: string | null
+      woolYield: string | null
+      milkProductionRate: string | null
+      notes: string | null
+      images: string[]
+      saleDate: Date | null
+      buyerName: string | null
+      buyerContact: string | null
+      saleAmount: number | null
+      paymentMethod: string | null
+      receiptNumber: string | null
+      saleNotes: string | null
+      attachments: string[]
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["saleListing"]>
+    composites: {}
+  }
+
+  type SaleListingGetPayload<S extends boolean | null | undefined | SaleListingDefaultArgs> = $Result.GetResult<Prisma.$SaleListingPayload, S>
+
+  type SaleListingCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SaleListingFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SaleListingCountAggregateInputType | true
+    }
+
+  export interface SaleListingDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SaleListing'], meta: { name: 'SaleListing' } }
+    /**
+     * Find zero or one SaleListing that matches the filter.
+     * @param {SaleListingFindUniqueArgs} args - Arguments to find a SaleListing
+     * @example
+     * // Get one SaleListing
+     * const saleListing = await prisma.saleListing.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SaleListingFindUniqueArgs>(args: SelectSubset<T, SaleListingFindUniqueArgs<ExtArgs>>): Prisma__SaleListingClient<$Result.GetResult<Prisma.$SaleListingPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SaleListing that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SaleListingFindUniqueOrThrowArgs} args - Arguments to find a SaleListing
+     * @example
+     * // Get one SaleListing
+     * const saleListing = await prisma.saleListing.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SaleListingFindUniqueOrThrowArgs>(args: SelectSubset<T, SaleListingFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SaleListingClient<$Result.GetResult<Prisma.$SaleListingPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SaleListing that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleListingFindFirstArgs} args - Arguments to find a SaleListing
+     * @example
+     * // Get one SaleListing
+     * const saleListing = await prisma.saleListing.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SaleListingFindFirstArgs>(args?: SelectSubset<T, SaleListingFindFirstArgs<ExtArgs>>): Prisma__SaleListingClient<$Result.GetResult<Prisma.$SaleListingPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SaleListing that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleListingFindFirstOrThrowArgs} args - Arguments to find a SaleListing
+     * @example
+     * // Get one SaleListing
+     * const saleListing = await prisma.saleListing.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SaleListingFindFirstOrThrowArgs>(args?: SelectSubset<T, SaleListingFindFirstOrThrowArgs<ExtArgs>>): Prisma__SaleListingClient<$Result.GetResult<Prisma.$SaleListingPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SaleListings that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleListingFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SaleListings
+     * const saleListings = await prisma.saleListing.findMany()
+     * 
+     * // Get first 10 SaleListings
+     * const saleListings = await prisma.saleListing.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const saleListingWithIdOnly = await prisma.saleListing.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SaleListingFindManyArgs>(args?: SelectSubset<T, SaleListingFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SaleListingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SaleListing.
+     * @param {SaleListingCreateArgs} args - Arguments to create a SaleListing.
+     * @example
+     * // Create one SaleListing
+     * const SaleListing = await prisma.saleListing.create({
+     *   data: {
+     *     // ... data to create a SaleListing
+     *   }
+     * })
+     * 
+     */
+    create<T extends SaleListingCreateArgs>(args: SelectSubset<T, SaleListingCreateArgs<ExtArgs>>): Prisma__SaleListingClient<$Result.GetResult<Prisma.$SaleListingPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SaleListings.
+     * @param {SaleListingCreateManyArgs} args - Arguments to create many SaleListings.
+     * @example
+     * // Create many SaleListings
+     * const saleListing = await prisma.saleListing.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SaleListingCreateManyArgs>(args?: SelectSubset<T, SaleListingCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SaleListings and returns the data saved in the database.
+     * @param {SaleListingCreateManyAndReturnArgs} args - Arguments to create many SaleListings.
+     * @example
+     * // Create many SaleListings
+     * const saleListing = await prisma.saleListing.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many SaleListings and only return the `id`
+     * const saleListingWithIdOnly = await prisma.saleListing.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SaleListingCreateManyAndReturnArgs>(args?: SelectSubset<T, SaleListingCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SaleListingPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a SaleListing.
+     * @param {SaleListingDeleteArgs} args - Arguments to delete one SaleListing.
+     * @example
+     * // Delete one SaleListing
+     * const SaleListing = await prisma.saleListing.delete({
+     *   where: {
+     *     // ... filter to delete one SaleListing
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SaleListingDeleteArgs>(args: SelectSubset<T, SaleListingDeleteArgs<ExtArgs>>): Prisma__SaleListingClient<$Result.GetResult<Prisma.$SaleListingPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SaleListing.
+     * @param {SaleListingUpdateArgs} args - Arguments to update one SaleListing.
+     * @example
+     * // Update one SaleListing
+     * const saleListing = await prisma.saleListing.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SaleListingUpdateArgs>(args: SelectSubset<T, SaleListingUpdateArgs<ExtArgs>>): Prisma__SaleListingClient<$Result.GetResult<Prisma.$SaleListingPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SaleListings.
+     * @param {SaleListingDeleteManyArgs} args - Arguments to filter SaleListings to delete.
+     * @example
+     * // Delete a few SaleListings
+     * const { count } = await prisma.saleListing.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SaleListingDeleteManyArgs>(args?: SelectSubset<T, SaleListingDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SaleListings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleListingUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SaleListings
+     * const saleListing = await prisma.saleListing.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SaleListingUpdateManyArgs>(args: SelectSubset<T, SaleListingUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SaleListings and returns the data updated in the database.
+     * @param {SaleListingUpdateManyAndReturnArgs} args - Arguments to update many SaleListings.
+     * @example
+     * // Update many SaleListings
+     * const saleListing = await prisma.saleListing.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more SaleListings and only return the `id`
+     * const saleListingWithIdOnly = await prisma.saleListing.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SaleListingUpdateManyAndReturnArgs>(args: SelectSubset<T, SaleListingUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SaleListingPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one SaleListing.
+     * @param {SaleListingUpsertArgs} args - Arguments to update or create a SaleListing.
+     * @example
+     * // Update or create a SaleListing
+     * const saleListing = await prisma.saleListing.upsert({
+     *   create: {
+     *     // ... data to create a SaleListing
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SaleListing we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SaleListingUpsertArgs>(args: SelectSubset<T, SaleListingUpsertArgs<ExtArgs>>): Prisma__SaleListingClient<$Result.GetResult<Prisma.$SaleListingPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SaleListings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleListingCountArgs} args - Arguments to filter SaleListings to count.
+     * @example
+     * // Count the number of SaleListings
+     * const count = await prisma.saleListing.count({
+     *   where: {
+     *     // ... the filter for the SaleListings we want to count
+     *   }
+     * })
+    **/
+    count<T extends SaleListingCountArgs>(
+      args?: Subset<T, SaleListingCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SaleListingCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SaleListing.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleListingAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SaleListingAggregateArgs>(args: Subset<T, SaleListingAggregateArgs>): Prisma.PrismaPromise<GetSaleListingAggregateType<T>>
+
+    /**
+     * Group by SaleListing.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleListingGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SaleListingGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SaleListingGroupByArgs['orderBy'] }
+        : { orderBy?: SaleListingGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SaleListingGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSaleListingGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SaleListing model
+   */
+  readonly fields: SaleListingFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SaleListing.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SaleListingClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    farm<T extends FarmDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FarmDefaultArgs<ExtArgs>>): Prisma__FarmClient<$Result.GetResult<Prisma.$FarmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SaleListing model
+   */
+  interface SaleListingFieldRefs {
+    readonly id: FieldRef<"SaleListing", 'String'>
+    readonly farmId: FieldRef<"SaleListing", 'String'>
+    readonly name: FieldRef<"SaleListing", 'String'>
+    readonly category: FieldRef<"SaleListing", 'String'>
+    readonly breed: FieldRef<"SaleListing", 'String'>
+    readonly age: FieldRef<"SaleListing", 'String'>
+    readonly weight: FieldRef<"SaleListing", 'Float'>
+    readonly price: FieldRef<"SaleListing", 'Float'>
+    readonly status: FieldRef<"SaleListing", 'String'>
+    readonly health: FieldRef<"SaleListing", 'String'>
+    readonly lastCheckup: FieldRef<"SaleListing", 'String'>
+    readonly purpose: FieldRef<"SaleListing", 'String'>
+    readonly feedingProgram: FieldRef<"SaleListing", 'String'>
+    readonly milkProduction: FieldRef<"SaleListing", 'String'>
+    readonly pregnancyStatus: FieldRef<"SaleListing", 'String'>
+    readonly quantity: FieldRef<"SaleListing", 'Int'>
+    readonly pricePerBird: FieldRef<"SaleListing", 'Float'>
+    readonly eggProductionRate: FieldRef<"SaleListing", 'String'>
+    readonly woolYield: FieldRef<"SaleListing", 'String'>
+    readonly milkProductionRate: FieldRef<"SaleListing", 'String'>
+    readonly notes: FieldRef<"SaleListing", 'String'>
+    readonly images: FieldRef<"SaleListing", 'String[]'>
+    readonly saleDate: FieldRef<"SaleListing", 'DateTime'>
+    readonly buyerName: FieldRef<"SaleListing", 'String'>
+    readonly buyerContact: FieldRef<"SaleListing", 'String'>
+    readonly saleAmount: FieldRef<"SaleListing", 'Float'>
+    readonly paymentMethod: FieldRef<"SaleListing", 'String'>
+    readonly receiptNumber: FieldRef<"SaleListing", 'String'>
+    readonly saleNotes: FieldRef<"SaleListing", 'String'>
+    readonly attachments: FieldRef<"SaleListing", 'String[]'>
+    readonly createdAt: FieldRef<"SaleListing", 'DateTime'>
+    readonly updatedAt: FieldRef<"SaleListing", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SaleListing findUnique
+   */
+  export type SaleListingFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleListing
+     */
+    select?: SaleListingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleListing
+     */
+    omit?: SaleListingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleListingInclude<ExtArgs> | null
+    /**
+     * Filter, which SaleListing to fetch.
+     */
+    where: SaleListingWhereUniqueInput
+  }
+
+  /**
+   * SaleListing findUniqueOrThrow
+   */
+  export type SaleListingFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleListing
+     */
+    select?: SaleListingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleListing
+     */
+    omit?: SaleListingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleListingInclude<ExtArgs> | null
+    /**
+     * Filter, which SaleListing to fetch.
+     */
+    where: SaleListingWhereUniqueInput
+  }
+
+  /**
+   * SaleListing findFirst
+   */
+  export type SaleListingFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleListing
+     */
+    select?: SaleListingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleListing
+     */
+    omit?: SaleListingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleListingInclude<ExtArgs> | null
+    /**
+     * Filter, which SaleListing to fetch.
+     */
+    where?: SaleListingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SaleListings to fetch.
+     */
+    orderBy?: SaleListingOrderByWithRelationInput | SaleListingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SaleListings.
+     */
+    cursor?: SaleListingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SaleListings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SaleListings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SaleListings.
+     */
+    distinct?: SaleListingScalarFieldEnum | SaleListingScalarFieldEnum[]
+  }
+
+  /**
+   * SaleListing findFirstOrThrow
+   */
+  export type SaleListingFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleListing
+     */
+    select?: SaleListingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleListing
+     */
+    omit?: SaleListingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleListingInclude<ExtArgs> | null
+    /**
+     * Filter, which SaleListing to fetch.
+     */
+    where?: SaleListingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SaleListings to fetch.
+     */
+    orderBy?: SaleListingOrderByWithRelationInput | SaleListingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SaleListings.
+     */
+    cursor?: SaleListingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SaleListings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SaleListings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SaleListings.
+     */
+    distinct?: SaleListingScalarFieldEnum | SaleListingScalarFieldEnum[]
+  }
+
+  /**
+   * SaleListing findMany
+   */
+  export type SaleListingFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleListing
+     */
+    select?: SaleListingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleListing
+     */
+    omit?: SaleListingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleListingInclude<ExtArgs> | null
+    /**
+     * Filter, which SaleListings to fetch.
+     */
+    where?: SaleListingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SaleListings to fetch.
+     */
+    orderBy?: SaleListingOrderByWithRelationInput | SaleListingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SaleListings.
+     */
+    cursor?: SaleListingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SaleListings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SaleListings.
+     */
+    skip?: number
+    distinct?: SaleListingScalarFieldEnum | SaleListingScalarFieldEnum[]
+  }
+
+  /**
+   * SaleListing create
+   */
+  export type SaleListingCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleListing
+     */
+    select?: SaleListingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleListing
+     */
+    omit?: SaleListingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleListingInclude<ExtArgs> | null
+    /**
+     * The data needed to create a SaleListing.
+     */
+    data: XOR<SaleListingCreateInput, SaleListingUncheckedCreateInput>
+  }
+
+  /**
+   * SaleListing createMany
+   */
+  export type SaleListingCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SaleListings.
+     */
+    data: SaleListingCreateManyInput | SaleListingCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SaleListing createManyAndReturn
+   */
+  export type SaleListingCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleListing
+     */
+    select?: SaleListingSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleListing
+     */
+    omit?: SaleListingOmit<ExtArgs> | null
+    /**
+     * The data used to create many SaleListings.
+     */
+    data: SaleListingCreateManyInput | SaleListingCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleListingIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * SaleListing update
+   */
+  export type SaleListingUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleListing
+     */
+    select?: SaleListingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleListing
+     */
+    omit?: SaleListingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleListingInclude<ExtArgs> | null
+    /**
+     * The data needed to update a SaleListing.
+     */
+    data: XOR<SaleListingUpdateInput, SaleListingUncheckedUpdateInput>
+    /**
+     * Choose, which SaleListing to update.
+     */
+    where: SaleListingWhereUniqueInput
+  }
+
+  /**
+   * SaleListing updateMany
+   */
+  export type SaleListingUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SaleListings.
+     */
+    data: XOR<SaleListingUpdateManyMutationInput, SaleListingUncheckedUpdateManyInput>
+    /**
+     * Filter which SaleListings to update
+     */
+    where?: SaleListingWhereInput
+    /**
+     * Limit how many SaleListings to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SaleListing updateManyAndReturn
+   */
+  export type SaleListingUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleListing
+     */
+    select?: SaleListingSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleListing
+     */
+    omit?: SaleListingOmit<ExtArgs> | null
+    /**
+     * The data used to update SaleListings.
+     */
+    data: XOR<SaleListingUpdateManyMutationInput, SaleListingUncheckedUpdateManyInput>
+    /**
+     * Filter which SaleListings to update
+     */
+    where?: SaleListingWhereInput
+    /**
+     * Limit how many SaleListings to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleListingIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * SaleListing upsert
+   */
+  export type SaleListingUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleListing
+     */
+    select?: SaleListingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleListing
+     */
+    omit?: SaleListingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleListingInclude<ExtArgs> | null
+    /**
+     * The filter to search for the SaleListing to update in case it exists.
+     */
+    where: SaleListingWhereUniqueInput
+    /**
+     * In case the SaleListing found by the `where` argument doesn't exist, create a new SaleListing with this data.
+     */
+    create: XOR<SaleListingCreateInput, SaleListingUncheckedCreateInput>
+    /**
+     * In case the SaleListing was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SaleListingUpdateInput, SaleListingUncheckedUpdateInput>
+  }
+
+  /**
+   * SaleListing delete
+   */
+  export type SaleListingDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleListing
+     */
+    select?: SaleListingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleListing
+     */
+    omit?: SaleListingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleListingInclude<ExtArgs> | null
+    /**
+     * Filter which SaleListing to delete.
+     */
+    where: SaleListingWhereUniqueInput
+  }
+
+  /**
+   * SaleListing deleteMany
+   */
+  export type SaleListingDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SaleListings to delete
+     */
+    where?: SaleListingWhereInput
+    /**
+     * Limit how many SaleListings to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SaleListing without action
+   */
+  export type SaleListingDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleListing
+     */
+    select?: SaleListingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleListing
+     */
+    omit?: SaleListingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleListingInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -35887,6 +37518,10 @@ export namespace Prisma {
     salary: 'salary',
     typeOfEngagement: 'typeOfEngagement',
     workSchedule: 'workSchedule',
+    pin: 'pin',
+    otp: 'otp',
+    otpExpiry: 'otpExpiry',
+    isVerified: 'isVerified',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -36324,6 +37959,44 @@ export namespace Prisma {
   export type TreatmentRecordScalarFieldEnum = (typeof TreatmentRecordScalarFieldEnum)[keyof typeof TreatmentRecordScalarFieldEnum]
 
 
+  export const SaleListingScalarFieldEnum: {
+    id: 'id',
+    farmId: 'farmId',
+    name: 'name',
+    category: 'category',
+    breed: 'breed',
+    age: 'age',
+    weight: 'weight',
+    price: 'price',
+    status: 'status',
+    health: 'health',
+    lastCheckup: 'lastCheckup',
+    purpose: 'purpose',
+    feedingProgram: 'feedingProgram',
+    milkProduction: 'milkProduction',
+    pregnancyStatus: 'pregnancyStatus',
+    quantity: 'quantity',
+    pricePerBird: 'pricePerBird',
+    eggProductionRate: 'eggProductionRate',
+    woolYield: 'woolYield',
+    milkProductionRate: 'milkProductionRate',
+    notes: 'notes',
+    images: 'images',
+    saleDate: 'saleDate',
+    buyerName: 'buyerName',
+    buyerContact: 'buyerContact',
+    saleAmount: 'saleAmount',
+    paymentMethod: 'paymentMethod',
+    receiptNumber: 'receiptNumber',
+    saleNotes: 'saleNotes',
+    attachments: 'attachments',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type SaleListingScalarFieldEnum = (typeof SaleListingScalarFieldEnum)[keyof typeof SaleListingScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -36603,6 +38276,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordListRelationFilter
     geneticDisorderRecords?: GeneticDisorderRecordListRelationFilter
     treatmentRecords?: TreatmentRecordListRelationFilter
+    saleListings?: SaleListingListRelationFilter
   }
 
   export type FarmOrderByWithRelationInput = {
@@ -36628,6 +38302,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordOrderByRelationAggregateInput
     geneticDisorderRecords?: GeneticDisorderRecordOrderByRelationAggregateInput
     treatmentRecords?: TreatmentRecordOrderByRelationAggregateInput
+    saleListings?: SaleListingOrderByRelationAggregateInput
   }
 
   export type FarmWhereUniqueInput = Prisma.AtLeast<{
@@ -36656,6 +38331,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordListRelationFilter
     geneticDisorderRecords?: GeneticDisorderRecordListRelationFilter
     treatmentRecords?: TreatmentRecordListRelationFilter
+    saleListings?: SaleListingListRelationFilter
   }, "id">
 
   export type FarmOrderByWithAggregationInput = {
@@ -36713,6 +38389,10 @@ export namespace Prisma {
     salary?: FloatFilter<"Employee"> | number
     typeOfEngagement?: StringNullableFilter<"Employee"> | string | null
     workSchedule?: StringNullableFilter<"Employee"> | string | null
+    pin?: StringNullableFilter<"Employee"> | string | null
+    otp?: StringNullableFilter<"Employee"> | string | null
+    otpExpiry?: DateTimeNullableFilter<"Employee"> | Date | string | null
+    isVerified?: BoolFilter<"Employee"> | boolean
     createdAt?: DateTimeFilter<"Employee"> | Date | string
     updatedAt?: DateTimeFilter<"Employee"> | Date | string
     benefits?: EmployeeBenefitListRelationFilter
@@ -36737,6 +38417,10 @@ export namespace Prisma {
     salary?: SortOrder
     typeOfEngagement?: SortOrderInput | SortOrder
     workSchedule?: SortOrderInput | SortOrder
+    pin?: SortOrderInput | SortOrder
+    otp?: SortOrderInput | SortOrder
+    otpExpiry?: SortOrderInput | SortOrder
+    isVerified?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     benefits?: EmployeeBenefitOrderByRelationAggregateInput
@@ -36745,6 +38429,7 @@ export namespace Prisma {
 
   export type EmployeeWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    phone?: string
     idNumber?: string
     AND?: EmployeeWhereInput | EmployeeWhereInput[]
     OR?: EmployeeWhereInput[]
@@ -36752,7 +38437,6 @@ export namespace Prisma {
     firstName?: StringFilter<"Employee"> | string
     middleName?: StringNullableFilter<"Employee"> | string | null
     lastName?: StringFilter<"Employee"> | string
-    phone?: StringFilter<"Employee"> | string
     emergencyContact?: StringNullableFilter<"Employee"> | string | null
     idPhoto?: StringNullableFilter<"Employee"> | string | null
     employeeType?: StringFilter<"Employee"> | string
@@ -36764,11 +38448,15 @@ export namespace Prisma {
     salary?: FloatFilter<"Employee"> | number
     typeOfEngagement?: StringNullableFilter<"Employee"> | string | null
     workSchedule?: StringNullableFilter<"Employee"> | string | null
+    pin?: StringNullableFilter<"Employee"> | string | null
+    otp?: StringNullableFilter<"Employee"> | string | null
+    otpExpiry?: DateTimeNullableFilter<"Employee"> | Date | string | null
+    isVerified?: BoolFilter<"Employee"> | boolean
     createdAt?: DateTimeFilter<"Employee"> | Date | string
     updatedAt?: DateTimeFilter<"Employee"> | Date | string
     benefits?: EmployeeBenefitListRelationFilter
     farms?: EmployeeFarmListRelationFilter
-  }, "id" | "idNumber">
+  }, "id" | "phone" | "idNumber">
 
   export type EmployeeOrderByWithAggregationInput = {
     id?: SortOrder
@@ -36788,6 +38476,10 @@ export namespace Prisma {
     salary?: SortOrder
     typeOfEngagement?: SortOrderInput | SortOrder
     workSchedule?: SortOrderInput | SortOrder
+    pin?: SortOrderInput | SortOrder
+    otp?: SortOrderInput | SortOrder
+    otpExpiry?: SortOrderInput | SortOrder
+    isVerified?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: EmployeeCountOrderByAggregateInput
@@ -36818,6 +38510,10 @@ export namespace Prisma {
     salary?: FloatWithAggregatesFilter<"Employee"> | number
     typeOfEngagement?: StringNullableWithAggregatesFilter<"Employee"> | string | null
     workSchedule?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    pin?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    otp?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    otpExpiry?: DateTimeNullableWithAggregatesFilter<"Employee"> | Date | string | null
+    isVerified?: BoolWithAggregatesFilter<"Employee"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Employee"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Employee"> | Date | string
   }
@@ -39113,6 +40809,198 @@ export namespace Prisma {
     livestockId?: StringWithAggregatesFilter<"TreatmentRecord"> | string
   }
 
+  export type SaleListingWhereInput = {
+    AND?: SaleListingWhereInput | SaleListingWhereInput[]
+    OR?: SaleListingWhereInput[]
+    NOT?: SaleListingWhereInput | SaleListingWhereInput[]
+    id?: StringFilter<"SaleListing"> | string
+    farmId?: StringFilter<"SaleListing"> | string
+    name?: StringFilter<"SaleListing"> | string
+    category?: StringFilter<"SaleListing"> | string
+    breed?: StringFilter<"SaleListing"> | string
+    age?: StringFilter<"SaleListing"> | string
+    weight?: FloatFilter<"SaleListing"> | number
+    price?: FloatFilter<"SaleListing"> | number
+    status?: StringFilter<"SaleListing"> | string
+    health?: StringFilter<"SaleListing"> | string
+    lastCheckup?: StringNullableFilter<"SaleListing"> | string | null
+    purpose?: StringNullableFilter<"SaleListing"> | string | null
+    feedingProgram?: StringNullableFilter<"SaleListing"> | string | null
+    milkProduction?: StringNullableFilter<"SaleListing"> | string | null
+    pregnancyStatus?: StringNullableFilter<"SaleListing"> | string | null
+    quantity?: IntNullableFilter<"SaleListing"> | number | null
+    pricePerBird?: FloatNullableFilter<"SaleListing"> | number | null
+    eggProductionRate?: StringNullableFilter<"SaleListing"> | string | null
+    woolYield?: StringNullableFilter<"SaleListing"> | string | null
+    milkProductionRate?: StringNullableFilter<"SaleListing"> | string | null
+    notes?: StringNullableFilter<"SaleListing"> | string | null
+    images?: StringNullableListFilter<"SaleListing">
+    saleDate?: DateTimeNullableFilter<"SaleListing"> | Date | string | null
+    buyerName?: StringNullableFilter<"SaleListing"> | string | null
+    buyerContact?: StringNullableFilter<"SaleListing"> | string | null
+    saleAmount?: FloatNullableFilter<"SaleListing"> | number | null
+    paymentMethod?: StringNullableFilter<"SaleListing"> | string | null
+    receiptNumber?: StringNullableFilter<"SaleListing"> | string | null
+    saleNotes?: StringNullableFilter<"SaleListing"> | string | null
+    attachments?: StringNullableListFilter<"SaleListing">
+    createdAt?: DateTimeFilter<"SaleListing"> | Date | string
+    updatedAt?: DateTimeFilter<"SaleListing"> | Date | string
+    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
+  }
+
+  export type SaleListingOrderByWithRelationInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    name?: SortOrder
+    category?: SortOrder
+    breed?: SortOrder
+    age?: SortOrder
+    weight?: SortOrder
+    price?: SortOrder
+    status?: SortOrder
+    health?: SortOrder
+    lastCheckup?: SortOrderInput | SortOrder
+    purpose?: SortOrderInput | SortOrder
+    feedingProgram?: SortOrderInput | SortOrder
+    milkProduction?: SortOrderInput | SortOrder
+    pregnancyStatus?: SortOrderInput | SortOrder
+    quantity?: SortOrderInput | SortOrder
+    pricePerBird?: SortOrderInput | SortOrder
+    eggProductionRate?: SortOrderInput | SortOrder
+    woolYield?: SortOrderInput | SortOrder
+    milkProductionRate?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    images?: SortOrder
+    saleDate?: SortOrderInput | SortOrder
+    buyerName?: SortOrderInput | SortOrder
+    buyerContact?: SortOrderInput | SortOrder
+    saleAmount?: SortOrderInput | SortOrder
+    paymentMethod?: SortOrderInput | SortOrder
+    receiptNumber?: SortOrderInput | SortOrder
+    saleNotes?: SortOrderInput | SortOrder
+    attachments?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    farm?: FarmOrderByWithRelationInput
+  }
+
+  export type SaleListingWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SaleListingWhereInput | SaleListingWhereInput[]
+    OR?: SaleListingWhereInput[]
+    NOT?: SaleListingWhereInput | SaleListingWhereInput[]
+    farmId?: StringFilter<"SaleListing"> | string
+    name?: StringFilter<"SaleListing"> | string
+    category?: StringFilter<"SaleListing"> | string
+    breed?: StringFilter<"SaleListing"> | string
+    age?: StringFilter<"SaleListing"> | string
+    weight?: FloatFilter<"SaleListing"> | number
+    price?: FloatFilter<"SaleListing"> | number
+    status?: StringFilter<"SaleListing"> | string
+    health?: StringFilter<"SaleListing"> | string
+    lastCheckup?: StringNullableFilter<"SaleListing"> | string | null
+    purpose?: StringNullableFilter<"SaleListing"> | string | null
+    feedingProgram?: StringNullableFilter<"SaleListing"> | string | null
+    milkProduction?: StringNullableFilter<"SaleListing"> | string | null
+    pregnancyStatus?: StringNullableFilter<"SaleListing"> | string | null
+    quantity?: IntNullableFilter<"SaleListing"> | number | null
+    pricePerBird?: FloatNullableFilter<"SaleListing"> | number | null
+    eggProductionRate?: StringNullableFilter<"SaleListing"> | string | null
+    woolYield?: StringNullableFilter<"SaleListing"> | string | null
+    milkProductionRate?: StringNullableFilter<"SaleListing"> | string | null
+    notes?: StringNullableFilter<"SaleListing"> | string | null
+    images?: StringNullableListFilter<"SaleListing">
+    saleDate?: DateTimeNullableFilter<"SaleListing"> | Date | string | null
+    buyerName?: StringNullableFilter<"SaleListing"> | string | null
+    buyerContact?: StringNullableFilter<"SaleListing"> | string | null
+    saleAmount?: FloatNullableFilter<"SaleListing"> | number | null
+    paymentMethod?: StringNullableFilter<"SaleListing"> | string | null
+    receiptNumber?: StringNullableFilter<"SaleListing"> | string | null
+    saleNotes?: StringNullableFilter<"SaleListing"> | string | null
+    attachments?: StringNullableListFilter<"SaleListing">
+    createdAt?: DateTimeFilter<"SaleListing"> | Date | string
+    updatedAt?: DateTimeFilter<"SaleListing"> | Date | string
+    farm?: XOR<FarmScalarRelationFilter, FarmWhereInput>
+  }, "id">
+
+  export type SaleListingOrderByWithAggregationInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    name?: SortOrder
+    category?: SortOrder
+    breed?: SortOrder
+    age?: SortOrder
+    weight?: SortOrder
+    price?: SortOrder
+    status?: SortOrder
+    health?: SortOrder
+    lastCheckup?: SortOrderInput | SortOrder
+    purpose?: SortOrderInput | SortOrder
+    feedingProgram?: SortOrderInput | SortOrder
+    milkProduction?: SortOrderInput | SortOrder
+    pregnancyStatus?: SortOrderInput | SortOrder
+    quantity?: SortOrderInput | SortOrder
+    pricePerBird?: SortOrderInput | SortOrder
+    eggProductionRate?: SortOrderInput | SortOrder
+    woolYield?: SortOrderInput | SortOrder
+    milkProductionRate?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    images?: SortOrder
+    saleDate?: SortOrderInput | SortOrder
+    buyerName?: SortOrderInput | SortOrder
+    buyerContact?: SortOrderInput | SortOrder
+    saleAmount?: SortOrderInput | SortOrder
+    paymentMethod?: SortOrderInput | SortOrder
+    receiptNumber?: SortOrderInput | SortOrder
+    saleNotes?: SortOrderInput | SortOrder
+    attachments?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: SaleListingCountOrderByAggregateInput
+    _avg?: SaleListingAvgOrderByAggregateInput
+    _max?: SaleListingMaxOrderByAggregateInput
+    _min?: SaleListingMinOrderByAggregateInput
+    _sum?: SaleListingSumOrderByAggregateInput
+  }
+
+  export type SaleListingScalarWhereWithAggregatesInput = {
+    AND?: SaleListingScalarWhereWithAggregatesInput | SaleListingScalarWhereWithAggregatesInput[]
+    OR?: SaleListingScalarWhereWithAggregatesInput[]
+    NOT?: SaleListingScalarWhereWithAggregatesInput | SaleListingScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"SaleListing"> | string
+    farmId?: StringWithAggregatesFilter<"SaleListing"> | string
+    name?: StringWithAggregatesFilter<"SaleListing"> | string
+    category?: StringWithAggregatesFilter<"SaleListing"> | string
+    breed?: StringWithAggregatesFilter<"SaleListing"> | string
+    age?: StringWithAggregatesFilter<"SaleListing"> | string
+    weight?: FloatWithAggregatesFilter<"SaleListing"> | number
+    price?: FloatWithAggregatesFilter<"SaleListing"> | number
+    status?: StringWithAggregatesFilter<"SaleListing"> | string
+    health?: StringWithAggregatesFilter<"SaleListing"> | string
+    lastCheckup?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    purpose?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    feedingProgram?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    milkProduction?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    pregnancyStatus?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    quantity?: IntNullableWithAggregatesFilter<"SaleListing"> | number | null
+    pricePerBird?: FloatNullableWithAggregatesFilter<"SaleListing"> | number | null
+    eggProductionRate?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    woolYield?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    milkProductionRate?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    notes?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    images?: StringNullableListFilter<"SaleListing">
+    saleDate?: DateTimeNullableWithAggregatesFilter<"SaleListing"> | Date | string | null
+    buyerName?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    buyerContact?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    saleAmount?: FloatNullableWithAggregatesFilter<"SaleListing"> | number | null
+    paymentMethod?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    receiptNumber?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    saleNotes?: StringNullableWithAggregatesFilter<"SaleListing"> | string | null
+    attachments?: StringNullableListFilter<"SaleListing">
+    createdAt?: DateTimeWithAggregatesFilter<"SaleListing"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"SaleListing"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     firstName: string
@@ -39335,6 +41223,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateInput = {
@@ -39359,6 +41248,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUpdateInput = {
@@ -39383,6 +41273,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateInput = {
@@ -39407,6 +41298,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmCreateManyInput = {
@@ -39465,6 +41357,10 @@ export namespace Prisma {
     salary: number
     typeOfEngagement?: string | null
     workSchedule?: string | null
+    pin?: string | null
+    otp?: string | null
+    otpExpiry?: Date | string | null
+    isVerified?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     benefits?: EmployeeBenefitCreateNestedManyWithoutEmployeeInput
@@ -39489,6 +41385,10 @@ export namespace Prisma {
     salary: number
     typeOfEngagement?: string | null
     workSchedule?: string | null
+    pin?: string | null
+    otp?: string | null
+    otpExpiry?: Date | string | null
+    isVerified?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     benefits?: EmployeeBenefitUncheckedCreateNestedManyWithoutEmployeeInput
@@ -39513,6 +41413,10 @@ export namespace Prisma {
     salary?: FloatFieldUpdateOperationsInput | number
     typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
     workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: NullableStringFieldUpdateOperationsInput | string | null
+    otpExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     benefits?: EmployeeBenefitUpdateManyWithoutEmployeeNestedInput
@@ -39537,6 +41441,10 @@ export namespace Prisma {
     salary?: FloatFieldUpdateOperationsInput | number
     typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
     workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: NullableStringFieldUpdateOperationsInput | string | null
+    otpExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     benefits?: EmployeeBenefitUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -39561,6 +41469,10 @@ export namespace Prisma {
     salary: number
     typeOfEngagement?: string | null
     workSchedule?: string | null
+    pin?: string | null
+    otp?: string | null
+    otpExpiry?: Date | string | null
+    isVerified?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -39583,6 +41495,10 @@ export namespace Prisma {
     salary?: FloatFieldUpdateOperationsInput | number
     typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
     workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: NullableStringFieldUpdateOperationsInput | string | null
+    otpExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -39605,6 +41521,10 @@ export namespace Prisma {
     salary?: FloatFieldUpdateOperationsInput | number
     typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
     workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: NullableStringFieldUpdateOperationsInput | string | null
+    otpExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -42176,6 +44096,250 @@ export namespace Prisma {
     livestockId?: StringFieldUpdateOperationsInput | string
   }
 
+  export type SaleListingCreateInput = {
+    id?: string
+    name: string
+    category: string
+    breed: string
+    age: string
+    weight: number
+    price: number
+    status?: string
+    health: string
+    lastCheckup?: string | null
+    purpose?: string | null
+    feedingProgram?: string | null
+    milkProduction?: string | null
+    pregnancyStatus?: string | null
+    quantity?: number | null
+    pricePerBird?: number | null
+    eggProductionRate?: string | null
+    woolYield?: string | null
+    milkProductionRate?: string | null
+    notes?: string | null
+    images?: SaleListingCreateimagesInput | string[]
+    saleDate?: Date | string | null
+    buyerName?: string | null
+    buyerContact?: string | null
+    saleAmount?: number | null
+    paymentMethod?: string | null
+    receiptNumber?: string | null
+    saleNotes?: string | null
+    attachments?: SaleListingCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    farm: FarmCreateNestedOneWithoutSaleListingsInput
+  }
+
+  export type SaleListingUncheckedCreateInput = {
+    id?: string
+    farmId: string
+    name: string
+    category: string
+    breed: string
+    age: string
+    weight: number
+    price: number
+    status?: string
+    health: string
+    lastCheckup?: string | null
+    purpose?: string | null
+    feedingProgram?: string | null
+    milkProduction?: string | null
+    pregnancyStatus?: string | null
+    quantity?: number | null
+    pricePerBird?: number | null
+    eggProductionRate?: string | null
+    woolYield?: string | null
+    milkProductionRate?: string | null
+    notes?: string | null
+    images?: SaleListingCreateimagesInput | string[]
+    saleDate?: Date | string | null
+    buyerName?: string | null
+    buyerContact?: string | null
+    saleAmount?: number | null
+    paymentMethod?: string | null
+    receiptNumber?: string | null
+    saleNotes?: string | null
+    attachments?: SaleListingCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SaleListingUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    breed?: StringFieldUpdateOperationsInput | string
+    age?: StringFieldUpdateOperationsInput | string
+    weight?: FloatFieldUpdateOperationsInput | number
+    price?: FloatFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    health?: StringFieldUpdateOperationsInput | string
+    lastCheckup?: NullableStringFieldUpdateOperationsInput | string | null
+    purpose?: NullableStringFieldUpdateOperationsInput | string | null
+    feedingProgram?: NullableStringFieldUpdateOperationsInput | string | null
+    milkProduction?: NullableStringFieldUpdateOperationsInput | string | null
+    pregnancyStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    quantity?: NullableIntFieldUpdateOperationsInput | number | null
+    pricePerBird?: NullableFloatFieldUpdateOperationsInput | number | null
+    eggProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
+    woolYield?: NullableStringFieldUpdateOperationsInput | string | null
+    milkProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: SaleListingUpdateimagesInput | string[]
+    saleDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    buyerName?: NullableStringFieldUpdateOperationsInput | string | null
+    buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    saleAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    saleNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: SaleListingUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    farm?: FarmUpdateOneRequiredWithoutSaleListingsNestedInput
+  }
+
+  export type SaleListingUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    breed?: StringFieldUpdateOperationsInput | string
+    age?: StringFieldUpdateOperationsInput | string
+    weight?: FloatFieldUpdateOperationsInput | number
+    price?: FloatFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    health?: StringFieldUpdateOperationsInput | string
+    lastCheckup?: NullableStringFieldUpdateOperationsInput | string | null
+    purpose?: NullableStringFieldUpdateOperationsInput | string | null
+    feedingProgram?: NullableStringFieldUpdateOperationsInput | string | null
+    milkProduction?: NullableStringFieldUpdateOperationsInput | string | null
+    pregnancyStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    quantity?: NullableIntFieldUpdateOperationsInput | number | null
+    pricePerBird?: NullableFloatFieldUpdateOperationsInput | number | null
+    eggProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
+    woolYield?: NullableStringFieldUpdateOperationsInput | string | null
+    milkProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: SaleListingUpdateimagesInput | string[]
+    saleDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    buyerName?: NullableStringFieldUpdateOperationsInput | string | null
+    buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    saleAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    saleNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: SaleListingUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SaleListingCreateManyInput = {
+    id?: string
+    farmId: string
+    name: string
+    category: string
+    breed: string
+    age: string
+    weight: number
+    price: number
+    status?: string
+    health: string
+    lastCheckup?: string | null
+    purpose?: string | null
+    feedingProgram?: string | null
+    milkProduction?: string | null
+    pregnancyStatus?: string | null
+    quantity?: number | null
+    pricePerBird?: number | null
+    eggProductionRate?: string | null
+    woolYield?: string | null
+    milkProductionRate?: string | null
+    notes?: string | null
+    images?: SaleListingCreateimagesInput | string[]
+    saleDate?: Date | string | null
+    buyerName?: string | null
+    buyerContact?: string | null
+    saleAmount?: number | null
+    paymentMethod?: string | null
+    receiptNumber?: string | null
+    saleNotes?: string | null
+    attachments?: SaleListingCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SaleListingUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    breed?: StringFieldUpdateOperationsInput | string
+    age?: StringFieldUpdateOperationsInput | string
+    weight?: FloatFieldUpdateOperationsInput | number
+    price?: FloatFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    health?: StringFieldUpdateOperationsInput | string
+    lastCheckup?: NullableStringFieldUpdateOperationsInput | string | null
+    purpose?: NullableStringFieldUpdateOperationsInput | string | null
+    feedingProgram?: NullableStringFieldUpdateOperationsInput | string | null
+    milkProduction?: NullableStringFieldUpdateOperationsInput | string | null
+    pregnancyStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    quantity?: NullableIntFieldUpdateOperationsInput | number | null
+    pricePerBird?: NullableFloatFieldUpdateOperationsInput | number | null
+    eggProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
+    woolYield?: NullableStringFieldUpdateOperationsInput | string | null
+    milkProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: SaleListingUpdateimagesInput | string[]
+    saleDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    buyerName?: NullableStringFieldUpdateOperationsInput | string | null
+    buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    saleAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    saleNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: SaleListingUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SaleListingUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    farmId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    breed?: StringFieldUpdateOperationsInput | string
+    age?: StringFieldUpdateOperationsInput | string
+    weight?: FloatFieldUpdateOperationsInput | number
+    price?: FloatFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    health?: StringFieldUpdateOperationsInput | string
+    lastCheckup?: NullableStringFieldUpdateOperationsInput | string | null
+    purpose?: NullableStringFieldUpdateOperationsInput | string | null
+    feedingProgram?: NullableStringFieldUpdateOperationsInput | string | null
+    milkProduction?: NullableStringFieldUpdateOperationsInput | string | null
+    pregnancyStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    quantity?: NullableIntFieldUpdateOperationsInput | number | null
+    pricePerBird?: NullableFloatFieldUpdateOperationsInput | number | null
+    eggProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
+    woolYield?: NullableStringFieldUpdateOperationsInput | string | null
+    milkProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: SaleListingUpdateimagesInput | string[]
+    saleDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    buyerName?: NullableStringFieldUpdateOperationsInput | string | null
+    buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    saleAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    saleNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: SaleListingUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -42545,6 +44709,12 @@ export namespace Prisma {
     none?: InventoryWhereInput
   }
 
+  export type SaleListingListRelationFilter = {
+    every?: SaleListingWhereInput
+    some?: SaleListingWhereInput
+    none?: SaleListingWhereInput
+  }
+
   export type EmployeeFarmOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -42558,6 +44728,10 @@ export namespace Prisma {
   }
 
   export type InventoryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SaleListingOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -42650,6 +44824,10 @@ export namespace Prisma {
     salary?: SortOrder
     typeOfEngagement?: SortOrder
     workSchedule?: SortOrder
+    pin?: SortOrder
+    otp?: SortOrder
+    otpExpiry?: SortOrder
+    isVerified?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -42676,6 +44854,10 @@ export namespace Prisma {
     salary?: SortOrder
     typeOfEngagement?: SortOrder
     workSchedule?: SortOrder
+    pin?: SortOrder
+    otp?: SortOrder
+    otpExpiry?: SortOrder
+    isVerified?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -42698,6 +44880,10 @@ export namespace Prisma {
     salary?: SortOrder
     typeOfEngagement?: SortOrder
     workSchedule?: SortOrder
+    pin?: SortOrder
+    otp?: SortOrder
+    otpExpiry?: SortOrder
+    isVerified?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -44122,6 +46308,123 @@ export namespace Prisma {
     costOfService?: SortOrder
   }
 
+  export type SaleListingCountOrderByAggregateInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    name?: SortOrder
+    category?: SortOrder
+    breed?: SortOrder
+    age?: SortOrder
+    weight?: SortOrder
+    price?: SortOrder
+    status?: SortOrder
+    health?: SortOrder
+    lastCheckup?: SortOrder
+    purpose?: SortOrder
+    feedingProgram?: SortOrder
+    milkProduction?: SortOrder
+    pregnancyStatus?: SortOrder
+    quantity?: SortOrder
+    pricePerBird?: SortOrder
+    eggProductionRate?: SortOrder
+    woolYield?: SortOrder
+    milkProductionRate?: SortOrder
+    notes?: SortOrder
+    images?: SortOrder
+    saleDate?: SortOrder
+    buyerName?: SortOrder
+    buyerContact?: SortOrder
+    saleAmount?: SortOrder
+    paymentMethod?: SortOrder
+    receiptNumber?: SortOrder
+    saleNotes?: SortOrder
+    attachments?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SaleListingAvgOrderByAggregateInput = {
+    weight?: SortOrder
+    price?: SortOrder
+    quantity?: SortOrder
+    pricePerBird?: SortOrder
+    saleAmount?: SortOrder
+  }
+
+  export type SaleListingMaxOrderByAggregateInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    name?: SortOrder
+    category?: SortOrder
+    breed?: SortOrder
+    age?: SortOrder
+    weight?: SortOrder
+    price?: SortOrder
+    status?: SortOrder
+    health?: SortOrder
+    lastCheckup?: SortOrder
+    purpose?: SortOrder
+    feedingProgram?: SortOrder
+    milkProduction?: SortOrder
+    pregnancyStatus?: SortOrder
+    quantity?: SortOrder
+    pricePerBird?: SortOrder
+    eggProductionRate?: SortOrder
+    woolYield?: SortOrder
+    milkProductionRate?: SortOrder
+    notes?: SortOrder
+    saleDate?: SortOrder
+    buyerName?: SortOrder
+    buyerContact?: SortOrder
+    saleAmount?: SortOrder
+    paymentMethod?: SortOrder
+    receiptNumber?: SortOrder
+    saleNotes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SaleListingMinOrderByAggregateInput = {
+    id?: SortOrder
+    farmId?: SortOrder
+    name?: SortOrder
+    category?: SortOrder
+    breed?: SortOrder
+    age?: SortOrder
+    weight?: SortOrder
+    price?: SortOrder
+    status?: SortOrder
+    health?: SortOrder
+    lastCheckup?: SortOrder
+    purpose?: SortOrder
+    feedingProgram?: SortOrder
+    milkProduction?: SortOrder
+    pregnancyStatus?: SortOrder
+    quantity?: SortOrder
+    pricePerBird?: SortOrder
+    eggProductionRate?: SortOrder
+    woolYield?: SortOrder
+    milkProductionRate?: SortOrder
+    notes?: SortOrder
+    saleDate?: SortOrder
+    buyerName?: SortOrder
+    buyerContact?: SortOrder
+    saleAmount?: SortOrder
+    paymentMethod?: SortOrder
+    receiptNumber?: SortOrder
+    saleNotes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SaleListingSumOrderByAggregateInput = {
+    weight?: SortOrder
+    price?: SortOrder
+    quantity?: SortOrder
+    pricePerBird?: SortOrder
+    saleAmount?: SortOrder
+  }
+
   export type FarmCreateNestedManyWithoutUserInput = {
     create?: XOR<FarmCreateWithoutUserInput, FarmUncheckedCreateWithoutUserInput> | FarmCreateWithoutUserInput[] | FarmUncheckedCreateWithoutUserInput[]
     connectOrCreate?: FarmCreateOrConnectWithoutUserInput | FarmCreateOrConnectWithoutUserInput[]
@@ -44573,6 +46876,13 @@ export namespace Prisma {
     connect?: TreatmentRecordWhereUniqueInput | TreatmentRecordWhereUniqueInput[]
   }
 
+  export type SaleListingCreateNestedManyWithoutFarmInput = {
+    create?: XOR<SaleListingCreateWithoutFarmInput, SaleListingUncheckedCreateWithoutFarmInput> | SaleListingCreateWithoutFarmInput[] | SaleListingUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: SaleListingCreateOrConnectWithoutFarmInput | SaleListingCreateOrConnectWithoutFarmInput[]
+    createMany?: SaleListingCreateManyFarmInputEnvelope
+    connect?: SaleListingWhereUniqueInput | SaleListingWhereUniqueInput[]
+  }
+
   export type EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput = {
     create?: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput> | EmployeeFarmCreateWithoutFarmInput[] | EmployeeFarmUncheckedCreateWithoutFarmInput[]
     connectOrCreate?: EmployeeFarmCreateOrConnectWithoutFarmInput | EmployeeFarmCreateOrConnectWithoutFarmInput[]
@@ -44648,6 +46958,13 @@ export namespace Prisma {
     connectOrCreate?: TreatmentRecordCreateOrConnectWithoutFarmInput | TreatmentRecordCreateOrConnectWithoutFarmInput[]
     createMany?: TreatmentRecordCreateManyFarmInputEnvelope
     connect?: TreatmentRecordWhereUniqueInput | TreatmentRecordWhereUniqueInput[]
+  }
+
+  export type SaleListingUncheckedCreateNestedManyWithoutFarmInput = {
+    create?: XOR<SaleListingCreateWithoutFarmInput, SaleListingUncheckedCreateWithoutFarmInput> | SaleListingCreateWithoutFarmInput[] | SaleListingUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: SaleListingCreateOrConnectWithoutFarmInput | SaleListingCreateOrConnectWithoutFarmInput[]
+    createMany?: SaleListingCreateManyFarmInputEnvelope
+    connect?: SaleListingWhereUniqueInput | SaleListingWhereUniqueInput[]
   }
 
   export type FloatFieldUpdateOperationsInput = {
@@ -44825,6 +47142,20 @@ export namespace Prisma {
     deleteMany?: TreatmentRecordScalarWhereInput | TreatmentRecordScalarWhereInput[]
   }
 
+  export type SaleListingUpdateManyWithoutFarmNestedInput = {
+    create?: XOR<SaleListingCreateWithoutFarmInput, SaleListingUncheckedCreateWithoutFarmInput> | SaleListingCreateWithoutFarmInput[] | SaleListingUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: SaleListingCreateOrConnectWithoutFarmInput | SaleListingCreateOrConnectWithoutFarmInput[]
+    upsert?: SaleListingUpsertWithWhereUniqueWithoutFarmInput | SaleListingUpsertWithWhereUniqueWithoutFarmInput[]
+    createMany?: SaleListingCreateManyFarmInputEnvelope
+    set?: SaleListingWhereUniqueInput | SaleListingWhereUniqueInput[]
+    disconnect?: SaleListingWhereUniqueInput | SaleListingWhereUniqueInput[]
+    delete?: SaleListingWhereUniqueInput | SaleListingWhereUniqueInput[]
+    connect?: SaleListingWhereUniqueInput | SaleListingWhereUniqueInput[]
+    update?: SaleListingUpdateWithWhereUniqueWithoutFarmInput | SaleListingUpdateWithWhereUniqueWithoutFarmInput[]
+    updateMany?: SaleListingUpdateManyWithWhereWithoutFarmInput | SaleListingUpdateManyWithWhereWithoutFarmInput[]
+    deleteMany?: SaleListingScalarWhereInput | SaleListingScalarWhereInput[]
+  }
+
   export type EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput = {
     create?: XOR<EmployeeFarmCreateWithoutFarmInput, EmployeeFarmUncheckedCreateWithoutFarmInput> | EmployeeFarmCreateWithoutFarmInput[] | EmployeeFarmUncheckedCreateWithoutFarmInput[]
     connectOrCreate?: EmployeeFarmCreateOrConnectWithoutFarmInput | EmployeeFarmCreateOrConnectWithoutFarmInput[]
@@ -44977,6 +47308,20 @@ export namespace Prisma {
     update?: TreatmentRecordUpdateWithWhereUniqueWithoutFarmInput | TreatmentRecordUpdateWithWhereUniqueWithoutFarmInput[]
     updateMany?: TreatmentRecordUpdateManyWithWhereWithoutFarmInput | TreatmentRecordUpdateManyWithWhereWithoutFarmInput[]
     deleteMany?: TreatmentRecordScalarWhereInput | TreatmentRecordScalarWhereInput[]
+  }
+
+  export type SaleListingUncheckedUpdateManyWithoutFarmNestedInput = {
+    create?: XOR<SaleListingCreateWithoutFarmInput, SaleListingUncheckedCreateWithoutFarmInput> | SaleListingCreateWithoutFarmInput[] | SaleListingUncheckedCreateWithoutFarmInput[]
+    connectOrCreate?: SaleListingCreateOrConnectWithoutFarmInput | SaleListingCreateOrConnectWithoutFarmInput[]
+    upsert?: SaleListingUpsertWithWhereUniqueWithoutFarmInput | SaleListingUpsertWithWhereUniqueWithoutFarmInput[]
+    createMany?: SaleListingCreateManyFarmInputEnvelope
+    set?: SaleListingWhereUniqueInput | SaleListingWhereUniqueInput[]
+    disconnect?: SaleListingWhereUniqueInput | SaleListingWhereUniqueInput[]
+    delete?: SaleListingWhereUniqueInput | SaleListingWhereUniqueInput[]
+    connect?: SaleListingWhereUniqueInput | SaleListingWhereUniqueInput[]
+    update?: SaleListingUpdateWithWhereUniqueWithoutFarmInput | SaleListingUpdateWithWhereUniqueWithoutFarmInput[]
+    updateMany?: SaleListingUpdateManyWithWhereWithoutFarmInput | SaleListingUpdateManyWithWhereWithoutFarmInput[]
+    deleteMany?: SaleListingScalarWhereInput | SaleListingScalarWhereInput[]
   }
 
   export type EmployeeBenefitCreateNestedManyWithoutEmployeeInput = {
@@ -46515,6 +48860,38 @@ export namespace Prisma {
     update?: XOR<XOR<LivestockUpdateToOneWithWhereWithoutTreatmentRecordsInput, LivestockUpdateWithoutTreatmentRecordsInput>, LivestockUncheckedUpdateWithoutTreatmentRecordsInput>
   }
 
+  export type SaleListingCreateimagesInput = {
+    set: string[]
+  }
+
+  export type SaleListingCreateattachmentsInput = {
+    set: string[]
+  }
+
+  export type FarmCreateNestedOneWithoutSaleListingsInput = {
+    create?: XOR<FarmCreateWithoutSaleListingsInput, FarmUncheckedCreateWithoutSaleListingsInput>
+    connectOrCreate?: FarmCreateOrConnectWithoutSaleListingsInput
+    connect?: FarmWhereUniqueInput
+  }
+
+  export type SaleListingUpdateimagesInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type SaleListingUpdateattachmentsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type FarmUpdateOneRequiredWithoutSaleListingsNestedInput = {
+    create?: XOR<FarmCreateWithoutSaleListingsInput, FarmUncheckedCreateWithoutSaleListingsInput>
+    connectOrCreate?: FarmCreateOrConnectWithoutSaleListingsInput
+    upsert?: FarmUpsertWithoutSaleListingsInput
+    connect?: FarmWhereUniqueInput
+    update?: XOR<XOR<FarmUpdateToOneWithWhereWithoutSaleListingsInput, FarmUpdateWithoutSaleListingsInput>, FarmUncheckedUpdateWithoutSaleListingsInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -46769,6 +49146,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutUserInput = {
@@ -46792,6 +49170,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutUserInput = {
@@ -47968,6 +50347,84 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type SaleListingCreateWithoutFarmInput = {
+    id?: string
+    name: string
+    category: string
+    breed: string
+    age: string
+    weight: number
+    price: number
+    status?: string
+    health: string
+    lastCheckup?: string | null
+    purpose?: string | null
+    feedingProgram?: string | null
+    milkProduction?: string | null
+    pregnancyStatus?: string | null
+    quantity?: number | null
+    pricePerBird?: number | null
+    eggProductionRate?: string | null
+    woolYield?: string | null
+    milkProductionRate?: string | null
+    notes?: string | null
+    images?: SaleListingCreateimagesInput | string[]
+    saleDate?: Date | string | null
+    buyerName?: string | null
+    buyerContact?: string | null
+    saleAmount?: number | null
+    paymentMethod?: string | null
+    receiptNumber?: string | null
+    saleNotes?: string | null
+    attachments?: SaleListingCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SaleListingUncheckedCreateWithoutFarmInput = {
+    id?: string
+    name: string
+    category: string
+    breed: string
+    age: string
+    weight: number
+    price: number
+    status?: string
+    health: string
+    lastCheckup?: string | null
+    purpose?: string | null
+    feedingProgram?: string | null
+    milkProduction?: string | null
+    pregnancyStatus?: string | null
+    quantity?: number | null
+    pricePerBird?: number | null
+    eggProductionRate?: string | null
+    woolYield?: string | null
+    milkProductionRate?: string | null
+    notes?: string | null
+    images?: SaleListingCreateimagesInput | string[]
+    saleDate?: Date | string | null
+    buyerName?: string | null
+    buyerContact?: string | null
+    saleAmount?: number | null
+    paymentMethod?: string | null
+    receiptNumber?: string | null
+    saleNotes?: string | null
+    attachments?: SaleListingCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SaleListingCreateOrConnectWithoutFarmInput = {
+    where: SaleListingWhereUniqueInput
+    create: XOR<SaleListingCreateWithoutFarmInput, SaleListingUncheckedCreateWithoutFarmInput>
+  }
+
+  export type SaleListingCreateManyFarmInputEnvelope = {
+    data: SaleListingCreateManyFarmInput | SaleListingCreateManyFarmInput[]
+    skipDuplicates?: boolean
+  }
+
   export type EmployeeFarmUpsertWithWhereUniqueWithoutFarmInput = {
     where: EmployeeFarmWhereUniqueInput
     update: XOR<EmployeeFarmUpdateWithoutFarmInput, EmployeeFarmUncheckedUpdateWithoutFarmInput>
@@ -48282,6 +50739,60 @@ export namespace Prisma {
     data: XOR<TreatmentRecordUpdateManyMutationInput, TreatmentRecordUncheckedUpdateManyWithoutFarmInput>
   }
 
+  export type SaleListingUpsertWithWhereUniqueWithoutFarmInput = {
+    where: SaleListingWhereUniqueInput
+    update: XOR<SaleListingUpdateWithoutFarmInput, SaleListingUncheckedUpdateWithoutFarmInput>
+    create: XOR<SaleListingCreateWithoutFarmInput, SaleListingUncheckedCreateWithoutFarmInput>
+  }
+
+  export type SaleListingUpdateWithWhereUniqueWithoutFarmInput = {
+    where: SaleListingWhereUniqueInput
+    data: XOR<SaleListingUpdateWithoutFarmInput, SaleListingUncheckedUpdateWithoutFarmInput>
+  }
+
+  export type SaleListingUpdateManyWithWhereWithoutFarmInput = {
+    where: SaleListingScalarWhereInput
+    data: XOR<SaleListingUpdateManyMutationInput, SaleListingUncheckedUpdateManyWithoutFarmInput>
+  }
+
+  export type SaleListingScalarWhereInput = {
+    AND?: SaleListingScalarWhereInput | SaleListingScalarWhereInput[]
+    OR?: SaleListingScalarWhereInput[]
+    NOT?: SaleListingScalarWhereInput | SaleListingScalarWhereInput[]
+    id?: StringFilter<"SaleListing"> | string
+    farmId?: StringFilter<"SaleListing"> | string
+    name?: StringFilter<"SaleListing"> | string
+    category?: StringFilter<"SaleListing"> | string
+    breed?: StringFilter<"SaleListing"> | string
+    age?: StringFilter<"SaleListing"> | string
+    weight?: FloatFilter<"SaleListing"> | number
+    price?: FloatFilter<"SaleListing"> | number
+    status?: StringFilter<"SaleListing"> | string
+    health?: StringFilter<"SaleListing"> | string
+    lastCheckup?: StringNullableFilter<"SaleListing"> | string | null
+    purpose?: StringNullableFilter<"SaleListing"> | string | null
+    feedingProgram?: StringNullableFilter<"SaleListing"> | string | null
+    milkProduction?: StringNullableFilter<"SaleListing"> | string | null
+    pregnancyStatus?: StringNullableFilter<"SaleListing"> | string | null
+    quantity?: IntNullableFilter<"SaleListing"> | number | null
+    pricePerBird?: FloatNullableFilter<"SaleListing"> | number | null
+    eggProductionRate?: StringNullableFilter<"SaleListing"> | string | null
+    woolYield?: StringNullableFilter<"SaleListing"> | string | null
+    milkProductionRate?: StringNullableFilter<"SaleListing"> | string | null
+    notes?: StringNullableFilter<"SaleListing"> | string | null
+    images?: StringNullableListFilter<"SaleListing">
+    saleDate?: DateTimeNullableFilter<"SaleListing"> | Date | string | null
+    buyerName?: StringNullableFilter<"SaleListing"> | string | null
+    buyerContact?: StringNullableFilter<"SaleListing"> | string | null
+    saleAmount?: FloatNullableFilter<"SaleListing"> | number | null
+    paymentMethod?: StringNullableFilter<"SaleListing"> | string | null
+    receiptNumber?: StringNullableFilter<"SaleListing"> | string | null
+    saleNotes?: StringNullableFilter<"SaleListing"> | string | null
+    attachments?: StringNullableListFilter<"SaleListing">
+    createdAt?: DateTimeFilter<"SaleListing"> | Date | string
+    updatedAt?: DateTimeFilter<"SaleListing"> | Date | string
+  }
+
   export type EmployeeBenefitCreateWithoutEmployeeInput = {
     id?: string
     name: string
@@ -48394,6 +50905,10 @@ export namespace Prisma {
     salary: number
     typeOfEngagement?: string | null
     workSchedule?: string | null
+    pin?: string | null
+    otp?: string | null
+    otpExpiry?: Date | string | null
+    isVerified?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     benefits?: EmployeeBenefitCreateNestedManyWithoutEmployeeInput
@@ -48417,6 +50932,10 @@ export namespace Prisma {
     salary: number
     typeOfEngagement?: string | null
     workSchedule?: string | null
+    pin?: string | null
+    otp?: string | null
+    otpExpiry?: Date | string | null
+    isVerified?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     benefits?: EmployeeBenefitUncheckedCreateNestedManyWithoutEmployeeInput
@@ -48448,6 +50967,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutEmployeesInput = {
@@ -48471,6 +50991,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutEmployeesInput = {
@@ -48507,6 +51028,10 @@ export namespace Prisma {
     salary?: FloatFieldUpdateOperationsInput | number
     typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
     workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: NullableStringFieldUpdateOperationsInput | string | null
+    otpExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     benefits?: EmployeeBenefitUpdateManyWithoutEmployeeNestedInput
@@ -48530,6 +51055,10 @@ export namespace Prisma {
     salary?: FloatFieldUpdateOperationsInput | number
     typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
     workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: NullableStringFieldUpdateOperationsInput | string | null
+    otpExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     benefits?: EmployeeBenefitUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -48567,6 +51096,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutEmployeesInput = {
@@ -48590,6 +51120,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type EmployeeCreateWithoutBenefitsInput = {
@@ -48610,6 +51141,10 @@ export namespace Prisma {
     salary: number
     typeOfEngagement?: string | null
     workSchedule?: string | null
+    pin?: string | null
+    otp?: string | null
+    otpExpiry?: Date | string | null
+    isVerified?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     farms?: EmployeeFarmCreateNestedManyWithoutEmployeeInput
@@ -48633,6 +51168,10 @@ export namespace Prisma {
     salary: number
     typeOfEngagement?: string | null
     workSchedule?: string | null
+    pin?: string | null
+    otp?: string | null
+    otpExpiry?: Date | string | null
+    isVerified?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     farms?: EmployeeFarmUncheckedCreateNestedManyWithoutEmployeeInput
@@ -48672,6 +51211,10 @@ export namespace Prisma {
     salary?: FloatFieldUpdateOperationsInput | number
     typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
     workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: NullableStringFieldUpdateOperationsInput | string | null
+    otpExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     farms?: EmployeeFarmUpdateManyWithoutEmployeeNestedInput
@@ -48695,6 +51238,10 @@ export namespace Prisma {
     salary?: FloatFieldUpdateOperationsInput | number
     typeOfEngagement?: NullableStringFieldUpdateOperationsInput | string | null
     workSchedule?: NullableStringFieldUpdateOperationsInput | string | null
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: NullableStringFieldUpdateOperationsInput | string | null
+    otpExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     farms?: EmployeeFarmUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -48721,6 +51268,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutLivestockInput = {
@@ -48744,6 +51292,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutLivestockInput = {
@@ -49433,6 +51982,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutLivestockInput = {
@@ -49456,6 +52006,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type MammalUpsertWithoutLivestockInput = {
@@ -50683,6 +53234,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutBreedingRecordsInput = {
@@ -50706,6 +53258,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutBreedingRecordsInput = {
@@ -50879,6 +53432,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutBreedingRecordsInput = {
@@ -50902,6 +53456,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type BreedingRecordCreateWithoutOffspringInput = {
@@ -51165,6 +53720,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutFeedingProgramsInput = {
@@ -51188,6 +53744,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutFeedingProgramsInput = {
@@ -51330,6 +53887,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutFeedingProgramsInput = {
@@ -51353,6 +53911,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type UserUpsertWithoutFeedingProgramsInput = {
@@ -51570,6 +54129,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutInventoriesInput = {
@@ -51593,6 +54153,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutInventoriesInput = {
@@ -51756,6 +54317,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutInventoriesInput = {
@@ -51779,6 +54341,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type GoodsInStockUpsertWithWhereUniqueWithoutInventoryInput = {
@@ -52065,6 +54628,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutAllergyRecordsInput = {
@@ -52088,6 +54652,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutAllergyRecordsInput = {
@@ -52247,6 +54812,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutAllergyRecordsInput = {
@@ -52270,6 +54836,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type UserUpsertWithoutAllergyRecordsInput = {
@@ -52425,6 +54992,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutBoosterRecordsInput = {
@@ -52448,6 +55016,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutBoosterRecordsInput = {
@@ -52607,6 +55176,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutBoosterRecordsInput = {
@@ -52630,6 +55200,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type UserUpsertWithoutBoosterRecordsInput = {
@@ -52785,6 +55356,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutVaccinationRecordsInput = {
@@ -52808,6 +55380,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutVaccinationRecordsInput = {
@@ -52967,6 +55540,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutVaccinationRecordsInput = {
@@ -52990,6 +55564,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type UserUpsertWithoutVaccinationRecordsInput = {
@@ -53145,6 +55720,7 @@ export namespace Prisma {
     vaccinationRecords?: VaccinationRecordCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutDewormingRecordsInput = {
@@ -53168,6 +55744,7 @@ export namespace Prisma {
     vaccinationRecords?: VaccinationRecordUncheckedCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutDewormingRecordsInput = {
@@ -53327,6 +55904,7 @@ export namespace Prisma {
     vaccinationRecords?: VaccinationRecordUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutDewormingRecordsInput = {
@@ -53350,6 +55928,7 @@ export namespace Prisma {
     vaccinationRecords?: VaccinationRecordUncheckedUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type UserUpsertWithoutDewormingRecordsInput = {
@@ -53505,6 +56084,7 @@ export namespace Prisma {
     vaccinationRecords?: VaccinationRecordCreateNestedManyWithoutFarmInput
     dewormingRecords?: DewormingRecordCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutGeneticDisorderRecordsInput = {
@@ -53528,6 +56108,7 @@ export namespace Prisma {
     vaccinationRecords?: VaccinationRecordUncheckedCreateNestedManyWithoutFarmInput
     dewormingRecords?: DewormingRecordUncheckedCreateNestedManyWithoutFarmInput
     treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutGeneticDisorderRecordsInput = {
@@ -53687,6 +56268,7 @@ export namespace Prisma {
     vaccinationRecords?: VaccinationRecordUpdateManyWithoutFarmNestedInput
     dewormingRecords?: DewormingRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutGeneticDisorderRecordsInput = {
@@ -53710,6 +56292,7 @@ export namespace Prisma {
     vaccinationRecords?: VaccinationRecordUncheckedUpdateManyWithoutFarmNestedInput
     dewormingRecords?: DewormingRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type UserUpsertWithoutGeneticDisorderRecordsInput = {
@@ -53865,6 +56448,7 @@ export namespace Prisma {
     vaccinationRecords?: VaccinationRecordCreateNestedManyWithoutFarmInput
     dewormingRecords?: DewormingRecordCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingCreateNestedManyWithoutFarmInput
   }
 
   export type FarmUncheckedCreateWithoutTreatmentRecordsInput = {
@@ -53888,6 +56472,7 @@ export namespace Prisma {
     vaccinationRecords?: VaccinationRecordUncheckedCreateNestedManyWithoutFarmInput
     dewormingRecords?: DewormingRecordUncheckedCreateNestedManyWithoutFarmInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
+    saleListings?: SaleListingUncheckedCreateNestedManyWithoutFarmInput
   }
 
   export type FarmCreateOrConnectWithoutTreatmentRecordsInput = {
@@ -54047,6 +56632,7 @@ export namespace Prisma {
     vaccinationRecords?: VaccinationRecordUpdateManyWithoutFarmNestedInput
     dewormingRecords?: DewormingRecordUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutTreatmentRecordsInput = {
@@ -54070,6 +56656,7 @@ export namespace Prisma {
     vaccinationRecords?: VaccinationRecordUncheckedUpdateManyWithoutFarmNestedInput
     dewormingRecords?: DewormingRecordUncheckedUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type UserUpsertWithoutTreatmentRecordsInput = {
@@ -54202,6 +56789,118 @@ export namespace Prisma {
     vaccinationRecords?: VaccinationRecordUncheckedUpdateManyWithoutLivestockNestedInput
     dewormingRecords?: DewormingRecordUncheckedUpdateManyWithoutLivestockNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutLivestockNestedInput
+  }
+
+  export type FarmCreateWithoutSaleListingsInput = {
+    id?: string
+    name: string
+    county: string
+    administrativeLocation: string
+    size: number
+    ownership: string
+    farmingTypes?: FarmCreatefarmingTypesInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    employees?: EmployeeFarmCreateNestedManyWithoutFarmInput
+    livestock?: LivestockCreateNestedManyWithoutFarmInput
+    breedingRecords?: BreedingRecordCreateNestedManyWithoutFarmInput
+    user: UserCreateNestedOneWithoutFarmsInput
+    feedingPrograms?: FeedingProgramCreateNestedManyWithoutFarmInput
+    inventories?: InventoryCreateNestedManyWithoutFarmInput
+    allergyRecords?: AllergyRecordCreateNestedManyWithoutFarmInput
+    boosterRecords?: BoosterRecordCreateNestedManyWithoutFarmInput
+    vaccinationRecords?: VaccinationRecordCreateNestedManyWithoutFarmInput
+    dewormingRecords?: DewormingRecordCreateNestedManyWithoutFarmInput
+    geneticDisorderRecords?: GeneticDisorderRecordCreateNestedManyWithoutFarmInput
+    treatmentRecords?: TreatmentRecordCreateNestedManyWithoutFarmInput
+  }
+
+  export type FarmUncheckedCreateWithoutSaleListingsInput = {
+    id?: string
+    name: string
+    county: string
+    administrativeLocation: string
+    size: number
+    ownership: string
+    farmingTypes?: FarmCreatefarmingTypesInput | string[]
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    employees?: EmployeeFarmUncheckedCreateNestedManyWithoutFarmInput
+    livestock?: LivestockUncheckedCreateNestedManyWithoutFarmInput
+    breedingRecords?: BreedingRecordUncheckedCreateNestedManyWithoutFarmInput
+    feedingPrograms?: FeedingProgramUncheckedCreateNestedManyWithoutFarmInput
+    inventories?: InventoryUncheckedCreateNestedManyWithoutFarmInput
+    allergyRecords?: AllergyRecordUncheckedCreateNestedManyWithoutFarmInput
+    boosterRecords?: BoosterRecordUncheckedCreateNestedManyWithoutFarmInput
+    vaccinationRecords?: VaccinationRecordUncheckedCreateNestedManyWithoutFarmInput
+    dewormingRecords?: DewormingRecordUncheckedCreateNestedManyWithoutFarmInput
+    geneticDisorderRecords?: GeneticDisorderRecordUncheckedCreateNestedManyWithoutFarmInput
+    treatmentRecords?: TreatmentRecordUncheckedCreateNestedManyWithoutFarmInput
+  }
+
+  export type FarmCreateOrConnectWithoutSaleListingsInput = {
+    where: FarmWhereUniqueInput
+    create: XOR<FarmCreateWithoutSaleListingsInput, FarmUncheckedCreateWithoutSaleListingsInput>
+  }
+
+  export type FarmUpsertWithoutSaleListingsInput = {
+    update: XOR<FarmUpdateWithoutSaleListingsInput, FarmUncheckedUpdateWithoutSaleListingsInput>
+    create: XOR<FarmCreateWithoutSaleListingsInput, FarmUncheckedCreateWithoutSaleListingsInput>
+    where?: FarmWhereInput
+  }
+
+  export type FarmUpdateToOneWithWhereWithoutSaleListingsInput = {
+    where?: FarmWhereInput
+    data: XOR<FarmUpdateWithoutSaleListingsInput, FarmUncheckedUpdateWithoutSaleListingsInput>
+  }
+
+  export type FarmUpdateWithoutSaleListingsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    county?: StringFieldUpdateOperationsInput | string
+    administrativeLocation?: StringFieldUpdateOperationsInput | string
+    size?: FloatFieldUpdateOperationsInput | number
+    ownership?: StringFieldUpdateOperationsInput | string
+    farmingTypes?: FarmUpdatefarmingTypesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: EmployeeFarmUpdateManyWithoutFarmNestedInput
+    livestock?: LivestockUpdateManyWithoutFarmNestedInput
+    breedingRecords?: BreedingRecordUpdateManyWithoutFarmNestedInput
+    user?: UserUpdateOneRequiredWithoutFarmsNestedInput
+    feedingPrograms?: FeedingProgramUpdateManyWithoutFarmNestedInput
+    inventories?: InventoryUpdateManyWithoutFarmNestedInput
+    allergyRecords?: AllergyRecordUpdateManyWithoutFarmNestedInput
+    boosterRecords?: BoosterRecordUpdateManyWithoutFarmNestedInput
+    vaccinationRecords?: VaccinationRecordUpdateManyWithoutFarmNestedInput
+    dewormingRecords?: DewormingRecordUpdateManyWithoutFarmNestedInput
+    geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
+    treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
+  }
+
+  export type FarmUncheckedUpdateWithoutSaleListingsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    county?: StringFieldUpdateOperationsInput | string
+    administrativeLocation?: StringFieldUpdateOperationsInput | string
+    size?: FloatFieldUpdateOperationsInput | number
+    ownership?: StringFieldUpdateOperationsInput | string
+    farmingTypes?: FarmUpdatefarmingTypesInput | string[]
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    employees?: EmployeeFarmUncheckedUpdateManyWithoutFarmNestedInput
+    livestock?: LivestockUncheckedUpdateManyWithoutFarmNestedInput
+    breedingRecords?: BreedingRecordUncheckedUpdateManyWithoutFarmNestedInput
+    feedingPrograms?: FeedingProgramUncheckedUpdateManyWithoutFarmNestedInput
+    inventories?: InventoryUncheckedUpdateManyWithoutFarmNestedInput
+    allergyRecords?: AllergyRecordUncheckedUpdateManyWithoutFarmNestedInput
+    boosterRecords?: BoosterRecordUncheckedUpdateManyWithoutFarmNestedInput
+    vaccinationRecords?: VaccinationRecordUncheckedUpdateManyWithoutFarmNestedInput
+    dewormingRecords?: DewormingRecordUncheckedUpdateManyWithoutFarmNestedInput
+    geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
+    treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmCreateManyUserInput = {
@@ -54358,6 +57057,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateWithoutUserInput = {
@@ -54381,6 +57081,7 @@ export namespace Prisma {
     dewormingRecords?: DewormingRecordUncheckedUpdateManyWithoutFarmNestedInput
     geneticDisorderRecords?: GeneticDisorderRecordUncheckedUpdateManyWithoutFarmNestedInput
     treatmentRecords?: TreatmentRecordUncheckedUpdateManyWithoutFarmNestedInput
+    saleListings?: SaleListingUncheckedUpdateManyWithoutFarmNestedInput
   }
 
   export type FarmUncheckedUpdateManyWithoutUserInput = {
@@ -54928,6 +57629,40 @@ export namespace Prisma {
     updatedAt?: Date | string
     userId: string
     livestockId: string
+  }
+
+  export type SaleListingCreateManyFarmInput = {
+    id?: string
+    name: string
+    category: string
+    breed: string
+    age: string
+    weight: number
+    price: number
+    status?: string
+    health: string
+    lastCheckup?: string | null
+    purpose?: string | null
+    feedingProgram?: string | null
+    milkProduction?: string | null
+    pregnancyStatus?: string | null
+    quantity?: number | null
+    pricePerBird?: number | null
+    eggProductionRate?: string | null
+    woolYield?: string | null
+    milkProductionRate?: string | null
+    notes?: string | null
+    images?: SaleListingCreateimagesInput | string[]
+    saleDate?: Date | string | null
+    buyerName?: string | null
+    buyerContact?: string | null
+    saleAmount?: number | null
+    paymentMethod?: string | null
+    receiptNumber?: string | null
+    saleNotes?: string | null
+    attachments?: SaleListingCreateattachmentsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type EmployeeFarmUpdateWithoutFarmInput = {
@@ -55478,6 +58213,108 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: StringFieldUpdateOperationsInput | string
     livestockId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SaleListingUpdateWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    breed?: StringFieldUpdateOperationsInput | string
+    age?: StringFieldUpdateOperationsInput | string
+    weight?: FloatFieldUpdateOperationsInput | number
+    price?: FloatFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    health?: StringFieldUpdateOperationsInput | string
+    lastCheckup?: NullableStringFieldUpdateOperationsInput | string | null
+    purpose?: NullableStringFieldUpdateOperationsInput | string | null
+    feedingProgram?: NullableStringFieldUpdateOperationsInput | string | null
+    milkProduction?: NullableStringFieldUpdateOperationsInput | string | null
+    pregnancyStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    quantity?: NullableIntFieldUpdateOperationsInput | number | null
+    pricePerBird?: NullableFloatFieldUpdateOperationsInput | number | null
+    eggProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
+    woolYield?: NullableStringFieldUpdateOperationsInput | string | null
+    milkProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: SaleListingUpdateimagesInput | string[]
+    saleDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    buyerName?: NullableStringFieldUpdateOperationsInput | string | null
+    buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    saleAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    saleNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: SaleListingUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SaleListingUncheckedUpdateWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    breed?: StringFieldUpdateOperationsInput | string
+    age?: StringFieldUpdateOperationsInput | string
+    weight?: FloatFieldUpdateOperationsInput | number
+    price?: FloatFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    health?: StringFieldUpdateOperationsInput | string
+    lastCheckup?: NullableStringFieldUpdateOperationsInput | string | null
+    purpose?: NullableStringFieldUpdateOperationsInput | string | null
+    feedingProgram?: NullableStringFieldUpdateOperationsInput | string | null
+    milkProduction?: NullableStringFieldUpdateOperationsInput | string | null
+    pregnancyStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    quantity?: NullableIntFieldUpdateOperationsInput | number | null
+    pricePerBird?: NullableFloatFieldUpdateOperationsInput | number | null
+    eggProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
+    woolYield?: NullableStringFieldUpdateOperationsInput | string | null
+    milkProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: SaleListingUpdateimagesInput | string[]
+    saleDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    buyerName?: NullableStringFieldUpdateOperationsInput | string | null
+    buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    saleAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    saleNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: SaleListingUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SaleListingUncheckedUpdateManyWithoutFarmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    breed?: StringFieldUpdateOperationsInput | string
+    age?: StringFieldUpdateOperationsInput | string
+    weight?: FloatFieldUpdateOperationsInput | number
+    price?: FloatFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    health?: StringFieldUpdateOperationsInput | string
+    lastCheckup?: NullableStringFieldUpdateOperationsInput | string | null
+    purpose?: NullableStringFieldUpdateOperationsInput | string | null
+    feedingProgram?: NullableStringFieldUpdateOperationsInput | string | null
+    milkProduction?: NullableStringFieldUpdateOperationsInput | string | null
+    pregnancyStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    quantity?: NullableIntFieldUpdateOperationsInput | number | null
+    pricePerBird?: NullableFloatFieldUpdateOperationsInput | number | null
+    eggProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
+    woolYield?: NullableStringFieldUpdateOperationsInput | string | null
+    milkProductionRate?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: SaleListingUpdateimagesInput | string[]
+    saleDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    buyerName?: NullableStringFieldUpdateOperationsInput | string | null
+    buyerContact?: NullableStringFieldUpdateOperationsInput | string | null
+    saleAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    saleNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    attachments?: SaleListingUpdateattachmentsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type EmployeeBenefitCreateManyEmployeeInput = {

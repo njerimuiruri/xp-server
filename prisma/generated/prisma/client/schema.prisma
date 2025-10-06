@@ -63,6 +63,7 @@ model Farm {
   dewormingRecords       DewormingRecord[]
   geneticDisorderRecords GeneticDisorderRecord[]
   treatmentRecords       TreatmentRecord[]
+  saleListings           SaleListing[]
 }
 
 model Employee {
@@ -70,7 +71,7 @@ model Employee {
   firstName        String
   middleName       String?
   lastName         String
-  phone            String
+  phone            String            @unique
   emergencyContact String?
   idNumber         String            @unique
   idPhoto          String?
@@ -83,6 +84,10 @@ model Employee {
   salary           Float
   typeOfEngagement String?
   workSchedule     String?
+  pin              String?
+  otp              String?
+  otpExpiry        DateTime?
+  isVerified       Boolean           @default(false)
   createdAt        DateTime          @default(now())
   updatedAt        DateTime          @updatedAt
   benefits         EmployeeBenefit[]
@@ -536,4 +541,58 @@ model TreatmentRecord {
   user                 User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   livestockId          String
   livestock            Livestock @relation(fields: [livestockId], references: [id], onDelete: Cascade)
+}
+
+// Sales Module - Enhanced sales listings for livestock
+model SaleListing {
+  id     String @id @default(cuid())
+  farmId String
+  farm   Farm   @relation(fields: [farmId], references: [id], onDelete: Cascade)
+
+  // Basic Information
+  name        String
+  category    String // dairyCattle, beefCattle, dairyGoats, meatGoats, sheep, swine, poultry, rabbits
+  breed       String
+  age         String
+  weight      Float
+  price       Float
+  status      String  @default("available") // available, reserved, sold
+  health      String // excellent, good, fair, poor
+  lastCheckup String?
+
+  // Optional fields based on livestock type
+  purpose        String? // Milk Production, Meat Production, Breeding, Both
+  feedingProgram String?
+
+  // Dairy cattle specific
+  milkProduction  String? // e.g., "25 L/day"
+  pregnancyStatus String? // e.g., "Not Pregnant", "Pregnant (6 months)"
+
+  // Poultry specific
+  quantity          Int? // Number of birds
+  pricePerBird      Float? // Price per individual bird
+  eggProductionRate String? // e.g., "85%"
+
+  // Sheep specific
+  woolYield String? // e.g., "5.5 kg/year"
+
+  // Goat specific
+  milkProductionRate String? // e.g., "3.5 L/day"
+
+  // Additional information
+  notes  String?
+  images String[] // Array of image URLs
+
+  // Sale completion details (when status becomes 'sold')
+  saleDate      DateTime?
+  buyerName     String?
+  buyerContact  String?
+  saleAmount    Float? // Final sale amount (might differ from listing price)
+  paymentMethod String?
+  receiptNumber String?
+  saleNotes     String?
+  attachments   String[] // Sale-related attachments
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

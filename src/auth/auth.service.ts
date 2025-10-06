@@ -14,6 +14,7 @@ import {
 import { JwtService } from '@nestjs/jwt';
 import { NotificationsService } from '../notifications/notifications.service';
 import { User, UserWithoutPin } from './types/user.type';
+import { Employee, EmployeeWithoutPin } from './types/employee.type';
 import * as bcrypt from 'bcrypt';
 import { Prisma } from '../../prisma/generated/prisma/client';
 
@@ -119,9 +120,13 @@ export class AuthService {
     };
   }
 
-  async login(
-    dto: LoginDto,
-  ): Promise<{ user: UserWithoutPin; token?: string; message?: string }> {
+  async login(dto: LoginDto): Promise<{
+    user: UserWithoutPin | EmployeeWithoutPin;
+    token?: string;
+    message?: string;
+    userType: 'user' | 'employee';
+  }> {
+    // First try to find user
     const user = await this.prisma.user.findUnique({
       where: { phoneNumber: dto.phoneNumber },
       include: {
@@ -129,47 +134,99 @@ export class AuthService {
       },
     });
 
-    if (!user) {
+    if (user) {
+      const isValidPin = await bcrypt.compare(dto.pin, user.pin);
+      if (!isValidPin) {
+        throw new UnauthorizedException('Invalid credentials');
+      }
+
+      if (!user?.isVerified) {
+        const otp = this.notificationsService.generateOTP();
+        const otpExpiry = new Date(Date.now() + 10 * 60 * 1000);
+        await this.prisma.user.update({
+          where: { id: user.id },
+          data: { otp, otpExpiry } as Prisma.UserUpdateInput,
+        });
+        await this.notificationsService.sendSMS(
+          user.phoneNumber,
+          `Your XpertFarmer verification code is: ${otp}. Valid for 10 minutes.`,
+        );
+        const { pin, ...userWithoutPin } = user;
+        return {
+          user: userWithoutPin,
+          userType: 'user',
+          message: 'Account not verified. OTP has been resent to your phone.',
+        };
+      }
+
+      const { pin, ...result } = user;
+      return {
+        user: result,
+        userType: 'user',
+        token: await this.generateToken(user.id, 'user'),
+      };
+    }
+
+    // If user not found, try to find employee
+    const employee = await this.prisma.employee.findUnique({
+      where: { phone: dto.phoneNumber },
+      include: {
+        farms: {
+          include: {
+            farm: true,
+          },
+        },
+        benefits: true,
+      },
+    });
+
+    if (!employee || !employee.pin) {
       throw new UnauthorizedException('Invalid credentials');
     }
 
-    const isValidPin = await bcrypt.compare(dto.pin, user.pin);
+    const isValidPin = await bcrypt.compare(dto.pin, employee.pin);
     if (!isValidPin) {
       throw new UnauthorizedException('Invalid credentials');
     }
 
-    if (!user?.isVerified) {
+    if (!employee?.isVerified) {
       const otp = this.notificationsService.generateOTP();
       const otpExpiry = new Date(Date.now() + 10 * 60 * 1000);
-      await this.prisma.user.update({
-        where: { id: user.id },
-        data: { otp, otpExpiry } as Prisma.UserUpdateInput,
+      await this.prisma.employee.update({
+        where: { id: employee.id },
+        data: { otp, otpExpiry },
       });
       await this.notificationsService.sendSMS(
-        user.phoneNumber,
+        employee.phone,
         `Your XpertFarmer verification code is: ${otp}. Valid for 10 minutes.`,
       );
-      const { pin, ...userWithoutPin } = user;
+      const { pin, ...employeeWithoutPin } = employee;
       return {
-        user: userWithoutPin,
+        user: employeeWithoutPin,
+        userType: 'employee',
         message: 'Account not verified. OTP has been resent to your phone.',
       };
     }
 
-    const { pin, ...result } = user;
+    const { pin, ...result } = employee;
     return {
       user: result,
-      token: await this.generateToken(user.id),
+      userType: 'employee',
+      token: await this.generateToken(employee.id, 'employee'),
     };
   }
 
-  private async generateToken(userId: string): Promise<string> {
-    return this.jwtService.signAsync({ sub: userId });
+  private async generateToken(
+    userId: string,
+    userType: 'user' | 'employee',
+  ): Promise<string> {
+    return this.jwtService.signAsync({ sub: userId, userType });
   }
 
   async requestPasswordReset(
     dto: RequestPasswordResetDto,
   ): Promise<{ message: string }> {
+    // First try to find user
     const user = (await this.prisma.user.findUnique({
       where: { phoneNumber: dto.phoneNumber },
       include: {
@@ -177,26 +234,65 @@ export class AuthService {
       },
     })) as User;
 
-    if (!user) {
-      throw new UnauthorizedException('User not found');
+    if (user) {
+      const otp = this.notificationsService.generateOTP();
+      const otpExpiry = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+
+      await this.prisma.user.update({
+        where: { id: user.id },
+        data: {
+          otp: otp,
+          otpExpiry: otpExpiry,
+        } as Prisma.XOR<
+          Prisma.UserUpdateInput,
+          Prisma.UserUncheckedUpdateInput
+        >,
+      });
+
+      const success = await this.notificationsService.sendSMS(
+        user.phoneNumber,
+        `Your XpertFarmer password reset code is: ${otp}. Valid for 10 minutes.`,
+      );
+
+      if (!success) {
+        throw new BadRequestException('Failed to send OTP');
+      }
+
+      return { message: 'OTP sent successfully' };
+    }
+
+    // If user not found, try to find employee
+    const employee = await this.prisma.employee.findUnique({
+      where: { phone: dto.phoneNumber },
+      include: {
+        farms: {
+          include: {
+            farm: true,
+          },
+        },
+        benefits: true,
+      },
+    });
+
+    if (!employee || !employee.pin) {
+      throw new UnauthorizedException(
+        'Account not found or not set up for authentication',
+      );
     }
 
     const otp = this.notificationsService.generateOTP();
     const otpExpiry = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
 
-    (await this.prisma.user.update({
-      where: { id: user.id },
+    await this.prisma.employee.update({
+      where: { id: employee.id },
       data: {
         otp: otp,
         otpExpiry: otpExpiry,
-      } as Prisma.XOR<Prisma.UserUpdateInput, Prisma.UserUncheckedUpdateInput>,
-      include: {
-        farms: true,
       },
-    })) as User;
+    });
 
     const success = await this.notificationsService.sendSMS(
-      user.phoneNumber,
+      employee.phone,
       `Your XpertFarmer password reset code is: ${otp}. Valid for 10 minutes.`,
     );
 
@@ -208,6 +304,7 @@ export class AuthService {
   }
 
   async verifyOtp(dto: VerifyOtpDto): Promise<{ message: string }> {
+    // First try to find user
     const user = (await this.prisma.user.findUnique({
       where: { phoneNumber: dto.phoneNumber },
       include: {
@@ -215,36 +312,65 @@ export class AuthService {
       },
     })) as User;
 
-    if (!user || !user.otp || !user.otpExpiry) {
+    if (user && user.otp && user.otpExpiry) {
+      const otpExpiry = user.otpExpiry as Date;
+
+      if (new Date() > otpExpiry) {
+        throw new UnauthorizedException('OTP has expired');
+      }
+
+      if (user.otp !== dto.otp) {
+        throw new UnauthorizedException('Invalid OTP');
+      }
+
+      await this.prisma.user.update({
+        where: { id: user.id },
+        data: {
+          isVerified: true,
+          otp: null,
+          otpExpiry: null,
+        } as Prisma.XOR<
+          Prisma.UserUpdateInput,
+          Prisma.UserUncheckedUpdateInput
+        >,
+      });
+
+      return { message: 'OTP verified successfully' };
+    }
+
+    // If user not found or doesn't have OTP, try employee
+    const employee = await this.prisma.employee.findUnique({
+      where: { phone: dto.phoneNumber },
+    });
+
+    if (!employee || !employee.otp || !employee.otpExpiry) {
       throw new UnauthorizedException('Invalid OTP request');
     }
 
-    const otpExpiry = user.otpExpiry as Date;
+    const otpExpiry = employee.otpExpiry as Date;
 
     if (new Date() > otpExpiry) {
       throw new UnauthorizedException('OTP has expired');
     }
 
-    if (user.otp !== dto.otp) {
+    if (employee.otp !== dto.otp) {
       throw new UnauthorizedException('Invalid OTP');
     }
 
-    (await this.prisma.user.update({
-      where: { id: user.id },
+    await this.prisma.employee.update({
+      where: { id: employee.id },
       data: {
         isVerified: true,
         otp: null,
         otpExpiry: null,
-      } as Prisma.XOR<Prisma.UserUpdateInput, Prisma.UserUncheckedUpdateInput>,
-      include: {
-        farms: true,
       },
-    })) as User;
+    });
 
     return { message: 'OTP verified successfully' };
   }
 
   async resetPassword(dto: ResetPasswordDto): Promise<{ message: string }> {
+    // First try to find user
     const user = (await this.prisma.user.findUnique({
       where: { phoneNumber: dto.phoneNumber },
       include: {
@@ -252,17 +378,54 @@ export class AuthService {
       },
     })) as User;
 
-    if (!user || !user.otp || !user.otpExpiry) {
+    if (user && user.otp && user.otpExpiry) {
+      const otpExpiry = user.otpExpiry as Date;
+
+      if (new Date() > otpExpiry) {
+        throw new UnauthorizedException('Reset code has expired');
+      }
+
+      if (user.otp !== dto.otp) {
+        throw new UnauthorizedException('Invalid reset code');
+      }
+
+      if (!dto.newPin || typeof dto.newPin !== 'string' || !dto.newPin.trim()) {
+        throw new BadRequestException('New PIN is required');
+      }
+
+      const hashedPin = await bcrypt.hash(dto.newPin, 10);
+
+      await this.prisma.user.update({
+        where: { id: user.id },
+        data: {
+          pin: hashedPin,
+          otp: null,
+          otpExpiry: null,
+        } as Prisma.XOR<
+          Prisma.UserUpdateInput,
+          Prisma.UserUncheckedUpdateInput
+        >,
+      });
+
+      return { message: 'Password reset successful' };
+    }
+
+    // If user not found or doesn't have OTP, try employee
+    const employee = await this.prisma.employee.findUnique({
+      where: { phone: dto.phoneNumber },
+    });
+
+    if (!employee || !employee.otp || !employee.otpExpiry) {
       throw new UnauthorizedException('Invalid reset request');
     }
 
-    const otpExpiry = user.otpExpiry as Date;
+    const otpExpiry = employee.otpExpiry as Date;
 
     if (new Date() > otpExpiry) {
       throw new UnauthorizedException('Reset code has expired');
     }
 
-    if (user.otp !== dto.otp) {
+    if (employee.otp !== dto.otp) {
       throw new UnauthorizedException('Invalid reset code');
     }
 
@@ -272,17 +435,14 @@ export class AuthService {
 
     const hashedPin = await bcrypt.hash(dto.newPin, 10);
 
-    (await this.prisma.user.update({
-      where: { id: user.id },
+    await this.prisma.employee.update({
+      where: { id: employee.id },
       data: {
         pin: hashedPin,
         otp: null,
         otpExpiry: null,
-      } as Prisma.XOR<Prisma.UserUpdateInput, Prisma.UserUncheckedUpdateInput>,
-      include: {
-        farms: true,
       },
-    })) as User;
+    });
 
     return { message: 'Password reset successful' };
   }
