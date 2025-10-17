@@ -1,8 +1,25 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
 import { EmployeesService } from './employees.service';
 import { CreateEmployeeDto } from './dto/create-employee.dto';
 import { UpdateEmployeeDto } from './dto/update-employee.dto';
-import { ApiTags, ApiOperation, ApiResponse, ApiQuery, ApiBearerAuth, ApiBody } from '@nestjs/swagger';
+import {
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiQuery,
+  ApiBearerAuth,
+  ApiBody,
+} from '@nestjs/swagger';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 @ApiTags('employees')
@@ -15,7 +32,8 @@ export class EmployeesController {
   @Post()
   @ApiOperation({
     summary: 'Create a new employee',
-    description: 'Add a new employee to the system. Can be assigned to one or more farms.'
+    description:
+      'Add a new employee to the system. Can be assigned to one or more farms. Login credentials (PIN and verification code) are automatically generated and sent via SMS.',
   })
   @ApiBody({
     type: CreateEmployeeDto,
@@ -37,9 +55,9 @@ export class EmployeesController {
           benefits: [
             { name: 'nssf', amount: 1080 },
             { name: 'nhif', amount: 1400 },
-            { name: 'housingLevy', amount: 375 }
+            { name: 'housingLevy', amount: 375 },
           ],
-          farmIds: ['clh2x0f380001mk08x7v2p4m1']
+          farmIds: ['clh2x0f380001mk08x7v2p4m1'],
         },
       },
       casualEmployee: {
@@ -57,7 +75,7 @@ export class EmployeesController {
           salary: 800,
           typeOfEngagement: 'seasonal',
           workSchedule: 'full',
-          farmIds: ['clh2x0f380001mk08x7v2p4m1']
+          farmIds: ['clh2x0f380001mk08x7v2p4m1'],
         },
       },
     },
@@ -98,9 +116,9 @@ export class EmployeesController {
               id: 'clh2x0f380001mk08x7v2p4m1',
               name: 'Kamau Mixed Farm',
               county: 'Kiambu',
-              administrativeLocation: 'Kikuyu'
-            }
-          }
+              administrativeLocation: 'Kikuyu',
+            },
+          },
         ],
         benefits: [
           {
@@ -109,7 +127,7 @@ export class EmployeesController {
             name: 'nssf',
             amount: 1080,
             createdAt: '2025-05-30T16:00:00.000Z',
-            updatedAt: '2025-05-30T16:00:00.000Z'
+            updatedAt: '2025-05-30T16:00:00.000Z',
           },
           {
             id: 'cmaerl8s10000l004pmlo1f7g',
@@ -117,7 +135,7 @@ export class EmployeesController {
             name: 'nhif',
             amount: 1400,
             createdAt: '2025-05-30T16:00:00.000Z',
-            updatedAt: '2025-05-30T16:00:00.000Z'
+            updatedAt: '2025-05-30T16:00:00.000Z',
           },
           {
             id: 'cmaerl8s10000l004pmlo1f7h',
@@ -125,9 +143,9 @@ export class EmployeesController {
             name: 'housingLevy',
             amount: 375,
             createdAt: '2025-05-30T16:00:00.000Z',
-            updatedAt: '2025-05-30T16:00:00.000Z'
-          }
-        ]
+            updatedAt: '2025-05-30T16:00:00.000Z',
+          },
+        ],
       },
     },
   })
@@ -140,12 +158,33 @@ export class EmployeesController {
   @Get()
   @ApiOperation({
     summary: 'Get all employees',
-    description: 'Retrieve a paginated list of all employees with optional search and farm filtering'
+    description:
+      'Retrieve a paginated list of all employees with optional search and farm filtering',
   })
-  @ApiQuery({ name: 'page', required: false, type: Number, description: 'Page number (default: 1)' })
-  @ApiQuery({ name: 'limit', required: false, type: Number, description: 'Items per page (default: 10)' })
-  @ApiQuery({ name: 'search', required: false, type: String, description: 'Search term for employee name, ID number, or role' })
-  @ApiQuery({ name: 'farmId', required: false, type: String, description: 'Filter employees by farm ID' })
+  @ApiQuery({
+    name: 'page',
+    required: false,
+    type: Number,
+    description: 'Page number (default: 1)',
+  })
+  @ApiQuery({
+    name: 'limit',
+    required: false,
+    type: Number,
+    description: 'Items per page (default: 10)',
+  })
+  @ApiQuery({
+    name: 'search',
+    required: false,
+    type: String,
+    description: 'Search term for employee name, ID number, or role',
+  })
+  @ApiQuery({
+    name: 'farmId',
+    required: false,
+    type: String,
+    description: 'Filter employees by farm ID',
+  })
   @ApiResponse({
     status: 200,
     description: 'Successfully retrieved employees',
@@ -187,9 +226,9 @@ export class EmployeesController {
                     id: 'clh2x0f380001mk08x7v2p4m1',
                     name: 'Kamau Mixed Farm',
                     county: 'Kiambu',
-                    administrativeLocation: 'Kikuyu'
-                  }
-                }
+                    administrativeLocation: 'Kikuyu',
+                  },
+                },
               ],
               benefits: [
                 {
@@ -198,11 +237,11 @@ export class EmployeesController {
                   name: 'nssf',
                   amount: 1080,
                   createdAt: '2025-05-30T16:00:00.000Z',
-                  updatedAt: '2025-05-30T16:00:00.000Z'
-                }
-              ]
-            }
-          }
+                  updatedAt: '2025-05-30T16:00:00.000Z',
+                },
+              ],
+            },
+          },
         },
         meta: {
           type: 'object',
@@ -211,11 +250,11 @@ export class EmployeesController {
             page: { type: 'number', example: 1 },
             pages: { type: 'number', example: 10 },
             hasNextPage: { type: 'boolean', example: true },
-            hasPrevPage: { type: 'boolean', example: false }
-          }
-        }
-      }
-    }
+            hasPrevPage: { type: 'boolean', example: false },
+          },
+        },
+      },
+    },
   })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   findAll(
@@ -230,7 +269,7 @@ export class EmployeesController {
   @Get(':id')
   @ApiOperation({
     summary: 'Get employee by ID',
-    description: 'Retrieve a specific employee by their ID'
+    description: 'Retrieve a specific employee by their ID',
   })
   @ApiResponse({
     status: 200,
@@ -268,9 +307,9 @@ export class EmployeesController {
               id: 'clh2x0f380001mk08x7v2p4m1',
               name: 'Kamau Mixed Farm',
               county: 'Kiambu',
-              administrativeLocation: 'Kikuyu'
-            }
-          }
+              administrativeLocation: 'Kikuyu',
+            },
+          },
         ],
         benefits: [
           {
@@ -279,11 +318,11 @@ export class EmployeesController {
             name: 'nssf',
             amount: 1080,
             createdAt: '2025-05-30T16:00:00.000Z',
-            updatedAt: '2025-05-30T16:00:00.000Z'
-          }
-        ]
-      }
-    }
+            updatedAt: '2025-05-30T16:00:00.000Z',
+          },
+        ],
+      },
+    },
   })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   @ApiResponse({ status: 404, description: 'Employee not found' })
@@ -294,7 +333,7 @@ export class EmployeesController {
   @Patch(':id')
   @ApiOperation({
     summary: 'Update employee',
-    description: 'Update an employee\'s information'
+    description: "Update an employee's information",
   })
   @ApiBody({
     type: UpdateEmployeeDto,
@@ -307,11 +346,11 @@ export class EmployeesController {
           benefits: [
             { name: 'nssf', amount: 1080 },
             { name: 'nhif', amount: 1700 },
-            { name: 'housingLevy', amount: 420 }
-          ]
+            { name: 'housingLevy', amount: 420 },
+          ],
         },
-      }
-    }
+      },
+    },
   })
   @ApiResponse({
     status: 200,
@@ -349,9 +388,9 @@ export class EmployeesController {
               id: 'clh2x0f380001mk08x7v2p4m1',
               name: 'Kamau Mixed Farm',
               county: 'Kiambu',
-              administrativeLocation: 'Kikuyu'
-            }
-          }
+              administrativeLocation: 'Kikuyu',
+            },
+          },
         ],
         benefits: [
           {
@@ -360,7 +399,7 @@ export class EmployeesController {
             name: 'nssf',
             amount: 1080,
             createdAt: '2025-05-30T16:30:00.000Z',
-            updatedAt: '2025-05-30T16:30:00.000Z'
+            updatedAt: '2025-05-30T16:30:00.000Z',
           },
           {
             id: 'cmaerl8s10000l004pmlo1f7g',
@@ -368,7 +407,7 @@ export class EmployeesController {
             name: 'nhif',
             amount: 1700,
             createdAt: '2025-05-30T16:30:00.000Z',
-            updatedAt: '2025-05-30T16:30:00.000Z'
+            updatedAt: '2025-05-30T16:30:00.000Z',
           },
           {
             id: 'cmaerl8s10000l004pmlo1f7h',
@@ -376,22 +415,25 @@ export class EmployeesController {
             name: 'housingLevy',
             amount: 420,
             createdAt: '2025-05-30T16:30:00.000Z',
-            updatedAt: '2025-05-30T16:30:00.000Z'
-          }
-        ]
-      }
-    }
+            updatedAt: '2025-05-30T16:30:00.000Z',
+          },
+        ],
+      },
+    },
   })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   @ApiResponse({ status: 404, description: 'Employee not found' })
-  update(@Param('id') id: string, @Body() updateEmployeeDto: UpdateEmployeeDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateEmployeeDto: UpdateEmployeeDto,
+  ) {
     return this.employeesService.update(id, updateEmployeeDto);
   }
 
   @Delete(':id')
   @ApiOperation({
     summary: 'Delete employee',
-    description: 'Delete an employee'
+    description: 'Delete an employee',
   })
   @ApiResponse({
     status: 200,
@@ -399,9 +441,9 @@ export class EmployeesController {
     schema: {
       type: 'object',
       properties: {
-        message: { type: 'string', example: 'Employee deleted successfully' }
-      }
-    }
+        message: { type: 'string', example: 'Employee deleted successfully' },
+      },
+    },
   })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   @ApiResponse({ status: 404, description: 'Employee not found' })

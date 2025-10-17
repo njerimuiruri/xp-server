@@ -6,10 +6,15 @@ import {
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateEmployeeDto } from './dto/create-employee.dto';
 import { UpdateEmployeeDto } from './dto/update-employee.dto';
+import { NotificationsService } from '../notifications/notifications.service';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class EmployeesService {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    private notificationsService: NotificationsService,
+  ) {}
 
   async create(createEmployeeDto: CreateEmployeeDto) {
     const { farmIds, benefits, ...employeeData } = createEmployeeDto;
@@ -20,6 +25,16 @@ export class EmployeesService {
     if (existingEmployee) {
       throw new BadRequestException(
         `An employee with ID Number '${employeeData.idNumber}' already exists.`,
+      );
+    }
+
+    // Check if phone number already exists
+    const existingPhone = await this.prisma.employee.findUnique({
+      where: { phone: employeeData.phone },
+    });
+    if (existingPhone) {
+      throw new BadRequestException(
+        `An employee with phone number '${employeeData.phone}' already exists.`,
       );
     }
 
@@ -35,6 +50,12 @@ export class EmployeesService {
     }
 
     return this.prisma.$transaction(async (prisma) => {
+      // Generate automatic credentials inside transaction
+      const generatedPin = this.generateEmployeePin();
+      const hashedPin = await bcrypt.hash(generatedPin, 10);
+      const otp = this.notificationsService.generateOTP();
+      const otpExpiry = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+
       const employee = await prisma.employee.create({
         data: {
           firstName: employeeData.firstName,
@@ -53,6 +74,11 @@ export class EmployeesService {
           salary: employeeData.salary,
           typeOfEngagement: employeeData.typeOfEngagement,
           workSchedule: employeeData.workSchedule,
+          // Add authentication fields
+          pin: hashedPin,
+          otp,
+          otpExpiry,
+          isVerified: false,
           // Create farm connections
           farms: {
             create: farmIds.map((farmId) => ({
@@ -80,7 +106,37 @@ export class EmployeesService {
         },
       });
 
-      return employee;
+      // Send credentials via SMS
+      const fullName = `${employee.firstName} ${employee.lastName}`;
+      const smsMessage = `Welcome to XpertFarmer, ${fullName}! Your login credentials:
+Phone: ${employee.phone}
+PIN: ${generatedPin}
+`;
+
+      const smsSuccess = await this.notificationsService.sendSMS(
+        employee.phone,
+        smsMessage,
+      );
+
+      if (!smsSuccess) {
+        // If SMS fails, still return the employee but log the issue
+        console.error(
+          `Failed to send credentials SMS to employee ${employee.id}`,
+        );
+        // You might want to throw an error here or handle it differently
+        throw new BadRequestException(
+          'Employee created but failed to send credentials via SMS',
+        );
+      }
+
+      // Remove sensitive data from response
+      const {
+        pin,
+        otp: employeeOtp,
+        otpExpiry: employeeOtpExpiry,
+        ...employeeResponse
+      } = employee;
+      return employeeResponse;
     });
   }
 
@@ -296,5 +352,10 @@ export class EmployeesService {
     });
 
     return { message: 'Employee deleted successfully' };
+  }
+
+  private generateEmployeePin(): string {
+    // Generate a 4-digit PIN
+    return Math.floor(1000 + Math.random() * 9000).toString();
   }
 }

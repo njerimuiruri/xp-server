@@ -9,40 +9,39 @@ datasource db {
 }
 
 model User {
-  id                String    @id @default(cuid())
-  firstName         String
-  middleName        String?
-  lastName          String
-  gender            String
-  dob               String
-  residenceCounty   String
-  residenceLocation String?
-  constituency      String?
+  id                     String                  @id @default(cuid())
+  firstName              String
+  middleName             String?
+  lastName               String
+  gender                 String
+  dob                    String
+  residenceCounty        String
+  residenceLocation      String?
+  constituency           String?
   residenceConstituency  String?
-  email             String?   @unique
-  phoneNumber       String    @unique
-  nationalId        String?   @unique
-  businessNumber    String?
-  pin               String
-  yearsOfExperience Int?
-  otp               String?
-  otpExpiry         DateTime?
-  isVerified        Boolean   @default(false)
-  createdAt         DateTime  @default(now())
-  updatedAt         DateTime  @updatedAt
-  farms             Farm[]
-  feedingPrograms      FeedingProgram[]
-  allergyRecords     AllergyRecord[]
-  boosterRecords     BoosterRecord[]
-  vaccinationRecords VaccinationRecord[]
-  dewormingRecords   DewormingRecord[]
+  email                  String?                 @unique
+  phoneNumber            String                  @unique
+  nationalId             String?                 @unique
+  businessNumber         String?
+  pin                    String
+  yearsOfExperience      Int?
+  otp                    String?
+  otpExpiry              DateTime?
+  isVerified             Boolean                 @default(false)
+  createdAt              DateTime                @default(now())
+  updatedAt              DateTime                @updatedAt
+  farms                  Farm[]
+  feedingPrograms        FeedingProgram[]
+  allergyRecords         AllergyRecord[]
+  boosterRecords         BoosterRecord[]
+  vaccinationRecords     VaccinationRecord[]
+  dewormingRecords       DewormingRecord[]
   geneticDisorderRecords GeneticDisorderRecord[]
-  treatmentRecords   TreatmentRecord[]
+  treatmentRecords       TreatmentRecord[]
 }
 
-
 model Farm {
-  id                     String         @id @default(cuid())
+  id                     String                  @id @default(cuid())
   name                   String
   county                 String
   administrativeLocation String
@@ -50,29 +49,29 @@ model Farm {
   ownership              String
   farmingTypes           String[]
   userId                 String
-  createdAt              DateTime       @default(now())
-  updatedAt              DateTime       @updatedAt
+  createdAt              DateTime                @default(now())
+  updatedAt              DateTime                @updatedAt
   employees              EmployeeFarm[]
   livestock              Livestock[]
   breedingRecords        BreedingRecord[]
-  user                   User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user                   User                    @relation(fields: [userId], references: [id], onDelete: Cascade)
   feedingPrograms        FeedingProgram[]
-  inventories          Inventory[]
-  allergyRecords     AllergyRecord[]
-  boosterRecords     BoosterRecord[]
-  vaccinationRecords VaccinationRecord[]
-  dewormingRecords   DewormingRecord[]
+  inventories            Inventory[]
+  allergyRecords         AllergyRecord[]
+  boosterRecords         BoosterRecord[]
+  vaccinationRecords     VaccinationRecord[]
+  dewormingRecords       DewormingRecord[]
   geneticDisorderRecords GeneticDisorderRecord[]
-  treatmentRecords   TreatmentRecord[]
+  treatmentRecords       TreatmentRecord[]
+  saleListings           SaleListing[]
 }
-
 
 model Employee {
   id               String            @id @default(cuid())
   firstName        String
   middleName       String?
   lastName         String
-  phone            String
+  phone            String            @unique
   emergencyContact String?
   idNumber         String            @unique
   idPhoto          String?
@@ -85,6 +84,10 @@ model Employee {
   salary           Float
   typeOfEngagement String?
   workSchedule     String?
+  pin              String?
+  otp              String?
+  otpExpiry        DateTime?
+  isVerified       Boolean           @default(false)
   createdAt        DateTime          @default(now())
   updatedAt        DateTime          @updatedAt
   benefits         EmployeeBenefit[]
@@ -126,23 +129,22 @@ model Livestock {
   updatedAt DateTime @updatedAt
 
   // Relations
-  mammal      Mammal?
-  poultry     Poultry?
-  mortality   Mortality?
-  healthEvent HealthEvent[]
-  transfer    Transfer[]
-  sale        Sale?
-  breedingDam BreedingRecord[] @relation("dam")
-  breedingSire BreedingRecord[] @relation("sire")
-  offspring          Offspring[]
-  allergyRecords     AllergyRecord[]
-  boosterRecords     BoosterRecord[]
-  vaccinationRecords VaccinationRecord[]
-  dewormingRecords   DewormingRecord[]
+  mammal                 Mammal?
+  poultry                Poultry?
+  mortality              Mortality?
+  healthEvent            HealthEvent[]
+  transfer               Transfer[]
+  sale                   Sale?
+  breedingDam            BreedingRecord[]        @relation("dam")
+  breedingSire           BreedingRecord[]        @relation("sire")
+  offspring              Offspring[]
+  allergyRecords         AllergyRecord[]
+  boosterRecords         BoosterRecord[]
+  vaccinationRecords     VaccinationRecord[]
+  dewormingRecords       DewormingRecord[]
   geneticDisorderRecords GeneticDisorderRecord[]
-  treatmentRecords   TreatmentRecord[]
+  treatmentRecords       TreatmentRecord[]
 }
-
 
 model Mammal {
   id               String    @id @default(cuid())
@@ -184,124 +186,124 @@ model Poultry {
 }
 
 model Mortality {
-  id             String    @id @default(cuid())
-  livestockId    String    @unique
-  date           DateTime
-  cause          String
-  description    String?
-  reportedBy     String?
-  attachments    String[]  // URLs to photos or documents
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
-  livestock      Livestock @relation(fields: [livestockId], references: [id], onDelete: Cascade)
+  id          String    @id @default(cuid())
+  livestockId String    @unique
+  date        DateTime
+  cause       String
+  description String?
+  reportedBy  String?
+  attachments String[] // URLs to photos or documents
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  livestock   Livestock @relation(fields: [livestockId], references: [id], onDelete: Cascade)
 }
 
 model HealthEvent {
-  id             String    @id @default(cuid())
-  livestockId    String
-  eventType      String    // vaccination, treatment, check-up, etc.
-  date           DateTime
-  description    String
-  performedBy    String?
-  medications    String[]
-  dosage         String?
-  cost           Float?
-  nextScheduled  DateTime?
-  attachments    String[] // URLs to photos or documents
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
-  livestock      Livestock @relation(fields: [livestockId], references: [id])
+  id            String    @id @default(cuid())
+  livestockId   String
+  eventType     String // vaccination, treatment, check-up, etc.
+  date          DateTime
+  description   String
+  performedBy   String?
+  medications   String[]
+  dosage        String?
+  cost          Float?
+  nextScheduled DateTime?
+  attachments   String[] // URLs to photos or documents
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  livestock     Livestock @relation(fields: [livestockId], references: [id])
 }
 
 model Transfer {
-  id                 String    @id @default(cuid())
-  livestockId        String
-  fromFarmId         String
-  toFarmId           String
-  transferDate       DateTime
-  reason             String?
-  transportMethod    String?
+  id                  String    @id @default(cuid())
+  livestockId         String
+  fromFarmId          String
+  toFarmId            String
+  transferDate        DateTime
+  reason              String?
+  transportMethod     String?
   handlingPrecautions String?
-  attachments        String[] // URLs to photos or documents
-  createdAt          DateTime  @default(now())
-  updatedAt          DateTime  @updatedAt
-  livestock          Livestock @relation(fields: [livestockId], references: [id])
+  attachments         String[] // URLs to photos or documents
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  livestock           Livestock @relation(fields: [livestockId], references: [id])
 }
 
 model Sale {
-  id              String    @id @default(cuid())
-  livestockId     String    @unique
-  livestock       Livestock @relation(fields: [livestockId], references: [id], onDelete: Cascade)
-  saleDate        DateTime
-  buyerName       String
-  buyerContact    String?
-  saleAmount      Float
-  paymentMethod   String
-  receiptNumber   String?
-  notes           String?
-  attachments     String[]
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
-}
-
-model BreedingRecord {
   id            String    @id @default(cuid())
-  damId         String    
-  dam           Livestock @relation("dam", fields: [damId], references: [id], onDelete: Cascade)
-  sireId        String?   
-  sire          Livestock? @relation("sire", fields: [sireId], references: [id], onDelete: SetNull)
-  purpose       String    
-  strategy      String    
-  serviceType   String    
-  serviceDate   DateTime
-  numServices   Int       @default(1)
-  firstHeatDate DateTime?
-  
-  // AI specific fields
-  sireCode      String?   // For AI, the code of the semen used
-  aiType        String?   // Sex Cell Semen, Regular AI
-  aiSource      String?   // Local, Imported
-  aiCost        Float?    // Cost of AI service
-  
-  // Gestation details
-  gestationDays Int       // Expected gestation period in days
-  expectedBirthDate DateTime
-  
-  // Birth details (if recorded)
-  birthRecorded Boolean   @default(false)
-  birthDate     DateTime?
-  deliveryMethod String?  // Natural Birth, Assisted, Cesarean
-  youngOnes     Int?      // Number of offspring
-  birthWeight   Float?    // For single births
-  litterWeight  Float?    // For multiple births (e.g., swine)
-  offspringSex  String?   // Description of offspring sex distribution
-  
-  // Relations
-  offspring     Offspring[]
-  
-  farmId        String    // For easy filtering by farm
-  farm          Farm      @relation(fields: [farmId], references: [id], onDelete: Cascade)
+  livestockId   String    @unique
+  livestock     Livestock @relation(fields: [livestockId], references: [id], onDelete: Cascade)
+  saleDate      DateTime
+  buyerName     String
+  buyerContact  String?
+  saleAmount    Float
+  paymentMethod String
+  receiptNumber String?
+  notes         String?
+  attachments   String[]
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 }
 
+model BreedingRecord {
+  id            String     @id @default(cuid())
+  damId         String
+  dam           Livestock  @relation("dam", fields: [damId], references: [id], onDelete: Cascade)
+  sireId        String?
+  sire          Livestock? @relation("sire", fields: [sireId], references: [id], onDelete: SetNull)
+  purpose       String
+  strategy      String
+  serviceType   String
+  serviceDate   DateTime
+  numServices   Int        @default(1)
+  firstHeatDate DateTime?
+
+  // AI specific fields
+  sireCode String? // For AI, the code of the semen used
+  aiType   String? // Sex Cell Semen, Regular AI
+  aiSource String? // Local, Imported
+  aiCost   Float? // Cost of AI service
+
+  // Gestation details
+  gestationDays     Int // Expected gestation period in days
+  expectedBirthDate DateTime
+
+  // Birth details (if recorded)
+  birthRecorded  Boolean   @default(false)
+  birthDate      DateTime?
+  deliveryMethod String? // Natural Birth, Assisted, Cesarean
+  youngOnes      Int? // Number of offspring
+  birthWeight    Float? // For single births
+  litterWeight   Float? // For multiple births (e.g., swine)
+  offspringSex   String? // Description of offspring sex distribution
+
+  // Relations
+  offspring Offspring[]
+
+  farmId    String // For easy filtering by farm
+  farm      Farm     @relation(fields: [farmId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model Offspring {
-  id              String    @id @default(cuid())
+  id               String         @id @default(cuid())
   breedingRecordId String
-  breedingRecord  BreedingRecord @relation(fields: [breedingRecordId], references: [id], onDelete: Cascade)
-  livestockId     String?   // If registered as livestock
-  livestock       Livestock? @relation(fields: [livestockId], references: [id], onDelete: SetNull)
-  offspringId     String    // ID/tag number assigned to the offspring
-  sex             String    // Male, Female
-  birthWeight     Float?
-  notes           String?
-  status          String    @default("alive") // alive, deceased, sold, transferred
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
+  breedingRecord   BreedingRecord @relation(fields: [breedingRecordId], references: [id], onDelete: Cascade)
+  livestockId      String? // If registered as livestock
+  livestock        Livestock?     @relation(fields: [livestockId], references: [id], onDelete: SetNull)
+  offspringId      String // ID/tag number assigned to the offspring
+  sex              String // Male, Female
+  birthWeight      Float?
+  notes            String?
+  status           String         @default("alive") // alive, deceased, sold, transferred
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
 }
 
 model FeedingProgram {
-  id                   String       @id @default(cuid())
+  id                   String   @id @default(cuid())
   farmId               String
   userId               String
   programType          String // Single Animal or Group
@@ -314,105 +316,102 @@ model FeedingProgram {
   feedType             String // Basal Feeds or Basal Feed + Concentrates + Supplements
   timeOfDay            String[]
   notes                String?
-  createdAt            DateTime     @default(now())
-  updatedAt            DateTime     @updatedAt
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
 
-  farm                 Farm         @relation(fields: [farmId], references: [id], onDelete: Cascade)
-  user                 User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  farm Farm @relation(fields: [farmId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  feedDetails          FeedDetails[]
+  feedDetails FeedDetails[]
 }
-
-
 
 model FeedDetails {
-  id                 String            @id @default(cuid())
-  feedType           String
-  source             String
-  schedule           String
-  quantity           Float
-  date               DateTime
-  cost               Float?
-  supplier           String?
-  createdAt          DateTime          @default(now())
-  updatedAt          DateTime          @updatedAt
+  id        String   @id @default(cuid())
+  feedType  String
+  source    String
+  schedule  String
+  quantity  Float
+  date      DateTime
+  cost      Float?
+  supplier  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  feedingProgramId   String
-  feedingProgram     FeedingProgram @relation(fields: [feedingProgramId], references: [id], onDelete: Cascade)
+  feedingProgramId String
+  feedingProgram   FeedingProgram @relation(fields: [feedingProgramId], references: [id], onDelete: Cascade)
 }
-
 
 // Inventory
 
 model Inventory {
-  id            String         @id @default(cuid())
-  farmId        String
-  farm          Farm           @relation(fields: [farmId], references: [id], onDelete: Cascade)
-  goodsInStock  GoodsInStock[]
-  machinery     Machinery[]
-  utilities     Utility[]
-  createdAt     DateTime       @default(now())
-  updatedAt     DateTime       @updatedAt
+  id           String         @id @default(cuid())
+  farmId       String
+  farm         Farm           @relation(fields: [farmId], references: [id], onDelete: Cascade)
+  goodsInStock GoodsInStock[]
+  machinery    Machinery[]
+  utilities    Utility[]
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
 }
 
 model GoodsInStock {
-  id              String      @id @default(cuid())
+  id              String    @id @default(cuid())
   inventoryId     String
-  inventory       Inventory   @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
+  inventory       Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
   itemName        String
   sku             String?
   quantity        Int
   currentLocation String
   condition       String
   expirationDate  DateTime?
-  createdAt       DateTime    @default(now())
-  updatedAt       DateTime    @updatedAt
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
 }
 
 model Machinery {
-  id                String    @id @default(cuid())
-  inventoryId       String
-  inventory         Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
-  equipmentName     String
-  equipmentId       String?
-  purchaseDate      DateTime
-  currentLocation   String
-  condition         String
-  lastServiceDate   DateTime?
-  nextServiceDate   DateTime?
-  createdAt         DateTime  @default(now())
-  updatedAt         DateTime  @updatedAt
+  id              String    @id @default(cuid())
+  inventoryId     String
+  inventory       Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
+  equipmentName   String
+  equipmentId     String?
+  purchaseDate    DateTime
+  currentLocation String
+  condition       String
+  lastServiceDate DateTime?
+  nextServiceDate DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
 }
 
 model Utility {
-  id                 String    @id @default(cuid())
-  inventoryId        String
-  inventory          Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
-  utilityType        String // water, power, facility
+  id          String    @id @default(cuid())
+  inventoryId String
+  inventory   Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
+  utilityType String // water, power, facility
 
   // Water Supply fields
-  waterLevel         Float?
-  waterSource        String?
-  waterStorage       Float?
-  entryDate          DateTime?
+  waterLevel   Float?
+  waterSource  String?
+  waterStorage Float?
+  entryDate    DateTime?
 
   // Power Supply fields
-  powerSource        String?
-  powerCapacity      String?
-  installationCost   Float?
-  consumptionRate    Float?
-  consumptionCost    Float?
+  powerSource      String?
+  powerCapacity    String?
+  installationCost Float?
+  consumptionRate  Float?
+  consumptionCost  Float?
 
   // Facility fields
-  structureType      String?
-  structureCapacity  String?
-  constructionCost   Float?
-  facilityCondition  String?
+  structureType       String?
+  structureCapacity   String?
+  constructionCost    Float?
+  facilityCondition   String?
   lastMaintenanceDate DateTime?
-  maintenanceCost    Float?
+  maintenanceCost     Float?
 
-  createdAt          DateTime  @default(now())
-  updatedAt          DateTime  @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 // Health Module
@@ -433,7 +432,7 @@ model AllergyRecord {
 }
 
 model BoosterRecord {
-  id                  String   @id @default(cuid())
+  id                  String    @id @default(cuid())
   animalIdOrFlockId   String
   boostersOrAdditives String
   purpose             String
@@ -441,18 +440,18 @@ model BoosterRecord {
   quantityUnit        String
   dateAdministered    DateTime
   costOfBooster       Float?
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
   farmId              String
-  farm                Farm     @relation(fields: [farmId], references: [id], onDelete: Cascade)
+  farm                Farm      @relation(fields: [farmId], references: [id], onDelete: Cascade)
   userId              String
-  user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user                User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   livestockId         String
   livestock           Livestock @relation(fields: [livestockId], references: [id], onDelete: Cascade)
 }
 
 model VaccinationRecord {
-  id                 String   @id @default(cuid())
+  id                 String    @id @default(cuid())
   animalIdOrFlockId  String
   vaccinationAgainst String
   drugAdministered   String
@@ -462,12 +461,12 @@ model VaccinationRecord {
   administeredBy     String?
   practiceId         String?
   costOfService      Float?
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
   farmId             String
-  farm               Farm     @relation(fields: [farmId], references: [id], onDelete: Cascade)
+  farm               Farm      @relation(fields: [farmId], references: [id], onDelete: Cascade)
   userId             String
-  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user               User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   livestockId        String
   livestock          Livestock @relation(fields: [livestockId], references: [id], onDelete: Cascade)
 }
@@ -518,29 +517,82 @@ model GeneticDisorderRecord {
 }
 
 model TreatmentRecord {
-  id                     String    @id @default(cuid())
-  animalIdOrFlockId      String
-  healthEventDate        DateTime
-  healthEventSymptoms    String
-  diagnosis              String
-  treatmentType          String // Curative, Preventive, Supportive, Behavioral and Alternative
-  treatmentDescription   String?
-  drugAdministered       String?
-  dateAdministered       DateTime?
-  dosageAdministered     Float?
-  costOfDrugs            Float?
-  medicalOfficerName     String?
-  licenseId              String?
-  costOfService          Float?
-  farmerWitnessName      String?
-  notes                  String?
-  createdAt              DateTime  @default(now())
-  updatedAt              DateTime  @updatedAt
-  farmId                 String
-  farm                   Farm      @relation(fields: [farmId], references: [id], onDelete: Cascade)
-  userId                 String
-  user                   User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  livestockId            String
-  livestock              Livestock @relation(fields: [livestockId], references: [id], onDelete: Cascade)
+  id                   String    @id @default(cuid())
+  animalIdOrFlockId    String
+  healthEventDate      DateTime
+  healthEventSymptoms  String
+  diagnosis            String
+  treatmentType        String // Curative, Preventive, Supportive, Behavioral and Alternative
+  treatmentDescription String?
+  drugAdministered     String?
+  dateAdministered     DateTime?
+  dosageAdministered   Float?
+  costOfDrugs          Float?
+  medicalOfficerName   String?
+  licenseId            String?
+  costOfService        Float?
+  farmerWitnessName    String?
+  notes                String?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+  farmId               String
+  farm                 Farm      @relation(fields: [farmId], references: [id], onDelete: Cascade)
+  userId               String
+  user                 User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  livestockId          String
+  livestock            Livestock @relation(fields: [livestockId], references: [id], onDelete: Cascade)
 }
 
+// Sales Module - Enhanced sales listings for livestock
+model SaleListing {
+  id     String @id @default(cuid())
+  farmId String
+  farm   Farm   @relation(fields: [farmId], references: [id], onDelete: Cascade)
+
+  // Basic Information
+  name        String
+  category    String // dairyCattle, beefCattle, dairyGoats, meatGoats, sheep, swine, poultry, rabbits
+  breed       String
+  age         String
+  weight      Float
+  price       Float
+  status      String  @default("available") // available, reserved, sold
+  health      String // excellent, good, fair, poor
+  lastCheckup String?
+
+  // Optional fields based on livestock type
+  purpose        String? // Milk Production, Meat Production, Breeding, Both
+  feedingProgram String?
+
+  // Dairy cattle specific
+  milkProduction  String? // e.g., "25 L/day"
+  pregnancyStatus String? // e.g., "Not Pregnant", "Pregnant (6 months)"
+
+  // Poultry specific
+  quantity          Int? // Number of birds
+  pricePerBird      Float? // Price per individual bird
+  eggProductionRate String? // e.g., "85%"
+
+  // Sheep specific
+  woolYield String? // e.g., "5.5 kg/year"
+
+  // Goat specific
+  milkProductionRate String? // e.g., "3.5 L/day"
+
+  // Additional information
+  notes  String?
+  images String[] // Array of image URLs
+
+  // Sale completion details (when status becomes 'sold')
+  saleDate      DateTime?
+  buyerName     String?
+  buyerContact  String?
+  saleAmount    Float? // Final sale amount (might differ from listing price)
+  paymentMethod String?
+  receiptNumber String?
+  saleNotes     String?
+  attachments   String[] // Sale-related attachments
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
